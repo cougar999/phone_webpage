@@ -1,0 +1,54 @@
+<div id="wgt-toolbar">
+<div class="wgt-bg">
+<div class="lf">
+	<a id="back" href="#back" class="wgt-toolbar-icon"><span class="wgt-icon-back">&nbsp;</span></a>
+	<a id="forward" href="#forward" class="wgt-toolbar-icon"><span class="wgt-icon-forward">&nbsp;</span></a>
+	<a id="refresh" href="#refresh" class="wgt-toolbar-icon"><span class="wgt-icon-refresh">&nbsp;</span></a>
+</div>
+
+<div class="wgt-bg-m lf"  style="width:300px; overflow:hidden;">
+	<table width="100%" cellpadding="0" cellspacing="0" ><tr><td>
+		<ul class='multi-ddm lf' style="height:30px; line-height:30px;">
+			<li>
+				<a href='#' class="f2 uninstall" onclick="return false;"><img alt="" src="<!--{#res3#}-->/resources/img/icon_del.png" border="0" style="margin-right:5px;">删除</a>
+			</li>
+		</ul>
+	</td></tr></table>
+</div>
+
+<div class="rg" style="margin:1px;" id="searchform">
+		<form id="seaform" action="<!--{#base#}-->/appstore/search.html" method="get" style="margin:0px; padding:0px;">
+			<table border="0" cellpadding="0" cellspacing="0"  height="28" >
+				<tr>
+					<td width="120">
+						<ul class='multi-ddm lf'>
+						<li>
+							<a id="seasele" href='#'><!--{$seasele|default:"软件游戏"}--></a>
+							<input type="hidden" id="seatype" name="seatype" value="<!--{$seatype|default:"1"}-->" />
+							<input type="hidden" id="phonetype" name="phonetype" value="<!--{$smarty.get.phonetype|default:""}-->" />
+							<ul id="sealist" onclick="var seasele = event.srcElement; $('#seatype').val(seasele.hash.substr(1)); $('#sealist li').show(); $('#seasele').html($(seasele).text()); $(seasele).parent().hide(); return false;">
+								<li><a href="#1" onclick="return false;">软件游戏</a></li>
+								<!-- <li><a href="#2" onclick="return false;">休闲游戏</a></li>-->
+								<li><a href="#3" onclick="return false;">音乐歌曲</a></li>
+								<!--  <li><a href="#4" onclick="return false;">视频短片</a></li>-->
+								<li><a href="#5" onclick="return false;">电子书籍</a></li>
+								<!-- <li><a href="#6" onclick="return false;">主题图片</a></li>-->
+								<li><a href="#7" onclick="return false;">主题图片</a></li>
+							</ul>
+						</li>
+						</ul>
+						<script type="text/javascript">var seatype = $('#seatype').val(); $('#sealist').find('a[href="#' + seatype + '"]').parent().hide();</script>
+					</td>
+					<td width="182">
+						<input type="text" value="<!--{$smarty.request.keyword}-->" id="keyword" name="keyword" maxlength="20" />
+					</td>
+					<td width="58">
+						<a href="<!--{#base#}-->/appstore/search.html" onclick="$('#seaform').submit(); return false;" id="submitbtn">&nbsp;</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+</div>
+</div>

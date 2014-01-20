@@ -1,0 +1,30 @@
+<!--{feed int=AP_INT_BOARD_LIST cid=$column_id order=0 pageno=1 count=10 ret='broadlist'}-->
+<div id="wgt-music-top-list" class="wgt-music-top-list"><div>
+<!--{foreach key=key item=item from=$broadlist.page.items name=list}-->
+<div class="unit">
+
+	<div class="titlebar">
+		<h2><!--{$item.name}--></h2>
+	</div>
+			<!--{feed int=AP_INT_BORAD_MUSICLIST bid=$item.bid bstageid=0 order=0 pageno=1 count=30 ret='boardmusiclist'}-->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable" style="table-layout:fixed;">
+				<col style="width:22px;"></col>
+				<col style="width:auto;"></col>
+				<col style="width:75px;"></col>
+					<!--{foreach key=key item=item from=$boardmusiclist.page.items name=list}-->
+					<tr>
+						<td><img class="" style="vertical-align:middle;" src="<!--{#res1#}-->/resources/img/<!--{$smarty.foreach.list.iteration}-->.png"/></td>
+						<td height="24">
+							<span style="color:#343434; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">
+								<a  id="<!--{$item.song}-->" sid="<!--{$item.songid}-->" href="<!--{$item.fileitems[0].downloadurl}-->"  onclick="playmedia(this);return false;"><!--{$item.song}--></a>
+							</span>
+						</td>
+						<td class="tr downinit_s">
+							<a id="<!--{$item.songid}-->" href="<!--{$item.fileitems[0].downloadurl}-->&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC}-->&code1_id=<!--{$menulist.menuid}-->&code2=<!--{$code2}-->&code2_id=<!--{$code2_id}-->&code3=<!--{$code3}-->&code3_id=<!--{$column_id}-->" type="3" price="<!--{math equation='(x)/100' x=$item.price|default:0}-->" servicefee="<!--{math equation='(x)/100' x=$item.servicefee|default:0}-->" class="changex <!--{if $item.price or $item.servicefee}-->addcart<!--{else}-->downinit<!--{/if}-->" title="<!--{$item.song}-->"  onclick="return false;"><!--{if $item.price or $item.servicefee}--><!--{math equation='(x+y)/100' x=$item.price|default:0 y=$item.servicefee|default:0}-->元<!--{else}-->免费<!--{/if}--></a>
+						</td>
+					</tr>
+					<!--{/foreach}-->	
+				</table>
+</div>
+<!--{/foreach}-->
+</div></div>

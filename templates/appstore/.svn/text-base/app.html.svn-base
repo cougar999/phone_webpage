@@ -1,0 +1,45 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 ret='menulist' iscrack=$smarty.get.iscrack|default:0}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 ret='navlist' iscrack=$smarty.get.iscrack|default:0}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl"  seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="unit">
+				 <div class="titlebar">
+				 	
+					<!--{feed int=AP_INT_CATALOG_INFO cid=$smarty.request.catid|default:1 ret='breadlist'}-->
+				 	<div class="bread">
+				 		<ul>
+				 			<!--{include file="bread_cate.tpl"}-->
+				 			<li>应用软件</li>
+							<!--{if $breadlist.name}-->
+							<li><!--{$breadlist.name}--></li>
+							<!--{/if}-->
+				 		</ul>
+				 	</div>
+					
+					<!--{include file="wgt-sort.tpl"}-->
+				 </div>
+				 <!--{include file="wgt-app-list.tpl" box_id=$smarty.request.catid|default:-1  order=$smarty.request.order|default:1 iscrack=$smarty.request.iscrack|default:0}-->
+				</div>
+			</div>	
+		</div>
+	</div>
+</div></div>

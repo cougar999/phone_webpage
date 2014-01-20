@@ -1,0 +1,123 @@
+<!--{feed int=AP_INT_CODE_SINGERLIST cid=test order=0 pageno=1 count=10 ret='codesingerlist'}-->
+<!--{if $codesingerlist.result.resultcode=="000000"}-->
+	<div class="singername_list">
+		<!--{foreach key=key item=item from=$codesingerlist.page.items}-->
+		
+		<div class="singername_item"><span class="singername_num"><!--{$key}-->.</span><span class="singername_value"><!--{$item.singer}--></span></div>
+			<!--{if $key%9==0 and $key != 0}-->
+			<div style="height:30px;width:100%;"></div>
+			<!--{/if}-->
+		<!--{/foreach}-->				
+	</div>
+<!--{else}-->
+	<div class="singername_list">
+		<div class="singername_item"><span class="singername_num">1.</span><span class="singername_value">A BOYS乐队</span></div>
+						<div class="singername_item"><span class="singername_num">2.</span><span class="singername_value">A ONE</span></div>
+						<div class="singername_item"><span class="singername_num">3.</span><span class="singername_value">A-SHOW</span></div>
+						<div class="singername_item"><span class="singername_num">4.</span><span class="singername_value">A.J.Alex</span></div>
+						<div class="singername_item"><span class="singername_num">5.</span><span class="singername_value">A4</span></div>
+						<div class="singername_item"><span class="singername_num">6.</span><span class="singername_value">Aaron Carter</span></div>
+						<div class="singername_item"><span class="singername_num">7.</span><span class="singername_value">ado</span></div>
+						<div class="singername_item"><span class="singername_num">8.</span><span class="singername_value">AFI</span></div>
+						<div class="singername_item"><span class="singername_num">9.</span><span class="singername_value">Air Supply</span></div>
+						<div class="singername_item"><span class="singername_num">10.</span><span class="singername_value">Airbaq</span></div>
+							
+						<div class="singername_item"><span class="singername_num">11.</span><span class="singername_value">AJerks</span></div>
+						<div class="singername_item"><span class="singername_num">12.</span><span class="singername_value">AK-74</span></div>
+						<div class="singername_item"><span class="singername_num">13.</span><span class="singername_value">AKon</span></div>
+						<div class="singername_item"><span class="singername_num">14.</span><span class="singername_value">Alicia Keys</span></div>
+						<div class="singername_item"><span class="singername_num">15.</span><span class="singername_value">Alizee</span></div>
+						<div class="singername_item"><span class="singername_num">16.</span><span class="singername_value">Alt Senior</span></div>
+						<div class="singername_item"><span class="singername_num">17.</span><span class="singername_value">AM 乐团</span></div>
+						<div class="singername_item"><span class="singername_num">18.</span><span class="singername_value">Andrea Bocelli</span></div>
+						<div class="singername_item"><span class="singername_num">19.</span><span class="singername_value">Angela</span></div>
+						<div class="singername_item"><span class="singername_num">20.</span><span class="singername_value">Anida</span></div>
+						
+						<div class="singername_item"><span class="singername_num">21.</span><span class="singername_value">AOK</span></div>
+						<div class="singername_item"><span class="singername_num">22.</span><span class="singername_value">Art Pepper</span></div>
+						<div class="singername_item"><span class="singername_num">23.</span><span class="singername_value">ASOS</span></div>
+						<div class="singername_item"><span class="singername_num">24.</span><span class="singername_value">At17</span></div>
+						<div class="singername_item"><span class="singername_num">25.</span><span class="singername_value">Avril Lavigne</span></div>
+						<div class="singername_item"><span class="singername_num">26.</span><span class="singername_value">AY爱乐公社</span></div>
+						<div class="singername_item"><span class="singername_num">27.</span><span class="singername_value">阿亮</span></div>
+						<div class="singername_item"><span class="singername_num">28.</span><span class="singername_value">阿妹妹</span></div>
+						<div class="singername_item"><span class="singername_num">29.</span><span class="singername_value">阿郎</span></div>
+						<div class="singername_item"><span class="singername_num">30.</span><span class="singername_value">阿里郎</span></div>
+						
+						<div class="singername_item"><span class="singername_num">31.</span><span class="singername_value">阿龙正罡</span></div>
+						<div class="singername_item"><span class="singername_num">32.</span><span class="singername_value">阿轮</span></div>
+						<div class="singername_item"><span class="singername_num">33.</span><span class="singername_value">阿丽玛</span></div>
+						<div class="singername_item"><span class="singername_num">34.</span><span class="singername_value">阿猫阿狗</span></div>
+						<div class="singername_item"><span class="singername_num">35.</span><span class="singername_value">阿来乐队</span></div>
+						<div class="singername_item"><span class="singername_num">36.</span><span class="singername_value">阿鲁阿卓</span></div>
+						<div class="singername_item"><span class="singername_num">37.</span><span class="singername_value">阿兰.达瓦卓玛</span></div>
+						<div class="singername_item"><span class="singername_num">38.</span><span class="singername_value">阿Bert</span></div>
+						<div class="singername_item"><span class="singername_num">39.</span><span class="singername_value">阿清</span></div>
+						<div class="singername_item"><span class="singername_num">40.</span><span class="singername_value">阿强</span></div>
+						
+						<div class="singername_item"><span class="singername_num">41.</span><span class="singername_value">阿沁</span></div>
+						<div class="singername_item"><span class="singername_num">42.</span><span class="singername_value">阿信</span></div>
+						<div class="singername_item"><span class="singername_num">43.</span><span class="singername_value">阿茹娜</span></div>
+						<div class="singername_item"><span class="singername_num">44.</span><span class="singername_value">阿日布杰</span></div>
+						<div class="singername_item"><span class="singername_num">45.</span><span class="singername_value">阿桑</span></div>
+						<div class="singername_item"><span class="singername_num">46.</span><span class="singername_value">阿唯</span></div>
+						<div class="singername_item"><span class="singername_num">47.</span><span class="singername_value">阿泰</span></div>
+						<div class="singername_item"><span class="singername_num">48.</span><span class="singername_value">阿雅</span></div>
+						<div class="singername_item"><span class="singername_num">49.</span><span class="singername_value">阿福</span></div>
+						<div class="singername_item"><span class="singername_num">50.</span><span class="singername_value">阿袈</span></div>
+						
+						<div style="height:30px;width:100%;"></div>
+						<div class="singername_item"><span class="singername_num">51.</span><span class="singername_value">阿勇泽让</span></div>
+						<div class="singername_item"><span class="singername_num">52.</span><span class="singername_value">阿正</span></div>
+						<div class="singername_item"><span class="singername_num">53.</span><span class="singername_value">阿云嘎</span></div>
+						<div class="singername_item"><span class="singername_num">54.</span><span class="singername_value">阿幼朵</span></div>
+						<div class="singername_item"><span class="singername_num">55.</span><span class="singername_value">阿沁琴</span></div>
+						<div class="singername_item"><span class="singername_num">56.</span><span class="singername_value">阿牛</span></div>
+						<div class="singername_item"><span class="singername_num">57.</span><span class="singername_value">阿穆隆</span></div>
+						<div class="singername_item"><span class="singername_num">58.</span><span class="singername_value">阿木</span></div>
+						<div class="singername_item"><span class="singername_num">59.</span><span class="singername_value">阿木古楞</span></div>
+						<div class="singername_item"><span class="singername_num">60.</span><span class="singername_value">阿宝</span></div>
+						
+						<div class="singername_item"><span class="singername_num">51.</span><span class="singername_value">阿勇泽让</span></div>
+						<div class="singername_item"><span class="singername_num">52.</span><span class="singername_value">阿正</span></div>
+						<div class="singername_item"><span class="singername_num">53.</span><span class="singername_value">阿云嘎</span></div>
+						<div class="singername_item"><span class="singername_num">54.</span><span class="singername_value">阿幼朵</span></div>
+						<div class="singername_item"><span class="singername_num">55.</span><span class="singername_value">阿沁琴</span></div>
+						<div class="singername_item"><span class="singername_num">56.</span><span class="singername_value">阿牛</span></div>
+						<div class="singername_item"><span class="singername_num">57.</span><span class="singername_value">阿穆隆</span></div>
+						<div class="singername_item"><span class="singername_num">58.</span><span class="singername_value">阿木</span></div>
+						<div class="singername_item"><span class="singername_num">59.</span><span class="singername_value">阿木古楞</span></div>
+						<div class="singername_item"><span class="singername_num">60.</span><span class="singername_value">阿宝</span></div>
+						<div class="singername_item"><span class="singername_num">51.</span><span class="singername_value">阿勇泽让</span></div>
+						<div class="singername_item"><span class="singername_num">52.</span><span class="singername_value">阿正</span></div>
+						<div class="singername_item"><span class="singername_num">53.</span><span class="singername_value">阿云嘎</span></div>
+						<div class="singername_item"><span class="singername_num">54.</span><span class="singername_value">阿幼朵</span></div>
+						<div class="singername_item"><span class="singername_num">55.</span><span class="singername_value">阿沁琴</span></div>
+						<div class="singername_item"><span class="singername_num">56.</span><span class="singername_value">阿牛</span></div>
+						<div class="singername_item"><span class="singername_num">57.</span><span class="singername_value">阿穆隆</span></div>
+						<div class="singername_item"><span class="singername_num">58.</span><span class="singername_value">阿木</span></div>
+						<div class="singername_item"><span class="singername_num">59.</span><span class="singername_value">阿木古楞</span></div>
+						<div class="singername_item"><span class="singername_num">60.</span><span class="singername_value">阿宝</span></div>
+						<div class="singername_item"><span class="singername_num">51.</span><span class="singername_value">阿勇泽让</span></div>
+						<div class="singername_item"><span class="singername_num">52.</span><span class="singername_value">阿正</span></div>
+						<div class="singername_item"><span class="singername_num">53.</span><span class="singername_value">阿云嘎</span></div>
+						<div class="singername_item"><span class="singername_num">54.</span><span class="singername_value">阿幼朵</span></div>
+						<div class="singername_item"><span class="singername_num">55.</span><span class="singername_value">阿沁琴</span></div>
+						<div class="singername_item"><span class="singername_num">56.</span><span class="singername_value">阿牛</span></div>
+						<div class="singername_item"><span class="singername_num">57.</span><span class="singername_value">阿穆隆</span></div>
+						<div class="singername_item"><span class="singername_num">58.</span><span class="singername_value">阿木</span></div>
+						<div class="singername_item"><span class="singername_num">59.</span><span class="singername_value">阿木古楞</span></div>
+						<div class="singername_item"><span class="singername_num">60.</span><span class="singername_value">阿宝</span></div>
+						<div class="singername_item"><span class="singername_num">51.</span><span class="singername_value">阿勇泽让</span></div>
+						<div class="singername_item"><span class="singername_num">52.</span><span class="singername_value">阿正</span></div>
+						<div class="singername_item"><span class="singername_num">53.</span><span class="singername_value">阿云嘎</span></div>
+						<div class="singername_item"><span class="singername_num">54.</span><span class="singername_value">阿幼朵</span></div>
+						<div class="singername_item"><span class="singername_num">55.</span><span class="singername_value">阿沁琴</span></div>
+						<div class="singername_item"><span class="singername_num">56.</span><span class="singername_value">阿牛</span></div>
+						<div class="singername_item"><span class="singername_num">57.</span><span class="singername_value">阿穆隆</span></div>
+						<div class="singername_item"><span class="singername_num">58.</span><span class="singername_value">阿木</span></div>
+						<div class="singername_item"><span class="singername_num">59.</span><span class="singername_value">阿木古楞</span></div>
+						<div class="singername_item"><span class="singername_num">60.</span><span class="singername_value">阿宝</span></div>
+						<div style="height:30px;width:100%;"></div>
+	</div>
+<!--{/if}-->

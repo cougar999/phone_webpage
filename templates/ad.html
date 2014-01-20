@@ -1,0 +1,123 @@
+<!--{config_load file="smarty.conf"}-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+<!-- <!--{#version#}--> -->
+<style>
+html,body {margin:0;padding:0;border:0;overflow:hidden;}
+img {border:0;}
+:focus {outline: 0;}
+.adwrap { width:100%; background:#fafafa url(<!--{#res3#}-->/resources/ad/adbg.jpg) repeat-x left top; height:107px; padding-top:8px;}
+.jg {float:left; width:3%;}
+.jg2 {float:left; width:2%;}
+.adimg { float:left; width:30%; height:90px;overflow:hidden;}
+.imgbg { border:1px solid #727e84; height:90px;}
+.imgbg img {display:block;}
+/*.imgbg { background:url(<!--{#res1#}-->/resources/ad/imgbg.png) no-repeat right top; padding-right:8px; height:96px;}
+.imgbgl { background:url(<!--{#res2#}-->/resources/ad/imgbg.png) no-repeat left top; padding-left:8px; height:96px;}*/
+</style>
+<script type="text/javascript" src="<!--{#res2#}-->/resources/js<!--{#version#}-->/init.js"></script>
+<script type="text/javascript" src="<!--{#res3#}-->/resources/js<!--{#version#}-->/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="<!--{#res1#}-->/resources/js<!--{#version#}-->/common.js"></script>
+<script type="text/javascript" src="<!--{#res3#}-->/resources/js<!--{#version#}-->/jquery.cookie.js"></script>
+<script type="text/javascript" src="<!--{#res1#}-->/resources/js<!--{#version#}-->/jquery.json-2.2.min.js"></script>
+
+</head>
+<body style="padding:0; margin:0; overflow:hidden; border:none;">
+<div class="adwrap">
+  <div class="jg">&nbsp;</div>
+  <!--<div class="adimg" style="height:90px;padding-top:0px;">
+    <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%">
+      <param name="movie" value="<!--{#res3#}-->/resources/ad/ad2.swf" />
+      <param name="quality" value="high" />
+      <param name="wmode" value="opaque" />
+      <param name="scale" value="noborder" />
+      <param name="swfversion" value="6.0.65.0" />
+  	  <embed src="<!--{#res3#}-->/resources/ad/ad1.swf" type="application/x-shockwave-flash" width="100%" height="100%" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
+    </object>
+  </div>-->
+  <div class="adimg" style="background:url(<!--{#res2#}-->/resources/ad/book.png) no-repeat center center;">
+  <div class="imgbg">
+      <div class="imgbgl"><a href="#null" onclick="var phoneinfo = $.parseJSON($.cookie('headers')) || {}; phoneinfo = phoneinfo.FirstPhoneInfo || {}; downloadAgent.navUrl('2', '/appstore/book-index.html?phonetype=' + (phoneinfo.phonetype||'')+'.'+(phoneinfo.phoneversion||'')); return false;"><img src="<!--{#img4#}-->/resources/img/transparent.gif" width="100%" height="100%" /></a></div>
+   </div>
+  </div>
+  <div class="jg2">&nbsp;</div>
+  <div class="adimg" style="background:url(<!--{#res2#}-->/resources/ad/duomi.png) no-repeat center center;">
+  <div class="imgbg">
+      <div class="imgbgl"><a href="#null" onclick="downloadAgent.navUrl('2', '/appstore/soft.html?iscrack=<!--{$smarty.get.iscrack}-->&softid=110892'); return false;"><img src="<!--{#img4#}-->/resources/img/transparent.gif" width="100%" height="100%" /></a></div>
+   </div>
+  </div>
+  <!--<div class="adimg" style="background:url(<!--{#res2#}-->/resources/ad/ad2.jpg) no-repeat center center;">
+  <div class="imgbg">
+      <div class="imgbgl"><a href="#null" onclick="var phoneinfo = $.parseJSON($.cookie('headers')) || {}; phoneinfo = phoneinfo.FirstPhoneInfo || {}; downloadAgent.navUrl('1', '/start/download.html?phonetype=' + (phoneinfo.phonetype||'')+(phoneinfo.phoneversion||'')); return false;"><img src="<!--{#img4#}-->/resources/img/transparent.gif" width="100%" height="100%" /></a></div>
+   </div>
+  </div>-->
+  <div class="jg2">&nbsp;</div>
+  <div class="adimg" style="background:url(<!--{#res1#}-->/resources/ad/uc.png) no-repeat center center;">
+  <div class="imgbg">
+      <div class="imgbgl"><a href="#null" onclick="downloadAgent.navUrl('2', '/appstore/soft.html?iscrack=<!--{$smarty.get.iscrack}-->&softid=132344'); return false;"><img src="<!--{#img4#}-->/resources/img/transparent.gif" width="100%" height="100%" /></a></div>
+  </div>
+  </div>
+  <div class="jg">&nbsp;</div>
+</div>
+<script>
+$(document).ready(function(){
+	if (downloadAgent && downloadAgent.getDataStr){
+		var shopid = downloadAgent.getDataStr('shopid');
+		var salesid = downloadAgent.getDataStr('salesid');
+		var channelcode = downloadAgent.getDataStr('channelcode');
+		var pcrcode = downloadAgent.getDataStr('pcrcode');
+		$.cookie('shopid', shopid, {path:'/'});
+		$.cookie('salesid', salesid, {path:'/'});
+		$.cookie('channelcode', channelcode, {path:'/'});
+		$.cookie('pcrcode', pcrcode, {path:'/'});
+	}
+});
+if (window.ActiveXObject) {
+	var xmlhttp = new window.ActiveXObject( "Microsoft.XMLHTTP" );
+	var xmlhttp2 = new window.ActiveXObject( "Microsoft.XMLHTTP" );
+} else {
+	var xmlhttp = window.XMLHttpRequest();
+	var xmlhttp2 = window.XMLHttpRequest();
+}
+
+var checknet = function() {
+	var check_curtime = new Date().getTime(); 
+	xmlhttp.open("GET", 'http://pcr.appdear.com/check.png?curtime=' + check_curtime, true);
+	var check_starttime, check_endtime, check_usetime, check_size, check_speed;
+	xmlhttp.onreadystatechange = function(){
+		if (xmlhttp.readyState == 1) {
+			check_starttime = new Date().getTime();
+		} else if (xmlhttp.readyState == 4) {
+			check_endtime = new Date().getTime();
+			check_usetime = check_endtime - check_starttime;
+			check_size = xmlhttp.getResponseHeader('Content-Length') || (10 * 1024);
+			check_speed = (check_size) / (check_usetime / 1000);
+			check_speed = parseInt(check_speed);
+			if (downloadAgent && downloadAgent.getDataStr){
+				var shopid = downloadAgent.getDataStr('shopid');
+				var salesid = downloadAgent.getDataStr('salesid');
+				var channelcode = downloadAgent.getDataStr('channelcode');
+				var pcrcode = downloadAgent.getDataStr('pcrcode');
+				$.cookie('shopid', shopid, {path:'/'});
+				$.cookie('salesid', salesid, {path:'/'});
+				$.cookie('channelcode', channelcode, {path:'/'});
+				$.cookie('pcrcode', pcrcode, {path:'/'});
+				xmlhttp2.open("GET", 'http://pcr.appdear.com/null.html?curtime=' + check_curtime + '&usetime=' + check_usetime + '&size=' + check_size + '&speed=' + check_speed + '&shopid=' + shopid, true);
+				xmlhttp2.onreadystatechange = function() {
+					if (xmlhttp2.readyState == 4) {
+						setTimeout(checknet, 600000);
+					}
+				}
+				xmlhttp2.send();
+			}
+		}
+	};
+	xmlhttp.send();
+};
+checknet();
+</script>
+</body>
+</html>

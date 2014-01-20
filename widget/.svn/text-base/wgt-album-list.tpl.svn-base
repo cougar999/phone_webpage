@@ -1,0 +1,33 @@
+<!--{feed int=AP_INT_ALBUM_LIST area=$area_type order=0 pageno=1 count=10 ret='albumnlist'}-->
+<div id="wgt-albumn-list" class="wgt-albumn-list"><div>
+	<div>
+		<!--{foreach key=key item=item from=$albumnlist.page.items}-->
+		<div class="lf" style="width:240px;height:130px;padding-right:30px;padding-top:10px;padding-bottom:10px;border-bottom:1px dotted  #cccccc;">
+			<img class="lf" src="<!--{#res1#}-->/resources/temp/albumnlist_temp.png" style="width:100px; height:110px;border:1px solid #cccccc;padding:2px;" />
+			<div class="s" style="margin-left:110px;"><!-- {$item.imgurl}-->
+				<div class="b s" style="height:25px;line-height:25px;">
+					<!--{$item.album}-->
+				</div>
+				<div style="height:18px;line-height:18px;">
+					歌手：<a href="singer-detail.html?sid=100001"><!--{$item.singeritems[0].singer}--></a>
+				</div>
+				<div style="height:18px;line-height:18px;">
+					发行时间: <!--{$item.publishdate}-->
+				</div>
+				<div style="height:18px;line-height:18px;">
+					曲目数：<!--{$item.songcount}-->
+				</div>
+				<div style="height:18px;line-height:18px;">
+					语种: <!--{$item.language}-->
+				</div>
+				<div style="height:18px;line-height:18px;">
+					唱片公司: <!--{$item.company}-->
+				</div>
+			</div>	
+		</div>
+		<!--{/foreach}-->
+	</div>
+		<div class="cl"></div>	
+</div></div>
+
+

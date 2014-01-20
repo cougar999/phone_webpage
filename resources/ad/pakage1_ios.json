@@ -1,0 +1,46 @@
+[
+{
+	"id":"200044",
+	"title":"UC 浏览器",
+	"url":"http://content.appdear.com/soft/ios/20120328/361584545.ipa?package=ios1",
+	"appid":"com.ucweb.iphone.appstore",
+	"versioncode":"822137",
+	"version":"v8.3.1.151",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"202921",
+	"title":"微信",
+	"url":"http://content.appdear.com/soft/ios/20120417/414478124.ipa?package=ios1",
+	"appid":"com.tencent.xin",
+	"versioncode":"23",
+	"version":"v2.3",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"200145",
+	"title":"QQ2011",
+	"url":"http://content.appdear.com/soft/ios/20120402/444934666.ipa?package=ios1",
+	"appid":"com.tencent.mqq",
+	"versioncode":"2001808",
+	"version":"v2.0.0.1808",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"203120",
+	"title":"隐私管家",
+	"url":"http://content.appdear.com/soft/ios/20120323/452575645.ipa?package=ios1",
+	"appid":"com.coco.PrivacySecretary",
+	"versioncode":"17",
+	"version":"v1.7",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+}
+]

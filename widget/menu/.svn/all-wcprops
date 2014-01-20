@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/frontend/!svn/ver/12727/code/aipisoft_pc_server2/trunk/widget/menu
+END
+menu_appstore.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/frontend/!svn/ver/13017/code/aipisoft_pc_server2/trunk/widget/menu/menu_appstore.tpl
+END
+menu_start.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/frontend/!svn/ver/8695/code/aipisoft_pc_server2/trunk/widget/menu/menu_start.tpl
+END
+menu_favorite.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/frontend/!svn/ver/10350/code/aipisoft_pc_server2/trunk/widget/menu/menu_favorite.tpl
+END
+menu_fitting.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/frontend/!svn/ver/8695/code/aipisoft_pc_server2/trunk/widget/menu/menu_fitting.tpl
+END
+menu_intergral.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/frontend/!svn/ver/10638/code/aipisoft_pc_server2/trunk/widget/menu/menu_intergral.tpl
+END
+menu_member.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/frontend/!svn/ver/9474/code/aipisoft_pc_server2/trunk/widget/menu/menu_member.tpl
+END
+menu_mobile.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/frontend/!svn/ver/8995/code/aipisoft_pc_server2/trunk/widget/menu/menu_mobile.tpl
+END
+menu_operator.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/frontend/!svn/ver/8695/code/aipisoft_pc_server2/trunk/widget/menu/menu_operator.tpl
+END
+menu_zone.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/8695/code/aipisoft_pc_server2/trunk/widget/menu/menu_zone.tpl
+END

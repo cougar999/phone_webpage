@@ -1,0 +1,170 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="scroll">
+		<div id="coinsbox">
+			<h1 id="">当前登录账号积分：<span id="scoretotle">0</span> <a href="#null" onclick="window.location.reload(location.href);" style="margin:30px 0 0 10px;"><img src="/resources/imgs/refresh_normal.png" align="absmiddle" alt="刷新" title="刷新" /></a></h1>
+			<div class="scorelist active">
+				<a href="#1" tasktype="3"><h3>下载得积分明细<br /><small>下载推荐软件即可得金币，每个软件奖励的金币数量从0.5-1.5个不等，多下多得。</small></h3></a>
+				<div class="scoretable">
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<colgroup>
+							<col width="160" />
+							<col width="380" />
+							<col width="90" />
+							<col width="auto" />
+						</colgroup>
+						<tr>
+							<th>操作时间</th>
+							<th>操作描述</th>
+							<th>积分奖励</th>
+							<th>备注说明</th>
+						</tr>
+						<tbody id="scoreOutput2">
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="scorelist">
+				<a href="#1" tasktype="1"><h3>登录得积分明细<br /><small>每天第一次登录，即可获得5积分，多次登录只计算一次。</small></h3></a>
+				<div class="scoretable" style="display: none">
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<colgroup>
+							<col width="160" />
+							<col width="380" />
+							<col width="90" />
+							<col width="auto" />
+						</colgroup>
+						<tr>
+							<th>操作时间</th>
+							<th>操作描述</th>
+							<th>积分奖励</th>
+							<th>备注说明</th>
+						</tr>
+						<tbody id="scoreOutput">
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- <div class="scorelist">
+				<a href="#1" tasktype="4"><h3>复制得积分明细<br /><small>成功进行一次“双机复制”操作，即可获得1个金币的奖励。</small></h3></a>
+				<div class="scoretable" style="display: none">
+					<table border="0" cellspacing="0" cellpadding="0" width="100%">
+						<colgroup>
+							<col width="160" />
+							<col width="380" />
+							<col width="90" />
+							<col width="auto" />
+						</colgroup>
+						<tr>
+							<th>操作时间</th>
+							<th>操作描述</th>
+							<th>积分奖励</th>
+							<th>备注说明</th>
+						</tr>
+						<tbody id="scoreOutput3">
+						</tbody>
+					</table>
+				</div>
+			</div> -->
+		</div>
+		
+		<script id="scoreTemplate" type="text/x-jquery-tmpl">
+			<tr>
+				<td class="tc">{{if opertime}}${opertime}{{/if}}</td>
+				<td class="tc">
+					{{if status == 3}}重复操作{{/if}}
+					{{if status == 4}}无SIM卡操作{{/if}}
+					{{if desc}}${desc}{{/if}}
+				</td>
+				<td class="tc">
+					{{if coins}}${coins}积分{{/if}}
+				</td>
+				<td class="tc">{{if name}}${name}{{/if}}{{if remark}}${remark}{{else}}{{/if}}</td>
+			</tr>
+		</script>
+		
+		<script id="emptyTemplate" type="text/x-jquery-tmpl">
+			<tr>
+				<td class="tc" colspan="4">暂无内容</td>
+			</tr>
+		</script>
+	</div>
+</div></div>
+
+<!--{feed int=AP_INT_GET_COIN_SCALE ret='scaleurl'}-->
+
+<script language="JavaScript">
+function getTaskList(row){
+	$('.tasklist_content').html('<center><img src="<!--{#img1#}-->/resources/img40/loading_trans_middle.gif"></center>');
+	$.post('/api/api_tasklist.php',row, function(data){
+		if(data){
+			var data = JSON.parse(data);
+		}
+		console.log(data);
+		if(data && data.result && data.result.resultcode == '000000'){
+			var html_content = '';
+			if(data && data.page && data.page.items){
+				if(row && row.tasktype ){
+					if(row.tasktype == 1) {
+						$("#scoreTemplate").tmpl(data.page.items).appendTo($("#scoreOutput").empty());
+					} else if (row.tasktype == 3){
+						$("#scoreTemplate").tmpl(data.page.items).appendTo($("#scoreOutput2").empty());
+					} else {
+						$("#scoreTemplate").tmpl(data.page.items).appendTo($("#scoreOutput3").empty());
+					}
+				}
+				
+			} else {
+				if(row.tasktype == 1) {
+						$("#emptyTemplate").tmpl().appendTo($("#scoreOutput").empty());
+					} else if (row.tasktype == 3){
+						$("#emptyTemplate").tmpl().appendTo($("#scoreOutput2").empty());
+					} else {
+						$("#emptyTemplate").tmpl().appendTo($("#scoreOutput3").empty());
+					}
+				
+			}
+			var salesname = JSON.parse(WebAppLocalStorage("salesname"));
+		}
+	});
+}
+	
+$(function(){
+	var channelcode =  JSON.parse(WebAppLocalStorage("channelcode"));
+	var salesid = JSON.parse(WebAppLocalStorage("salesid"));
+	var shopid = JSON.parse(WebAppLocalStorage("shopid"));
+	if(shopid.data != -1){
+		var row = {
+				salesid : salesid.data,
+			};
+		$.post('/api/api_gettotalcoin.php',row,function(data){
+			if(data){
+				var data = JSON.parse(data);
+				if(data.result && data.result.resultcode == '000000'){
+					$(".totalcoin").html(data.totalcoins);
+					$("#scoretotle").html(data.totalcoins);
+				}else{
+					$(".totalcoin").html('数据读取失败，请刷新重新加载！');
+				}
+			}
+		});
+		getTaskList({salesid : salesid.data,tasktype :3,count : 50,pageno : 1});
+		$(".scorelist h3").click(function(){
+			$(this).find("small").show();
+			$(this).parent().next(".scoretable").toggle();
+			$(this).closest(".scorelist").addClass("active").siblings(".scorelist").removeClass("active").find("h3 small,.scoretable").hide();
+			//$(this).addClass("hover");
+			var row = {
+					salesid : salesid.data,
+					tasktype :$(this).parent().attr('tasktype'),
+					count : 50,
+					pageno : 1
+			};
+			getTaskList(row);
+		});
+	}else{
+		$('.scroll').html('<div style="padding:200px;font-size:20px;color:red;text-align:center;line-height:30px;">您尚未登录，暂不支持使用该功能。<br>重启客户端并登录后，即可使用！如果没有登录账号，请联系我们开通。</div>');
+	}
+	
+});
+</script>

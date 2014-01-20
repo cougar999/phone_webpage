@@ -1,0 +1,80 @@
+<div class="lf" style="width:400px;">
+<!--{feed int=AP_INT_COLUMN_CATSOFT_LIST_MUSIC mid=$column_id order=0 pageno=1 count=10 ret='colomunlist'}-->
+<div id="wgt-music-song-list" class="wgt-music-song-list"><div>
+<!--{foreach key=key item=item from=$colomunlist.page.items name=list}-->
+	<!--{if $item.type == 0}-->
+		<div style="border-left:1px solid #cccccc;border-right:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+			<div style="line-height: 31px;background:url(<!--{#res2#}-->/resources/img/middle_title_bg.png) repeat-x scroll 0 0 transparent;">
+					<span class="f5 b" style="margin-left:10px;"><!--{$item.name}--></span>
+			</div>
+			<!--{if $colomunlist.page.items[$smarty.foreach.list.iteration].type == 1}-->
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table">
+					<col style="width: auto;"></col>
+					<col style="width: 80px;"></col>
+					<col style="width: 80px;"></col>
+					<!--{section start=$smarty.foreach.list.iteration loop=$colomunlist.page.items name=sect}-->
+						<!--{if $colomunlist.page.items[$smarty.section.sect.index].type == 0}-->
+							<!--{php}-->break;<!--{/php}-->
+						<!--{else}-->
+							<tr>
+								<td style="padding-left:10px;"><span class=""><!--{$smarty.section.sect.iteration}--> <a href="<!--{#res3#}-->/resources/player/index.html"  onclick="$.colorbox({href:this, iframe:true, width:270, height:150, overlayClose:false}); return false;" ><!--{$colomunlist.page.items[sect].name}--></a></span></td>
+								<td>未知</td>
+								<td class="tc" style="padding-right:10px;"><span class="n"><!--{$colomunlist.page.items[sect].price}--></span></td>
+							</tr>
+						<!--{/if}-->
+					<!--{/section}-->
+				</table>
+			<!--{/if}-->
+		</div>
+		<br />
+	<!--{/if}-->
+<!--{/foreach}-->
+</div></div>
+</div>
+<div  style="margin-left:410px;">
+	<div id="wgt-music-singer-list" class="wgt-music-singer-list">
+		<div style="border-left:1px solid #cccccc;border-right:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+			<div style="line-height: 31px;background:url(<!--{#res1#}-->/resources/img/middle_title_bg.png) repeat-x scroll 0 0 transparent;">
+			
+					<span class="f5 b"  style="margin-left:10px;">热门艺人</span>
+			</div>
+		<div>
+			<!--{feed int=AP_INT_C_SINGERLIST cid=$download_top_name order=0 pageno=1 count=10 ret='singerlist'}-->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class=""><tr><td>
+				<!--{section start=0 max=1 name=item loop=$singerlist.page.items}-->
+				<div  style="padding-left:10px;padding-right:10px;padding-top:10px;padding-bottom:10px;">
+					<div class="lf tc"><img  src="<!--{$singerlist.page.items[item].imgurl}-->" style="width:85px; height:128px;border:1px solid #cccccc;padding:2px;margin-bottom:5px;" /><br /><!--{$singerlist.page.items[item].singer}--></div>
+					<div  style="margin-left:110px; ">
+						
+						<!--{feed int=AP_INT_C_MUSICLIST cid=$item.singerid order=0 pageno=1 count=10 ret='singer_musiclist'}-->
+						<!--{foreach key=key item=item from=$singer_musiclist.page.items}-->
+						<div style="height:28px;line-height:28px;">
+							<span class="lf s"><a href="" class="s" style="text-decoration:none;"><!--{$item.song}--></a></span>
+							<span class="rg" ><a href="" class="rg s"><img src="<!--{#res2#}-->/resources/img/btn_download.png" class="png_bg" border="0"></a></span>
+							<div class="cl"></div>
+						</div>
+						<!--{/foreach}-->
+						
+					</div>
+				</div>
+				<!--{/section}-->
+				<div class="cl"></div>
+				
+			</td></tr></table>
+			<div style="height:1px;border-bottom:1px dotted #cccccc;margin:10px;"></div>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class=""><tr><td>
+				<!--{section start=3 name=item loop=$singerlist.page.items}-->
+					<div class="lf" style="width:95px;padding:10px;">
+						<div class="lf tc"><img  src="<!--{$singerlist.page.items[item].imgurl}-->" style="width:72px; height:107px;border:1px solid #cccccc;padding:2px;margin-bottom:5px;" /><br /><!--{$singerlist.page.items[item].singer}--></div>
+					</div>
+				<!--{/section}-->
+				<div class="cl"></div>
+			</td></tr></table>
+			
+		</div>
+		
+		<div>
+		
+		</div>
+	</div></div>
+</div>

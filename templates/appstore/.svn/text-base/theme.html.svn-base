@@ -1,0 +1,33 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"  seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_THEME seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_THEME'}-->
+	</div>
+	<div class="scroll">
+	<div class="right">
+		<div>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+				<!--{include file="wgt-box-top-list.tpl" toplisttype="theme" column_id=$assign.ap_int.AP_INT_MENU_THEME_DEFAULT}-->	
+			</td></tr></table>
+		</div>
+	</div>
+	<div class="center contentbody contentwrap">
+		<div class="section">
+			<div style="padding:0px 0px;">
+				<!--{include file="wgt-column-list.tpl" columntype=$assign.ap_int.AP_INT_CATEGORY_TYPE_THEME}--> 	
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+					<!--{include file="wgt-sort.tpl"}-->	
+				</td></tr></table>
+			</div>
+		</div>	
+		
+		<div class="section">
+			<div style="padding:0px 0px;">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+					<!--{include file="wgt-theme-list.tpl"}-->
+				</td></tr></table>		
+			</div>
+		</div>	
+	</div>
+	</div>
+</div></div>

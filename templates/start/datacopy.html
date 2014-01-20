@@ -1,0 +1,110 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	<div class="scroll">
+	<div class="contentbody contentwrap">
+		<div class="section">
+			<div id="datacopy">
+				<div class="tc"><img src="/resources/img40/datacopy_top.gif" /></div>
+
+				<div class="copy_bg">
+				<h2>支持四大手机平台：</h2>
+				
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td width="180" align="center" class="valign">
+							<div class="imgbtm">
+								<img id="mo_logo_2" src="<!--{#res2#}-->/resources/img40/mobile.png" style="background:no-repeat center center;" />
+							</div>
+						</td>
+						<td width="15"></td>
+						<td width="370" rowspan="2" align="center" valign="top">
+							<div class="imgbtm" style="margin-top:50px;">
+								<img src="<!--{#res3#}-->/resources/img/right_arrow.gif"/>
+							</div>
+							<div id="datacopybox" class="vm no">
+								<form method="get">
+								<fieldset>
+									<legend>数据复制</legend>
+									<div id="copyitems" class="items">
+									<div class="copy_one"><!-- 复制通讯录 -->
+										<label for="mo_copy_contact_checkbox" id="copy_contact">
+										<span id="mo_contact"></span>
+										<input id="mo_copy_contact_checkbox" type="checkbox" class="lf" value="copycontact" />
+										<!-- <span class="cantcopy">没有SD卡无法复制</span> -->
+										</label>
+										<a id="mo_copy_contacts" href="#" onclick="return false;"><!--<img src="<!--{#res2#}-->/resources/img/btn_copy_phonebook.png" width="74" height="22" border="0" style="vertical-align:middle;" />--></a>
+									</div>
+									<div class="copy_one"><!-- 复制音乐 -->
+										<label for="mo_copy_music_checkbox" id="copy_music">
+										<span id="mo_music"></span>
+										<input id="mo_copy_music_checkbox" type="checkbox" class="lf" value="copymusic" />
+										</label>
+										<a id="mo_copy_music" href="#" onclick="return false;"><!-- <img src="<!--{#res3#}-->/resources/img/btn_copy_music.png" width="74" height="22" border="0" style="vertical-align:middle;" /> --></a>
+									</div>
+									<div class="copy_one"><!-- 复制短信 -->
+										<label for="mo_copy_sms_checkbox" id="copy_sms">
+										<span id="mo_sms"></span>
+										<input id="mo_copy_sms_checkbox" type="checkbox" class="lf" value="copysms" />
+										</label>
+										<a id="mo_copy_sms" href="#" onclick="return false;"><!--<img src="<!--{#res3#}-->/resources/img/btn_copy_sms.png" width="74" height="22" border="0" style="vertical-align:middle;" />--></a>
+									</div>
+									<div class="copy_one"><!-- 复制文档 -->
+										<label for="mo_copy_document_checkbox" id="copy_docs">
+										<span id="mo_doc"></span>
+										<input id="mo_copy_document_checkbox" type="checkbox" class="lf" value="copydocument" />
+										</label>
+										<a id="mo_copy_document" href="#" onclick="return false;"><!-- <img src="<!--{#res1#}-->/resources/img/btn_copy_document.png" width="74" height="22" border="0" style="vertical-align:middle;" /> --></a>
+									</div>
+									<div class="copy_one"><!-- 复制视频 -->
+										<label for="mo_copy_video_checkbox" id="copy_video">
+										<span id="mo_video"></span>
+										<input id="mo_copy_video_checkbox" type="checkbox" class="lf" value="copyvideo" />
+										</label>
+										<a id="mo_copy_video" href="#" onclick="return false;"><!--<img src="<!--{#res2#}-->/resources/img/btn_copy_video.png" width="74" height="22" border="0" style="vertical-align:middle;" />--></a>
+									</div>
+									<div class="copy_one"><!-- 复制照片 -->
+										<label for="mo_copy_photo_checkbox" id="copy_photo">
+										<span id="mo_img"></span>
+										<input id="mo_copy_photo_checkbox" type="checkbox" class="lf" value="copyphoto" />
+										</label>
+										<a id="mo_copy_photo" href="#" onclick="return false;"><!-- <img src="<!--{#res2#}-->/resources/img/btn_copy_photo.png" width="74" height="22" border="0" style="vertical-align:middle;" /> --></a>
+										
+									</div>
+									</div>
+									<div class="selectall"><!-- 全选 -->
+										<label for="selectall" id="copy_all">
+										<input id="selectall" type="checkbox" class="selector1" value="div.items" />
+										全部选择
+										</label>
+										<a id="mo_copy_all" href="" class="rg"><img src="<!--{#res1#}-->/resources/img40/copy_btn.png" width="58" height="21" border="0" style="vertical-align:middle;" /></a>
+									</div>
+								</fieldset>
+								</form>
+								</div>
+						</td>
+						<td width="15"></td>
+						<td width="180" align="center" class="valign">
+							<div class="imgbtm">
+								<img id="mo_logo_1" src="<!--{#res2#}-->/resources/img40/mobile.png" style="background:no-repeat center center;" />
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="180" align="center"><span class="bk t"><span id="mo_name_2">请插入源手机...</span></span></td>
+						<td width="15"></td>
+						<td width="15"></td>
+						<td width="180"><span class="bk t">目标手机：<span id="mo_name_1">正在查找...</span></span><!-- <a href="#">设置为源手机</a> --></td>
+					</tr>
+				</table>
+				<!-- <div id="copy_result_tip" class="tc"></div> -->
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	</div>
+</div></div>

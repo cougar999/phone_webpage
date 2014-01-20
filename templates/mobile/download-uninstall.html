@@ -1,0 +1,86 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="wgt-toolbar-download-uninstall.tpl"}-->
+	</div>
+	
+	<div class="scroll">
+	<div class="contentbody contentwrap">
+		<div class="section">
+			<div style="padding:2px 0px;">
+				<div class="re">
+					<div>
+						<!--{include file="wgt-navs-download.tpl"}-->
+					</div>
+				</div>
+			</div>
+		</div>	
+		
+		<div class="section">
+			<div style="">
+				<textarea id="downlist-uninstall-template" style="display:none">
+					{#foreach $T.table as record}
+						{#if $T.record}
+						<tr id="downitem-{$T.record.id}">
+							<td class="tl vm"><input type="checkbox" value="{$T.record.id}" /></td>
+							<td nowrap="nowrap" class="tr vm fixwidth">{$T.record.key}</td>
+							<td class="tl vm arrow text fixwidth" style="line-height:48px;">
+								{#if $T.record.exttype == '应用程序'}
+									<span class="icon folder" style="background-image:url(/icon.php?width=48&height=48&sid={$T.record.id});"></span>
+								{#elseif $T.record.exttype == '图片'}
+									<span class="icon folder" style="background-image:url(/icon.php?width=48&height=48&tid={$T.record.id});"></span>
+								{#elseif $T.record.exttype == '视频'}
+									<span class="icon folder" style="background-image:url(/image.php?width=48&height=48&image=<!--{#res1#}-->/resources/files/{$T.record.fileext}.png);"></span>
+								{#elseif $T.record.exttype == '音频'}
+									<span class="icon folder" style="background-image:url(/image.php?width=48&height=48&image=<!--{#res2#}-->/resources/files/{$T.record.fileext}.png);"></span>
+								{#elseif $T.record.exttype == '文档'}
+									<span class="icon folder" style="background-image:url(/icon.php?width=48&height=48&bid={$T.record.id});"></span>
+								{#else}
+									<span class="icon folder" style="background-image:url(/icon.php?width=48&height=48&image=);"></span>
+								{#/if}
+								<a id="{$T.record.id}" href="{$T.record.filepath}{$T.record.filename}" title="{$T.record.data}" onclick="return false;"><span>{$T.record.data}</span></a>
+								<!-- <span id="{$T.record.id}" title="{$T.record.data}">{$T.record.data}</span> -->
+							</td>
+							<td class="tl vm text fixwidth"><span class="item_filetype">{$T.record.filetype}</span></td>
+							<td class="tr vm text fixwidth"><span class="item_time">{$T.record.time}</span></td>
+							<td class="tr vm text fixwidth"><span class="item_status">{$T.record.status}</span></td>
+							<td class="tl vm text"><span class="item_desc">{$T.record.desc}</span></td>
+						</tr>
+						{#/if}
+					{#/for}
+				</textarea>
+				<div style="padding:0px 0px;">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0"  class="table datatable fixwidth" style="border-left:1px solid #cccccc;border-right:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+						<col style="width:20px;"></col>
+						<col style="width:40px;"></col>
+						<col style="width:auto;"></col>
+						<col style="width:120px;"></col>
+						<col style="width:200px;"></col>
+						<col style="width:100px;"></col>
+						<col style="width:300px;"></col>
+						<thead>
+							<tr>
+								<th nowrap="nowrap" class="tl"><input type="checkbox" class="selector" /></th>
+								<th nowrap="nowrap" class="tl"></th>
+								<th nowrap="nowrap" class="tl arrow">文件名 <span id="optdesc"></span></th>
+								<th nowrap="nowrap" class="tl">类型</th>
+								<th nowrap="nowrap" class="tl">时间</th>
+								<th nowrap="nowrap" class="tl">状态</th>
+								<th nowrap="nowrap" class="tl">&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody id="downlist-uninstall" class="jTemplates">
+							
+						</tbody>
+					</table>
+				</div>
+				<div id="console">
+				</div>
+			</div>
+		</div>	
+		
+	</div>
+	</div>
+
+</div></div>

@@ -1,0 +1,24 @@
+三res1=http://res1.pcr5.appdear.com
+res2=http://res2.pcr5.appdear.com
+res3=http://res3.pcr5.appdear.com
+res4=http://res4.pcr5.appdear.com
+res5=http://res5.pcr5.appdear.com
+res6=http://res6.pcr5.appdear.com
+res7=http://res7.pcr5.appdear.com
+res8=http://res8.pcr5.appdear.com
+res9=http://res9.pcr5.appdear.com
+
+img1=http://img1.pcr5.appdear.com
+img2=http://img2.pcr5.appdear.com
+img3=http://img3.pcr5.appdear.com
+img4=http://img4.pcr5.appdear.com
+img5=http://img5.pcr5.appdear.com
+img6=http://img6.pcr5.appdear.com
+img7=http://img7.pcr5.appdear.com
+img8=http://img8.pcr5.appdear.com
+img9=http://img9.pcr5.appdear.com
+
+base=http://pcr5.appdear.com
+is_cache = 0
+mobile_is_cache = 0
+version=2.6.110

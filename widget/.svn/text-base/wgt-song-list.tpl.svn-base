@@ -1,0 +1,46 @@
+<!--{feed int=AP_INT_CAT_MUSIC_LIST catid=$box_id order=$order|default:0 pageno=$smarty.get.pageno|default:1 count=20 ret='musiclist'}-->
+
+<div id="wgt-app-list" class="wgt-app-list"><div>
+	<div style="padding:0 0 20px;">
+		
+		<table width="100%" border="0" cellpadding="0" cellspacing="0"  style="table-layout:fixed;">		
+			<col style="width: 100%;"></col>
+			<col style="width: 2px;"></col>
+			<col style="width: 300px;"></col>
+			<col style="width: 2px;"></col>
+			<!-- <col style="width: 82px;"></col>
+			<col style="width: 2px;"></col> -->
+			<col style="width: 82px;"></col>
+			<col style="width: 2px;"></col>
+			<col style="width: 150px;"></col>
+		<!--{foreach key=key item=item from=$musiclist.page.items name=list}-->	
+		<tr>
+			<td class="tl b" style="padding-left:10px;">
+			<a href="/resources/v_player/index2_mp3.html?sid=<!--{$item.songid}-->&title=<!--{$item.song}-->&url=<!--{$item.fileitems[0].downloadurl}-->" onclick="$.colorbox({href:this, iframe:true, width:270, height:150, overlayClose:false}); return false;"><span><img src="<!--{#res3#}-->/resources/img/icon_ting.png" class="icon_ting" /></span>&nbsp; <!--{$item.song}--></a></td>
+			<td></td>
+			<td class="tl c">
+				<!--{section loop=$item.singeritems name=sect}-->
+					<!--{$item.singeritems[sect].singer}-->
+					<!--{if $smarty.section.sect.total>1 and $smarty.section.sect.iteration != $smarty.section.sect.last}-->
+					,
+					<!--{/if}-->
+				<!--{/section}-->
+			</td>
+			<td></td>
+			<!-- <td class="tc"><!--{if $item.price}--><!--{math equation='(x/100)' x=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+			<td></td>
+			<td class="tc"><!--{if $item.servicefee}--><!--{math equation='(x/100)' x=$item.servicefee|default:0}-->元<!--{else}-->免费<!--{/if}--></td> -->
+			<td class="tc"><!--{if $item.servicefee || $item.price}--><!--{math equation='(x/100 + y/100)' x=$item.servicefee|default:0 y=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+			<td></td>
+			<td class="tc">
+				<a id="<!--{$item.songid}-->" href="<!--{$item.fileitems[0].downloadurl}-->&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC}-->&code1_id=<!--{$menulist.menuid}-->&code2=<!--{$code2}-->&code2_id=<!--{$code2_id}-->&code3=<!--{$code3}-->&code3_id=<!--{$box_id}-->" title="<!--{$item.song}-->" type="3"  price="<!--{math equation='(x)/100' x=$item.price|default:0}-->" servicefee="<!--{math equation='(x)/100' x=$item.servicefee|default:0}-->" class="<!--{if $item.price or $item.servicefee}-->addcart<!--{else}-->downinit<!--{/if}-->"  onclick="return false;"><img src="<!--{#img4#}-->/resources/images/transparent.gif" <!--{if $item.price or $item.servicefee}-->class="buybtn_mid" <!--{else}-->class="downbtn_mid"<!--{/if}--> /></a>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="9"><div style="width:99%;border-bottom:1px dotted #cccccc;margin: 10px 0 10px 0; "></div></td>
+		</tr>
+		<!--{/foreach}-->
+		</table>
+	</div>
+</div></div>
+<!--{include file="wgt-paging.tpl" page=$musiclist.page}-->

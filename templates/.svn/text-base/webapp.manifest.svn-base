@@ -1,0 +1,9 @@
+<!--{config_load file="smarty.conf" scope="global"}-->CACHE MANIFEST
+# VERSION <!--{#version#}-->
+
+CACHE:
+
+NETWORK:
+*
+
+FALLBACK:

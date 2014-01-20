@@ -1,0 +1,22 @@
+<!--{feed int=AP_INT_S_MUSICLIST sid=$box_id order=0 pageno=1 count=10 ret='musiclist'}-->
+<div id="wgt-singer-musiclist" class="wgt-singer-musiclist">
+	<div>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0"	class="table datatable f2">
+			<col style="width: 50px;"></col>
+			<col style="width: auto;"></col>
+			<col style="width: 50px;"></col>
+			<col style="width: 50px;"></col>
+			<col style="width: 80px;"></col>
+			<!--{foreach key=key item=item from=$musiclist.page.items name=list}-->
+			<tr>
+				<td class="tc"><!--{$smarty.foreach.list.index+1}--></td>
+				<td class="tl"><!--{$item.song}--></td>
+				<td class="tr">32.5M</td>
+				<td class="tc"><!--{if $item.price ==0}-->免费<!--{else}--><!--{$item.price}-->元<!--{/if}--></td>
+				<td class="tc"><a id="<!--{$item.songid}-->" href="vzcvzcvzxcv" type="2" class="change <!--{if $item.price !=0}-->downinit<!--{else}-->addcart<!--{/if}-->" title="<!--{$item.song}-->"></a></td>
+			</tr>
+			<!--{/foreach}-->
+		</table>
+
+	</div>
+</div>

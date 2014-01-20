@@ -1,0 +1,60 @@
+<!--{feed int=AP_INT_CAT_BOOKLIST catid=$box_id order=$order pageno=$smarty.get.pageno|default:1  count=$count ret='booklist'}-->
+<!--{if $booklist.page.items}-->
+	<!--{foreach key=key item=item from=$booklist.page.items}-->
+		<div class="show_item clear" id="book_list">
+			<div class="book_shadow">
+			<a href="/appstore/book-intro.html?bid=<!--{$item.bookid}-->"  title="<!--{$item.book}-->" onclick="gotopage(this); return false;">
+			<img src="<!--{#img4#}-->/resources/images/transparent.gif" style="width:166px; height:233px;border:0px;background:url(<!--{if $item.imgurl != ''}--><!--{$item.imgurl}-->_sf_166x233.png<!--{else}--><!--{/if}-->) no-repeat center center; border:1px solid #cccccc;padding:5px;" />
+			</a>
+			</div>
+			<div class="rg_part">
+				<ul>
+					<li class="title">
+						<a href="/appstore/book-intro.html?bid=<!--{$item.bookid}-->"  title="<!--{$item.book}-->" onclick="gotopage(this); return false;"><!--{$item.book}--></a>
+					</li>
+					<li class="items">
+						<div class="lf re">
+							<div class="lf" style="width:80px; height:15px; background:url(<!--{#img1#}-->/resources/img/star.png) repeat-x left center;"></div>
+							<div class="ab" style="right:0px;width:<!--{math equation='(x*(50-y)/z)' x=80 y=$item.grade|default:50 z=50}-->px; height:15px; background:url(<!--{#img2#}-->/resources/img/star_gray.png) repeat-x right center;"></div>
+						</div>
+						<div class="cl"></div>
+					</li>
+					<li class="items">
+						<ul class="attr">
+							<li class="attr_1">作者:</li>
+							<li class="name"><!--{$item.author|truncate_utf8_string:5|default:'暂无'}--></li>
+							<li class="line">|</li>
+							<li class="attr_1">类别:</li>
+							<li class="category"><!--{if $item.catalog}--><!--{$item.catalog}--><!--{else}-->电子书<!--{/if}--></li>
+							<li class="line">|</li>
+							<li class="attr_2">更新日期:</li>
+							<li class="date"><!--{if $item.date}--><!--{$item.date}--><!--{else}-->暂无记录<!--{/if}--></li>
+							<li class="line">|</li>
+							<li class="attr_2">下载次数:</li>
+							<li class="download"><!--{if $item.download}--><!--{$item.download}--><!--{else}-->0<!--{/if}-->次</li>
+						</ul>
+					</li>
+					<li class="content f_s_10">
+						<!--{$item.desc|truncate_utf8_string:200:"...":true}-->
+					</li>
+					<li class="bottom"><img src="<!--{#img6#}-->/resources/img/promotion.png" border="0"
+						class="lf" />
+						<p>
+							<!-- <span class="price">爱皮价:<!--{if $item.price==0}-->免费<!--{else}--><!--{math equation='(x/100)' x=$item.price|default:0}-->元<!--{/if}--></span> -->
+							<span class="price">爱皮价:免费</span>
+						</p> 
+						<!-- <a id="<!--{$item.bookid}-->" href="<!--{$item.formatitems[0].downloadurl}-->&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK}-->&code1_id=<!--{$menu.menuid}-->&code2=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT}-->&code2_id=<!--{$box_id}-->" type="5" price="<!--{math equation='(x)/100' x=$item.price|default:0 }-->" servicefee="0"   class="rg <!--{if $item.price}-->addcart<!--{else}-->downinit<!--{/if}-->"  onclick="return false;" title="<!--{$item.book}-->"><img src="<!--{#img4#}-->/resources/images/transparent.gif"  <!--{if $item.price or $item.servicefee}-->class="buybtn_mid"<!--{else}-->class="downbtn_mid"<!--{/if}--> /></a> -->
+						<a id="<!--{$item.bookid}-->" href="<!--{$item.formatitems[0].downloadurl}-->&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK}-->&code1_id=<!--{$menu.menuid}-->&code2=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT}-->&code2_id=<!--{$box_id}-->" type="5" price="<!--{math equation='(x)/100' x=$item.price|default:0 }-->" servicefee="0"   class="rg downinit"  onclick="return false;" title="<!--{$item.book}-->"><img src="<!--{#img4#}-->/resources/images/transparent.gif"  class="downbtn_mid" /></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	<!--{/foreach}-->	
+	<!--{include file="wgt-paging.tpl" page=$booklist.page}-->
+<!--{else}-->
+<div>
+	<div style="text-align:center;line-height: 32px;padding:30px;" class="f7">
+		暂无适合您手机的资源，敬请谅解...
+	</div>
+</div>
+<!--{/if}-->

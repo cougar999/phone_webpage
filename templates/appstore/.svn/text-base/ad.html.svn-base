@@ -1,0 +1,21 @@
+<!--{config_load file="smarty.conf"}-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body style="padding:0; margin:0; overflow:hidden; border:none;">
+<div style="width:100%; background:url(/resources/ad/bg.png); height:100px;">
+	<div style="width:33%; float:left; background:url(/resources/ad/bg2.png) no-repeat center; height:96px;">
+		<div align="center" style="padding-top:2px;"> <a href="http://www.baidu.com/"><img src="/resources/ad/1.jpg" border="0" /></a> </div>
+	</div>
+	<div style="width:33%; float:left; background:url(/resources/ad/bg2.png) no-repeat center; height:96px;">
+		<div align="center" style="padding-top:2px;"> <a href="http://www.sina.com.cn/""><img src="/resources/ad/2.jpg" border="0" /></a> </div>
+	</div>
+	<div style="width:33%; float:left; background:url(/resources/ad/bg2.png) no-repeat center; height:96px;">
+			<div align="center" style="padding-top:2px;"> <a href="wwww.funtalk.cn"><img src="/resources/ad/3.jpg" border="0" /></a> </div>
+	</div>
+</div>
+</body>
+</html>

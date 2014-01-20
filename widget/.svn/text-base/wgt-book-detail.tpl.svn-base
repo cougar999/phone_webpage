@@ -1,0 +1,88 @@
+<!--{feed int=AP_INT_BOOK_INFO bid=$box_id order=0 pageno=1 count=10 ret='bookinfo'}-->
+<div id="wgt-book-detail" class="wgt-book-detail"><div>
+	<div style="padding:0 0 20px;">
+		<div>
+			<div class="lf">
+			<img  src="<!--{if $bookinfo.imageurl != ''}--><!--{$bookinfo.imageurl}-->_sf_155x233.png<!--{else}--><!--{/if}-->" style="width:155px; height:233px;border:1px solid #cccccc; padding:2px;" />
+			
+			</div>
+
+			<div  style="margin-left: 179px;width:auto;line-height:23px;">
+				<div style="height:25px;">
+					<span class="lf f4 b"><!--{$bookinfo.name}--></span>
+					<span class="lf" style="margin-left:5px;"></span>					
+				</div>
+				<div style="height:23px;">
+					<span class="lf f4">作者：</span>
+					<span class="lf f2"><a href="/appstore/author.html?aid=<!--{$bookinfo.authorid}-->" onclick="gotopage(this); return false;"><!--{$bookinfo.author}--></a></span>
+				</div>
+				<div style="height:23px;">
+					<span class="lf f4">分类：</span>
+					<span class="lf f2"><!--{$bookinfo.catalog|default:'电子书籍'}--></span>
+				</div>
+				<!--<div style="height:23px;">
+					<span class="lf f4">字数：</span>
+					<span class="lf f2" style="width:80px;"><!--{$bookinfo.wordnum|sizebook}-->字</span>
+					<span class="lf f4">大小：</span>
+					<span class="lf f2"><!--{$bookinfo.formatitems[0].size|sizetext}--></span>
+				</div>-->
+				<div style="height:23px;">
+					<span class="lf f4">格式：</span>
+					<span class="lf f2" style="width:80px;"><!--{$bookinfo.formatitems[0].format|default:'无记录'}--></span>
+					<!--<span class="lf f4">下载次数：</span>
+					<span class="lf f2"><!--{if $bookinfo.download}--><!--{$bookinfo.download}--><!--{else}-->0<!--{/if}-->次</span>-->
+				</div>
+				<div style="height:23px;">
+					<span class="lf f4">上架时间：</span>
+					<span class="lf f2"><!--{$bookinfo.date|default:'未知'}--></span>
+				</div>
+				<div style="height:23px;">
+					<span class="lf f4">评级：</span>
+					<div class="lf re">
+						<div class="lf" style="width:80px; height:15px; background:url(<!--{#img1#}-->resources/img/star.png) repeat-x left center;"></div>
+						<div class="ab" style="right:0px;width:<!--{math equation='(x*(50-y)/z)' x=80 y=$bookinfo.grade|default:50 z=50}-->px; height:15px; background:url(<!--{#img2#}-->resources/img/star_gray.png) repeat-x right center;"></div>
+					</div>
+				</div>
+				<div style="height:23px;">
+					<span class="lf f4">服务费：</span>
+					<span class="lf f2" style="width:80px;"><!--{if $bookinfo.price}--><!--{math equation='(x/100)' x=$bookinfo.price|default:0}-->元<!--{else}-->免费<!--{/if}--></span>
+				</div>
+				<div style="height:23px;padding-top:10px;">
+					<!--{if $bookinfo.formatitems|@count==1}-->
+						<a id="<!--{$bookinfo.bookid}-->" href="<!--{$bookinfo.formatitems[0].downloadurl}-->&ref=<!--{$assign.referer|base64_en}-->" type="5" price="<!--{math equation='(x)/100' x=$bookinfo.price|default:0 }-->" servicefee="0"  title="<!--{$bookinfo.name}-->" class="lf <!--{if $bookinfo.price}-->addcart<!--{else}-->downinit<!--{/if}-->"  onclick="return false;">
+								<img src="<!--{#img2#}--><!--{if $bookinfo.price}-->/resources/img/btn_buy_big.png<!--{else}-->/resources/img/btn_download_big.png<!--{/if}-->" class="png_bg" border="0">
+						</a>
+					<!--{elseif $bookinfo.formatitems|@count>1}-->
+							<!--{foreach key=key item=formatitem from=$bookinfo.formatitems}-->
+								<!--{if $formatitem.format == 'txt'}-->
+									<a id="<!--{$item.bookid}-->" href="<!--{$formatitem.downloadurl}-->&ref=<!--{$assign.referer|base64_en}-->" type="5" price="<!--{math equation='(x)/100' x=$bookinfo.price|default:0 }-->" servicefee="0" title="<!--{$bookinfo.name}-->" class="lf <!--{if $bookinfo.price}-->addcart<!--{else}-->downinit<!--{/if}-->"  onclick="return false;">
+											<img src="<!--{#img2#}--><!--{if $bookinfo.price}-->/resources/img/btn_buy_big.png<!--{else}-->/resources/img/btn_download_big.png<!--{/if}-->" class="png_bg" border="0">
+									</a>
+									<!--{php}-->
+									break;
+									<!--{/php}-->
+								<!--{/if}-->
+							<!--{/foreach}-->
+					<!--{/if}-->
+					<!--{if $bookinfo.formatitems|@count>1}-->
+						<!--{foreach key=key item=formatitem from=$bookinfo.formatitems}-->
+							<!--{if $formatitem.format != 'txt'}-->
+								<a id="<!--{$bookinfo.bookid}-->" href="<!--{$formatitem.downloadurl}-->&ref=<!--{$assign.referer|base64_en}-->" type="5" price="<!--{math equation='(x)/100' x=$bookinfo.price|default:0 }-->" servicefee="0" title="<!--{$bookinfo.name}-->" class="lf f2 <!--{if $bookinfo.price}-->addcart<!--{else}-->downinit<!--{/if}-->" onclick="return false;" style="margin-left:10px;"><!--{if $bookinfo.price}-->购买<!--{else}-->下载<!--{/if}--><!--{$formatitem.format}-->格式文件</a>	
+							<!--{/if}-->
+						<!--{/foreach}-->
+					<!--{/if}-->
+				</div>				
+			</div>	
+			<div class="cl"></div>	
+		</div>
+		<div style="line-height:20px;margin-top:20px;">
+			<div class="m b" style="border-bottom:1px solid #cccccc;line-height: 27px;color:#333333;">
+				<img src="<!--{#res2#}-->/resources/img/ico_detail.png"> 作者及内容简介
+			</div>
+			<div style="text-indent:24px;padding:20px;line-height:30px;">
+				<!--{if $bookinfo.desc}--><!--{$bookinfo.desc}--><!--{else}-->暂无内容<!--{/if}-->
+			</div>
+		</div>		
+		<div style="height: 1px; margin: 10px 0 10px 0; background: #cccccc;"></div>
+	</div>
+</div></div>

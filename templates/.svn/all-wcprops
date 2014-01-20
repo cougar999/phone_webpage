@@ -1,0 +1,263 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/frontend/!svn/ver/12828/code/aipisoft_pc_server2/trunk/templates
+END
+layout_favorite.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/frontend/!svn/ver/11444/code/aipisoft_pc_server2/trunk/templates/layout_favorite.html
+END
+restoreall.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/8805/code/aipisoft_pc_server2/trunk/templates/restoreall.html
+END
+payment.html
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/frontend/!svn/ver/9812/code/aipisoft_pc_server2/trunk/templates/payment.html
+END
+index_intergral.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/frontend/!svn/ver/11248/code/aipisoft_pc_server2/trunk/templates/index_intergral.html
+END
+appupdatelist.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/templates/appupdatelist.html
+END
+apprestorelist.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/templates/apprestorelist.html
+END
+webapp.manifest
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/8423/code/aipisoft_pc_server2/trunk/templates/webapp.manifest
+END
+layout_blankjs.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/frontend/!svn/ver/10608/code/aipisoft_pc_server2/trunk/templates/layout_blankjs.html
+END
+ad.html
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/frontend/!svn/ver/10055/code/aipisoft_pc_server2/trunk/templates/ad.html
+END
+layout_block.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/frontend/!svn/ver/8423/code/aipisoft_pc_server2/trunk/templates/layout_block.html
+END
+layout_operator.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/frontend/!svn/ver/8364/code/aipisoft_pc_server2/trunk/templates/layout_operator.html
+END
+smsbackup.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/templates/smsbackup.html
+END
+register-success.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/templates/register-success.html
+END
+backupall.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/frontend/!svn/ver/8805/code/aipisoft_pc_server2/trunk/templates/backupall.html
+END
+pay-success.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/templates/pay-success.html
+END
+contactrestore.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/frontend/!svn/ver/7839/code/aipisoft_pc_server2/trunk/templates/contactrestore.html
+END
+updatepasswd_page.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/frontend/!svn/ver/9092/code/aipisoft_pc_server2/trunk/templates/updatepasswd_page.html
+END
+purchase-tip.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/frontend/!svn/ver/7757/code/aipisoft_pc_server2/trunk/templates/purchase-tip.html
+END
+layout_appstore_noscroll.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/frontend/!svn/ver/11444/code/aipisoft_pc_server2/trunk/templates/layout_appstore_noscroll.html
+END
+cache.manifest
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/frontend/!svn/ver/8357/code/aipisoft_pc_server2/trunk/templates/cache.manifest
+END
+activecard.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/templates/activecard.html
+END
+layout_start_noscroll.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/frontend/!svn/ver/9671/code/aipisoft_pc_server2/trunk/templates/layout_start_noscroll.html
+END
+smsrestore.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/templates/smsrestore.html
+END
+appbackup.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/templates/appbackup.html
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/frontend/!svn/ver/8674/code/aipisoft_pc_server2/trunk/templates/.htaccess
+END
+index_offline.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/frontend/!svn/ver/11248/code/aipisoft_pc_server2/trunk/templates/index_offline.html
+END
+register_member.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/frontend/!svn/ver/11457/code/aipisoft_pc_server2/trunk/templates/register_member.html
+END
+layout.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/frontend/!svn/ver/7776/code/aipisoft_pc_server2/trunk/templates/layout.html
+END
+contactbackup.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/frontend/!svn/ver/7839/code/aipisoft_pc_server2/trunk/templates/contactbackup.html
+END
+layout_intergral.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/frontend/!svn/ver/11692/code/aipisoft_pc_server2/trunk/templates/layout_intergral.html
+END
+apprestore.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/templates/apprestore.html
+END
+layout_appstore.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/frontend/!svn/ver/11444/code/aipisoft_pc_server2/trunk/templates/layout_appstore.html
+END
+layout_start.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/frontend/!svn/ver/9102/code/aipisoft_pc_server2/trunk/templates/layout_start.html
+END
+contactrestorelist.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/frontend/!svn/ver/7839/code/aipisoft_pc_server2/trunk/templates/contactrestorelist.html
+END
+layout_fitting.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/frontend/!svn/ver/8364/code/aipisoft_pc_server2/trunk/templates/layout_fitting.html
+END
+smsrestorelist.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/templates/smsrestorelist.html
+END
+smsrestorelistselect.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/templates/smsrestorelistselect.html
+END
+layout_mobile.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/frontend/!svn/ver/11444/code/aipisoft_pc_server2/trunk/templates/layout_mobile.html
+END
+layout_member.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/frontend/!svn/ver/11444/code/aipisoft_pc_server2/trunk/templates/layout_member.html
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/frontend/!svn/ver/12965/code/aipisoft_pc_server2/trunk/templates/index.html
+END
+layout_page.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/frontend/!svn/ver/9692/code/aipisoft_pc_server2/trunk/templates/layout_page.html
+END
+updatepasswd-success.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/templates/updatepasswd-success.html
+END
+order.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/templates/order.html
+END

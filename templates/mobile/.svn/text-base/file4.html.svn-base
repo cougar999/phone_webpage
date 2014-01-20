@@ -1,0 +1,46 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-file4.tpl"}-->
+	</div>
+		<div class="scroll">
+			
+			<script id="filelistTemplate" type="text/x-jquery-tmpl">
+				<div style="float:left; padding:20px 20px 10px 10px;">
+					<a href="${path}${mbname}" class="fileitem tooltip" title="${mbname}" onclick="return false;">
+						<img src="${path}${name}" class="hv" title="${mbname}" style="height:132px; background:#cccccc url(<!--{#res3#}-->/resources/img40/loading_trans_middle.gif) no-repeat center center; border:none;" />
+					</a>
+					<br />
+					<span class="rg filedelimg" rev="${mbpath}${mbname}||${mbname}||${mbpath}" onclick="delimg(this); return false;" style="color:red;cursor:pointer;font-size:12px;">X</span>
+				</div>
+			</script>
+			
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable2 fixwidth" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+				<col style="width:30px"></col>
+				<col style="width:100px"></col>
+				<col style="width:auto;"></col>
+				
+				<thead>
+					<tr>
+						<th nowrap="nowrap" class="tc fixwidth"></th>
+						<th nowrap="nowrap" class="tc fixwidth"><span id="optdesc"></span></th>
+						<th nowrap="nowrap" class="tl fixwidth"></th>
+					</tr>
+				</thead>
+			<tbody>
+				<tr>
+					<td id="filelist" colspan="3"></td>
+				</tr>
+			</tbody>
+			</table>
+			
+			</div>
+	</div>
+</div>
+<script type="text/javascript">
+	preimg('#filelist');
+if (/jumpUrl/.test(location.href) == false) {
+	jumpUrl('phonemenu','picture');
+}
+</script>

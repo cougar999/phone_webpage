@@ -1,0 +1,45 @@
+<!--{config_load file="smarty.conf"}-->
+<div>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0"  class="table datatable fixwidth">
+		<col style="width:20px;"></col>
+		<col style="width:auto;"></col>
+		<col style="width:100px;"></col>
+		<col style="width:100px;"></col>
+		<thead>
+			<tr>
+				<th nowrap="nowrap" class="tl"><input type="checkbox" class="selector" value="#appupdatelist" /></th>
+				<th nowrap="nowrap" class="tl arrow" align="center"><!-- 请选择要更新的软件  --><button class="apprestore" onclick="$(document).trigger('appupdatelist'); return false;">更新软件</button></th>
+				<th nowrap="nowrap" class="tr"></th>
+				<th nowrap="nowrap" class="tr"><button href="#" onclick="parent.fb.end(); return false;">关闭</button></th>
+			</tr>
+		</thead>
+	</table>
+	<div class="scroll" style="height:500px;">
+		<table width="100%" border="0" cellpadding="0" cellspacing="0"  class="table datatable fixwidth">
+			<col style="width:20px;"></col>
+			<col style="width:auto;"></col>
+			<col style="width:100px;"></col>
+			<col style="width:100px;"></col>
+			<tbody id="appupdatelist">
+				<!--{foreach key=key item=item from=$assign.data}-->
+				<!--{if $item != null && $item.system != 1}-->
+				<tr class="<!--{if $key % 2 == 0}-->odd<!--{else}-->even<!--{/if}-->">
+					<td nowrap="nowrap" class="tl fixwidth"><input type="checkbox" class="selector" value="<!--{$item.softid}-->||<!--{$item.downloadurl}-->&update=1||<!--{$item.name}-->" <!--{if !$item.softid || !$item.downloadurl}-->disabled="disabled"<!--{/if}--> /></td>
+					<td nowrap="nowrap" class="tl arrow fixwidth" style="line-height:20px;">
+						<span class="icon" style="padding:8px; background-image:url(/icon.php?width=16&height=16&image=<!--{$item.icon}-->)"></span>
+						<!--{$item.name}-->
+					</td>
+					<td nowrap="nowrap" class="tr fixwidth"><!--{$item.applicationasize|sizetext}--></td>
+					<td nowrap="nowrap" class="tr fixwidth"><!--{$item.version}--></td>
+				</tr>
+				<!--{/if}-->
+				<!--{/foreach}-->
+			</tbody>
+		</table>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table fixwidth">
+		<tr>
+		<td class="tc"><!-- <button class="apprestore" onclick="$(document).trigger('appupdatelist'); return false;">更新软件</button> <button href="#" onclick="parent.fb.end(); return false;">关闭</button> --></td>
+		</tr>
+		</table>
+	</div>
+</div>

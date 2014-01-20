@@ -1,0 +1,45 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="section">
+	<div class="tc" style="line-height:30px"><h3>你正在进行短信备份操作</h3></div>
+	<table width="100%" cellpadding="0" cellspacing="0" >
+		<tr><td class="tc">
+			<input type="radio" name="backtp" id="backtp1" value="smsall" checked="checked" />备份所有短信
+			<input type="radio" name="backtp" id="backtp2" value="smssel" />备份选择的短信
+		</td></tr>
+	</table>
+	<table width="100%" cellpadding="0" cellspacing="0"  style="line-height:30px">
+		<tr>
+			<td class="tr vt" width="65%" style="padding-right:10px;">
+				<span>请输入手机号：</span>
+				<input type="text" name="username" id="username" value="" style="width:150px;" /><br />
+				<span>请输入验证码：</span>
+				<input type="text" name="password" id="password" value="" style="width:150px;" /><br />
+				<div>
+					<a id="smsbackup" href="/smsbackup.html" onclick="return false;"><img src="<!--{#res3#}-->/resources/temp/ok_bk.jpg" border="0" alt="确定备份" /></a>
+					<a href="#" onclick="parent.$.colorbox.close(); return false;"><img src="<!--{#res2#}-->/resources/temp/ok_qxbf.jpg" border="0" alt="取消备份" /></a>
+				</div>
+			</td>
+			<td width="35%" valign="top" class="tl f0" style="padding-left:10px;"><button type="submit" name="button" id="SendPhoneCode" btype="1" onclick="return false;" class="lbutton">发送验证码</button>
+            <br /><span id="sentcode" class="tipbg"></span>
+			</td>
+		</tr>
+		<tr>
+		  <td class="tr f0" style="padding-right:10px;"><span class="tr f0" style="padding-right:10px;"><!-- <a href="#" onclick="parent.downloadAgent.navUrl(4, '/member/register.html'); return false;">还没有账号？立即注册</a>-->
+            </span><!-- <a href="#">忘记了密码？找回密码</a><br /> -->
+          </td>
+		  <td class="tl f0" style="padding-left:10px;"></td>
+	  </tr>
+	</table>
+	<hr />
+<div class="tl c9" >
+		<div style="text-indent:28px; padding:10px 40px;" class="f0 tc">
+		执行此操作会将您手机上已安装应用信息上传到云端服务器，所有数据都将进行加密存储。
+		</div>
+	</div>
+	<div class="tl">
+		<!-- <div style="text-indent:28px; padding:10px 40px;">
+		为保护您的数据安全，请如实填写您常用的手机号码，在数据还原时将会向该手机号发送验证码，只有正确认输入验证码验证通过后才能还原到该手机上。
+		</div> -->
+	</div>
+	<span id="optmsg" class="f4"> </span>
+</div>

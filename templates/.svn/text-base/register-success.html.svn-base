@@ -1,0 +1,46 @@
+<!--{config_load file="smarty.conf"}-->
+<!--{if $assign.isok==1}-->
+	<table width="100%" cellpadding="0" cellspacing="0" >
+		<tr height="40">
+			<td class="tc">
+				
+			</td>
+		</tr>
+		<tr height="40">
+			<td class="tc"  style="padding-left:10px;">
+				<span class="f4 b" style="color:#ef4f03;"> 注册成功！</span>
+			</td>
+		</tr>
+		<tr height="40">
+			<td class="tc f2" >
+				请到会员中心登录，您就可以去购买我们应用商场中的商品。
+			</td>
+		</tr>
+		<tr height="40">
+			<td style="text-align:center;">
+			<a href='' class="f2" onclick="parent.document.location.href='/member?gotopage=/member/overview.html'; return false;" style="cursor:pointer;"><img alt="" src="<!--{#res3#}-->/resources/img/btn_ok.png" border="0"></a>
+			</td>
+		</tr>
+	</table>
+	<script>
+	
+	</script>
+<!--{else}-->
+	<table width="100%" cellpadding="0" cellspacing="0" >
+		<tr height="30">
+			<td class="tc"  style="padding-left:10px;">
+				<span class="f4 b" style="color:#ef4f03;"> 注册失败，请重新注册！</span>
+			</td>
+		</tr>
+		<tr height="30">
+			<td class="tc f2" >
+				您的用户名可能已被注册，请检查输入用户名和密码！
+			</td>
+		</tr>
+		<tr height="40">
+			<td style="text-align:center;">
+			<a href='' class="f2" onclick="parent.fb.end(); return false;" style="cursor:pointer;"><img alt="" src="<!--{#res1#}-->/resources/img/btn_ok.png" border="0"></a>
+			</td>
+		</tr>
+	</table>
+<!--{/if}-->

@@ -1,0 +1,261 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>80后游戏精选</h2>
+					<div class="evaDetail">
+						<div class="topicImgs">
+							<img src="/resources/img40/eva/zhuanti11_big.png" alt="射击游戏合集" />
+						</div>
+						<blockquote>
+							80后的同学们，还在回味小霸王游戏机的快乐吗？还在回味大型游戏机的快感吗？我们带您手机上体验儿时的欢乐。
+						</blockquote>
+						<div class="topiclist clear">
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110908/gj/40288/40288_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="133975" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20110908/gj/40288/40288.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.droidhen.uem.u1310030411062" versioncode="3" version="v1.0.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="双截龙二 - 复仇"></a></p>
+								</dt>
+								<dd>
+									<p>双截龙二 - 复仇</p>
+									<p>想玩儿时曾经玩过的：魂斗罗，激龟忍者传，绿色兵团，沙罗曼蛇，赤色要塞，玛理奥，双截龙，忍者龙剑传，赤影战士…</p>
+									<p>大小：0.57MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110908/gj/40377/40377_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="134022" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121122/appdear_382223556_1122_b.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.ggnes.finalfight" versioncode="40" version="v2.0.5" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="快打旋风"></a></p>
+								</dt>
+								<dd>
+									<p>快打旋风</p>
+									<p>游戏发生在一个名叫Metro的混乱都市，由于黑帮的出没(尤其是一个名叫Mad Gear的黑社会组织)，这里成了地球上最乱的地方…</p>
+									<p>大小：2.34MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110827/pq/25705/25705_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="132377" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20110827/25705/25705.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.contramd.gens" versioncode="57" version="v2.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="魂斗罗豪华版"></a></p>
+								</dt>
+								<dd>
+									<p>魂斗罗豪华版</p>
+									<p>魂斗罗之铁血兵团 MD时代经典动作游戏之一，本游戏可以直接运行，无需模拟器支持。支持双打，保存游戏进度。支持触屏、手机键盘、外接键盘操作…</p>
+									<p>大小：1.83MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120210/appdear_202088_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="144956" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121114/appdear_870791612_1114_b.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.jieji.adssf2whd" versioncode="35" version="v2.15" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="超级街霸 2"></a></p>
+								</dt>
+								<dd>
+									<p>超级街霸 2</p>
+									<p>1994年, 街霸家族又添新丁, 《SUPER STREET FIGHTER II》诞生, 俗称'超级街霸2', 又称'16人版街霸', 由于改用最新的CPS2基板…</p>
+									<p>大小：11.86MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110701/gj/27088/27088_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="132479" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20110701/gj/27088/27088.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.supermario.gens" versioncode="57" version="v2.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="超级玛丽"></a></p>
+								</dt>
+								<dd>
+									<p>超级玛丽</p>
+									<p>一款有趣的，陪伴了很多人长大的经典任天堂游戏，赶快下载，重新体验游戏的轻松快乐,一起回忆童年的时光…</p>
+									<p>大小：2.27MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20111229/appdear_102401_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="103704" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120315/appdear_102401_g.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.pajita.wof" versioncode="61" version="v3.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="超级街霸 2"></a></p>
+								</dt>
+								<dd>
+									<p>三国志吞食天地</p>
+									<p>这个超经典的游戏，不用我多说什么了吧，去街机厅拍镚儿的必玩游戏啊。别说你不知道……除非你来自火星……本游戏可以直接运行…</p>
+									<p>大小：5.24MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110901/gj/26159/26159_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="132942" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120331/appdear_231832_0331_h.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.tian.wmaryp" versioncode="11" version="v1.5.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="超级玛丽"></a></p>
+								</dt>
+								<dd>
+									<p>超级玛丽加强版 </p>
+									<p>某天雨后，天边还挂着美丽的彩虹， 在水晶王国里，聪明美丽的佩蒂公主站在城堡的小花园里， 在彩虹的光晕下…</p>
+									<p>大小：1.35MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120214/appdear_20443_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="101887" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121119/appdear_3782592949_1119_b.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.siqi.tank" versioncode="6176000" version="v1.76" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="坦克大战(经典版) "></a></p>
+								</dt>
+								<dd>
+									<p>坦克大战(经典版) </p>
+									<p>坦克大战曾经是一款家喻户晓的经典射击类游戏。现在，我们终于也可以在android平台上回味这款游戏了。游戏中关卡难度层层叠进…</p>
+									<p>大小：1.84MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120222/appdear_120160_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="101274" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120813/appdear_754142_0813_h.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.pajita.dino" versioncode="69" version="v3.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="恐龙快打"></a></p>
+								</dt>
+								<dd>
+									<p>恐龙快打 </p>
+									<p>恐龙快打,又叫恐龙新世纪，算是经典街机游戏中的佼佼者，曾几何时为了这游戏废寝忘食~~！现在就来回顾一下吧~！本游戏对CPU主频有一定要求…</p>
+									<p>大小：5.26MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120202/appdear_219297_icon_g.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="144958" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130320/appdear_92943_0320_m.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="lsh.emukof96" versioncode="5" version="v1.0.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="拳皇 96"></a></p>
+								</dt>
+								<dd>
+									<p>拳皇 96 </p>
+									<p>经典的格斗游戏。本游戏支持ARMV7以上的CPU。介绍不用多说了，大家都很熟悉了。 操作说明：在游戏中按\'开始\'键来开始游戏…</p>
+									<p>大小：27.85MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110910/zy/100284/100284_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="136433" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120401/appdear_205729_0401_h.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.lrx.gtcircus" versioncode="101" version="v1.0.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="超级马戏团"></a></p>
+								</dt>
+								<dd>
+									<p>超级马戏团 </p>
+									<p>《超级马戏团》？没错，这是一款源于红白机上经典的游戏《马戏团》的手机游戏，它不仅完全的体现了原作的内容…</p>
+									<p>大小：3.3MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120209/appdear_45360_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="103005" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130320/appdear_33863_0320_m.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.xxstudio" versioncode="12" version="v1.8.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="俄罗斯方块"></a></p>
+								</dt>
+								<dd>
+									<p>俄罗斯方块</p>
+									<p>经典的俄罗斯方块，消磨时间的小游戏。有单人游戏和人机对战两种模式…</p>
+									<p>大小：1.63MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110902/zy/30205/30205_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="100412" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20110902/zy/30205/30205.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.dseffects.BlockedCar" versioncode="1" version="v1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="汽车华容道"></a></p>
+								</dt>
+								<dd>
+									<p>汽车华容道 </p>
+									<p>Blocked Car是款动手又动脑的益智游戏，游戏中我们必须让困于停车场中的黄色小车顺利开出，就是要开到游戏画面上头的出口即可顺利过关…</p>
+									<p>大小：0.34MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110701/lww/30495/30495_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="100807" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20110701/lww/30495/30495.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.alan.pushbox" versioncode="2" version="v2.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="经典推箱子"></a></p>
+								</dt>
+								<dd>
+									<p>经典推箱子</p>
+									<p>经典的推箱子是一个来自日本的古老游戏，目的是在训练你的逻辑思考能力。在一个狭小的仓库中，要求把木箱放到指定的位置…</p>
+									<p>大小：0.65MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110904/zy/30720/30720_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="100835" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120720/appdear_708769_0720_h.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.fuwenpan.mineSweeper" versioncode="11" version="v1.6.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="扫雷"></a></p>
+								</dt>
+								<dd>
+									<p>扫雷 </p>
+									<p>经典的扫雷游戏，游戏的目的是不踩到地雷，翻开所有不包含地雷的区域，翻开的区域内包含的数字是指相邻区域内的地雷数…</p>
+									<p>大小：0.34MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110701/lww/30440/30440_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="100963" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120225/appdear_70800_g.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="org.hermit.LinkPipe" versioncode="63" version="v1.8.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="连接管道"></a></p>
+								</dt>
+								<dd>
+									<p>连接管道</p>
+									<p>连接服务器，旋转管道 ，方向键选择块 ;按Z，N或4向左旋转; M, X 或 6向右旋转; 按空格或0锁住你认为正确的连接. 连接正确的管道会显示高亮…</p>
+									<p>大小：0.42MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110902/gj/26544/26544_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="132807" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130310/appdear_33057_0310_m.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.ggnes.adventureisland3in1" versioncode="44" version="v2.0.9" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="冒险岛全集"></a></p>
+								</dt>
+								<dd>
+									<p>冒险岛全集 </p>
+									<p>游戏中，玩家扮演的还是那个可爱的原始人，需要通过4个大关(每大关4小关)最终救出女友并打败大魔王！在冒险岛上是很危险的…</p>
+									<p>大小：2.41MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110908/gj/40303/40303_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="133985" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20110908/gj/40303/40303.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.ninja.uem.u1310540741640" versioncode="3" version="v1.0.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="赤色要塞"></a></p>
+								</dt>
+								<dd>
+									<p>赤色要塞</p>
+									<p>想玩儿时曾经玩过的：魂斗罗，激龟忍者传，绿色兵团，沙罗曼蛇，赤色要塞，玛理奥，双截龙，忍者龙剑传，赤影战士...吗…</p>
+									<p>大小：0.50MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120202/appdear_214664_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="145117" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120202/appdear_214664_g.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.kinglaud.mslug" versioncode="12" version="v1.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="合金弹头"></a></p>
+								</dt>
+								<dd>
+									<p>合金弹头 </p>
+									<p>合金弹头(Metal Slug)是一款无比经典的射击动作游戏，以前基本上每个街机厅都会有几台，你没有玩过的话都不好意思说你的童年…</p>
+									<p>大小：14.27MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20111229/appdear_153244_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="145120" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20111229/appdear_153244_g.apk?topicid=011&topicname=80后游戏精选" installlocate="0" appid="com.qixin.xgalaga2" versioncode="33" version="v1.5.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="小蜜蜂"></a></p>
+								</dt>
+								<dd>
+									<p>小蜜蜂</p>
+									<p>小蜜蜂是最经典的战机游戏，XGalaxy 2是该作品的续集，是一款快节奏的射击游戏，拥有完美的音效和完美的画面…</p>
+									<p>大小：4.38MB</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

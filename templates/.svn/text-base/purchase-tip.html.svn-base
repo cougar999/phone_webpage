@@ -1,0 +1,10 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="tc" style="padding-top:40px;">
+	<span><img src="<!--{#res1#}-->/resources/img/icon_smile.png" /></span><span class="f4 b" style="color:#ef4f03;">感谢您的合作与支持</span>
+</div>
+<div class="tc" style="padding-top:10px;padding-bottom:20px;">
+	<span class="f2">挑选好所需卡片类型后，请联系店员，到收银处付款购买！</span>
+</div>
+<div class="tc" style="padding-top:10px;padding-bottom:20px;">
+	<a href='' class="f2" onclick="parent.$.fn.colorbox.close(); return false;" style="cursor:pointer;"><img alt="" src="<!--{#res2#}-->/resources/img/btn_ok.png" border="0"></a>
+</div>

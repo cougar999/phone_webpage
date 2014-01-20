@@ -1,0 +1,72 @@
+<!--{feed int=AP_INT_SEARCH_BOOK keyword=$keyword order=0 pageno=$smarty.get.pageno|default:1 count=12 ret='booklist'}-->
+<div class="section">
+	<div style="padding: 15px 15px;">
+		<div style="border: 1px solid #d2d2d2; padding: 8px 8px;" class="f4 b">
+			在<font color="#f04e06"><!--{$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_BOOK}--></font>中搜索“<!--{$smarty.request.keyword}-->”共有<!--{if $booklist.page.totalcount}--><!--{$booklist.page.totalcount}--><!--{else}-->0<!--{/if}-->条结果：
+		</div>
+	</div>
+</div>
+<!--{if $booklist.page.totalcount}-->
+<div class="section">
+	<div style="padding:15px 15px;">
+		<div style="border:1px solid #d2d2d2;">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+				<div id="wgt-search-list" class="wgt-search-list"><div style="padding-top:10px;">
+						<!--{foreach key=key item=item from=$booklist.page.items}-->
+						<div class="lf" style="width:400px; padding-left:30px;padding-right:0px;padding-top:20px;padding-bottom:30px;border-bottom:1px dashed #cccccc;">
+							<a href="/appstore/book-intro.html?bid=<!--{$item.bookid}-->" onclick="gotopage(this); return false;"><img class="lf tc" src="<!--{#img7#}-->/imagebook.php?width=156&height=206&image=<!--{if $item.imgurl != ''}--><!--{$item.imgurl}--><!--{else}--><!--{/if}-->" style="width:136px; height:206px;border:1px solid #cccccc; padding:2px;" /></a>
+							<div  style="margin-left: 150px;width:auto;line-height:23px;"><!-- {$item.imgurl}-->
+								<div style="height:25px;">
+									<span class="lf f4 b"><a href="/appstore/book-intro.html?bid=<!--{$item.bookid}-->" onclick="gotopage(this); return false;"><!--{$item.book}--></a></span>												
+								</div>
+								<div style="height:23px;">
+									<span class="lf f4 ">作者：</span>
+									<span class="lf f2"><a href="/appstore/author.html?aid=<!--{$item.authorid}-->" onclick="gotopage(this); return false;"><!--{$item.author}--></a></span>
+								</div>
+								<div style="height:23px;">
+									<span class="lf f4">分类：</span>
+									<span class="lf f2"><!--{$item.catalog}--></span>
+								</div>
+								<!--<div style="height:23px;">
+									<span class="lf f4">字数：</span>
+									<span class="lf f2" style="width:80px;"><!--{$item.wordnum|sizebook}-->字</span>
+									<span class="lf f4">大小：</span>
+									<span class="lf f2"><!--{$item.size|sizetext}--></span>
+								</div>-->
+								<div style="height:23px;">
+									<span class="lf f4">格式：</span>
+									<span class="lf f2" style="width:80px;"><!--{$item.format}--></span>
+									<!--<span class="lf f4">下载次数：</span>
+									<span class="lf f2"><!--{if $item.download}--><!--{$item.download}--><!--{else}-->0<!--{/if}-->次</span>-->
+								</div>
+								<div style="height:23px;">
+									<span class="lf f4">上架时间：</span>
+									<span class="lf f2"><!--{$item.date}--></span>
+								</div>
+								<div style="height:23px;">
+									<span class="lf f4">评级：</span>
+									<div class="lf re">
+										<div class="lf" style="width:80px; height:15px; background:url(<!--{#img1#}-->/resources/img/star.png) repeat-x left center;"></div>
+										<div class="ab" style="right:0px;width:<!--{math equation='(x*(50-y)/z)' x=80 y=$item.grade|default:50 z=50}-->px; height:15px; background:url(<!--{#img2#}-->/resources/img/star_gray.png) repeat-x right center;"></div>
+									</div>
+								</div>
+								<div style="height:23px;">
+									<span class="lf f4">价格：</span>
+									<!-- <span class="lf f2 <!--{if $item.price}-->c4<!--{/if}-->"  style="width:80px;"><!--{if $item.price}--><!--{math equation='(x/100)' x=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}--></span> -->
+									<span class="lf f2"  style="width:80px;">免费</span>
+								</div>
+								<div style="height:23px;">
+									<!-- <a id="<!--{$item.bookid}-->" href="<!--{$item.downloadurl}-->&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_SEARCH}-->&seatype=<!--{$smarty.request.seatype}-->&keyword=<!--{$keyword}-->"  type="5" price="<!--{math equation='(x)/100' x=$item.price|default:0 }-->" servicefee="0" title="<!--{$item.book}-->" class="lf <!--{if $item.price}-->addcart<!--{else}-->downinit<!--{/if}-->"  onclick="return false;"><img src="<!--{$assign.tp.TP_RES_URL}--><!--{if $item.price}-->resources/img40/buy_normal.png <!--{else}-->resources/img/btn_download_middle.png<!--{/if}-->" class="png_bg" border="0"></a> -->
+									<a id="<!--{$item.bookid}-->" href="<!--{$item.downloadurl}-->&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_SEARCH}-->&seatype=<!--{$smarty.request.seatype}-->&keyword=<!--{$keyword}-->"  type="5" price="<!--{math equation='(x)/100' x=$item.price|default:0 }-->" servicefee="0" title="<!--{$item.book}-->" class="lf downinit"  onclick="return false;"><img src="<!--{$assign.tp.TP_RES_URL}-->resources/img/btn_download_middle.png" class="png_bg" border="0"></a>
+								</div>				
+							</div>	
+							<div class="cl"></div>					
+						</div>
+						<!--{/foreach}-->
+				</div></div>
+				<!--{include file="wgt-paging.tpl" page=$booklist.page}-->
+			</td></tr></table>	
+		</div>
+	</div>
+</div>	
+<!--{/if}-->

@@ -1,0 +1,57 @@
+[
+{
+	"id":"141538",
+	"title":"捕鱼达人",
+	"url":"http://od.appdear.com/soft/android/20120604/appdear_49763_android.apk?package=2",
+	"appid":"org.cocos2dx.FishGame",
+	"versioncode":"50",
+	"version":"v1.7",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"239081",
+	"title":"博雅斗地主",
+	"url":"http://od.appdear.com/soft/android/20120928/appdear_73652_android.apk?package=2",
+	"appid":"com.boyaa.lordland.sina",
+	"versioncode":"14",
+	"version":"v3.0",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"235988",
+	"title":"地下城英雄-暗黑王朝",
+	"url":"http://od.appdear.com/soft/android/20120508/appdear_23883_android.apk?package=2",
+	"appid":"com.julian.game.dkiii",
+	"versioncode":"1",
+	"version":"v1.0",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"294432",
+	"title":"黄金大劫案 ",
+	"url":"http://od.appdear.com/soft/android/20120730/appdear_98079_android.apk?package=2",
+	"appid":"com.begamer.android.goldwar",
+	"versioncode":"1",
+	"version":"v1.0",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"10016",
+	"title":"塔读文学",
+	"url":"http://od.appdear.com/soft/android/20120928/appdear_90436_android.apk?package=1",
+	"appid":"com.tadu.android",
+	"versioncode":"21",
+	"version":"v6.2.37.1524",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+}
+]

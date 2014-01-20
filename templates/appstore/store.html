@@ -1,0 +1,115 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content">
+	<div class="wrap">
+		<div class="contentside">
+			<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+		</div>
+		<div class="scroll">
+			<div class="sright">
+				<!--{include file="dxsoft/downloadrank.tpl" isbiz=1}-->
+			</div>
+			<div class="sleft">
+				
+				<div id="catebar" class="clear" style="overflow:hidden">
+					<!--{include file="dxsoft/catebar-soft.tpl"}-->
+					<!--{include file="dxsoft/catebar-game.tpl"}-->
+				</div>
+				
+				<div id="softlist" class="clear">
+					<div class="tc downall"><a href="#null">下载全部</a></div>
+					<!--{feed int=AP_INT_RECOMMEND num=18 ret='recommend' page=$smarty.get.pageno|default:1}-->
+					<!--{foreach key=key item=item from=$recommend.data name="recommendlisteach"}-->
+					<dl>
+						<dt>
+							<ul>
+								<li class="imgcover"><a href="/appstore/soft.html?softid=<!--{$item.fileId|default:"未知"}-->&pid=<!--{$item.subId|default:0}-->&phonetype=<!--{$smarty.get.phonetype}-->">
+									<img src="<!--{$item.icon}-->" width="68" height="68">
+								</a>
+								<div class="icon_coins">1</div></li>
+								<li><a href="/appstore/soft.html?softid=<!--{$item.fileId|default:1000}-->&pid=<!--{$item.subId|default:0}-->&phonetype=<!--{$smarty.get.phonetype}-->"><!--{$item.name|default:"未知"|strip_tags|truncate_utf8_string:8:"...":true}--></a></li>
+								<li class="gray"><!--{if $item.size}--><!--{$item.size|sizetext}--><!--{else}-->0MB<!--{/if}--></li>
+								<li><div class="down f_l"><a id="<!--{$item.fileId}-->" businesstype="1" isbiz="1" href="<!--{$item.path}-->&isbiz=1" installlocate="1" appid="<!--{$item.packageName}-->"  versioncode="<!--{$item.versionCode}-->"  version="<!--{$item.versionName}-->" title="<!--{$item.name}-->" star="<!--{$item.star}-->" type="1" goldcoins="1" class="change downinit newpage"  onclick="return false;"></a></div></li>
+							</ul>
+						</dt>
+						<dd class="gray"><!--{$item.productDesc|default:"没有内容"|strip_tags|truncate_utf8_string:30:"...":true}--></dd>
+					</dl>
+					<!--{/foreach}-->
+				</div>
+				
+				<!--{include file=wgt-paging.tpl page=$recommend.totalNum}-->
+				
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+	$(".downall a").click(function(){
+		if (this.disabled == true || $(this).hasClass('disabled')) { return false; }
+		if (checkphone() == false) { return false; }
+		if (checkdiskbuyanddown() == false) { return false; }
+		$('#colorbox').css({'width':'600px','height':'200px'});
+		$('#colorbox').html('<div id="cboxWrapper" style="width: 600px; height: 200px; "><div><div id="cboxTopLeft" style="float: left; "></div><div id="cboxTopCenter" style="float: left; width: 600px; "></div><div id="cboxTopRight" style="float: left; "></div></div><div style="clear: left; "><div id="cboxMiddleLeft" style="float: left; height: 200px; "></div><div id="cboxContent" style="float: left; width: 600px; height: 180px; "><div id="cboxLoadedContent" style="width: 540px; overflow-x: hidden; overflow-y: hidden; height: 130px; "></div><div id="cboxLoadingOverlay" style="float: left; display: none; "></div><div id="cboxLoadingGraphic" style="float: left; display: none; "></div><div id="cboxTitle" style="float: left; display: block; "></div><div id="cboxCurrent" style="float: left; display: none; "></div><div id="cboxNext" style="float: left; display: none; "></div><div id="cboxPrevious" style="float: left; display: none; "></div><div id="cboxSlideshow" style="float: left; display: none; "></div><div id="cboxClose" style="float: left; "></div></div><div id="cboxMiddleRight" style="float: left; height: 180px; "></div></div><div style="clear: left; "><div id="cboxBottomLeft" style="float: left; "></div><div id="cboxBottomCenter" style="float: left; width: 600px; "></div><div id="cboxBottomRight" style="float: left; "></div></div></div>');
+		$('#cboxLoadedContent').html('<div class="tc">' + 
+			'<div class="progresshead"><p><span id="progresstit">正在处理您选中的文件，请等待</span></p></div>' +
+			'<div class="progressbar"><div id="progresswait" class="waiting"><div class="progressbg"></div></div></div>' +
+			'<table class="progressfoot fixwidth" style="width:100%;"><tr><td class="fixwidth"><span id="progressmsg"></span></td></tr></table>' +
+			'</div>');
+		cbWaiting('正在处理您选中的文件，请等待', function(box, msgEle, pointEle){
+			var objcontent = $(".downall").parent("div").find("ul");
+			var length = objcontent.length;
+			var length_down = objcontent.find("a.downinit").length;
+			var i = 0;
+			var downi = 0;
+			var undatacall = function() {
+				if(i > length){
+					$.floatingMessage('<span class="s addtodown"><span class="cblue">已添加' + downi + '</span>个应用到下载列表</span>', {
+						time: 3000,
+						align: "right",
+						verticalAlign: "bottom"
+					});
+					$.colorbox.close();
+					return;
+				}
+				if(objcontent.find("a.addcart").eq(i).length > 0){
+					if (objcontent.find("a.addcart").eq(i).attr("disabled") == 'disabled' || $(this).hasClass('disabled')) {
+					}else{
+						objcontent.find("a.addcart").eq(i).trigger("click");
+					}
+				}
+				if(objcontent.find("a.downinit").eq(i).length > 0){
+					if (objcontent.find("a.downinit").eq(i).attr("disabled") == 'disabled' || $(this).hasClass('disabled')) {
+					}else{
+						var id = objcontent.find("a.downinit").eq(i).attr("id");
+						var url = objcontent.find("a.downinit").eq(i).attr("href") + '&dt=da';
+						var title = objcontent.find("a.downinit").eq(i).attr("title");
+						var appid = objcontent.find("a.downinit").eq(i).attr("appid");
+						var installlocate = objcontent.find("a.downinit").eq(i).attr("installlocate");
+						var is_sc = objcontent.find("a.downinit").eq(i).attr("is_sc") || 0;
+						var businesstype = objcontent.find("a.downinit").eq(i).attr("businesstype") || 1;
+						var isbiz = objcontent.find("a.downinit").eq(i).attr("isbiz") || 0;
+						var dt = objcontent.find("a.downinit").eq(i).attr("dt") || 0;
+						var rows = {
+							id : id,
+							url : url,
+							name : title,
+							appid : appid,
+							installlocate : installlocate,
+							is_sc : is_sc,
+							businesstype : businesstype,
+							isbiz : isbiz,
+							dt:dt
+						};
+						addTask(rows, null, true);
+						downi++;
+					}
+				}
+				i++;
+				setTimeout(undatacall, 200);
+			}
+			undatacall();
+			return; 
+		});
+	});
+</script>

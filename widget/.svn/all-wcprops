@@ -1,0 +1,437 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/frontend/!svn/ver/12825/code/aipisoft_pc_server2/trunk/widget
+END
+codesingerlist.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/codesingerlist.html
+END
+wgt-sort.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/frontend/!svn/ver/11109/code/aipisoft_pc_server2/trunk/widget/wgt-sort.tpl
+END
+wgt-singer-top-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-singer-top-list.tpl
+END
+wgt-themecat-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/frontend/!svn/ver/9692/code/aipisoft_pc_server2/trunk/widget/wgt-themecat-list.tpl
+END
+d_toolbar.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/d_toolbar.tpl
+END
+wgt-video-detail.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/frontend/!svn/ver/8380/code/aipisoft_pc_server2/trunk/widget/wgt-video-detail.tpl
+END
+wgt-navs.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-navs.tpl
+END
+wgt-themesoft-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/frontend/!svn/ver/11688/code/aipisoft_pc_server2/trunk/widget/wgt-themesoft-list.tpl
+END
+wgt-music-column.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/frontend/!svn/ver/8160/code/aipisoft_pc_server2/trunk/widget/wgt-music-column.tpl
+END
+wgt-theme-soft-detail.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/frontend/!svn/ver/12685/code/aipisoft_pc_server2/trunk/widget/wgt-theme-soft-detail.tpl
+END
+wgt-search-theme-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/frontend/!svn/ver/10225/code/aipisoft_pc_server2/trunk/widget/wgt-search-theme-list.tpl
+END
+wgt-book-index-rec-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-book-index-rec-list.tpl
+END
+wgt-download-top-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/frontend/!svn/ver/10437/code/aipisoft_pc_server2/trunk/widget/wgt-download-top-list.tpl
+END
+wgt-music-top-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/frontend/!svn/ver/10113/code/aipisoft_pc_server2/trunk/widget/wgt-music-top-list.tpl
+END
+wgt-book-top-list-new.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/frontend/!svn/ver/12868/code/aipisoft_pc_server2/trunk/widget/wgt-book-top-list-new.tpl
+END
+wgt-book-detail.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/frontend/!svn/ver/8380/code/aipisoft_pc_server2/trunk/widget/wgt-book-detail.tpl
+END
+wgt-singer-musiclist.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-singer-musiclist.tpl
+END
+wgt-box-top-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-box-top-list.tpl
+END
+wgt-music-index-song-top-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-music-index-song-top-list.tpl
+END
+wgt-book-top-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/frontend/!svn/ver/9785/code/aipisoft_pc_server2/trunk/widget/wgt-book-top-list.tpl
+END
+wgt-column-book-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-column-book-list.html
+END
+wgt-download-board-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/frontend/!svn/ver/10469/code/aipisoft_pc_server2/trunk/widget/wgt-download-board-list.tpl
+END
+wgt-download-theme-board-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/frontend/!svn/ver/10437/code/aipisoft_pc_server2/trunk/widget/wgt-download-theme-board-list.tpl
+END
+wgt-album-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-album-list.tpl
+END
+wgt-theme-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-theme-list.tpl
+END
+wgt-toolbar-download-install.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/widget/wgt-toolbar-download-install.tpl
+END
+wgt-game-download-board-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/frontend/!svn/ver/10469/code/aipisoft_pc_server2/trunk/widget/wgt-game-download-board-list.tpl
+END
+wgt-song-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/frontend/!svn/ver/8380/code/aipisoft_pc_server2/trunk/widget/wgt-song-list.tpl
+END
+wgt-search-video-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-search-video-list.tpl
+END
+wgt-navs-file.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-navs-file.tpl
+END
+connect_stat.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/frontend/!svn/ver/9245/code/aipisoft_pc_server2/trunk/widget/connect_stat.tpl
+END
+wgt-book-cat-show-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/frontend/!svn/ver/12868/code/aipisoft_pc_server2/trunk/widget/wgt-book-cat-show-list.tpl
+END
+wgt-singer-detail.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-singer-detail.tpl
+END
+wgt-shop-game-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/frontend/!svn/ver/10501/code/aipisoft_pc_server2/trunk/widget/wgt-shop-game-list.tpl
+END
+wgt-app-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/frontend/!svn/ver/11748/code/aipisoft_pc_server2/trunk/widget/wgt-app-list.tpl
+END
+wgt-song-sort.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-song-sort.tpl
+END
+wgt-shop-soft-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/frontend/!svn/ver/10501/code/aipisoft_pc_server2/trunk/widget/wgt-shop-soft-list.tpl
+END
+wgt-menu-cat-soft-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/frontend/!svn/ver/10057/code/aipisoft_pc_server2/trunk/widget/wgt-menu-cat-soft-list.tpl
+END
+wgt-search-music-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/frontend/!svn/ver/10449/code/aipisoft_pc_server2/trunk/widget/wgt-search-music-list.tpl
+END
+wgt-login-box.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/frontend/!svn/ver/8154/code/aipisoft_pc_server2/trunk/widget/wgt-login-box.tpl
+END
+wgt-get-account-box.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-get-account-box.tpl
+END
+wgt-slide.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/frontend/!svn/ver/8380/code/aipisoft_pc_server2/trunk/widget/wgt-slide.tpl
+END
+wgt-book-catlist-location.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-book-catlist-location.tpl
+END
+wgt-hot-music-column.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/frontend/!svn/ver/10114/code/aipisoft_pc_server2/trunk/widget/wgt-hot-music-column.tpl
+END
+wgt-book-intro-rec-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/frontend/!svn/ver/8380/code/aipisoft_pc_server2/trunk/widget/wgt-book-intro-rec-list.tpl
+END
+wgt-column-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-column-list.tpl
+END
+wgt-game-detail.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/frontend/!svn/ver/12685/code/aipisoft_pc_server2/trunk/widget/wgt-game-detail.tpl
+END
+wgt-book-package-show-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/frontend/!svn/ver/9792/code/aipisoft_pc_server2/trunk/widget/wgt-book-package-show-list.tpl
+END
+wgt-soft-detail.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/frontend/!svn/ver/12685/code/aipisoft_pc_server2/trunk/widget/wgt-soft-detail.tpl
+END
+wgt-shop-themesoft-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/frontend/!svn/ver/10501/code/aipisoft_pc_server2/trunk/widget/wgt-shop-themesoft-list.tpl
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/.htaccess
+END
+wgt-toolbar-download-uninstall.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/widget/wgt-toolbar-download-uninstall.tpl
+END
+wgt-video-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-video-list.tpl
+END
+wgt-game-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/11748/code/aipisoft_pc_server2/trunk/widget/wgt-game-list.tpl
+END
+frame_card.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/frontend/!svn/ver/10604/code/aipisoft_pc_server2/trunk/widget/frame_card.tpl
+END
+wgt-search-game-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/frontend/!svn/ver/11295/code/aipisoft_pc_server2/trunk/widget/wgt-search-game-list.tpl
+END
+wgt-search-soft-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/frontend/!svn/ver/11748/code/aipisoft_pc_server2/trunk/widget/wgt-search-soft-list.tpl
+END
+wgt-search-app-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/frontend/!svn/ver/10057/code/aipisoft_pc_server2/trunk/widget/wgt-search-app-list.tpl
+END
+wgt-navs-cat-soft-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/frontend/!svn/ver/10057/code/aipisoft_pc_server2/trunk/widget/wgt-navs-cat-soft-list.tpl
+END
+wgt-theme-detail.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/frontend/!svn/ver/8380/code/aipisoft_pc_server2/trunk/widget/wgt-theme-detail.tpl
+END
+wgt-author-detail.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/frontend/!svn/ver/8380/code/aipisoft_pc_server2/trunk/widget/wgt-author-detail.tpl
+END
+wgt-book-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/frontend/!svn/ver/9792/code/aipisoft_pc_server2/trunk/widget/wgt-book-list.tpl
+END
+wgt-book-cat-column-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-book-cat-column-list.tpl
+END
+wgt-paging.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/frontend/!svn/ver/10420/code/aipisoft_pc_server2/trunk/widget/wgt-paging.tpl
+END
+wgt-search-book-list.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/frontend/!svn/ver/12878/code/aipisoft_pc_server2/trunk/widget/wgt-search-book-list.tpl
+END
+wgt-book-index-columncat-booklist.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/frontend/!svn/ver/12868/code/aipisoft_pc_server2/trunk/widget/wgt-book-index-columncat-booklist.tpl
+END
+wgt-toolbar-download.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/frontend/!svn/ver/8416/code/aipisoft_pc_server2/trunk/widget/wgt-toolbar-download.tpl
+END
+wgt-hot-singer-column.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-hot-singer-column.tpl
+END
+bread_cate.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/frontend/!svn/ver/11373/code/aipisoft_pc_server2/trunk/widget/bread_cate.tpl
+END
+wgt-navs-download.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-navs-download.tpl
+END
+wgt-book-index-rec-columncat-booklist.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-book-index-rec-columncat-booklist.tpl
+END
+wgt-book-sort.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/widget/wgt-book-sort.tpl
+END

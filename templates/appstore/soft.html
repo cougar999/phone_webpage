@@ -1,0 +1,75 @@
+<!--{feed int=AP_INT_SOFTDETAIL  pId=$smarty.get.pid|default:0 fileId=$smarty.get.softid ret='softdetail'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	
+	<div class="scroll">
+	<div class="right">
+		<div id="softside">
+			<ul class="softcons">
+				<li>分　类：<!--{$softdetail.data.category}--></li>
+				<li>更　新：<!--{$softdetail.data.createTime/1000|date_format:"%Y-%m-%d"}--></li>
+				<li>下　载：<!--{$softdetail.data.downloadCount}-->次</li>
+				<!-- <li>系　统：andriod2.0以上</li>
+				<li>开发商：北京完成</li> -->
+				<li>大　小：<!--{$softdetail.data.size|sizetext}--></li>
+				<!-- <li>语　言：<!--{$softdetail.data.size|sizetext}--></li> -->
+			</ul>
+			
+			<!--{include file="dxsoft/guessulike.tpl"}-->
+		</div>
+	</div>
+	<div class="center">
+		<div class="section">
+				<div id="softinfos">
+					<dl class="clear" style="overflow: hidden">
+						<dt>
+							<p class="softimg"><img src="<!--{$softdetail.data.icon|default:""}-->" width="70" height="70"></p>
+							<p>
+							<a id="<!--{$item.fileId}-->" businesstype="1" isbiz="1" href="<!--{$softdetail.data.path}-->" installlocate="1" appid="<!--{$item.packageName}-->"  versioncode="<!--{$item.versionCode}-->"  version="<!--{$item.versionName}-->" title="<!--{$item.name}-->" star="<!--{$item.star}-->" type="1" goldcoins="1" class="change downinit newpage" onclick="return false;"><img src="/resources/imgs/btn_down_middle_normal.png" /></a>
+							</p>
+						</dt>
+						<dd style="width: 80%">
+							<p>
+								<strong><!--{$softdetail.data.name|default:""}--></strong>
+								<!--{$softdetail.data.version|default:""}-->
+							</p>
+							<p class="gray"><!--{$softdetail.data.productDesc|default:""}--></p>
+						</dd>
+					</dl>
+					
+					<div id="softfocus">
+						<div id="pic_focus_cont">
+							<div id="pic_focus">
+									<div id="slideimgbar" class="slideimgbar"></div>
+									<ul class="slideimglist">
+										<!--{foreach key=key item=item from=$softdetail.data.previewMap name=imglist}-->
+										<li id="photo-<!--{$smarty.foreach.imglist.iteration}-->" class="dl_line" style="background:url(/resources/img40/loading_trans_small.gif) no-repeat center center;">
+											<img src="<!--{$item}-->&width=120&height=240" width="240" />
+										</li>
+										<!--{/foreach}-->
+									</ul>
+							</div>
+							<div id="pic_btns">
+							<a class="last"></a>
+							<span class="center_dot"></span>
+							<a class="next"></a>
+							</div>
+							<script>
+								$(document).ready(function(){
+									$("#pic_focus").slideimg({gostart_on:false,imgshow_num:3,hdCallBack:function(){
+									}});
+								});
+							</script>
+						</div>
+					</div>
+					
+				</div>
+				
+				
+		</div>	
+	</div>
+	</div>
+</div></div>

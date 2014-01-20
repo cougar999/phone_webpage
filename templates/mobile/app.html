@@ -1,0 +1,66 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-app-manager.tpl"}-->
+	</div>
+	<div class="scroll">
+	<div class="loadings">
+		<div class="progressbar"><div id="progresswait" class="waiting"><div class="progressbg"></div></div></div>
+		正在读取应用，请稍候...
+	</div>
+	<script id="applistTemplate" type="text/x-jquery-tmpl">
+		<tr id="appitem-${uid}" rel="${uid}" appsize="${size}">
+			<td class="tc"><input type="checkbox" class="checkbox" value="${name}||${uid}||{{if system}}${system}{{else}}0{{/if}}||issd=${issd}" id="${uid}"/><label for="${uid}"></label></td>
+			<td class="tc">{{if index}}${index}{{/if}}</td>
+			<td class="tc"><img src="<!--{#img5#}-->/resources/imgs/app.png" width="48" height="48" class="imgsurl" /></td>
+			<td>
+				{{if name}}${name}{{else}}未知应用{{/if}}<br />
+				<span class="f0 c9">{{if version}}v${version}{{else}}未知{{/if}}</span>
+				{{if system && system ==1}} &nbsp;&nbsp;<span class="f0 c2"> ROM内置 </span> {{/if}}
+			</td>
+			<td class="tc">
+					{{if issd==1 && system==2 }}
+						<div>SD卡</div>
+					{{else issd==0 && system==1 }}
+						<div>内存<br /></div>
+					{{else issd==0 && system==2}}
+						<div>内存 <br />
+					{{/if}}
+				</td>
+			<td class="tc">{{if size}}${size}{{else}}未知{{/if}}</td>
+			<td class="tc"><span index="${uid}" id="${value}" vendor="${vendor}" version="${version}" fileId="${fileId}" system="${system}" iscrack="${iscrack}" class="updatecheck" style="line-height:18px;"><!-- ${version} --></span></td>
+		</tr>
+	</script>
+	
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable2 fixwidth" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+		<col style="width:60px;"></col>
+		<col style="width:80px;"></col>
+		<col style="width:100px;"></col>
+		<col style="width:auto;"></col>
+		<col style="width:100px;"></col>
+		<col style="width:100px;"></col>
+		<col style="width:100px;"></col>
+		<thead>
+			<tr>
+			<th><input type="checkbox" class="selector checkbox" id="selectors" /><label for="selectors"></label></th>
+			<th class="tc">序号<span id="optdesc"></span></th>
+			<th>图标</th>
+			<th class="tl">名称 </th>
+			<th>安装位置</th>
+			<th>软件大小</th>
+			<th>更新</th>
+			</tr>
+		</thead>
+	<tbody id="applist">
+	
+	</tbody>
+	</table>
+	</div>
+</div></div>
+<script type="text/javascript">
+	dispAppList('#applist');
+	if (/jumpUrl/.test(location.href) == false) {
+		jumpUrl('phonemenu','application');
+	}
+</script>

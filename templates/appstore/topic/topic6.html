@@ -1,0 +1,214 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>我爱漂移和急速飞奔 安卓赛车游戏合集</h2>
+					<div class="evaDetail">
+						<blockquote>
+							一直以来，不管在什么平台，竞速赛车游戏一直是最火爆的一类游戏。这里是速度与激情的世界，你可以驾驶各种豪车跑车肆意驰骋，也可以在繁华的都市躲避警车的追逐，还可以在美轮美奂的风景圣地与对手竞速，更可以在各种高难度的跑道上体验惊险刺激的漂移。这次我们为大家汇集了安卓平台的一些劲爆给力的竞速赛车游戏，喜欢的机油可不要错过哦！
+						</blockquote>
+						<div class="topiclist clear">
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120711/appdear_679618_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="140703" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120627/appdear_648582_0627_h.apk?rsid=1001378&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.gameloft.android.ANMP.GloftAsphalt5.asphalt5" versioncode="337" version="v3.3.7" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="都市赛车 5"></a></p>
+								</dt>
+								<dd>
+									<p>都市赛车5 Asphalt5</p>
+									<p>都市赛车5（Asphalt5）是Android平台一款经典的赛车游戏。万众期待的大作Asphalt 5终于登上android平台了,让我们再次领略到这一系列赛车…</p>
+									<p>大小：3.38MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_208700_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="160254" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120927/appdear_831278_0927_h.apk?rsid=1021045&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.nexon.kartriderrush.android.olleh" versioncode="3000018" version="v3.1.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="跑跑卡丁车 解锁版"></a></p>
+								</dt>
+								<dd>
+									<p>跑跑卡丁车 KartRider Rush</p>
+									<p>跑跑卡丁车安卓版（韩文名：카트라이더 러쉬）是由韩国 Nexon 公司制作的热门休闲竞速安卓网游，如今已正式登陆 Android 平台。该游戏…</p>
+									<p>大小：59.36MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_64362_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="367270" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121212/appdear_64362_1212_b.apk?rsid=1267342&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.ea.game.realracing2_OTD_na" versioncode="1123" version="v000871" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="真实赛车2 Real Racing 2"></a></p>
+								</dt>
+								<dd>
+									<p>真实赛车2 Real Racing 2</p>
+									<p>真实赛车2（Real Racing 2）是Android平台一款经典的赛车游戏。回顾之前的[真实赛车]，虽然有些瑕疵，但这款游戏还是可以称之为无敌…</p>
+									<p>大小：2.58MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120514/appdear_262706_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="160210" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121118/appdear_620409_1118_m.apk?rsid=1021001&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.gameloft.android.GAND.GloftF5HP.ML" versioncode="109" version="v1.0.9" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="速度与激情5"></a></p>
+								</dt>
+								<dd>
+									<p>速度与激情5通用版 Fast&Furious Five HD</p>
+									<p>在速度与激情5 Fast&Furious Five HD中，玩家将扮演Brian O'Conner，驾驶着自己的爱车，在里约热内卢、多米尼加以及香港等等…</p>
+									<p>大小：3.90MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120702/appdear_58851_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="293126" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121210/appdear_88425_1210_b.apk?rsid=1194932&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.gameloft.android.ANMP.GloftA7HM" versioncode="1040" version="v1.0.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="狂野飙车7"></a></p>
+								</dt>
+								<dd>
+									<p>狂野飙车7：热度 Asphalt 7: Heat</p>
+									<p>《狂野飙车7：热度 Asphalt 7: Heat》Gameloft精诚之作，2012年台当之无愧的竞速王者，大家翘首企盼的《Asphalt 7》从E3展载誉归来…</p>
+									<p>大小：10.61MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120420/appdear_95172_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="104891" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120420/appdear_79414_android.apk?rsid=104891&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.GOGN.EFAndroid" versioncode="10" version="v1.1.5" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="极限方程式"></a></p>
+								</dt>
+								<dd>
+									<p>极限方程式赛车 Extreme Formula</p>
+									<p>一款在线体育3D竞速的游戏，曾经在 iPhone上大受好评，现在终于登上了 Android 平台了！作为一款赛车游戏，极限竞速的操控感非常出色…</p>
+									<p>大小：49.91MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120225/appdear_191565_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166399" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121228/appdear_2351384436_1228_b.apk?rsid=1027190&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="Game.NDK" versioncode="24" version="v1.2.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="SpeedCar"></a></p>
+								</dt>
+								<dd>
+									<p>急速飙车 SpeedCar</p>
+									<p>急速飙车 SpeedCar是一款Android平台界面简单的赛车游戏，通过重力感应操作，虽然比不得大型豪华的赛车游戏，但是别有它的乐趣在其中。  …</p>
+									<p>大小：3.63MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121117/appdear_128696_icon_m.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="374474" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121117/appdear_128696_1117_m.apk?rsid=1274546&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.santi.asphalttys" versioncode="26" version="v3.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="都市赛车6极限漂移"></a></p>
+								</dt>
+								<dd>
+									<p>都市赛车6 Asphalt 6 Adrenaline HD</p>
+									<p>Gameloft拥有自己的游戏购买平台，只有很少几个游戏在官方电子市场上可供购买。现在 Gameloft 的赛车大作 狂野飙车6 Asphalt 6 登陆谷歌…</p>
+									<p>大小：2.23MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121119/appdear_216685_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="359176" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121112/appdear_396099_1112_g.apk?rsid=1259248&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.supermono.kkksnhbfjsb" versioncode="10111115" version="v1.05" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="永恒竞速"></a></p>
+								</dt>
+								<dd>
+									<p>永恒竞速Forever Drive</p>
+									<p>永恒竞速Forever Drive是一款超时空的赛车游戏，玩家需要奔驰于未来的三维华丽城市，提供一条无尽的赛道供你尽情飙车，和各地玩家展开竞技…</p>
+									<p>大小：29.04MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120805/appdear_322401_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="297467" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121114/appdear_56056_1114_b.apk?rsid=1199398&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.xlabtech.newATVMadness" versioncode="42" version="v2.32" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="疯狂沙滩摩托"></a></p>
+								</dt>
+								<dd>
+									<p>疯狂沙滩车 ATV Madness</p>
+									<p>一款移植自iOS平台的3D赛车游戏,你将驾驶一辆马力强劲的沙滩摩托车进行各种比赛。游戏画面算比较精细的，赛车的物理特性仿真度也还不错…</p>
+									<p>大小：0.30MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_207025_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="146376" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121228/appdear_1101565845_1228_b.apk?rsid=1007166&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.invictus.roc" versioncode="14" version="v1.2.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="世界车王争霸赛"></a></p>
+								</dt>
+								<dd>
+									<p>世界车王争霸赛 Race of Champions</p>
+									<p>世界车王争霸赛（Race of Champions）是Android平台一款由ROC赛事官方出品的iOSAND安卓赛车游戏ROC（Race of Champions）</p>
+									<p>大小：13.95MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120401/appdear_480924_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="216584" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121201/appdear_2555992250_1201_b.apk?rsid=1116581&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.mobialia.slot" versioncode="112" version="v1.1.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="轨道赛车"></a></p>
+								</dt>
+								<dd>
+									<p>轨道赛车 Slot Racing</p>
+									<p>80年代至90年代很流行的轨道赛车，让你回忆起童年的趣味！ 用手指滑动加速和刹车，控制你的赛车沿着轨道奔驰…</p>
+									<p>大小：2.23MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121022/appdear_383852_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="335059" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121128/appdear_383852_1128_g.apk?rsid=1235128&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.terisa.cayesaic.tx" versioncode="121030" version="v1.2.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="尘埃越野赛车"></a></p>
+								</dt>
+								<dd>
+									<p>尘埃:越野赛车 Dust: Offroad Racing</p>
+									<p>尘埃:越野赛车（Dust: Offroad Racing）是Android平台一款免费的越野赛车类的游戏，拥有较为华丽的游戏图形界面和效果…</p>
+									<p>大小：47.84MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_51440_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166469" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120219/appdear_51440_g.apk?rsid=1027260&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.gameloft.android.TBFV.GloftSKHP.ML" versioncode="316" version="v3.1.6" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="史莱克卡丁车"></a></p>
+								</dt>
+								<dd>
+									<p>史莱克卡丁车</p>
+									<p>游戏简介 梦工厂和Gameloft合作将旗下的知名动画《怪物史瑞克》制作成了一款3D赛车游戏，现在正式在Android平台发布了…</p>
+									<p>大小：1.70MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121121/appdear_223669_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="385747" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121121/appdear_221055_1121_b.apk?rsid=1285819&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.arbstudios.tikikartfreeoksysq" versioncode="11" version="v2.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="提基卡丁车"></a></p>
+								</dt>
+								<dd>
+									<p>提基卡丁车完整版 Tiki Kart 3D Complete</p>
+									<p>提基卡丁车(Tiki Kart 3D Complete)是一款画面还不错的卡丁车类的游戏。在这款游戏中，Tiki（提基）将会驾驶一辆横冲…</p>
+									<p>大小：18.20MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_194766_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="368169" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121114/appdear_194766_1114_b.apk?rsid=1268241&topicid=006&topicname=赛车游戏合集" installlocate="0" appid="com.xlabtech.kkdjvbjdsfbvf" versioncode="22" version="v1.22" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="NOS汽车挑战赛【有广告】"></a></p>
+								</dt>
+								<dd>
+									<p>NOS汽车挑战 N.O.S. Car Speedrace</p>
+									<p>NOS汽车挑战 N.O.S. Car Speedrace是一款Android平台界面相当逼真的一款赛车游戏，该游戏拥有精细的物理效果…</p>
+									<p>大小：0.33MB</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

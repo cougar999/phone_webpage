@@ -1,0 +1,9 @@
+<!--{config_load file="smarty.conf"}-->
+<div style="width:550px;height:400px;overflow:hidden;position:absolute;top:0;left:0;">
+	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0" width="550" height="400" id="myMovieName"> 
+	<param name=movie value="/resources/ad/howtogetcoins.swf"> 
+	<param name=quality value=high> 
+	<param name=bgcolor value=#ffffff> 
+	<embed src="/resources/ad/howtogetcoins.swf" quality=high bgcolor=#ffffff width="550" height="400"	name="myMovieName" type="application/x-shockwave-flash" puginspage="http://www.macromedia.com/go/getflashplayer"></embed> 
+	</object>
+</div>

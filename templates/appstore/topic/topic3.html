@@ -1,0 +1,247 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>总是让人无法自拔 养成经营类精品游戏推荐</h2>
+					<div class="evaDetail">
+						<blockquote>
+							要说哪一类游戏粘性最大，绝对非养成经营类游戏莫属，此类游戏有着巨大的魔力，独特的游戏模式，让人玩起来欲罢不能。游戏总能够满足不同人对不同人生的追求,让大家实实在在的体验一回跟自己完全不一样的人生。在游戏中，你可以开个餐厅，自己做老板，制作各种美食；也可以开个旅馆，用各种方式招揽顾客，财源滚滚；还可以开个工厂，制造贩售商品，赚取利润。现在让我们来看看那些总是让我们玩到深夜还不肯睡的精品游戏…
+						</blockquote>
+						<div class="topiclist clear">
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121111/appdear_33849_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="354893" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121226/appdear_33849_1226_b.apk?rsid=1254965&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.bringmore.bouken" versioncode="391" version="v3.9.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="冒险迷宫村(中文版)"></a></p>
+								</dt>
+								<dd>
+									<p>冒险迷宫村汉化版</p>
+									<p>平台来打造一个生活着战士和商人们的小镇吧！这是一款在奇幻RPG世界中打造小镇的游戏。村中居住的冒险者打败怪物会得到相应的奖励，完成探索迷宫和讨伐怪物军团的任务后还会得到强力装备和物品…</p>
+									<p>大小：5.13MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120830/appdear_39830_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="140614" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130108/appdear_1654220960_0108_b.apk?rsid=1001289&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.nubee.japanlife" versioncode="50" version="v1.5.2.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="和风物语"></a></p>
+								</dt>
+								<dd>
+									<p>和风物语 Japan Life</p>
+									<p>和风物语 Japan Life是平台一款养成经营游戏。打造最漂亮如梦幻般的旅游目的地! 远离尘嚣,让旅客们沉浸在美丽典雅的和式风景中,拥有难忘的旅程。 。 。 您的旅游城市是否可媲美京都的古城…</p>
+									<p>大小：46.81MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_118748_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="295358" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121220/appdear_712696_1220_m.apk?rsid=1197283&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="air.com.tencent.qqfarmios" versioncode="2011000" version="v2.11" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="QQ农场"></a></p>
+								</dt>
+								<dd>
+									<p>QQ农场 QQfarm</p>
+									<p>QQ农场 QQfarm是平台一款由腾讯年度巨献最火热的模拟经营类游戏QQ农场2.0 for Android全新背景、更流畅的操作体验,多手势的操作方法,让你不断挖掘,会得到所意想不到的乐趣</p>
+									<p>大小：41.45MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121213/appdear_267290_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="425483" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121213/appdear_267290_1213_b.apk?rsid=1325559&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.kkkdhbchdsfvdvh.android.islandyjl" versioncode="778134" version="v1.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="天堂岛完美(汉化版)"></a></p>
+								</dt>
+								<dd>
+									<p>天堂岛 Paradise Island</p>
+									<p>天堂岛（Paradise Island）是一款Android平台充满了阳光和海水的地方，你所有的游客终极的向往之地，也是你的机遇之地。在这里，你需要发展自己的商业帝国，来满足游客…</p>
+									<p>大小：29.87MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_201391_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="371157" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121204/appdear_201391_1204_b.apk?rsid=1271229&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.risearmy.school2" versioncode="132" version="v1.3.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="名门口袋学院2(加强版)"></a></p>
+								</dt>
+								<dd>
+									<p>名门口袋学院2完全汉化版</p>
+									<p>开罗游戏名门口袋学院2是一款Android平台自己担任学校校长的游戏，通过游戏建立自己心目中如同主题公园一般的世界名校吧！'我也要去这样的学校！'梦想学校管理游戏…</p>
+									<p>大小：7.14MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_201388_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="371115" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121204/appdear_201388_1204_b.apk?rsid=1271187&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.risearmy.onsen" versioncode="136" version="v1.3.6" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="暖暖温泉乡(加强版)"></a></p>
+								</dt>
+								<dd>
+									<p>暖暖温泉乡汉化版 Hot Springs Story Lite</p>
+									<p>暖暖温泉乡汉化版（Hot Springs Story Lite）是Android平台一款从iOS平台上移植过来的模拟经营类游戏，其开发商为来自日本的Kairosoft…</p>
+									<p>大小：4.79MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20111229/appdear_187666_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="142351" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121114/appdear_1361015344_1114_b.apk?rsid=1003089&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.sq.vegas" versioncode="66" version="v1.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="激情拉斯维加斯"></a></p>
+								</dt>
+								<dd>
+									<p>疯狂的维加斯 Rock The Vegas</p>
+									<p>Rock The Vegas是一款经营模拟类的大作，这一次，你的发挥的场地搬到了美国西部赌城拉斯维加斯，在这里，你将会创造出自己的赌城…</p>
+									<p>大小：6.93MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121204/appdear_623757_icon_m.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="346617" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121023/appdear_1306208_1023_b.apk?rsid=1246686&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.yodo1.cloudsandsheep91" versioncode="19" version="v1.6.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="云和绵羊的故事"></a></p>
+								</dt>
+								<dd>
+									<p>云和绵羊 Clouds & Sheep</p>
+									<p>云和绵羊Clouds & Sheep是一款Android平台令人着迷的模拟经营类游戏，玩家需要在游戏中照顾好羊群。如果你让小羊们吃饱……</p>
+									<p>大小：29.27MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120812/appdear_204895_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="203384" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121229/appdear_2322781856_1229_b.apk?rsid=1103379&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.camelgames.fantasyland_cn" versioncode="62" version="v1.13.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="小小帝国"></a></p>
+								</dt>
+								<dd>
+									<p>小小帝国 Little Empire</p>
+									<p>《小小帝国》全新版本上线，更新内容：☆科技研究全新的科技研究所，全面提升士兵能力，挑战副本更加轻松…</p>
+									<p>大小：16.9MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110915/gj/41599/41599_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="140697" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130121/appdear_4050024911_0121_b.apk?rsid=1001372&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.capcom.smurfsandroid" versioncode="31" version="vSmurfsAndroid 1.2.0a" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="蓝精灵村庄"></a></p>
+								</dt>
+								<dd>
+									<p>蓝精灵村庄 Smurfs' Village</p>
+									<p>在这款《Smurfs' Village》中，Gargamel(格格巫)找到了蓝精灵们的村落并且还大肆进行了一番破坏，而蓝精灵……</p>
+									<p>大小：46.37MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_199750_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="371336" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121114/appdear_199750_1114_b.apk?rsid=1271408&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.gamefang.village" versioncode="48" version="v1.15.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="小村庄【有广告】"></a></p>
+								</dt>
+								<dd>
+									<p>小小村庄 Tiny Village</p>
+									<p>小小村庄（Tiny Village）是Android平台一款模拟经营的游戏。在史前部落建立属于你自己的村庄，你需要…</p>
+									<p>大小：34.92MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120401/appdear_502281_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="216698" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130108/appdear_1187608215_0108_b.apk?rsid=1116695&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.gameinsight.myrailway" versioncode="105" version="v1.1.21" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="我的铁路"></a></p>
+								</dt>
+								<dd>
+									<p>我的铁路 My Railway</p>
+									<p>任何人都会怀念童年的最爱 火车模型！躺在铁轨连接城市，雇佣你的朋友作为工程师，掌握工厂车间 …</p>
+									<p>大小：24.13MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_33600_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="371126" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121229/appdear_33600_1229_b.apk?rsid=1271198&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.bringmore.soccer" versioncode="140" version="v1.4.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="冠军足球物语"></a></p>
+								</dt>
+								<dd>
+									<p>冠军足球物语汉化版</p>
+									<p>足球物语是kairosoft继暖暖温泉乡和方程式大奖赛后的又一力作，游戏通过收购和培养球员来…</p>
+									<p>大小：5.16MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121031/appdear_1494526_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="223598" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121221/appdear_3282685045_1221_b.apk?rsid=1123605&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.bringmore.smallstreet" versioncode="137" version="v1.3.7" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="口袋商业街 中文版"></a></p>
+								</dt>
+								<dd>
+									<p>口袋商业街 SMALL STREET</p>
+									<p>海风椰树、碧空白云，阳光照耀下的口袋商业街开市了！快来增建商店、餐馆、SPA、医院和公寓…</p>
+									<p>大小：19.96MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_177566_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="140687" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121023/appdear_451156_1023_b.apk?rsid=1001362&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.elex.quefly.animalnations" versioncode="36" version="v1.8.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="自由小镇"></a></p>
+								</dt>
+								<dd>
+									<p>自由小镇 VIVA Town</p>
+									<p>VIVA Town(自由小镇)是Android平台一款模拟经营类的游戏，在这款游戏中，你需要创建自己的小镇…</p>
+									<p>大小：14.09MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121119/appdear_103367_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="380030" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121119/appdear_103367_1119_b.apk?rsid=1280102&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.animoca.prettyPetSalonHD" versioncode="42" version="v1.43" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="开心宠物美容店(高清版)"></a></p>
+								</dt>
+								<dd>
+									<p>开心宠物美容店 Pretty Pet Salon</p>
+									<p>Pretty Pet Salon（开心宠物美容店）是Android平台一款从iOS平台上移植过来的模拟经营类的游戏…</p>
+									<p>大小：11.23MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_206647_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="236093" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130111/appdear_2080329735_0111_b.apk?rsid=1136065&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.YouXin.SunnyPuppies" versioncode="1026" version="v1.0.26" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="SunnyPuppies"></a></p>
+								</dt>
+								<dd>
+									<p>晴天小狗 SunnyPuppies</p>
+									<p>完美与跨平台玩家一起遛狗互动,最时尚的社交游戏 支持中国原创团队,大家别忘了给个5星评价…</p>
+									<p>大小：32.74MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121119/appdear_219276_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="380058" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121128/appdear_645615_1128_m.apk?rsid=1280130&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.iammmba.gamedev3" versioncode="4" version="v1.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="游戏发展国(中文版)"></a></p>
+								</dt>
+								<dd>
+									<p>游戏发展国汉化版 Game Dev Story</p>
+									<p>一款经营类的小游戏,刚看到他的时候有种耳目一新的感觉,游戏中你将经营一家游戏公司…</p>
+									<p>大小：5.58MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_33811_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="240184" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120514/appdear_260210_0514_g.apk?rsid=1140175&topicid=003&topicname=养成经营类精品游戏推荐" installlocate="0" appid="com.pooterman.depart_ja" versioncode="57" version="v3.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="百货商店日记【中文完美版】"></a></p>
+								</dt>
+								<dd>
+									<p>百货商店的故事汉化版 Mega Mall Story</p>
+									<p>Kairosoft像素风系列作之一，秉承其一贯的严谨结构，包含规划、经营、扩张等…</p>
+									<p>大小：4.12MB</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

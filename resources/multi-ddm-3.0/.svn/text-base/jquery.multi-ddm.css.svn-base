@@ -1,0 +1,159 @@
+/**
+ * Multi Level Drop Down Menu 3.0 - CSS Temp
+ * April 17, 2010
+ * Corey Hart @ http://www.codenothing.com
+ */ 
+
+.multi-ddm {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.multi-ddm li {
+	float: left;
+	margin: 0px;
+}
+
+.multi-ddm li li {
+	float: none;
+}
+
+.multi-ddm li a {
+	display: block;
+	/*width: 100px;*/
+	text-align:center;
+	/*padding-top: 5px;*/ 
+	/*padding-bottom: 5px;*/
+	padding: 0px 10px;
+	/*text-decoration: none;*/
+	/*color: #232323;*/
+	color:#ffffff;
+	/*font-weight: bold;*/
+	/*background-color: #f1f1f1;*/
+	/*border: 1px solid #c5c5c5;*/
+}
+
+.multi-ddm li ul a {
+	width: 120px;
+	/*padding: 5px;*/ padding: 10px 10px;
+	/*border: 1px solid #545454;*/ border-left: 1px solid #888888; border-right: 1px solid #888888;
+	border-top: none;
+	color:black;
+	/*font-size: 10pt;*/
+	/*background-color: #c5c5c5;*/ background-color: white;font-size:14px;
+	text-align: left;
+}
+
+.multi-ddm li a.parent-hover {
+	/*background-color: #c5c5c5;*/
+	/*border-left: 1px solid #545454;*/ border-top: 1px solid #bbbbbb;
+	/* add by zhoufei 2011-05-09 */
+	/*box-shadow:2px 2px 9px #cfcfcf; -moz-box-shadow:2px 2px 9px #cfcfcf; -webkit-box-shadow:2px 2px 9px #cfcfcf; -box-shadow:4px 4px 15px #cfcfcf;
+	 */
+}
+
+.multi-ddm li ul {
+	display: none;
+	list-style: none;
+	position: absolute;
+	margin: 0;
+	z-index: 90;
+	padding: 0;
+	/* add by zhoufei 2011-05-09 */
+	/*margin-top:-1px;*/
+	margin-top:0px;
+	border-top: 1px solid #888888;
+	border-bottom: 1px solid #888888;
+	box-shadow:2px 2px 9px #cfcfcf; -moz-box-shadow:2px 2px 9px #cfcfcf; -webkit-box-shadow:2px 2px 9px #cfcfcf; -box-shadow:4px 4px 15px #cfcfcf;
+}
+
+.multi-ddm li ul li a.first {
+	border-top: 1px solid #eeeeee;
+}
+
+.multi-ddm li ul li a.child-hover1 {
+	 background-color: none;
+}
+
+.multi-ddm li ul li a.child-hover2 {
+	background-color: none;
+	color: none;
+}
+
+.multi-ddm li ul li a.child-hover3 {
+	background-color: none;
+	color: none;
+}
+
+.multi-ddm li ul li a.child-hover4 {
+	background-color: none;
+	color: none;
+}
+
+.multi-ddm li ul li ul {
+	margin: -26px 0 0 113px;
+	position: absolute;
+}
+
+.multi-ddm span {
+	float: right;
+}
+/*v40 change*/
+#searchform .multi-ddm {
+	background:url(/resources/img40/searchipt.png) no-repeat left top;
+	width:103px;
+	height:26px;
+	line-height:26px;
+	color:#1d5ba3;
+	font-size:12px;
+	font-family:Simsun;
+	font-weight:bold;
+}
+#searchform .multi-ddm:hover {
+background:url(/resources/img40/searchipt_hover.png) no-repeat left top;
+}
+#searchform .multi-ddm li {
+	width:100%;
+	text-align:left;
+}
+
+#searchform .multi-ddm li a {
+	color:#1d5ba3;
+	text-align:left;
+}
+.multi-ddm li a.parent-hover {
+	 border-top:none;
+	 position:relative;
+	 top:1px;
+	 left:1px;
+}
+.multi-ddm li ul a {
+	width:103px;
+	padding:5px 0 5px 10px;
+	font-size:12px;
+	border-left: 1px solid #25538b;
+	border-right: 1px solid #25538b;
+	border-top: none;
+	color:black;
+	background-color: white;
+	text-align:left;
+}
+#searchform .multi-ddm li ul a {
+	width:93px;
+	padding:0 0 0 10px;
+	font-size:12px;
+	border-left: 1px solid #25538b;
+	border-right: 1px solid #25538b;
+	border-top: none;
+	color:black;
+	background-color: white;
+	text-align:left;
+}
+#searchform .multi-ddm ul #sealist {
+	padding:0;
+	border-bottom: 1px solid #25538b;
+}
+.multi-ddm li ul a:hover {
+	background:#b5dff5;
+}

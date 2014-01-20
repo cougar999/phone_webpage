@@ -1,0 +1,79 @@
+<!--{config_load file="smarty.conf"}-->
+<!--{if $assign.resultcode=='000000'}-->
+<table width="100%" class="f2">
+	<tr height="60">
+		<td class="tr f4" width="100">
+			<img alt="" src="<!--{#res2#}-->/resources/img/icon_smile.png">
+		</td>
+		<td class="tl f4" style="padding-left:10px;">
+			<span class="b" style="color:#ef4f03">恭喜您，下载订单已成功生成！</span>
+		</td>
+	</tr>
+	<tr height="40">
+		<td width="100">
+		</td>
+		<td class="tl">
+			订单号：<!--{$assign.order.orderid}-->
+		</td>
+	</tr>
+	<tr height="40">
+		<td width="100">
+		</td>
+		<td class="tl">
+			文件数：<!--{$assign.count}-->个
+		</td>
+	</tr>
+	<tr height="40">
+		<td width="100">
+		</td>
+		<td class="tl">
+			付款金额：<!--{math equation='(x*y/100)' x=$assign.total_price|default:0 y=$assign.discount|default:0}-->元<!--（<!--{if $assign.discount==100}-->无折扣<!--{else}--><!--{$assign.discount}-->折<!--{/if}-->）-->
+		</td>
+	</tr>
+	<!--{if $assign.account_resultcode=='000000' and $assign.account_isok==1}-->
+	<tr height="40">
+		<td></td>
+		<td style="color:#ef4f03">您的手机已绑定下载卡，可免费下载</td>
+	</tr>
+	<!--{/if}-->
+	<tr height="40">
+		<td width="100">
+		</td>
+		<td class="tl"><input type="hidden" id="price" value="<!--{math equation='(x*y/100)' x=$assign.total_price|default:0 y=$assign.discount|default:0}-->" />
+		<!--{if $assign.account_resultcode=='000000' and $assign.account_isok==1}-->
+			<a href='/pay-success.html' onclick="$.colorbox({href:this.href, innerWidth:600, innerHeight:320, opacity:0, close:false});return false;" class="f2"><img alt="" src="<!--{#res3#}-->/resources/img/btn_download_start.png" border="0"></a>
+		<!--{else}-->
+			<a href='/payment.html?orderid=<!--{$assign.order.orderid}-->&price=<!--{math equation='x*y/100' x=$assign.total_price|default:0 y=$assign.discount|default:0}-->&token=<!--{$assign.order.token}-->' class="f2"><img alt="" src="<!--{#res3#}-->/resources/img/btn_payment.png" border="0"></a>
+		<!--{/if}-->
+		 <a href="#" id="cancel" onclick="$.colorbox.close();"><img src="<!--{#res2#}-->/resources/img/btn_cancel.jpg" border="0" /></a>
+		</td>
+	</tr>
+</table>
+<!--{else}-->
+<table width="100%" cellpadding="0" cellspacing="0" class="f2">
+	<tr height="40">
+
+		<td class="tl">
+			
+		</td>
+	</tr>
+	<tr height="60">
+
+		<td class="tc f4">
+			<span class="b" style="color:#ef4f03">很抱歉，下载订单生成失败，请检查重新生成！</span>
+		</td>
+	</tr>
+
+	<tr height="40">
+
+		<td class="tl">
+		</td>
+	</tr>
+	<tr height="40">
+
+		<td class="tc">
+		<a href='' class="f2" onclick=$.colorbox.close();parent.location.reload();return false;" style="cursor:pointer;"><img alt="" src="<!--{#res1#}-->/resources/img/btn_ok.png" border="0"></a>
+		</td>
+	</tr>
+</table>
+<!--{/if}-->

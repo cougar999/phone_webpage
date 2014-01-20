@@ -1,0 +1,57 @@
+<!--{feed int=AP_INT_SEARCH_MUSIC keyword=$keyword order=$smarty.get.order|default:0 pageno=$smarty.get.pageno|default:1 count=10 ret='musiclist'}-->
+
+<div class="section">
+	<div style="padding: 15px 15px;">
+		<div style="border: 1px solid #d2d2d2; padding: 8px 8px;" class="f4 b">
+			在<font color="#f04e06"><!--{$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_MUSIC}--></font>中搜索“<!--{$smarty.request.keyword}-->”共有<!--{$musiclist.page.totalcount|default:0}-->条结果：
+		</div>
+	</div>
+</div>
+<div class="section">
+	<div style="padding:15px 15px;">
+		<div style="border:1px solid #d2d2d2;">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+				<div id="wgt-search-list" class="wgt-search-list">
+					<div>
+						<table width="100%" border="0" cellpadding="0" cellspacing="0"	class="table datatable f2">
+							<col style="width: auto;"></col>
+							<col style="width: 300px;"></col>
+							<col style="width: 150px;"></col>
+							<col style="width: 150px;"></col>
+							<thead>
+								<tr>
+									<th nowrap="nowrap" class="tl">音乐名称</th>
+									<th nowrap="nowrap" class="tl">艺人</th>
+									<th nowrap="nowrap" class="tr"><!-- 价格 --></th>
+									<th nowrap="nowrap" class="tc">服务费</th>
+								</tr>
+							</thead>
+							<!--{foreach key=key item=item from=$musiclist.page.items name=list}-->
+							<tr>
+								<td class="tl" height="24">
+									<!-- <a href="/resources/v_player/index2_mp3.html?sid=<!--{$item.songid}-->&title=<!--{$item.song}-->&url=<!--{if $item.localflag}--><!--{$assign.base}-->/data/music/<!--{$item.songid}-->.mp3<!--{else}--><!--{$item.downloadurl}--><!--{/if}-->" onclick="$.colorbox({href:this, iframe:true, width:480, height:380, overlayClose:false}); return false;" ><span><img src="<!--{#res3#}-->/resources/img/icon_ting.png" class="icon_ting" /></span>&nbsp; <!--{$item.song}--></a>-->
+									<a title="<!--{$item.song}-->" sid="<!--{$item.songid}-->" href="<!--{$item.downloadurl}-->" onclick="playmedia(this);return false;" ><span><img src="<!--{#res3#}-->/resources/img/icon_ting.png" class="icon_ting" /></span>&nbsp; <!--{$item.song}--></a>
+								</td>
+								<td class="tl"">
+								<!--{section loop=$item.singeritems name=sect}-->
+								<!--{$item.singeritems[sect].singer}-->
+								<!--{if $smarty.section.sect.total>1 and $smarty.section.sect.iteration != $smarty.section.sect.last}-->
+								,
+								<!--{/if}-->
+							<!--{/section}-->
+								</td>
+								<td class="tr"><!--<!--{if $item.price}--><!--{math equation='(x/100)' x=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}-->--></td>
+								<td class="tc"><a id="<!--{$item.songid}-->" type="<!--{if $item.localflag}-->33<!--{else}-->3<!--{/if}-->" href="<!--{if $item.localflag}--><!--{$assign.base}-->/data/music/<!--{$item.songid}-->.mp3<!--{else}--><!--{$item.downloadurl}-->&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_SEARCH}-->&seatype=<!--{$smarty.request.seatype}-->&keyword=<!--{$keyword}--><!--{/if}-->" price="<!--{math equation='(x)/100' x=$item.price|default:0}-->" servicefee="<!--{math equation='(x)/100' x=$item.servicefee|default:0}-->" class="changex <!--{if $item.price or $item.servicefee}-->addcart<!--{else}-->downinit<!--{/if}-->" title="<!--{$item.song}-->" onclick="return false;"><!--{if $item.servicefee || $item.price}--><!--{math equation='(x/100 + y/100)' x=$item.servicefee|default:0 y=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}--></a></td>
+							</tr>
+							<!--{/foreach}-->
+						</table>
+				
+					</div>
+					
+					<!--{include file="wgt-paging.tpl" page=$musiclist.page}-->
+				</div>
+				
+			</td></tr></table>	
+		</div>
+	</div>
+</div>	

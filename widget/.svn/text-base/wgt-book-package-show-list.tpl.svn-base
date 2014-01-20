@@ -1,0 +1,43 @@
+<!--{feed int=AP_INT_PACKAGE_LIST mid=$box_id type=$assign.ap_int.AP_INT_PACKAGE_TYPE_BOOK order=$order pageno=$smarty.get.pageno|default:1  count=$count ret='packagelist'}-->
+<!--{if $packagelist.page.items}-->
+	<!--{foreach key=key item=item from=$packagelist.page.items}-->
+		<div class="show_item clear">
+			<a href="/appstore/book-package.html?pid=<!--{$item.cid}-->"  title="<!--{$item.name}-->" onclick="gotopage(this); return false;">
+			<div class="book_shadow">
+			<img class="lf" src="<!--{#img4#}-->/resources/images/transparent.gif" style="width:100px; height:130px;border:0px;background:url(<!--{if $item.imgurl != ''}--><!--{$item.imgurl}-->_sf_100x130.png<!--{else}--><!--{/if}-->) no-repeat center center; border:1px solid #cccccc;padding:5px;" />
+			</div>
+			</a>
+			<div class="rg_part">
+				<ul>
+					<li class="title"><a href="/appstore/book-package.html?pid=<!--{$item.cid}-->"  title="<!--{$item.name}-->" onclick="gotopage(this); return false;"><!--{$item.name}--></a></li>
+					<li class="content f_s_20">
+						<!--{$item.desc|truncate_utf8_string:200:"...":true}-->
+					</li>
+					<li class="bottom"><img src="<!--{#img6#}-->/resources/img/promotion.png" border="0"
+						class="lf" />
+						<p>
+							<span class="price">爱皮价：<!--{if $item.price==0}-->免费<!--{else}--><!--{math equation='(x/100)' x=$item.price|default:0}-->元<!--{/if}--></span>
+						</p> 
+						<!--{if $item.price}-->	
+							<a id="<!--{$item.cid}-->" href="&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK}-->&code1_id=<!--{$menu.menuid}-->&code2=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_PACKAGE}-->&code2_id=<!--{$box_id}-->" type="55" price="<!--{math equation='(x)/100' x=$item.price|default:0 }-->" servicefee="0"   class="rg <!--{if $item.price}-->addcart<!--{else}-->downinit<!--{/if}-->"  onclick="return false;" title="<!--{$item.name}-->"><img src="<!--{#img6#}-->/resources/images/transparent.gif"  <!--{$assign.tp.TP_RES_URL}--><!--{if $item.price or $item.servicefee}-->class="buybtn_mid"<!--{else}-->class="downbtn_mid"<!--{/if}--> /></a>
+						<!--{else}-->
+								<div class="downinitpack" rel="<!--{$item.cid}-->,<!--{$item.name}-->">
+								<!--{foreach key=key2 item=items from=$item.resources}-->
+										<a class="no" id="<!--{$items.rid}-->" href="<!--{$items.downloadurl}-->&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK}-->&code1_id=<!--{$menu.menuid}-->&code2=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_PACKAGE}-->&code2_id=<!--{$box_id}-->" title="<!--{$items.rname}-->" type="<!--{$items.rtype}-->"  price="<!--{math equation='(x)/100' x=$items.rprice|default:0}-->" servicefee="0" onclick="return false;"></a>
+								<!--{/foreach}-->
+									<img src="<!--{#res3#}--><!--{if $item.price}-->/resources/img40/buy_normal.png<!--{else}-->/resources/img40/btn_download_middle.png<!--{/if}-->" class="lf png_bg" border="0" style="margin-top:5px; margin-left:10px;">
+								</div>
+						<!--{/if}-->
+					</li>
+				</ul>
+			</div>
+		</div>
+	<!--{/foreach}-->	
+	<!--{include file="wgt-paging.tpl" page=$packagelist.page}-->
+<!--{else}-->
+<div>
+	<div style="text-align:center;line-height: 32px;padding:30px;" class="f7">
+		暂无适合您手机的资源，敬请谅解...
+	</div>
+</div>
+<!--{/if}-->

@@ -1,0 +1,34 @@
+<!--{feed int=AP_INT_CAT_SOFTLIST catid=$box_id order=$order pageno=$smarty.get.pageno|default:1 count=60 ret='themesoftlist'}-->
+<div id="wgt-app-list" class="wgt-app-list">
+	<div style="padding:0 0 20px;">
+		<!--{if $themesoftlist.page.items}-->
+		<ul class="clear">
+			<!--{foreach key=key item=item from=$themesoftlist.page.items}-->
+				<li class="tooltip"  title="<!--{if $item.terms}-->支持型号：<br /><!--{foreach key=key item=term from=$item.terms}--><!--{$term}-->&nbsp;<!--{/foreach}--><!--{/if}-->">
+					<dl>
+						<dt><a href="<!--{$assign.tp.TP_WEB_URL}-->appstore/theme-soft-detail.html?softid=<!--{$item.softid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><img src="<!--{#img4#}-->/resources/images/transparent.gif"  style="width:72px; height:72px;background:url(<!--{if $item.imgurl != ''}--><!--{$item.imgurl}-->_sf_72x72.png<!--{else}-->../resources/temp/app3.png<!--{/if}-->) no-repeat center center; border:0px;" /></a><!--{if $item.isbiz == 1 && $item.goldcoin}--><div class="icon_coins"><!--{$item.goldcoin}--></div><!--{/if}--></dt>
+						<dd class="softname"><a href="<!--{$assign.tp.TP_WEB_URL}-->appstore/theme-soft-detail.html?softid=<!--{$item.softid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><!--{$item.name}--></a></dd>
+						<dd><!--{if $item.size}--><!--{$item.size|sizetext}--><!--{else}-->未知<!--{/if}--></dd>
+						<dd class="softservice">
+						<!--{if $smarty.request.phonetype == '.' || $smarty.request.phonetype == 3 || $smarty.request.phonetype == '3.'}-->
+							<!--{if $item.version}--><!--{$item.version}--><!--{else}-->未知<!--{/if}-->
+						<!--{else}-->
+							<!--{if $item.price || $item.servicefee }--><!--{math equation='(x/100 + y/100)' x=$item.price|default:0 y=$item.servicefee|default:0}-->元<!--{else}-->免费<!--{/if}-->
+						<!--{/if}-->
+						</dd>
+						<dd class="downinit_s"><a id="<!--{$item.softid}-->" href="<!--{$item.downloadurl}-->&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_APP}-->&code1_id=<!--{$menulist.menuid}-->&code2=<!--{$code2}-->&code2_id=<!--{$code2_id}-->&code3=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC}-->&code3_id=<!--{$shop_rec_id}-->" installlocate="<!--{$item.installlocate}-->" appid="<!--{$item.appid}-->"  versioncode="<!--{$item.versioncode}-->"  version="<!--{$item.version}-->" type="1"  price="<!--{math equation='(x)/100' x=$item.price|default:0}-->" servicefee="<!--{math equation='(x)/100' x=$item.servicefee|default:0}-->" class="<!--{if ($item.price or $item.servicefee) && ($smarty.get.phonetype != '3.') && ($smarty.get.phonetype != '.')}-->addcart<!--{else}-->downbtn_small downinit<!--{/if}-->"  onclick="return false;" title="<!--{$item.name}-->"><img src="<!--{#img4#}-->/resources/images/transparent.gif" class="buy" /></a></dd>
+						<dd class="softfav"><a icon="<!--{$item.imgurl}-->" id="<!--{$item.softid}-->" href="<!--{$item.downloadurl}-->" installlocate="<!--{$item.installlocate|default:0}-->" appid="<!--{$item.appid}-->"  versioncode="<!--{$item.versioncode}-->"  version="<!--{$item.version}-->" title="<!--{$item.name}-->" type="1"  price="<!--{$item.price|default:0}-->" servicefee="<!--{$item.servicefee|default:0}-->" size="<!--{$item.size}-->" onclick="return false;" class="shopc"><img src="<!--{#img4#}-->/resources/images/transparent.gif" class="collectionbtn_min" /></a></dd>
+					</dl>
+				</li>
+			<!--{/foreach}-->
+		</ul>
+	<!--{else}-->
+	<div>
+		<div style="text-align:center;line-height: 32px;padding:30px;" class="f7">
+			暂无适合您手机的资源，敬请谅解...
+		</div>
+	</div>
+	<!--{/if}-->
+	</div>
+</div>
+<!--{include file="wgt-paging.tpl" page=$themesoftlist.page}-->

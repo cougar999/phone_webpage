@@ -1,0 +1,151 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>射击游戏合集</h2>
+					<div class="evaDetail">
+						<div class="topicImgs">
+							<img src="/resources/img40/eva/zhuanti10_big.png" alt="射击游戏合集" />
+						</div>
+						<blockquote>
+							重磅射击游戏来袭，千万不要错过。
+						</blockquote>
+						<div class="topiclist clear">
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120729/appdear_69640_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="101449" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121219/appdear_69640_1219_g.apk?topicid=010&topicname=射击游戏合集" installlocate="0" appid="com.dafeimobile.tldhd" versioncode="90" version="v1.8.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="最后的防线HD"></a></p>
+								</dt>
+								<dd>
+									<p>最后的防线HD</p>
+									<p>最后的防线（The Last Defender）'是大飞移动设计开发的一款3D画面第一人称射击游戏，并集成了国内强大的微云游戏社交服务…</p>
+									<p>大小：24.8MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121228/appdear_285839_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="160229" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130310/appdear_177980615_0310_b.apk?topicid=010&topicname=射击游戏合集" installlocate="0" appid="com.paladin.GunStrike" versioncode="31" version="v1.2.10" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="反恐突击队"></a></p>
+								</dt>
+								<dd>
+									<p>反恐突击队</p>
+									<p>反恐突击队：一款以PC上反恐精英为原型的射击游戏，可以在商店里买到总共15种武器、手榴弹和3样防御装备…</p>
+									<p>大小：29.45MB</p>
+								</dd>
+							</dl>
+							<!-- <dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121111/appdear_410538_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="358346" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121208/appdear_620805_1208_m.apk?topicid=010&topicname=射击游戏合集" installlocate="0" appid="com.skycarpenter.fantashooting.cn" versioncode="15" version="v1.5" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="奇幻射击中文版"></a></p>
+								</dt>
+								<dd>
+									<p>奇幻射击中文版</p>
+									<p>《奇幻射击 Fanta Shooting》是一款画面可爱的射击游戏。奇幻英雄学院的学徒们要毕业了，毕业前最后的考验…</p>
+									<p>大小：30.39MB</p>
+								</dd>
+							</dl> -->
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120815/appdear_90080_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="233397" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121117/appdear_120960_1117_m.apk?topicid=010&topicname=射击游戏合集" installlocate="0" appid="com.feelingtouch.strikeforce" versioncode="9" version="v1.08" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="战争之王官方中文版"></a></p>
+								</dt>
+								<dd>
+									<p>战争之王官方中文版</p>
+									<p>游戏特色： - 武器店：从沙漠鹰，人民运动联盟，AK-47巴雷特。享受权力 - 武器升级：100多枪配件。从股票，范围…</p>
+									<p>大小：14.65MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120228/appdear_197029_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166441" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121215/appdear_2421404681_1215_b.apk?topicid=010&topicname=射击游戏合集" installlocate="0" appid="com.of3d.cf.Activitied" versioncode="1276127" version="v10.7.13" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="火线防御"></a></p>
+								</dt>
+								<dd>
+									<p>火线防御</p>
+									<p>是一款第一人称射击游戏，在游戏中玩家扮演一名正在阵地中的士兵，一个人坚守狭长的海滩阵地。游戏中玩家需要依靠…</p>
+									<p>大小：16.65MB</p>
+								</dd>
+							</dl>
+							<!-- <dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_186801_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="233397" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120219/appdear_186801_g.apk?topicid=010&topicname=射击游戏合集" installlocate="0" appid="com.madfingergames.shadowgun" versioncode="80000200" version="v1.1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="暗影枪神"></a></p>
+								</dt>
+								<dd>
+									<p>暗影枪神</p>
+									<p>游戏背景设计在2350年，主角John Slade是一位职业赏金猎人，玩家将操作他追捕Toltech集团前雇员、著名遗传学家Edgar Simon…</p>
+									<p>大小：6.17MB</p>
+								</dd>
+							</dl> -->
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_160106_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166434" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120711/appdear_681821_0711_h.apk?topicid=010&topicname=射击游戏合集" installlocate="0" appid="jp.shade.DGunsSP" versioncode="20" version="v1.20" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="机器人大战:毁灭枪手"></a></p>
+								</dt>
+								<dd>
+									<p>机器人大战:毁灭枪手</p>
+									<p>Destroy Gunners(机器人大战:毁灭枪手)里面的主角终于摆脱了人类，成为一个个类似变形金刚那样的机器人，相信这款游戏很能够吸引你…</p>
+									<p>大小：10.36MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_4304_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="272659" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120219/appdear_4304_g.apk?topicid=010&topicname=射击游戏合集" installlocate="0" appid="com.gameloft.android.GAND.GloftMCHP" versioncode="342" version="v3.4.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="现代战争：沙漠风暴"></a></p>
+								</dt>
+								<dd>
+									<p>现代战争：沙漠风暴</p>
+									<p>游戏采用了第一人称视角，还拥有自动标准和狙击射击模式，无论新手还是老手都能很容易的掌握游戏的规则。大量的现代化武器装备…</p>
+									<p>大小：3.83MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120406/appdear_76120_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="169151" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120426/appdear_540671_0426_h.apk?topicid=010&topicname=射击游戏合集" installlocate="0" appid="com.newfacegames.igunzombie" versioncode="18" version="v1.1.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="枪火僵尸"></a></p>
+								</dt>
+								<dd>
+									<p>枪火僵尸</p>
+									<p>iGun Zombie 是一款第一人称射击游戏。玩家在游戏中可以使用自己的武器在多种游戏模式中打僵尸，一共 150 个关卡任务等你来完成…</p>
+									<p>大小：36.83MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_227492_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="167832" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120627/appdear_661681_0627_h.apk?topicid=010&topicname=射击游戏合集" installlocate="0" appid="com.catstudio.soldierofglory" versioncode="20" version="v1.1.6" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="士兵荣耀之二战"></a></p>
+								</dt>
+								<dd>
+									<p>士兵荣耀之二战</p>
+									<p>Soldiers of Glory World War 2（士兵荣耀：二战）是一款以二战为题材的策略塔防类的游戏，画面很棒，为你展示了真实的二战…</p>
+									<p>大小：30.06MB</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

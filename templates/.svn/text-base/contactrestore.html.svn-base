@@ -1,0 +1,45 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="section">
+	<div class="tc" style="line-height:30px">
+	  <h3>你正在进行通信录还原操作</h3></div>
+	<table width="100%" cellpadding="0" cellspacing="0">
+		<tr><td class="tc">
+			<input type="radio" name="backtp" id="backtp1" value="contactall" />
+			还原所有联系人
+            <input type="radio" name="backtp" id="backtp2" value="contactsel" checked="checked" />
+			还原选择的联系人
+		</td></tr>
+	</table>
+	<table width="100%" cellpadding="0" cellspacing="0" style="line-height:30px">
+		<tr>
+			<td class="tr vt" width="70%" style="padding-right:10px;">
+				<span>请输入手机号：</span>
+				<input type="text" name="username" id="username" value="" style="width:150px;" /><br />
+				<span>请输入验证码：</span>
+				<input type="text" name="password" id="password" value="" style="width:150px;" /><br />
+				<div>
+					<a id="contactrestore" href="/contactrestore.html" onclick="return false;"><img src="<!--{#res1#}-->/resources/temp/ok_rs.jpg" border="0" alt="确定还原" /></a>
+					<a href="#" onclick="parent.$.colorbox.close(); return false;"><img src="<!--{#res2#}-->/resources/temp/ok_cabk.jpg" border="0" alt="取消还原" /></a>
+				</div>
+			</td>
+			<td width="30%" valign="top" class="tl vt f0" style="padding-left:10px;"><button type="submit" name="button" id="SendPhoneCode" btype="2" onclick="return false;" class="lbutton">发送验证码</button>
+            <br /><span id="sentcode" class="tipbg"></span></td>
+		</tr>
+		<tr>
+		<td class="tr f0" style="padding-right:10px;"></td>
+		<td class="tl f0" style="padding-left:10px;"></td>
+	  </tr>
+	</table>
+	<hr />
+<div class="tl c9" >
+		<div style="text-indent:28px; padding:10px 40px;" class="f0 tc">
+		如果您曾备份数据到爱皮云端服务器，执行此操作会将数据还原到您的手机中。
+		</div>
+	</div>
+	<div class="tl">
+		<!-- <div style="text-indent:28px; padding:10px 40px;">
+		为保护您的数据安全，请如实填写您常用的手机号码，在数据还原时将会向该手机号发送验证码，只有正确认输入验证码验证通过后才能还原到该手机上。
+		</div> -->
+	</div>
+	<span id="optmsg" class="f4"> </span>
+</div>

@@ -1,0 +1,45 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_THEMESOFT ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_THEMESOFT seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_THEMESOFT'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_THEMESOFT_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_C_THEMELIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_THEMESOFT  order=0 pageno=1 count=30 ret='theme_catlist'}-->
+	<div class="scroll">
+	<div class="right">
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_THEMESOFT_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-theme-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_THEMESOFT_CAT code2_id=$smarty.request.contentid|default:$theme_catlist.page.items[0].contentid}-->	
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_THEMESOFT_SHOP_REC ret='columnmenu'}-->
+					<!--{include file="wgt-shop-themesoft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_THEMESOFT_CAT code2_id=$smarty.request.contentid|default:$theme_catlist.page.items[0].contentid}-->
+		</div>
+	
+	<div class="center">
+		
+		<div class="section">
+			<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_THEMESOFT_CAT ret='catmenulist'}-->
+			<!--{include file="wgt-themecat-list.tpl" columnid=$catmenulist.menuid  typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_THEMESOFT}-->
+			<div class="unit">
+			 <div class="titlebar">
+			 	<!--{feed int=AP_INT_CATALOG_INFO cid=$smarty.request.contentid|default:1 ret='breadlist'}-->
+				 	<div class="bread">
+				 		<ul>
+				 			<li>主题图片</li>
+							<!--{if $breadlist.name}-->
+							<li><!--{$breadlist.name}--></li>
+							<!--{/if}-->
+				 		</ul>
+				 	</div>
+				
+				<!--{include file="wgt-sort.tpl"}-->
+			 </div>
+			<!--{include file="wgt-themesoft-list.tpl" box_id=$smarty.request.contentid|default:$theme_catlist.page.items[0].contentid order=$smarty.request.order|default:$assign.ap_int.AP_INT_ORDER_DEFAULT }-->
+			</div>
+		</div>
+		
+	</div>
+	</div>
+	</div>
+</div></div>

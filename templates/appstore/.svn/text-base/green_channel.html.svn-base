@@ -1,0 +1,207 @@
+<!--{feed int=AP_INT_MENU_LIST navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 ret='arr_menulist'}-->
+<!--{menu items=$arr_menulist.list.items index='menucode' code=1301 ret='menu1_info'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menu1_info.menuid order=0 pageno=1 count=15 tplcode=200060 channelcode=$smarty.request.channelcode iscrack=$smarty.request.iscrack|default:0 ret='menulist'}-->
+<!--{config_load file="smarty.conf"}-->
+<style>
+dd,dl,dt,p,ul,li,img{margin:0;padding:0;}
+.cssleft {float:left;}
+.cssright {float:right;}
+.extheme , .topdownload {padding-left:5px;margin-top:5px;}
+.extheme .content, .topdownload .content{width:210px;}
+.extheme .content dl{padding:10px 20px;}
+.extheme .content dd{padding-top:4px;}
+.extheme .content dd span{color:#1674C7;}
+.topdownload .content dl{padding:12px 15px;min-height:40px;}
+.topdownload .content dl.even{}
+.topdownload .content dl.odd{background-color:#ecf5fc;}
+.topdownload .content dt{padding-left:30px;line-height:32px;}
+.topdownload .content dt span{padding-right:10px;color:#1674c7;}
+.topdownload .content dt.rank-icon1{background:url(<!--{#img1#}-->/resources/img/1.png) no-repeat scroll 5px 8px transparent;}
+.topdownload .content dt.rank-icon2{background:url(<!--{#img2#}-->/resources/img/2.png) no-repeat scroll 5px 8px transparent;}
+.topdownload .content dt.rank-icon3{background:url(<!--{#img3#}-->/resources/img/3.png) no-repeat scroll 5px 8px transparent;}
+.topdownload .content dt.rank-icon4{background:url(<!--{#img4#}-->/resources/img/4.png) no-repeat scroll 5px 8px transparent;}
+.topdownload .content dt.rank-icon5{background:url(<!--{#img5#}-->/resources/img/5.png) no-repeat scroll 5px 8px transparent;}
+.topdownload .content dt.rank-icon6{background:url(<!--{#img6#}-->/resources/img/6.png) no-repeat scroll 5px 8px transparent;}
+.topdownload .content dt.rank-icon7{background:url(<!--{#img7#}-->/resources/img/7.png) no-repeat scroll 5px 8px transparent;}
+.topdownload .content dt.rank-icon8{background:url(<!--{#img8#}-->/resources/img/8.png) no-repeat scroll 5px 8px transparent;}
+.topdownload .content dt.rank-icon9{background:url(<!--{#img1#}-->/resources/img/9.png) no-repeat scroll 5px 8px transparent;}
+.topdownload .content dt.rank-icon10{background:url(<!--{#img2#}-->/resources/img/10.png) no-repeat scroll 5px 8px transparent;}
+.topdownload .content .rank-dd{position: relative;height:48px;overflow:hidden;}
+.topdownload .content .rank-tt{padding-left: 8px; width: 110px;}
+.topdownload .content .rank-tt p{line-height:20px;height:23px;overflow: hidden;}
+.topdownload .content .rank-tt p span{padding-right:5px;font-size:12px;color:#b2b2b2;}
+.titlebar .more{background: url("<!--{#img1#}-->/resources/images/exdownload/more.png") no-repeat scroll 0 1px transparent;height: 22px;padding-left: 25px;padding-right: 10px;padding-top: 4px;color:#3573C6;}
+.titlebar .more a{ color:#3573C6; }
+.titlebar .more:hover {background: url("<!--{#img2#}-->/resources/images/exdownload/more.png") no-repeat scroll 0 -22px transparent;height: 22px;padding-left: 25px;padding-right: 10px;padding-top: 4px;color:#3573C6;}
+.down a , .down a.addcart {width:54px; height:21px;background:url(<!--{#img1#}-->/resources/img40/btn_down_small.png) no-repeat;margin:0px;padding:0px;display:inline-block;right:0}
+.down a:hover , .down a.addcart:hover {background: url("<!--{#img2#}-->/resources/img40/btn_down_small_hover.png") no-repeat scroll center top transparent;}
+.down a:active , .down a.addcart:active{background: url("<!--{#img3#}-->/resources/img40/btn_down_small_down.png") no-repeat scroll center top transparent;} 
+#topdownload-list .rank-dd .down {/*padding:0 0 0 10px;*/margin:0 0 0 10px;}
+#topdownload-list .rank-dd .shoucang {margin:0 0 0 3px;}
+#topdownload-list .rank-dd .cssleft {margin-right:5px;width:50px;}
+</style>
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<div class="scroll" id="green_channel_page">
+		<div class="right">
+			<dl class="topdownload">
+				<!--{include file="start/exdownload/wgt-ranking.tpl" menulist=$menulist tpl_code1=1301 tpl_code1_id=$menu1_info.menuid}-->
+			</dl>
+		</div>
+		<div class="center">
+			<div class="section">
+				<!--{if $smarty.get.phonetype == '' || $smarty.get.phonetype == '.' || $smarty.get.phonetype == 3 || $smarty.get.phonetype == '3.' }-->
+					<!--{menu items=$menulist.list.items index='menucode' code=200076 ret='green_channel_menu'}-->
+					<!--{feed int=AP_INT_MENU_LIST navid=$green_channel_menu.menuid order=0 pageno=1 count=7 ret='green_chn_list'}-->
+					<!--{include file="start/green_channel.tpl"}-->
+				<!--{/if}-->
+				<div class="unit">
+				 <div class="titlebar">
+				 	<div class="bread">
+				 		<ul>
+				 			<li><!--{if $smarty.get.cname}--><!--{$smarty.get.cname}--><!--{/if}--></li>
+				 		</ul>
+				 	</div>
+					<span class="cssright more"><a href="#" id="down-btn-all">下载全部</a></span>
+				 </div>
+				 
+				 <div class="content current_all" tplid="<!--{$smarty.get.cid}-->" tplcode="<!--{$smarty.get.tplcode}-->" tplname="<!--{$smarty.get.cname}-->">
+					<!--{feed int=AP_INT_MENU_CAT_SOFTLIST mid=$smarty.get.cid order=0 pageno=1 count=200 iscrack=$smarty.get.iscrack|default:0 ret='colomunlist'}-->
+					<div id="wgt-app-list" class="wgt-app-list">
+						<!--{if $colomunlist.list.items}-->
+							<ul class="clear">
+								<!--{foreach key=key item=item from=$colomunlist.list.items}-->
+									<li class="softcont tooltip"  title="<!--{if $item.terms}-->支持型号：<br /><!--{foreach key=key item=term from=$item.terms}--><!--{$term}-->&nbsp;<!--{/foreach}--><!--{/if}-->">
+										<dl>
+											<dt><a href="<!--{$assign.tp.TP_WEB_URL}-->appstore/soft.html?iscrack=<!--{$smarty.get.iscrack}-->&softid=<!--{$item.contentid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><img src="<!--{#img4#}-->/resources/images/transparent.gif"  style="width:72px; height:72px;background:url(<!--{if $item.imgurl != ''}--><!--{$item.imgurl}-->_sf_72x72.png<!--{else}-->../resources/temp/app3.png<!--{/if}-->) no-repeat center center; border:0px;" /></a><!--{if $item.isbiz == 1 && $item.goldcoin}--><div class="icon_coins"><!--{$item.goldcoin}--></div><!--{/if}--></dt>
+											<dd class="softname"><a href="<!--{$assign.tp.TP_WEB_URL}-->appstore/soft.html?iscrack=<!--{$smarty.get.iscrack}-->&softid=<!--{$item.contentid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><!--{$item.name}--></a></dd>
+											<dd><!--{if $item.size}--><!--{$item.size|sizetext}--><!--{else}-->未知<!--{/if}--></dd>
+											<dd class="softservice">
+											<!--{if $smarty.request.phonetype == '' || $smarty.request.phonetype == '.' || $smarty.request.phonetype == 3 || $smarty.request.phonetype == '3.'}-->
+												<!--{if $item.version}--><!--{$item.version}--><!--{else}-->未知<!--{/if}-->
+											<!--{else}-->
+												<!--{if $item.price || $item.servicefee }--><!--{math equation='(x/100 + y/100)' x=$item.price|default:0 y=$item.servicefee|default:0}-->元<!--{else}-->免费<!--{/if}-->
+											<!--{/if}-->
+											</dd>
+											<dd class="downinit_s">
+												<a id="<!--{$item.contentid}-->" businesstype="<!--{$item.businesstype}-->" isbiz="<!--{$item.isbiz}-->" href="<!--{$item.downloadurl}-->&code1=1301&code1_id=<!--{$menu1_info.menuid}-->&code2=200076&code2_id=<!--{$green_channel_menu.menuid}-->&code3=<!--{$smarty.get.tplcode}-->&code3_id=<!--{$smarty.get.cid}-->&from=<!--{$smarty.get.from}-->" installlocate="<!--{$item.installlocate}-->" appid="<!--{$item.appid}-->"  versioncode="<!--{$item.versioncode}-->"  version="<!--{$item.version}-->" type="1"  price="<!--{math equation='(x)/100' x=$item.price|default:0}-->" servicefee="<!--{math equation='(x)/100' x=$item.servicefee|default:0}-->" class="<!--{if ($item.price or $item.servicefee) && ($smarty.get.phonetype != '3.') && ($smarty.get.phonetype != '.')}-->addcart<!--{else}-->downbtn_small downinit<!--{/if}-->"  onclick="return false;" title="<!--{$item.name}-->"><img src="<!--{#img4#}-->/resources/images/transparent.gif" class="buy" /></a>
+											</dd>
+											<dd class="softfav"><a icon="<!--{$item.imgurl}-->" id="<!--{$item.contentid}-->" href="<!--{$item.downloadurl}-->" installlocate="<!--{$item.installlocate|default:0}-->" appid="<!--{$item.appid}-->"  versioncode="<!--{$item.versioncode}-->"  version="<!--{$item.version}-->" title="<!--{$item.name}-->" type="1"  price="<!--{$item.price|default:0}-->" servicefee="<!--{$item.servicefee|default:0}-->" size="<!--{$item.size}-->" onclick="return false;" class="shopc"><img src="<!--{#img4#}-->/resources/images/transparent.gif" class="collectionbtn_min" /></a></dd>
+										</dl>
+									</li>
+								<!--{/foreach}-->
+							</ul>
+						<!--{else}-->
+						<div>
+							<div style="text-align:center;line-height: 32px;padding:30px;" class="f7">
+								暂无适合您手机的资源，敬请谅解...
+							</div>
+						</div>
+						<!--{/if}-->
+						<!--{include file="wgt-paging.tpl" page=$colomunlist.page}-->
+					</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#topdownload-list dl").live("mouseenter", function(){
+			$(this).find('.rank-tt').find('p:eq(1)').hide();
+			$(this).find('.down').show();
+			$(this).find('.shoucang').show();
+		}).live("mouseleave", function(){
+			$(this).find('.rank-tt').find('p:eq(1)').show();
+			$(this).find('.down').hide();
+			$(this).find('.shoucang').hide();
+		});
+		
+		$("#green_channel li a").each(function(){
+			var url = location.href;
+			var cid = url.substr(url.indexOf("cid=") + 4, 6);
+			var pos = $(this).attr("cid");
+			if (pos == cid){
+				$(this).parent().addClass("active");
+			}
+		});
+		
+		$("#down-btn-all").click(function(){
+			var tplid = $(this).closest('.unit').find(".content:not('.no')'").attr('tplid');
+			var tplcode = $(this).closest('.unit').find(".content:not('.no')").attr('tplcode');
+			var tplname = $(this).closest('.unit').find(".content:not('.no')").attr('tplname');
+			
+			$.get('/downalllog.php', {tplid:tplid, tplcode:tplcode, tplname:tplname}, function(){},'json');
+			
+			if (this.disabled == true || $(this).hasClass('disabled')) { return false; }
+			if (checkphone() == false) { return false; }
+			if (checkdiskbuyanddown() == false) { return false; }
+			$('#colorbox').css({'width':'600px','height':'200px'});
+			$('#colorbox').html('<div id="cboxWrapper" style="width: 600px; height: 200px; "><div><div id="cboxTopLeft" style="float: left; "></div><div id="cboxTopCenter" style="float: left; width: 600px; "></div><div id="cboxTopRight" style="float: left; "></div></div><div style="clear: left; "><div id="cboxMiddleLeft" style="float: left; height: 200px; "></div><div id="cboxContent" style="float: left; width: 600px; height: 180px; "><div id="cboxLoadedContent" style="width: 540px; overflow-x: hidden; overflow-y: hidden; height: 130px; "></div><div id="cboxLoadingOverlay" style="float: left; display: none; "></div><div id="cboxLoadingGraphic" style="float: left; display: none; "></div><div id="cboxTitle" style="float: left; display: block; "></div><div id="cboxCurrent" style="float: left; display: none; "></div><div id="cboxNext" style="float: left; display: none; "></div><div id="cboxPrevious" style="float: left; display: none; "></div><div id="cboxSlideshow" style="float: left; display: none; "></div><div id="cboxClose" style="float: left; "></div></div><div id="cboxMiddleRight" style="float: left; height: 180px; "></div></div><div style="clear: left; "><div id="cboxBottomLeft" style="float: left; "></div><div id="cboxBottomCenter" style="float: left; width: 600px; "></div><div id="cboxBottomRight" style="float: left; "></div></div></div>');
+			$('#cboxLoadedContent').html('<div class="tc">' + 
+				'<div class="progresshead"><p><span id="progresstit">正在处理您选中的文件，请等待</span></p></div>' +
+				'<div class="progressbar"><div id="progresswait" class="waiting"><div class="progressbg"></div></div></div>' +
+				'<table class="progressfoot fixwidth" style="width:100%;"><tr><td class="fixwidth"><span id="progressmsg"></span></td></tr></table>' +
+				'</div>');
+			cbWaiting('正在处理您选中的文件，请等待', function(box, msgEle, pointEle){
+				var objcontent = $("#wgt-app-list").find(".softcont");
+				var length = objcontent.length;
+				var length_down = objcontent.find("a.downinit").length;
+				var i = 0;
+				var downi = 0;
+				var undatacall = function() {
+					if(i > length){
+						$.floatingMessage('<span class="s addtodown"><span class="cblue">已添加' + downi + '</span>个应用到下载列表</span>', {
+							time: 3000,
+							align: "right",
+							verticalAlign: "bottom"
+						});
+						$.colorbox.close();
+						return;
+					}
+					if(objcontent.find("a.addcart").eq(i).length > 0){
+						if (objcontent.find("a.addcart").eq(i).attr("disabled") == 'disabled' || $(this).hasClass('disabled')) {
+						}else{
+							objcontent.find("a.addcart").eq(i).trigger("click");
+						}
+					}
+					if(objcontent.find("a.downinit").eq(i).length > 0){
+						if (objcontent.find("a.downinit").eq(i).attr("disabled") == 'disabled' || $(this).hasClass('disabled')) {
+						}else{
+							var id = objcontent.find("a.downinit").eq(i).attr("id");
+							var url = objcontent.find("a.downinit").eq(i).attr("href") + '&dt=da';
+							var title = objcontent.find("a.downinit").eq(i).attr("title");
+							var appid = objcontent.find("a.downinit").eq(i).attr("appid");
+							var installlocate = objcontent.find("a.downinit").eq(i).attr("installlocate");
+							var is_sc = objcontent.find("a.downinit").eq(i).attr("is_sc") || 0;
+							var businesstype = objcontent.find("a.downinit").eq(i).attr("businesstype") || 1;
+							var isbiz = objcontent.find("a.downinit").eq(i).attr("isbiz") || 0;
+							var dt = objcontent.find("a.downinit").eq(i).attr("dt") || 0;
+							var rows = {
+								id : id,
+								url : url,
+								name : title,
+								appid : appid,
+								installlocate : installlocate,
+								is_sc : is_sc,
+								businesstype : businesstype,
+								isbiz : isbiz,
+								dt:dt
+							};
+							addTask(rows, null, true);
+							downi++;
+						}
+					}
+					i++;
+					setTimeout(undatacall, 200);
+				}
+				undatacall();
+				return; 
+			});
+		});
+		
+	});
+</script>

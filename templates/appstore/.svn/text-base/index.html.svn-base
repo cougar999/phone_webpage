@@ -1,0 +1,6 @@
+<!--{config_load file="smarty.conf"}-->
+<!--{if $smarty.request.phonetype != '8' || $smarty.request.phonetype != 8 || $smarty.request.phonetype != '8.'}-->
+/appstore/common-tools.html
+<!--{else}-->
+/appstore/download.html
+<!--{/if}-->

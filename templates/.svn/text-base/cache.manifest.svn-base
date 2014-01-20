@@ -1,0 +1,33 @@
+<!--{config_load file="smarty.conf" scope="global"}-->CACHE MANIFEST
+# VERSION <!--{#version#}-->
+
+CACHE:
+<!--{#res1#}-->/resources/css<!--{#version#}-->/layout.css
+<!--{#res2#}-->/resources/css<!--{#version#}-->/main.css
+<!--{#res3#}-->/resources/lib/colorbox/colorbox.css
+<!--{#res4#}-->/resources/lib/tooltip/jquery.tooltip.css
+<!--{#res5#}-->/resources/css<!--{#version#}-->/book.css
+
+<!--{#res1#}-->/resources/js<!--{#version#}-->/core.js
+<!--{#res2#}-->/resources/js<!--{#version#}-->/phone.js
+<!--{#res3#}-->/resources/js<!--{#version#}-->/init.js
+<!--{#res4#}-->/resources/js<!--{#version#}-->/common.js
+
+<!--{#res5#}-->/resources/js<!--{#version#}-->/jquery-1.7.2.min.js
+<!--{#res1#}-->/resources/js<!--{#version#}-->/jquery.tmpl.min.js
+<!--{#res2#}-->/resources/js<!--{#version#}-->/jquery.easing.min.js
+<!--{#res3#}-->/resources/js<!--{#version#}-->/jquery.floatingmessage.js
+<!--{#res4#}-->/resources/lib/colorbox/jquery.colorbox-min.js
+<!--{#res5#}-->/resources/lib/tooltip/jquery.tooltip.min.js
+<!--{#res1#}-->/resources/js<!--{#version#}-->/mobile.js
+<!--{#res2#}-->/resources/js<!--{#version#}-->/app.js
+<!--{#res3#}-->/resources/js<!--{#version#}-->/download.js
+<!--{#res4#}-->/resources/js<!--{#version#}-->/cart.js
+<!--{#res5#}-->/resources/js<!--{#version#}-->/shopcollection.js
+<!--{#res1#}-->/resources/js<!--{#version#}-->/loopedSlider.js
+<!--{#res5#}-->/resources/js<!--{#version#}-->/opt.js
+<!--{#res1#}-->/resources/js<!--{#version#}-->/start.js
+NETWORK:
+*
+
+FALLBACK:

@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /resources
+
+RewriteRule js(.+)/(.+)$ /resources/js/$2 [L]
+RewriteRule css(.+)/(.+)$ /resources/css/$2 [L]

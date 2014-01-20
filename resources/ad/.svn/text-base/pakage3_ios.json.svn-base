@@ -1,0 +1,46 @@
+[
+{
+	"id":"200142",
+	"title":"QQ空间 ",
+	"url":"http://content.appdear.com/soft/ios/20120330/364183992.ipa?package=ios3",
+	"appid":"com.tencent.",
+	"versioncode":"171",
+	"version":"v1.7.1",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"200100",
+	"title":"墨迹天气（官方）",
+	"url":"http://content.appdear.com/soft/ios/20120417/434209233.ipa?package=ios3",
+	"appid":"com.moji.MojiWeather",
+	"versioncode":"23",
+	"version":"v2.3",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"200860",
+	"title":"K歌达人",
+	"url":"http://content.appdear.com/soft/ios/20120417/465045293.ipa?package=ios3",
+	"appid":"com.keruida.iphone.herooke",
+	"versioncode":"141",
+	"version":"v1.4.1",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"200104",
+	"title":"美图秀秀",
+	"url":"http://content.appdear.com/soft/ios/20120417/416048305.ipa?package=ios3",
+	"appid":"com.meitu.mtxx",
+	"versioncode":"142",
+	"version":"v1.4.2",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+}
+]

@@ -1,0 +1,214 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>开车上路必备 行车一族安卓应用推荐</h2>
+					<div class="evaDetail">
+						<blockquote>
+							公安部2013年新交通法规已经于1月1日起开始执行，新交规加强了对违规行为的处罚力度，并改进了驾考制度，被认为是“史上最严交规”。可以说新交规对驾驶员的影响是方方面面的。为了让机友们开车出行更加安全踏实，这次我们为大家推荐一下安卓驾驶应用，这些应用汇集众多功能，有交通违章查询，油价提醒，紧急救援，天气预报等，相信能够帮到大家…
+						</blockquote>
+						<div class="topiclist clear">
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120222/appdear_230232_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="175656" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130116/appdear_332217395_0116_b.apk?rsid=1036447&topicid=001&topicname=开车上路必备" installlocate="0" appid="cn.mucang.kaka.android" versioncode="20702" version="v2.7.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="卡卡司机助手"></a></p>
+								</dt>
+								<dd>
+									<p>卡卡司机助手</p>
+									<p>司机安全驾驶的必备软件，支持全国范围内的交通违章查询，车主还可使用地图搜索周边加油站、停车场等信息。此外道路救援、事故报案、车险理赔等实用功能，轻松解决行车中的尴尬情况！</p>
+									<p>大小：9.11MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121023/appdear_1310757_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="114127" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130111/appdear_40092_0111_m.apk?rsid=114127&topicid=001&topicname=开车上路必备" installlocate="0" appid="com.autonavi.minimap" versioncode="160" version="v4.2.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="高德地图"></a></p>
+								</dt>
+								<dd>
+									<p>高德地图</p>
+									<p>移动生活位置服务门户，1亿用户的出行首选！2013年高德地图焕然一新啦！全新的地图软件操作界面！新增室内地图！生活频道新增“看电影”版块！给您提供更多的生活位置服务信息…</p>
+									<p>大小：8.63MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121008/appdear_39309_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="142844" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130122/appdear_283484703_0122_b.apk?rsid=1003587&topicid=001&topicname=开车上路必备" installlocate="0" appid="com.handsgo.jiakao.android" versioncode="20802" version="v2.8.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="驾考宝典"></a></p>
+								</dt>
+								<dd>
+									<p>驾考宝典</p>
+									<p>采用2012年5月1日公安部启用的最新科目一题库，同时包含下列省市的地方题库：北京、广东、河北、山东、上海、四川、天津、浙江、重庆、山西、河南、湖南、江苏、甘肃、安徽...</p>
+									<p>大小：8.74MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120410/appdear_24009_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="160133" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130116/appdear_3869378039_0116_b.apk?rsid=1020924&topicid=001&topicname=开车上路必备" installlocate="0" appid="cn.mucang.xiaomi.android" versioncode="20708" version="v2.7.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="小米司机"></a></p>
+								</dt>
+								<dd>
+									<p>小米司机-查违章</p>
+									<p>司机应用软件，提供交警部门最新发布的车辆违章记录，查询范围覆盖全国30余省市。包含机动车交通违章查询、洗车指数、油价查询和每天限行提醒等车主常用功能。…</p>
+									<p>大小：5.96MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_193473_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="159224" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121228/appdear_53003_1228_m.apk?rsid=1020014&topicid=001&topicname=开车上路必备" installlocate="0" appid="cn.mucang.drunkremind.android" versioncode="20299" version="v2.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="酒精测试仪"></a></p>
+								</dt>
+								<dd>
+									<p>酒精测试仪</p>
+									<p>简洁实用的酒精含量检测工具，根据最新"酒驾新规"量身定制，适用于司机朋友自检。车主只需输入饮酒信息，就可及时测试血液中的酒精浓度。朋友聚会难免喝点，及时测试一下...</p>
+									<p>大小：1.26MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120729/appdear_306234_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="293776" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120903/appdear_575503_0903_m.apk?rsid=1195612&topicid=001&topicname=开车上路必备" installlocate="0" appid="com.autonavi.cvc.app.aacgas" versioncode="9344" version="v1.0.54.20120827" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="高德加油"></a></p>
+								</dt>
+								<dd>
+									<p>高德加油</p>
+									<p>“高德加油”是高德软件有限公司自主研发的一款移动互联网手机应用产品。深度加油站数据信息将为车主寻找周边打折优惠，质量性价比最合适的加油站提供有力参考。精准的油站地理位置…</p>
+									<p>大小：2.66MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120627/appdear_656095_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="267297" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120627/appdear_656095_0627_h.apk?rsid=1167324&topicid=001&topicname=开车上路必备" installlocate="0" appid="com.ilukuang.bj" versioncode="82" version="v0.8.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="北京路况电台"></a></p>
+								</dt>
+								<dd>
+									<p>路况电台</p>
+									<p>免费全国实时路况【最准确的实时路况】， 大量用户反馈数据和高精度的提供商数据完美结合，权威确保路况信息的准确性; 【最及时的突发事件】 只要您前行的路上有任何交通事故和管制，我们都会及时为您播放...</p>
+									<p>大小：3.92MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121031/appdear_617997_icon_m.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="335159" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121228/appdear_617997_1228_m.apk?rsid=1235228&topicid=001&topicname=开车上路必备" installlocate="0" appid="com.cheshell.carasistant" versioncode="4" version="v1.1.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="车助理"></a></p>
+								</dt>
+								<dd>
+									<p>车助理买车优惠</p>
+									<p>汽车业首创，推荐最佳4S店和优惠服务的实用工具。搜罗车界最优惠信息，最热门资讯，随身掌控4S店预约，车助理全包了！没干爹，不是高富帅，买车还得"省"，最省钱…</p>
+									<p>大小：4.90MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120915/appdear_354318_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="318782" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121228/appdear_68926_1228_b.apk?rsid=1218846&topicid=001&topicname=开车上路必备" installlocate="0" appid="com.client.obd" versioncode="20130001" version="v3.3.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="行车管家"></a></p>
+								</dt>
+								<dd>
+									<p>行车管家</p>
+									<p>"行车管家"手机软件是通过iOBD数据采集和Carsmart云平台数据处理，透过车主手机,为用户提供远程诊断、安全防盗、实时车况、油耗费用、故障提醒、驾驶分析等一系列用车、养车、管车的服务功能...</p>
+									<p>大小：6.84MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120829/appdear_300359_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="283584" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120903/appdear_570762_0903_m.apk?rsid=1183630&topicid=001&topicname=开车上路必备" installlocate="0" appid="com.autonavi.cvc.app.aacparking" versioncode="9345" version="v1.0.75.20120827" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="高德停车"></a></p>
+								</dt>
+								<dd>
+									<p>高德停车 AAC PARKING</p>
+									<p>“高德停车”是高德软件有限公司自主研发的一款移动互联网手机应用产品。其详实的停车费信息为您挑选周边性价比最优的停车场提供有力参考；精准的停车场出/入口信息为您……</p>
+									<p>大小：2.66MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120428/appdear_548657_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166616" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121228/appdear_88992_1228_m.apk?rsid=1027407&topicid=001&topicname=开车上路必备" installlocate="0" appid="cn.mucang.xiaomi.android.wz" versioncode="30306" version="v3.3.6" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="全国交通违章查询助手"></a></p>
+								</dt>
+								<dd>
+									<p>全国交通违章查询</p>
+									<p>国内权威的手机版交通违章查询,提供交警部门最新发布的车辆违章记录,查询范围覆盖全国30余省市、300多城市的车辆违章信息查询。绿色免费无广告，数据保持更新，力保最快、最全...</p>
+									<p>大小：5.15MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121105/appdear_618907_icon_m.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="347770" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130115/appdear_618907_0115_m.apk?rsid=1247839&topicid=001&topicname=开车上路必备" installlocate="0" appid="cn.mucang.android.common.djdr" versioncode="10399" version="v1.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="代驾达人"></a></p>
+								</dt>
+								<dd>
+									<p>代驾达人</p>
+									<p>开车不喝酒，不再是理由！代驾达人为客户提供酒后代驾、商务代驾等多项服务，让爱喝酒的您从此远离开车不喝酒的禁锢！商务公关朋友聚会，难免畅饮一番，酒后安全……</p>
+									<p>大小：1.52MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120405/appdear_249725_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="218867" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130109/appdear_106178_0109_m.apk?rsid=1118864&topicid=001&topicname=开车上路必备" installlocate="0" appid="cn.mucang.android.kaka.accountbook" versioncode="20299" version="v2.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="卡卡汽车账本"></a></p>
+								</dt>
+								<dd>
+									<p>卡卡司机理财</p>
+									<p>精打细算能省钱，为车主专业理财！方便的汽车消费理财工具。日常生活中洗车加油、维修保养等开支，有了花费随手记一笔，轻松实现低碳养车。按照不同的消费类别...</p>
+									<p>大小：2.17MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120608/appdear_620969_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="257285" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121220/appdear_1056442_1220_h.apk?rsid=1157298&topicid=001&topicname=开车上路必备" installlocate="0" appid="com.autonavi.xmgd.navigator.toc" versioncode="5" version="v5.3.8828.0137" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="高德导航"></a></p>
+								</dt>
+								<dd>
+									<p>高德交通</p>
+									<p>上班怕堵车？约会怕迟到？让路况软件【高德交通】来帮你，规避拥堵，一秒钟变身交通达人，省时专家！应用特点：超方便：全程语音，行车途中解放双手；超简捷……</p>
+									<p>大小：6.75MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120921/appdear_361694_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="322268" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121231/appdear_596620_1231_m.apk?rsid=1222332&topicid=001&topicname=开车上路必备" installlocate="0" appid="cn.mucang.cxdr.android" versioncode="10199" version="v1.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="车险达人"></a></p>
+								</dt>
+								<dd>
+									<p>车险达人</p>
+									<p>明明白白买车险，少花钱大保障！车险达人提供专业的车险咨询、投保、理赔等周到服务，方便车主找到最经济的车险投保方案。专享车险理赔、道路救援等服务...</p>
+									<p>大小：1.65MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121023/appdear_780848_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="343154" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121207/appdear_2789178065_1207_b.apk?rsid=1243223&topicid=001&topicname=开车上路必备" installlocate="0" appid="com.shanghaionstar" versioncode="5" version="v2.3.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="安吉星OnStar"></a></p>
+								</dt>
+								<dd>
+									<p>安吉星 Onstar</p>
+									<p>安吉星安卓手机应用是安吉星智能行车安全系统携手上海通用别克、凯迪拉克、雪佛兰品牌推出全新应用。您可以通过手机随时掌握您的车辆车况、对车辆进行远程控制……</p>
+									<p>大小：3.98MB</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

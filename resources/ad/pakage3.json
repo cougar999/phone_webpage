@@ -1,0 +1,57 @@
+[
+{
+	"id":"123636",
+	"title":"新浪微博",
+	"url":"http://od.appdear.com/soft/android/20121113/appdear_35678_1113_m.apk?package=3",
+	"appid":"com.sina.weibo",
+	"versioncode":"211",
+	"version":"v3.0.5",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"123450",
+	"title":"搜狗手机输入法",
+	"url":"http://od.appdear.com/soft/android/20121031/appdear_jyhf2frye_android.apk?package=3",
+	"appid":"com.sohu.inputmethod.sogou",
+	"versioncode":"122",
+	"version":"v3.1.1",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"132320",
+	"title":"酷我音乐2012",
+	"url":"http://od.appdear.com/soft/android/20120615/appdear_16505_android.apk?package=3",
+	"appid":"cn.kuwo.player",
+	"versioncode":"3140",
+	"version":"v3.1.4.0",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"132476",
+	"title":"金山电池医生",
+	"url":"http://od.appdear.com/soft/android/20120927/appdear_16454_android.apk?package=3",
+	"appid":"com.ijinshan.kbatterydoctor",
+	"versioncode":"2000241",
+	"version":"v2.4.1",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"10016",
+	"title":"塔读文学",
+	"url":"http://od.appdear.com/soft/android/20120928/appdear_90436_android.apk?package=1",
+	"appid":"com.tadu.android",
+	"versioncode":"21",
+	"version":"v6.2.37.1524",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+}
+]

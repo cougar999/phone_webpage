@@ -1,0 +1,77 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content">
+	<div class="wrap">
+		<div class="scroll">
+		<div class="contentbody contentwrap">
+		<div class="section">
+			<script>
+				(function(a){a.fn.slides=function(b){return b=a.extend({},a.fn.slides.option,b),this.each(function(){function w(g,h,i){if(!p&&o){p=!0,b.animationStart(n+1);switch(g){case"next":l=n,k=n+1,k=e===k?0:k,r=f*2,g=-f*2,n=k;break;case"prev":l=n,k=n-1,k=k===-1?e-1:k,r=0,g=0,n=k;break;case"pagination":k=parseInt(i,10),l=a("."+b.paginationClass+" li."+b.currentClass+" a",c).attr("href").match("[^#/]+$"),k>l?(r=f*2,g=-f*2):(r=0,g=0),n=k}h==="fade"?b.crossfade?d.children(":eq("+k+")",c).css({zIndex:10}).fadeIn(b.fadeSpeed,b.fadeEasing,function(){b.autoHeight?d.animate({height:d.children(":eq("+k+")",c).outerHeight()},b.autoHeightSpeed,function(){d.children(":eq("+l+")",c).css({display:"none",zIndex:0}),d.children(":eq("+k+")",c).css({zIndex:0}),b.animationComplete(k+1),p=!1}):(d.children(":eq("+l+")",c).css({display:"none",zIndex:0}),d.children(":eq("+k+")",c).css({zIndex:0}),b.animationComplete(k+1),p=!1)}):d.children(":eq("+l+")",c).fadeOut(b.fadeSpeed,b.fadeEasing,function(){b.autoHeight?d.animate({height:d.children(":eq("+k+")",c).outerHeight()},b.autoHeightSpeed,function(){d.children(":eq("+k+")",c).fadeIn(b.fadeSpeed,b.fadeEasing)}):d.children(":eq("+k+")",c).fadeIn(b.fadeSpeed,b.fadeEasing,function(){a.browser.msie&&a(this).get(0).style.removeAttribute("filter")}),b.animationComplete(k+1),p=!1}):(d.children(":eq("+k+")").css({left:r,display:"block"}),b.autoHeight?d.animate({left:g,height:d.children(":eq("+k+")").outerHeight()},b.slideSpeed,b.slideEasing,function(){d.css({left:-f}),d.children(":eq("+k+")").css({left:f,zIndex:5}),d.children(":eq("+l+")").css({left:f,display:"none",zIndex:0}),b.animationComplete(k+1),p=!1}):d.animate({left:g},b.slideSpeed,b.slideEasing,function(){d.css({left:-f}),d.children(":eq("+k+")").css({left:f,zIndex:5}),d.children(":eq("+l+")").css({left:f,display:"none",zIndex:0}),b.animationComplete(k+1),p=!1})),b.pagination&&(a("."+b.paginationClass+" li."+b.currentClass,c).removeClass(b.currentClass),a("."+b.paginationClass+" li:eq("+k+")",c).addClass(b.currentClass))}}function x(){clearInterval(c.data("interval"))}function y(){b.pause?(clearTimeout(c.data("pause")),clearInterval(c.data("interval")),u=setTimeout(function(){clearTimeout(c.data("pause")),v=setInterval(function(){w("next",i)},b.play),c.data("interval",v)},b.pause),c.data("pause",u)):x()}a("."+b.container,a(this)).children().wrapAll('<div class="slides_control"/>');var c=a(this),d=a(".slides_control",c),e=d.children().size(),f=d.children().outerWidth(),g=d.children().outerHeight(),h=b.start-1,i=b.effect.indexOf(",")<0?b.effect:b.effect.replace(" ","").split(",")[0],j=b.effect.indexOf(",")<0?i:b.effect.replace(" ","").split(",")[1],k=0,l=0,m=0,n=0,o,p,q,r,s,t,u,v;if(e<2)return a("."+b.container,a(this)).fadeIn(b.fadeSpeed,b.fadeEasing,function(){o=!0,b.slidesLoaded()}),a("."+b.next+", ."+b.prev).fadeOut(0),!1;if(e<2)return;h<0&&(h=0),h>e&&(h=e-1),b.start&&(n=h),b.randomize&&d.randomize(),a("."+b.container,c).css({overflow:"hidden",position:"relative"}),d.children().css({position:"absolute",top:0,left:d.children().outerWidth(),zIndex:0,display:"none"}),d.css({position:"relative",width:f*3,height:g,left:-f}),a("."+b.container,c).css({display:"block"}),b.autoHeight&&(d.children().css({height:"auto"}),d.animate({height:d.children(":eq("+h+")").outerHeight()},b.autoHeightSpeed));if(b.preload&&d.find("img:eq("+h+")").length){a("."+b.container,c).css({background:"url("+b.preloadImage+") no-repeat 50% 50%"});var z=d.find("img:eq("+h+")").attr("src")+"?"+(new Date).getTime();a("img",c).parent().attr("class")!="slides_control"?t=d.children(":eq(0)")[0].tagName.toLowerCase():t=d.find("img:eq("+h+")"),d.find("img:eq("+h+")").attr("src",z).load(function(){d.find(t+":eq("+h+")").fadeIn(b.fadeSpeed,b.fadeEasing,function(){a(this).css({zIndex:5}),a("."+b.container,c).css({background:""}),o=!0,b.slidesLoaded()})})}else d.children(":eq("+h+")").fadeIn(b.fadeSpeed,b.fadeEasing,function(){o=!0,b.slidesLoaded()});b.bigTarget&&(d.children().css({cursor:"pointer"}),d.children().click(function(){return w("next",i),!1})),b.hoverPause&&b.play&&(d.bind("mouseover",function(){x()}),d.bind("mouseleave",function(){y()})),b.generateNextPrev&&(a("."+b.container,c).after('<a href="#" class="'+b.prev+'">Prev</a>'),a("."+b.prev,c).after('<a href="#" class="'+b.next+'">Next</a>')),a("."+b.next,c).click(function(a){a.preventDefault(),b.play&&y(),w("next",i)}),a("."+b.prev,c).click(function(a){a.preventDefault(),b.play&&y(),w("prev",i)}),b.generatePagination?(b.prependPagination?c.prepend("<ul class="+b.paginationClass+"></ul>"):c.append("<ul class="+b.paginationClass+"></ul>"),d.children().each(function(){a("."+b.paginationClass,c).append('<li><a href="#'+m+'">'+(m+1)+"</a></li>"),m++})):a("."+b.paginationClass+" li a",c).each(function(){a(this).attr("href","#"+m),m++}),a("."+b.paginationClass+" li:eq("+h+")",c).addClass(b.currentClass),a("."+b.paginationClass+" li a",c).click(function(){return b.play&&y(),q=a(this).attr("href").match("[^#/]+$"),n!=q&&w("pagination",j,q),!1}),a("a.link",c).click(function(){return b.play&&y(),q=a(this).attr("href").match("[^#/]+$")-1,n!=q&&w("pagination",j,q),!1}),b.play&&(v=setInterval(function(){w("next",i)},b.play),c.data("interval",v))})},a.fn.slides.option={preload:!1,preloadImage:"/img/loading.gif",container:"slides_container",generateNextPrev:!1,next:"next",prev:"prev",pagination:!0,generatePagination:!0,prependPagination:!1,paginationClass:"pagination",currentClass:"current",fadeSpeed:350,fadeEasing:"",slideSpeed:350,slideEasing:"",start:1,effect:"slide",crossfade:!1,randomize:!1,play:0,pause:0,hoverPause:!1,autoHeight:!1,autoHeightSpeed:350,bigTarget:!1,animationStart:function(){},animationComplete:function(){},slidesLoaded:function(){}},a.fn.randomize=function(b){function c(){return Math.round(Math.random())-.5}return a(this).each(function(){var d=a(this),e=d.children(),f=e.length;if(f>1){e.hide();var g=[];for(i=0;i<f;i++)g[g.length]=i;g=g.sort(c),a.each(g,function(a,c){var f=e.eq(c),g=f.clone(!0);g.show().appendTo(d),b!==undefined&&b(f,g),f.remove()})}})}})(jQuery)
+			</script>
+			<script>
+				$(function(){
+					$('#slides').slides({
+						preload: true,
+						play: 3000,
+						pause: 3000,
+						hoverPause: true
+					});
+				});
+			</script>
+			
+			<div id="slides">
+				<div class="slides_container">
+					<li><a href="#null"><img src="<!--{#res1#}-->/resources/img40/ios_help1.jpg"></a></li>
+					<li><a href="http://content.appdear.com/soft/ios/tongbu.zip" class="openlink" target="_blank"><img src="<!--{#res1#}-->/resources/img40/ios_help2.jpg">
+					<map name="Map" id="Map">
+							<area shape="rect" coords="353,128,556,152" href="http://content.appdear.com/soft/ios/tongbu.zip" class="openlink" target="_blank" />
+                    </map>
+					</a></li>
+					<li><a href="#null"><img src="<!--{#res1#}-->/resources/img40/ios_help3.jpg"></a></li>
+					<li><a href="#null"><img src="<!--{#res1#}-->/resources/img40/ios_help4.jpg"></a></li>
+					<li><a href="#null"><img src="<!--{#res1#}-->/resources/img40/ios_help5.jpg"></a></li>
+				</div>
+			</div>
+
+			<!--
+			<div id="ios_course">
+			<div class="ios_course">
+				<h1>初次使用需设置itunes</h1>
+				<h3>第一步：启动爱皮下载零售店版，插上IOS设备，连接成功后在爱皮下载里按照页面提示一步步操作：检测电脑授权状态→成功→启动itunes。</h3>
+				<p>注意：为避免插上苹果设备即自动启动iTunes，请在iTunes中进行如下设置：点击“编辑”菜单→偏好设置→设备→勾选“防止iPod、iPhone和iPad自动同步”。</p>
+				<h3>第二步：点击itunes文件菜单→将文件添加到资料库</h3>
+				<img src="<!--{#res3#}-->/resources/img40/ios_course1.png" />
+				
+				<h3>第三步：从电脑中找到下载的“UC浏览器.ipa（以uc为例，其他ipa文件亦可）”，点击打开。</h3>
+				提示：UC浏览器下载地址 <a href="http://content.appdear.com/soft/ios/tongbu.zip" target="_blank" class="openlink" >http://content.appdear.com/soft/ios/tongbu.zip</a> 下载后解压缩到电脑上，里面含有包括“UC浏览器”在内的三个软件，此处以“UC浏览器”为例，选择另外任一软件也可以。
+				<img src="<!--{#res4#}-->/resources/img40/ios_course2.png" />
+				
+				<h3>第四步：点击左侧ios设备→点击右侧顶部应用程序图标→勾选同步应用程序→勾选UC浏览器→点击应用  </h3>
+				<img src="<!--{#res5#}-->/resources/img40/ios_course3.png" />
+				
+				<h3>同步成功后，关闭itunes，即可使用爱皮下载安装IOS软件。</h3>
+				<p>同步成功后，请在IOS设备上尝试运行UC浏览器：</p>
+				<p>如果能正常运行，即可关闭iTunes,使用爱皮下载安装软件；</p>
+				<p>如果UC浏览器点击后闪退，请再次使用iTunes进行同步操作。</p>
+				<br />
+				<p>之后每次操作无需再设置itunes，只需使用itunes同步一次即可。流程如下：</p>
+				<p>插上IOS设备后，启动iTunes，在应用程序页面，选中“UC浏览器”，点击“应用”按钮，同步完成后，即可关闭itunes，使用爱皮下载下载安装软件。</p>
+				<br />
+			</div>
+			<div class="ios_tips">
+				<h2>常见问题提醒</h2>
+				<ol>
+					<li>初次安装爱皮下载零售店版后，需按照上面流程设置iTunes，并与ios设备同步。</li>
+					<li>以后每次插上其他ios设备，均需进行一次同步操作，同步完成，即可关闭itunes，使用爱皮下载下载安装软件。</li>
+					<li>通过itunes同步uc.ipa到ios设备后，未越狱设备之前安装的软件将被清除，已越狱设备之前安装的软件将保留。</li>
+					<li>每个ios设备只需进行一次同步“UC浏览器”的操作。比如某顾客今天新购机，进行了以上操作并安装了几个软件，明天顾客再过来安装软件，则无需再次使用iTunes进行同步！</li>
+					<li>为保证电脑授权成功，第一次启动爱皮下载前，请关闭杀毒软件！</li>
+					<li>如果该设备在其他iTunes进行同步应用操作，通过爱皮下载安装的应用，将会被清除！！</li>
+				</ol>
+			</div>
+			</div>
+			-->
+		</div>
+		</div>
+		</div>
+	</div>
+</div>

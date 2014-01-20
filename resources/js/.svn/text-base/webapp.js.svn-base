@@ -1,0 +1,541 @@
+if (!window.external) {
+	window.external = {};
+}
+if (!window.external.db) {
+	window.external.db = {};
+}
+if (!window.StorageListener) {
+	window.StorageListener = {};
+}
+if (!window.SessionListener) {
+	window.SessionListener = {};
+}
+
+function SetExternal(key, val) {
+	if (typeof(key) == 'object') {
+		val = key.val;
+		key = key.key;
+	}
+	window.external[key] = val;
+}
+
+function GetExternal(key) {
+	return window.external[key];
+}
+
+document.domain = "appdear.com";
+function log(text) {
+	if (!console) return;
+	var date = new Date();
+	var time = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+	time += ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+	time += '.' + date.getMilliseconds();
+	console.log(time + ' ' + text + ' ' + location.href);
+}
+
+document.addEventListener('mousedown', function(event){
+	if(mouseright==1 && event.button == 2) {
+		document.oncontextmenu = new Function("return false;");
+	}
+}, false);
+
+function WebAppCall(eventType, callback) {
+	if (!window.external) window.external = {};
+	window.external.module = "";
+	window.external.func = eventType || "WebAppTest";
+	window.external.result = null;
+	window.external.data = null;
+	window.external.data1 = null;
+	window.external.data2 = null;
+	var result = window.external.module + '_' + window.external.func;
+	var listener = function(event){
+		//var _status = window.external.result; var _data = window.external.data;
+		if (event.result == 'ok') {
+			document.removeEventListener(result, listener, false);
+			if (parent != self) {
+				parent.document.removeEventListener(result, listener, false);
+			}
+		}
+		if (event.result == 'ok' && callback) { 
+			callback(event.data, event.result, event.data1, event.data2); 
+		}
+	};
+	log('WebAppCall[' + result + ' dispatchEvent]');
+	document.addEventListener(result, listener, false);
+	if (parent != self) {
+		parent.document.addEventListener(result, listener, false);
+	}
+	var event = document.createEvent("Event"); 
+	event.initEvent("webapp", true, true);
+	document.dispatchEvent(event);
+}
+
+function WebAppCallback(evt) {
+	var evt = evt || (window.external.module + '_' + window.external.func);
+	var event = document.createEvent("Event");
+	var result = window.external.result;
+	var data = window.external.data;
+	var data1 = window.external.data1;
+	var data2 = window.external.data2;
+	
+	window.external.result = null;
+	window.external.data = null;
+	window.external.data1 = null;
+	window.external.data2 = null;
+	
+	log(evt + ' ' + result + ' ' + data);
+	if (result != 'ok') return;
+	event.initEvent(evt, true, true);
+	event.result = result;
+	event.data = data;
+	event.data1 = data1;
+	event.data2 = data2;
+	document.dispatchEvent(event);
+	/*
+	if (parent == self) {
+		var pagecontainer = document.getElementById('pagecontainer');
+		if (pagecontainer) {
+			try {
+				var child = pagecontainer.contentWindow;
+				if (!child.external) child.external = {};
+				child.external.result = window.external.result;
+				child.external.data = window.external.data;
+				child.WebAppCallback(evt);
+			} catch (e) {
+				log(e);
+			}
+		}
+	}
+	*/
+	return true;
+}
+
+function WebAppDatabase(sql, argv, callback, options) {
+	if (typeof(sql) == 'object') {
+		argv = sql.argv;
+		callback = sql.callback;
+		options = sql.options;
+		sql = sql.sql;
+	}
+	if (!options) options = {};
+	var database = options.database || 'WebAppDatabase';
+	var db = window.external.db[database];
+	if (!db) {
+		var version = options.version || '1.0';
+		var description = options.description || 'Offline data storage';
+		var estimatedSize = options.estimatedSize || (5*1024*1024);
+		try	{
+			db = openDatabase(database, version, description, estimatedSize);
+			window.external.db[database] = db;
+		} catch (e)	{
+			log('WebAppDatabase[' + e + ']');
+			if (callback) callback(false, e);
+			return false;
+		}
+	}
+	if (!db) { return false; }
+	log('WebAppDatabase[' + database + ']');
+	if (sql) { 
+		db.transaction(function(t) {
+			log('WebAppDatabase[' + sql + ']');
+			t.executeSql(sql, argv, function(t, data) {
+				log('WebAppDatabase[ok ' + data.rows.length + ']');
+				if (callback) callback(true, data, t);
+				delete db;
+				delete window.external.db[database];
+				//window.external.db[database] = db = null;
+			}, function(t, error) {
+				log('WebAppDatabase[err:' + error.code  + ' ' + error.message + ']');
+				if (callback) callback(false, error, t);
+				delete db;
+				delete window.external.db[database];
+				//window.external.db[database] = db = null;
+			});
+		});
+	} else {
+		delete db;
+		delete window.external.db[database];
+		//window.external.db[database] = db = null;
+		return false;
+	}
+	return true;
+}
+
+
+function WebAppLocalStorage(key, val) {
+	if (typeof(key) == 'object') {
+		val = key.val;
+		key = key.key;
+	}
+	if (!window.localStorage) return;
+	if (!key) return;
+	if (typeof(val) == 'undefined' || typeof(val) == 'function')	{
+		var result = localStorage.getItem(key);
+		if (val) { val(result); }
+		return result;
+	} else {
+		var result = localStorage.getItem(key);
+		localStorage.setItem(key, val);
+	}
+	var event = document.createEvent("Event"); 
+	event.initEvent("localstorage", true, true);
+	event.key = key;
+	event.newValue = val;
+	event.oldValue = result;
+	event.url = location.href;
+	event.storageArea = 'local';
+	document.dispatchEvent(event);
+}
+
+function WebAppSessionStorage(key, val) {
+	if (typeof(key) == 'object') {
+		val = key.val;
+		key = key.key;
+	}
+	if (!window.sessionStorage) return;
+	if (!key) return;
+	if (typeof(val) == 'undefined' || typeof(val) == 'function')	{
+		result = sessionStorage.getItem(key);
+		if (val) { val(result); }
+		return result;
+	} else {
+		sessionStorage.setItem(key, val);
+	}
+}
+
+
+
+// json2.js See http://www.JSON.org/js.html
+var JSON;
+if (!JSON) {
+    JSON = {};
+}
+
+(function () {
+    function f(n) {
+        return n < 10 ? '0' + n : n;
+    }
+
+    if (typeof Date.prototype.toJSON !== 'function') {
+
+        Date.prototype.toJSON = function (key) {
+
+            return isFinite(this.valueOf())
+                ? this.getUTCFullYear() + '-' +
+                    f(this.getUTCMonth() + 1) + '-' +
+                    f(this.getUTCDate()) + 'T' +
+                    f(this.getUTCHours()) + ':' +
+                    f(this.getUTCMinutes()) + ':' +
+                    f(this.getUTCSeconds()) + 'Z'
+                : null;
+        };
+
+        String.prototype.toJSON =
+            Number.prototype.toJSON =
+            Boolean.prototype.toJSON = function (key) {
+                return this.valueOf();
+            };
+    }
+
+    var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+        escapable = /[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
+        gap,
+        indent,
+        meta = { // table of character substitutions
+            '\b': '\\b',
+            '\t': '\\t',
+            '\n': '\\n',
+            '\f': '\\f',
+            '\r': '\\r',
+            '"' : '\\"',
+            '\\': '\\\\'
+        },
+        rep;
+
+
+    function quote(string) {
+
+      escapable.lastIndex = 0;
+        return escapable.test(string) ? '"' + string.replace(escapable, function (a) {
+            var c = meta[a];
+            return typeof c === 'string'
+                ? c
+                : '\\u' + ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+        }) + '"' : '"' + string + '"';
+    }
+
+    function str(key, holder) {
+
+        var i, // The loop counter.
+            k, // The member key.
+            v, // The member value.
+            length,
+            mind = gap,
+            partial,
+            value = holder[key];
+
+        if (value && typeof value === 'object' &&
+                typeof value.toJSON === 'function') {
+            value = value.toJSON(key);
+        }
+
+        if (typeof rep === 'function') {
+            value = rep.call(holder, key, value);
+        }
+
+        switch (typeof value) {
+        case 'string':
+            return quote(value);
+
+        case 'number':
+
+            return isFinite(value) ? String(value) : 'null';
+
+        case 'boolean':
+        case 'null':
+
+            return String(value);
+
+        case 'object':
+
+            if (!value) {
+                return 'null';
+            }
+
+            gap += indent;
+            partial = [];
+
+            if (Object.prototype.toString.apply(value) === '[object Array]') {
+
+                length = value.length;
+                for (i = 0; i < length; i += 1) {
+                    partial[i] = str(i, value) || 'null';
+                }
+
+                v = partial.length === 0
+                    ? '[]'
+                    : gap
+                    ? '[\n' + gap + partial.join(',\n' + gap) + '\n' + mind + ']'
+                    : '[' + partial.join(',') + ']';
+                gap = mind;
+                return v;
+            }
+
+            if (rep && typeof rep === 'object') {
+                length = rep.length;
+                for (i = 0; i < length; i += 1) {
+                    if (typeof rep[i] === 'string') {
+                        k = rep[i];
+                        v = str(k, value);
+                        if (v) {
+                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
+                        }
+                    }
+                }
+            } else {
+
+                for (k in value) {
+                    if (Object.prototype.hasOwnProperty.call(value, k)) {
+                        v = str(k, value);
+                        if (v) {
+                            partial.push(quote(k) + (gap ? ': ' : ':') + v);
+                        }
+                    }
+                }
+            }
+
+            v = partial.length === 0
+                ? '{}'
+                : gap
+                ? '{\n' + gap + partial.join(',\n' + gap) + '\n' + mind + '}'
+                : '{' + partial.join(',') + '}';
+            gap = mind;
+            return v;
+        }
+    }
+
+    if (typeof JSON.stringify !== 'function') {
+        JSON.stringify = function (value, replacer, space) {
+
+            var i;
+            gap = '';
+            indent = '';
+
+            if (typeof space === 'number') {
+                for (i = 0; i < space; i += 1) {
+                    indent += ' ';
+                }
+
+            } else if (typeof space === 'string') {
+                indent = space;
+            }
+
+            rep = replacer;
+            if (replacer && typeof replacer !== 'function' &&
+                    (typeof replacer !== 'object' ||
+                    typeof replacer.length !== 'number')) {
+                throw new Error('JSON.stringify');
+            }
+
+            return str('', {'': value});
+        };
+    }
+
+    if (typeof JSON.parse !== 'function') {
+        JSON.parse = function (text, reviver) {
+
+            var j;
+
+            function walk(holder, key) {
+
+                var k, v, value = holder[key];
+                if (value && typeof value === 'object') {
+                    for (k in value) {
+                        if (Object.prototype.hasOwnProperty.call(value, k)) {
+                            v = walk(value, k);
+                            if (v !== undefined) {
+                                value[k] = v;
+                            } else {
+                                delete value[k];
+                            }
+                        }
+                    }
+                }
+                return reviver.call(holder, key, value);
+            }
+
+            text = String(text);
+            cx.lastIndex = 0;
+            if (cx.test(text)) {
+                text = text.replace(cx, function (a) {
+                    return '\\u' +
+                        ('0000' + a.charCodeAt(0).toString(16)).slice(-4);
+                });
+            }
+
+            if (/^[\],:{}\s]*$/
+                    .test(text.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g, '@')
+                        .replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g, ']')
+                        .replace(/(?:^|:|,)(?:\s*\[)+/g, ''))) {
+                j = eval('(' + text + ')');
+                return typeof reviver === 'function'
+                    ? walk({'': j}, '')
+                    : j;
+            }
+            throw new SyntaxError('JSON.parse');
+        };
+    }
+}());
+
+function WebAppLocalStorageEvent(key, callback) {
+	if (!external.localStorageListener) external.localStorageListener = {};
+	if (!callback && LocalStorageListener[key]) {
+		log('localstorage remove [' + key + ']');
+		document.removeEventListener('localstorage', external.localStorageListener[key], false);
+		return;
+	} else {
+		log('localstorage add [' + key + ']');
+	}
+	external.localStorageListener[key] = function(event){
+		if (callback && event.storageArea == 'local' && event.key == key) {
+			log('localstorage call [' + key + ']');
+			callback(event.newValue, event.oldValue, event.url);
+		}
+	};
+	window.addEventListener("localstorage", external.localStorageListener[key], false);
+}
+
+function WebAppSessionStorageEvent(key, callback) {
+	if (!external.sessionStorageListener) external.sessionStorageListener = {};
+	if (!callback && SessionStorageListener[key]) {
+		log('sessionstorage remove [' + key + ']');
+		document.removeEventListener('sessionstorage', external.sessionStorageListener[key], false);
+		return;
+	} else {
+		log('sessionstorage add [' + key + ']');
+	}
+	external.sessionStorageListener[key] = function(event){
+		log('sessionstorage call[' + key + ']');
+		if (callback && event.storageArea == 'session' && event.key == key) {
+			callback(event.newValue, event.oldValue, event.url);
+		}
+	};
+	window.addEventListener("sessionstorage", external.sessionStorageListener[key], false);
+}
+
+function cookies(key, value, options) {
+    // key and value given, set cookie...
+    if (arguments.length > 1 && (value === null || typeof value !== "object")) {
+
+        if (value === null) {
+            options.expires = -1;
+        }
+
+        if (typeof options.expires === 'number') {
+            var days = options.expires, t = options.expires = new Date();
+            t.setDate(t.getDate() + days);
+        }
+
+        return (document.cookie = [
+            encodeURIComponent(key), '=',
+            options.raw ? String(value) : encodeURIComponent(String(value)),
+            options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+            options.path ? '; path=' + options.path : '',
+            options.domain ? '; domain=' + options.domain : '',
+            options.secure ? '; secure' : ''
+        ].join(''));
+    }
+
+    // key and possibly options given, get cookie...
+    options = value || {};
+    var result, decode = options.raw ? function (s) { return s; } : decodeURIComponent;
+    return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? decode(result[1]) : null;
+};
+
+//init
+if (typeof(phone_event_listener) != 'function' && parent == self) {
+	var phone_event_listener = function(newValue, oldValue, url) {
+		var currentPhone = JSON.parse(newValue)['phone1'];
+		if (currentPhone) {
+			var phonetype = currentPhone.phonetype || '';
+			var phoneversion = currentPhone.phoneversion || '';
+		} else {
+			var phonetype = '';
+			var phoneversion = '';
+		}
+		cookies('phonetype', phonetype, {path: '/'});
+		cookies('phoneversion', phoneversion, {path: '/'});
+		cookies('headers', JSON.stringify(currentPhone), {path: '/'});
+		
+		if (/com\/appstore\/download/.test(parent.location.href)) {
+			location.href = '/appstore/download.html?phonetype=' + phonetype + '.' + phoneversion;
+		} else if (/com\/appstore/.test(location.href)) {
+			parent.location.href = '/appstore?phonetype=' + phonetype + '.' + phoneversion;
+		} else if (/com\/mobile/.test(location.href)) {
+			var pos = location.href.indexOf('?');
+			if (pos > 0) {
+				var newurl = location.href.substr(0, pos);
+			} else {
+				var newurl = location.href;
+			}
+			location.href = newurl + '?jumpUrl&phonetype=' + phonetype + '.' + phoneversion;
+		} else if (/com\/favorite/.test(location.href)) {
+			document.location.href = '/favorite/favorite.html?phonetype=' + phonetype + '.' + phoneversion;
+		} else if (/com\/start\/quest/.test(location.href)) {
+				// null
+		} else {
+			location.href = location.href;
+		}
+	};
+	WebAppLocalStorageEvent('phone1', phone_event_listener);
+}
+/*
+setTimeout(function(){
+	document.removeEventListener('mousedown', null, false);
+	document.addEventListener('mousedown', function(event){
+		if(mouseright==1 && event.button == 2) {
+			document.oncontextmenu = new Function("return true;");
+		}
+	}, false);
+}, 5000);
+ */

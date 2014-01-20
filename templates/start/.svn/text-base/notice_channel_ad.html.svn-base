@@ -1,0 +1,11 @@
+<!--{config_load file="smarty.conf"}-->
+<style>
+.init_ad{background:url(<!--{#img7#}-->/resources/ad/newyear.png) no-repeat;overflow:hidden;}
+.init_ad span{height:66px;width:640px;display:block;}
+</style>
+
+<!--{if $smarty.get.channelcode == '1100000'}-->
+	<div class="init_ad"><span></span></div>
+<!--{else}-->
+	
+<!--{/if}-->

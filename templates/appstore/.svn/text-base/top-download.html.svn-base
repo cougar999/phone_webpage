@@ -1,0 +1,39 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_TOP_DOWNLOAD ret='menulist'}-->
+
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 ret='navlist'}-->
+<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_TOP_DOWNLOAD_APP ret='defaultmenu'}-->
+<!--{config_load file="smarty.conf"}-->
+
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	<div class="scroll">
+	<div class="contentbody contentwrap">
+		<div class="section">
+			<div style="padding:5px 0px;">
+				<div class="re">
+					<div>
+						<!--{include file="wgt-navs.tpl" navid=$menulist.menuid}-->
+					</div>
+				</div>
+			</div>
+		</div>	
+		
+		<div class="section">
+			<div style="padding:10px 0px;">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+				<!--{if $smarty.request.cid == $defaultmenu.menuid || $smarty.request.cid == null}-->
+					<!--{include file="wgt-download-top-list.tpl" top_id=$smarty.request.cid|default:$defaultmenu.menuid code1=$assign.ap_int.AP_INT_MENUCODE_TYPE_TOP_DOWNLOAD code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_TOP_DOWNLOAD_APP}-->
+				<!--{else}-->
+					<!--{include file="wgt-download-top-list.tpl" top_id=$smarty.request.cid|default:$defaultmenu.menuid code1=$assign.ap_int.AP_INT_MENUCODE_TYPE_TOP_DOWNLOAD code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_TOP_DOWNLOAD_GAME}-->
+				<!--{/if}-->
+				</td></tr></table>
+			</div>
+		</div>	
+		
+	</div>
+	</div>
+</div></div>

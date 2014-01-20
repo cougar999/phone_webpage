@@ -1,0 +1,30 @@
+<!--{feed int=AP_INT_C_VIDEOLIST cid=3434 order=0 pageno=1 count=10 ret='videolist'}-->
+<div id="wgt-video-list" class="wgt-video-list"><div style="padding-top:10px;">
+		<!--{foreach key=key item=item from=$videolist.page.items}-->
+		<div class="lf tc" style="width:176px;height:230px;padding-right:0px;padding-top:20px;padding-bottom:0px;border-bottom:1px dashed #cccccc;">
+			<a href="video-detail.html"><img src="<!--{$item.imgurl}-->" style="width:109px; height:163px;border:0px;" /></a>
+			<div>
+				<div style="height:30px;line-height:30px;padding:0px 10px;word-break:keep-all;overflow:hidden;">
+					<a href="video-detail.html" style="color:black;" class="f4 b tc"><!--{$item.video}--></a>
+				</div>
+				<div style="height:20px;line-height:20px;padding:0px 30px;">
+					<span class="lf f2 tc" style="width:30px;"><!--{$item.size}--></span>
+					<!--{if $item.price eq "免费"}-->
+						<span class="lf f2" style="width:40px;"><!--{$item.price}--></span>
+					<!--{else}-->	
+						<span class="lf f2 c4" style="width:40px;"><!--{$item.price}--></span>
+					<!--{/if}-->
+					<span class="rg">
+						<!--{if $item.videoid <3}-->
+							<a id="<!--{$item.videoid}-->" href="<!--{$softinfo.downloadurl}-->" class="lf s downinit"><img src="<!--{#res2#}-->/resources/img/btn_download.png" class="png_bg" border="0"></a>
+						<!--{else}-->	
+							<a id="<!--{$item.videoid}-->" href="" class="lf s"><img src="<!--{#res1#}-->/resources/img/btn_buy.png" class="png_bg" border="0"></a>
+						<!--{/if}-->
+					</span>
+					<div class="cl"></div>	
+				</div>
+			</div>	
+			<div class="cl"></div>					
+		</div>
+		<!--{/foreach}-->
+</div></div>

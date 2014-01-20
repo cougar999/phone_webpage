@@ -1,0 +1,281 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/frontend/!svn/ver/12825/code/aipisoft_pc_server2/trunk/templates/appstore
+END
+payment.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/templates/appstore/payment.html
+END
+clear-cart.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/clear-cart.html
+END
+music_test.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/frontend/!svn/ver/10153/code/aipisoft_pc_server2/trunk/templates/appstore/music_test.html
+END
+music.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/frontend/!svn/ver/10153/code/aipisoft_pc_server2/trunk/templates/appstore/music.html
+END
+game_home.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/frontend/!svn/ver/11110/code/aipisoft_pc_server2/trunk/templates/appstore/game_home.html
+END
+book-intro.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/frontend/!svn/ver/12868/code/aipisoft_pc_server2/trunk/templates/appstore/book-intro.html
+END
+book-package.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/book-package.html
+END
+ad.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/templates/appstore/ad.html
+END
+book-tadu.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/frontend/!svn/ver/10699/code/aipisoft_pc_server2/trunk/templates/appstore/book-tadu.html
+END
+singer-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/singer-detail.html
+END
+green_channel.html
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/frontend/!svn/ver/12531/code/aipisoft_pc_server2/trunk/templates/appstore/green_channel.html
+END
+cart.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/frontend/!svn/ver/10056/code/aipisoft_pc_server2/trunk/templates/appstore/cart.html
+END
+book-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/book-detail.html
+END
+fea.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/fea.html
+END
+singer-cat.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/singer-cat.html
+END
+book-index.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/book-index.html
+END
+theme.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/theme.html
+END
+checkout.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/templates/appstore/checkout.html
+END
+search.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/frontend/!svn/ver/10579/code/aipisoft_pc_server2/trunk/templates/appstore/search.html
+END
+video-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/video-detail.html
+END
+top-download.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/top-download.html
+END
+download.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/frontend/!svn/ver/12721/code/aipisoft_pc_server2/trunk/templates/appstore/download.html
+END
+book-cat-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/book-cat-list.html
+END
+game-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/frontend/!svn/ver/10625/code/aipisoft_pc_server2/trunk/templates/appstore/game-detail.html
+END
+game.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/frontend/!svn/ver/11110/code/aipisoft_pc_server2/trunk/templates/appstore/game.html
+END
+theme-soft.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/frontend/!svn/ver/10629/code/aipisoft_pc_server2/trunk/templates/appstore/theme-soft.html
+END
+soft.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/frontend/!svn/ver/10625/code/aipisoft_pc_server2/trunk/templates/appstore/soft.html
+END
+theme-soft-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/frontend/!svn/ver/10625/code/aipisoft_pc_server2/trunk/templates/appstore/theme-soft-detail.html
+END
+pushtophone.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/frontend/!svn/ver/11248/code/aipisoft_pc_server2/trunk/templates/appstore/pushtophone.html
+END
+app.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/frontend/!svn/ver/11110/code/aipisoft_pc_server2/trunk/templates/appstore/app.html
+END
+ios_authorised.html
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/frontend/!svn/ver/12741/code/aipisoft_pc_server2/trunk/templates/appstore/ios_authorised.html
+END
+albumn-cat.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/albumn-cat.html
+END
+music_baidu.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/frontend/!svn/ver/10586/code/aipisoft_pc_server2/trunk/templates/appstore/music_baidu.html
+END
+common-tools.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/frontend/!svn/ver/12926/code/aipisoft_pc_server2/trunk/templates/appstore/common-tools.html
+END
+app_home.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/frontend/!svn/ver/11110/code/aipisoft_pc_server2/trunk/templates/appstore/app_home.html
+END
+new.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/new.html
+END
+book.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/book.html
+END
+evaluating_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/frontend/!svn/ver/12716/code/aipisoft_pc_server2/trunk/templates/appstore/evaluating_list.html
+END
+book-package-list.html
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/book-package-list.html
+END
+theme-detail.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/theme-detail.html
+END
+author.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/author.html
+END
+top-song.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/top-song.html
+END
+video.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/video.html
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/frontend/!svn/ver/13016/code/aipisoft_pc_server2/trunk/templates/appstore/index.html
+END
+book-test.html
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/frontend/!svn/ver/11103/code/aipisoft_pc_server2/trunk/templates/appstore/book-test.html
+END
+song-cat.html
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/frontend/!svn/ver/9811/code/aipisoft_pc_server2/trunk/templates/appstore/song-cat.html
+END

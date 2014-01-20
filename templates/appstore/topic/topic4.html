@@ -1,0 +1,346 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>行尸走肉归来 安卓僵尸题材游戏推荐</h2>
+					<div class="evaDetail">
+						<blockquote>
+							广大僵尸迷们，行尸走肉第三季已经归来！怎么样？终于又要开始等待每周一集更新的日子了。近期安卓平台僵尸题材的游戏也是大作连连，我们为大家整理了一些，汇集了各种不同风格的僵尸游戏，血腥的，暴力的，刺激的，可爱的，卖萌的，奉献给广大的僵尸爱好者。等电视剧更新的空余时间，记得来玩我们的僵尸游戏哟！
+						</blockquote>
+						<div class="topiclist clear">
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121023/appdear_1440005_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="345771" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121031/appdear_1491418_1031_b.apk?rsid=1245840&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.zynga.swipeoutzombies.free" versioncode="1351136014" version="v1.1.0.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="切僵尸"></a></p>
+								</dt>
+								<dd>
+									<p>切僵尸 Zombie Swipeout</p>
+									<p>《切僵尸》（Zombie Swipeout）是由Zynga开发的一款休闲游戏。从现在开始，我们不切水果切僵尸。游戏将允许玩家与Facebook上的好友一起同台竞技，看谁切僵尸…</p>
+									<p>大小：28.23MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_158370_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="221315" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120218/appdear_158370_g.apk?rsid=1121317&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.halfbrick.ageofzombies" versioncode="1008" version="v1.0.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="僵尸时代"></a></p>
+								</dt>
+								<dd>
+									<p>僵尸时代 Age of Zombies</p>
+									<p>Age of Zombies(僵尸时代)是一款Android平台水果忍者Fruit Ninja开发商Halfbrick的新作，游戏讲述的是一个邪恶的博士组建了一只僵尸军队，打算毁灭人类…</p>
+									<p>大小：22.55MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_128530_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="369154" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121114/appdear_128530_1114_b.apk?rsid=1269226&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="pl.idreams.myShootTheZombirds.cn" versioncode="109" version="v1.09" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="大战僵尸鸟(中文版)"></a></p>
+								</dt>
+								<dd>
+									<p>大战僵尸鸟 Shoot The Zombirds</p>
+									<p>屡获殊荣的波兰游戏开发商Infinite Dreams本周带来了Shoot the Birds的续作Shoot the Zombirds《大战僵尸鸟》，究竟续作会带来怎样的不同</p>
+									<p>大小：24.40MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_197430_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="146514" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121117/appdear_621066_1117_m.apk?rsid=1007304&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.twistedoak.zw2" versioncode="10000" version="v1.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="僵尸仙境 2"></a></p>
+								</dt>
+								<dd>
+									<p>僵尸仙境2 Zombie Wonderland 2</p>
+									<p>僵尸仙境2（Zombie Wonderland 2）是Android平台一款僵尸题材的射击游戏，玩家扮演的是一位僵尸清理者，游戏中既要守护雇主的店铺…</p>
+									<p>大小：35.02MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121119/appdear_pwbsjxs2o_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="243447" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121119/appdear_kkptxadlv_android.apk?rsid=1143438&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.popcap.pvzq" versioncode="101" version="v1.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="植物大战僵尸长城版"></a></p>
+								</dt>
+								<dd>
+									<p>植物大战僵尸长城版 Plants Vs Zombies</p>
+									<p>该游戏由宝开公司和腾讯合作推出，在保留原作趣味性的基础上，加入了大量中国风元素，使其更加适合国内玩家。此外，全新关卡和任务角色…</p>
+									<p>大小：37.01MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121124/appdear_226181_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="390171" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121124/appdear_226181_1124_b.apk?rsid=1290243&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.woanlianta.biofrenz" versioncode="2005" version="v2.5" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="击杀僵尸"></a></p>
+								</dt>
+								<dd>
+									<p>击杀僵尸 Frag The Zombies</p>
+									<p>让人惊叹的僵尸猎人，优秀的画质，流畅的操作，定让你爱不释手 为了打击这些生物感染的怪物，现在你的能力，前进吧，勇士！超过20款游戏…</p>
+									<p>大小：38.62MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120406/appdear_76120_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="169151" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120426/appdear_540671_0426_h.apk?rsid=1029942&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.newfacegames.igunzombie" versioncode="18" version="v1.1.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="枪火僵尸"></a></p>
+								</dt>
+								<dd>
+									<p>枪火僵尸 iGun Zombie  FPS + Weaponary</p>
+									<p>枪火僵尸(iGun Zombie)是Android平台一款第一人称射击游戏，但是很奇怪地被归类在娱乐类里。评价高于4星！玩家在游戏中可以使用…</p>
+									<p>大小：32.84MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120514/appdear_261734_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="235959" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121124/appdear_3550622887_1124_b.apk?rsid=1135923&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.zynga.zombiesmash" versioncode="1353509661" version="v1.0.6" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="粉碎僵尸"></a></p>
+								</dt>
+								<dd>
+									<p>粉碎僵尸 ZombieSmash</p>
+									<p>《粉碎僵尸(ZombieSmash)》是一款非常容易玩上瘾休闲游戏,玩法十分新颖，你可以把冲向小屋的僵尸抛向空中，然后让僵尸重重地摔下来…</p>
+									<p>大小：15.84MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120529/appdear_604679_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="200310" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130110/appdear_2887861906_0110_b.apk?rsid=1100310&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.glu.samuzombie" versioncode="340" version="v3.4.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="武士大战僵尸"></a></p>
+								</dt>
+								<dd>
+									<p>武士大战僵尸 SAMURAI vs ZOMBIES DEFENSE</p>
+									<p>武士大战僵尸（SAMURAI vs ZOMBIES DEFENSE）是Android平台一款塔防与RPG元素混搭的手机游戏，在游戏中玩家需要扮演英勇的武士…</p>
+									<p>大小：19.15MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120526/appdear_270647_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="251002" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120526/appdear_270647_0526_g.apk?rsid=1150997&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.supermegateam.prozombiesoccter" versioncode="1336763939" version="v10" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="僵尸足球之最终暴动"></a></p>
+								</dt>
+								<dd>
+									<p>僵尸足球 Pro Zombie Soccer</p>
+									<p>《僵尸足球（Pro Zombie Soccer）》是一款Android平台以足球和僵尸为题材的攻防游戏，故事讲述了人类再次面临了僵尸的威胁…</p>
+									<p>大小：17.61MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120521/appdear_45046_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="220324" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120522/appdear_250187_0522_g.apk?rsid=1120326&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.cup.bombermanvszombies" versioncode="108" version="v1.0.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="炸弹人大战僵尸"></a></p>
+								</dt>
+								<dd>
+									<p>炸弹人大战僵尸 Bomberman vs Zombies</p>
+									<p>雄踞黑莓10大顶级游戏长达24周！下载量达到3 000 000的炸弹人大战僵尸（Bomberman vs Zombies）现在终于登录Android…</p>
+									<p>大小：8.87MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120331/appdear_486267_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="213379" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120720/appdear_710056_0720_h.apk?rsid=1113376&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.glu.android.zombsniper" versioncode="310" version="v3.1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="僵尸杀手"></a></p>
+								</dt>
+								<dd>
+									<p>僵尸杀手 CONTRACT KILLER:ZOMBIES (NR)</p>
+									<p>僵尸杀手CONTRACT KILLER ZOMBIES是一款射击游戏，来自大名鼎鼎的GLU，在游戏中拿起武器干掉无数的僵尸…</p>
+									<p>大小：13.44MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120830/appdear_791493_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="216714" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120608/appdear_615428_0608_h.apk?rsid=1116711&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.mobage.ww.a465.zombiefarm_android" versioncode="42" version="v1.7.0.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="僵尸农场"></a></p>
+								</dt>
+								<dd>
+									<p>僵尸农场 Zombie Farm</p>
+									<p>僵尸农场（Zombie Farm）是Android平台一款从 iOS 平台上移植过来的农场经营类的游戏，虽然体积并不算大…</p>
+									<p>大小：12.39MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120326/appdear_70820_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="167373" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121114/appdear_3500612407_1114_b.apk?rsid=1028164&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.corncrow.thedead" versioncode="8" version="v1.2.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="死亡僵尸第一章"></a></p>
+								</dt>
+								<dd>
+									<p>死亡僵尸 THE DEAD: Chapter One</p>
+									<p>死亡僵尸（THE DEAD: Chapter One）是Android平台一款不错的射击类游戏，现在，在僵尸部落的攻击下你能生存多久…</p>
+									<p>大小：48.06MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121023/appdear_893410_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="283022" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121006/appdear_871484_1006_h.apk?rsid=1183068&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.glu.wasteland" versioncode="112" version="v1.1.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="暴走!僵尸之城"></a></p>
+								</dt>
+								<dd>
+									<p>暴走！僵尸之城 Mutant Roadkill</p>
+									<p>暴走！僵尸之城（Mutant Roadkill）在这个历史遗迹的古城，充满了变异体，各种僵尸。直观的重力感应控制，…</p>
+									<p>大小：30.28MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121031/appdear_442836_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="132387" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20110827/25713/25713.apk?rsid=132184&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.MikaMobile.Zombieville" versioncode="5" version="v1.0.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="僵尸小镇" style="display: none; "></a></p>
+								</dt>
+								<dd>
+									<p>僵尸小镇 Zombieville USA</p>
+									<p>僵尸小镇Zombieville USA游戏中，你是小镇上唯一幸存的人类，去消灭僵尸，游戏中内置了18种不同的武器…</p>
+									<p>大小：11.77MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120828/appdear_202497_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="146315" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121023/appdear_1433319_1023_b.apk?rsid=1007105&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.wildbit.paperzombie" versioncode="13" version="v2.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="纸片僵尸"></a></p>
+								</dt>
+								<dd>
+									<p>纸片僵尸 Paper Zombie</p>
+									<p>纸片僵尸（Paper Zombie）是Android平台一款从iOS上移植过来的非常独特的僵尸题材的游戏…</p>
+									<p>大小：22.67MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120107/appdear_96811_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="140701" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120107/appdear_26302.apk?rsid=1001376&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.glu.android.zombsniper_noblood" versioncode="110" version="v1.1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="契约杀手僵尸之城"></a></p>
+								</dt>
+								<dd>
+									<p>僵尸杀手 CONTRACT KILLER ZOMBIES</p>
+									<p>僵尸杀手（CONTRACT KILLER ZOMBIES）是一款Android平台射击游戏，来自大名鼎鼎的GLU，在游戏中拿起武器…</p>
+									<p>大小：12.77MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_228084_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="155901" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121213/appdear_1539892467_1213_b.apk?rsid=1016691&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.loloworks.llzbs" versioncode="16" version="v1.3.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="天哪…僵尸"></a></p>
+								</dt>
+								<dd>
+									<p>天哪…僵尸！ Zombies...OMG!</p>
+									<p>Zombies...OMG!（天哪!僵尸）是Android平台一款非常独特的僵尸类的游戏，不同于以往的那些以血腥…</p>
+									<p>大小：11.05MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120528/appdear_24917_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="251967" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120927/appdear_830542_0927_h.apk?rsid=1151962&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.hotheadgames.google.free.zombie_ace" versioncode="15000801" version="v1.5.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="僵尸王牌"></a></p>
+								</dt>
+								<dd>
+									<p>王牌僵尸飞行员 Zombie Ace</p>
+									<p>这是一款横版飞行战斗游戏，游戏中玩家将扮演大量的僵尸在空中飞行入侵，这些不死的飞行员将横跨美国…</p>
+									<p>大小：30.80MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120424/appdear_538778_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="231300" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120424/appdear_538778_0424_h.apk?rsid=1131263&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.nubee.cvszsummer" versioncode="8" version="v1.0.7" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="金币大战僵尸夏日版汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>金币斗僵尸 夏季版 Coins VS Zombies Summer</p>
+									<p>金币斗僵尸-夏季版已上市!! 在这暖和的夏日阳光,僵尸们也忍不住走出冰冷的墓地奔向阳光、沙滩、海洋…</p>
+									<p>大小：13.26MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120315/appdear_240335_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="200352" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120315/appdear_240335_g.apk?rsid=1100352&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="sotodo.zombieHunting" versioncode="1" version="v1.0.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="僵尸猎人"></a></p>
+								</dt>
+								<dd>
+									<p>僵尸猎人 Zombie Hunting</p>
+									<p>僵尸猎人（Zombie Hunting）是Android平台一款休闲娱乐游戏。在阴暗的小镇中,玩家要面对各种各样…</p>
+									<p>大小：25.01MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121118/appdear_218369_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="385372" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121129/appdear_221735_1129_b.apk?rsid=1285444&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.artbit.shanereactionokh" versioncode="29" version="v2.9" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="僵尸乐园"></a></p>
+								</dt>
+								<dd>
+									<p>僵尸乐园 Shane Reaction: Zombieland</p>
+									<p>僵尸乐园（Shane Reaction: Zombieland）是Android平台一款射杀僵尸的游戏，游戏中主人公将站在外栏中…</p>
+									<p>大小：10.85MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_208446_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166841" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120219/appdear_208446_g.apk?rsid=1027632&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.andoop.zombiefish" versioncode="7" version="v1.17" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="僵尸钓鱼汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>僵尸钓鱼汉化版 Zombie Fishing</p>
+									<p>僵尸捕鱼汉化版（Zombie Fishing）是Android平台一款捕鱼游戏，又不单单是捕鱼，它有点像水果忍者…</p>
+									<p>大小：5.36MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120918/appdear_18080_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="320181" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121031/appdear_1465045_1031_b.apk?rsid=1220245&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.com2us.zombierunaway.up.freefull.google.global.android.common" versioncode="18800" version="v1.8.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="僵尸也疯狂UP"></a></p>
+								</dt>
+								<dd>
+									<p>僵尸再次疯狂 Zombie Runaway UP</p>
+									<p>僵尸再次疯狂Zombie Runaway UP是由com2us发布的僵尸跑酷系列的第二部，描述了地球上最后一只僵尸……</p>
+									<p>大小：38.96MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120903/appdear_119975_icon_m.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="311404" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120903/appdear_119975_0903_m.apk?rsid=1211465&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="mr.midlet.zombieblitz.cn.fix" versioncode="1" version="v1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="僵尸围城大灾变"></a></p>
+								</dt>
+								<dd>
+									<p>僵尸围城大灾变1</p>
+									<p>地球再次被邪恶的“G”病毒污染，很多人类被病毒感染变成僵尸，残杀同类。人类已经避无可避了，为了守卫家园…</p>
+									<p>大小：4.03MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120821/appdear_76260_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="303401" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120821/appdear_779348_0821_h.apk?rsid=1205439&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.favasben.izombieboxingpp" versioncode="2" version="v1.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="僵尸格斗"></a></p>
+								</dt>
+								<dd>
+									<p>僵尸格斗 iZombie Boxing</p>
+									<p>《僵尸格斗（iZombie Boxing）》给你不一样的格斗体验，展现独特的格斗玩法和12种不同场景及18不同敌人…</p>
+									<p>大小：29.79MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120808/appdear_323094_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="298579" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120808/appdear_323094_0808_g.apk?rsid=1200510&topicid=004&topicname=僵尸题材游戏推荐" installlocate="0" appid="com.ludema.olympiczombiesrun" versioncode="7" version="v1.04" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="世界僵尸奔跑联赛"></a></p>
+								</dt>
+								<dd>
+									<p>世界僵尸奔跑联赛 World League Zombies Run</p>
+									<p>世界僵尸奔跑联赛 World League Zombies Run》Android版讲述的是一天晚上，当你从睡梦中惊醒…</p>
+									<p>大小：7.04MB</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

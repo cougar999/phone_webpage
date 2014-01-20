@@ -1,0 +1,23 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	<div class="right">
+		<div>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+				<!--{include file="wgt-box-top-list.tpl" toplisttype="theme_detail" column_id=$smarty.request.cid|default:$assign.ap_int.AP_INT_MENU_THEME_DEFAULT}-->
+			</td></tr></table>
+		</div>
+	</div>
+	<div class="center contentbody contentwrap">
+		<div class="section">
+			<div style="padding:10px 20px;">
+				
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+				<!--{include file="wgt-theme-detail.tpl"  box_id=$smarty.request.mid}-->
+				</td></tr></table>		
+			</div>
+		</div>	
+	</div>
+</div></div>

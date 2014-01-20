@@ -1,0 +1,36 @@
+<div id="wgt-sort" class="wgt-sort"><div class="sort">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="f0"><tr>
+		<td class="tl"  style="padding-left:10px">
+			名称
+		</td>
+		<td width="2" class="tc">
+			<img alt="" src="<!--{#res1#}-->/resources/img/line.png">
+		</td>
+		<td width="300"  class="tl" style="padding-left:10px">
+			艺人
+		</td>
+		<td width="2" class="tc">
+			<!-- <img alt="" src="<!--{#res2#}-->/resources/img/line.png">-->
+		</td>
+		
+		<td width="75" class="tc <!--{if $smarty.get.sortby == "price"}-->active<!--{/if}-->">
+			<!-- <h3 class="lf">
+				<a href="?<!--{params sortby=price order=null}-->&order=<!--{if $smarty.get.order == '3'}-->4<!--{else}-->3<!--{/if}-->" class="hist tc" onclick="gotopage(this); return false;"><span class="title">价格</span><span class="<!--{if $smarty.get.order == '4'}-->down<!--{else}-->up<!--{/if}-->"></span></a>
+			</h3> -->
+		</td>
+		<td width="2" class="tc">
+		<img alt="" src="<!--{#res3#}-->/resources/img/line.png">
+		</td>
+		<td width="75" class="tc <!--{if $smarty.get.sortby == "service"}-->active<!--{/if}-->">
+			<h3 class="lf">
+				<a href="?<!--{params sortby=service order=null}-->&order=<!--{if $smarty.get.order == '8'}-->9<!--{else}-->8<!--{/if}-->" class="hist tc" onclick="gotopage(this); return false;"><span class="title">服务费</span><span class="<!--{if $smarty.get.order == '9'}-->down<!--{else}-->up<!--{/if}-->"></span></a>
+			</h3>
+		</td>
+		<td width="2" class="tc">
+		<img alt="" src="<!--{#res1#}-->/resources/img/line.png">
+		</td>
+		<td width="150" class="tc">
+			
+		</td>
+	</tr></table>
+</div></div>

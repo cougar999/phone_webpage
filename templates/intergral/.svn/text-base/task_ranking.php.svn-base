@@ -1,0 +1,13 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+
+	<div class="scroll">
+		<!--{if $assign.shopid != -1}-->
+		<div class="section">
+		<!--{include file="intergral/wgt-task-ranking.tpl" ranking=$assign.ranking}-->
+		</div>
+		<!--{else}-->
+		<!--{$assign.logoutmsg}-->
+		<!--{/if}-->
+	</div>
+</div></div>

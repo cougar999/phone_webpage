@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/pcr/pc
+END
+usb.ids.csv
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/pcr/pc/usb.ids.csv
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/pcr/pc/.htaccess
+END
+config.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/pcr/pc/config.php
+END
+packageinfo.ap.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/pcr/pc/packageinfo.ap.php
+END
+packagelist.ap.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/pcr/pc/packagelist.ap.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/pcr/pc/index.php
+END
+common.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/pcr/pc/common.php
+END

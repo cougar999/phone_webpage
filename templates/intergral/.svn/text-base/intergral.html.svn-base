@@ -1,0 +1,90 @@
+<!--{config_load file="smarty.conf"}-->
+<!--{if $assign.shopid != -1}-->
+<!--{feed int=AP_INT_GET_SALSES_INFO said=$assign.salesid ret='salesinfo'}-->
+<style>
+.section{margin: 38px 0 0 79px;}
+.halfagnle_head {clear:both;display:inline-block;}
+.halfagnle_head li{list-style:none;float:left;height:45px}
+.bgla{background:url(<!--{#img1#}-->/resources/images/intergral/bga1.png) no-repeat;width:40px;}
+.bglb{background:url(<!--{#img2#}-->/resources/images/intergral/bga2.png);width:837px;}
+.bglc{background:url(<!--{#img3#}-->/resources/images/intergral/bga3.png) no-repeat;width:7px;}
+.halfagnle_foot {clear:both;display:inline-block;}
+.halfagnle_foot li{list-style:none;float:left;height:30px}
+.bgld{background:url(<!--{#img4#}-->/resources/images/intergral/bga4.png) no-repeat;width:5px;}
+.bgle{background:url(<!--{#img5#}-->/resources/images/intergral/bga5.png);width:874px;}
+.bglf{background:url(<!--{#img6#}-->/resources/images/intergral/bga6.png) no-repeat;width:5px;}
+.ranking{width:858px;border:1px #cdd7d8;border-style: none solid;padding: 0 12px;}
+.user_info {height:100px;padding: 15px 0 0 125px;background:url(<!--{#img7#}-->/resources/images/intergral/bg.png) no-repeat;}
+.user_head_img {float: left;height: 80px;padding-top: 10px;width:100px;}
+.user_status {float: left;width: 650px;padding-top:5px;}
+.intergral_info span{color:#3C3C3C;padding:10px 25px 10px 0;font-size:12px;}
+.intergral_info font{color:#ef7429;font-size:18px;}
+.intergral_details{text-align:center;width:70px;display:inline-block;background:url(<!--{#img8#}-->/resources/images/intergral/btn-details.jpg) no-repeat scroll 0 9px;}
+.medal{background:url(<!--{#img1#}-->/resources/images/intergral/medal.png) no-repeat;height:35px;width:35px;display:inline-block;}
+.jiantou{background:url(<!--{#img2#}-->/resources/images/intergral/jiantou.png) no-repeat;height:9px;width:12px;display:inline-block;}
+.medal_1{background-position:-410px -295px;}
+.medal_2{background-position:-358px -295px;}
+.medal_3{background-position:-308px -295px;}
+.medal_4{background-position:-262px -295px;}
+.medal_5{background-position:-214px -295px;}
+
+#table_tr td span.pos_img1, #table_tr td span.pos_img2, #table_tr td span.medal {height: 30px;line-height: 15px;}
+.pos_img1 {background: url("<!--{#img3#}-->/resources/img/1.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img2 {background: url("<!--{#img4#}-->/resources/img/2.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img3 {background: url("<!--{#img5#}-->/resources/img/3.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img4 {background: url("<!--{#img6#}-->/resources/img/4.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img5 {background: url("<!--{#img7#}-->/resources/img/5.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img6 {background: url("<!--{#img8#}-->/resources/img/6.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img7 {background: url("<!--{#img1#}-->/resources/img/7.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img8 {background: url("<!--{#img2#}-->/resources/img/8.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img9 {background: url("<!--{#img3#}-->/resources/img/9.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img10 {background: url("<!--{#img4#}-->/resources/img/10.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.ranking-front{color:#2f78db;font-weight:800;}
+.datatable{background:none repeat scroll 0 0 #cdd7d8;width: 429px;}
+.datatable tr{height:40px;}
+#table_tr{background: none repeat scroll 0 0 #FFFFFF;}
+#table_tr td span {
+    float: left !important;
+    height: 20px;
+    line-height: 15px;
+    margin-left:10px;
+    padding-top: 10px;
+    text-align: left;
+    font-size:13px;
+}
+</style>
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	<div class="scroll">
+	<div class="contentbody contentwrap">
+		<div class="section">
+			<div class="user_info">
+				<div class="user_head_img"><img src="<!--{#img5#}-->/resources/images/intergral/head.gif"></div>
+				<div class="user_status">
+					<div class="clear">
+						<h3 class="f_l">
+							<span class="jiantou"></span>
+							<span style="color:#2179cb;font-size:16px;font-weight:bold;padding-left:10px;line-height:20px;"><!--{$salesinfo.json.real_name}--></span>
+						</h3>
+						<span class="medal medal_<!--{if !empty($salesinfo.json.level)}--><!--{$salesinfo.json.level}--><!--{else}-->1<!--{/if}-->" title="<!--{$salesinfo.json.leveldesc}-->"></span>
+					</div>
+					<div class="intergral_info clear">
+						<span>当前等级：<font title="<!--{$salesinfo.json.leveldesc}-->"><!--{if !empty($salesinfo.json.level)}--><!--{$salesinfo.json.level}--><!--{else}-->1<!--{/if}-->级</font></span>
+						<span>累积积分：<font><!--{if empty($salesinfo.json.score)}-->0<!--{else}--><!--{$salesinfo.json.score}--><!--{/if}-->分</font></span>
+						<span class="intergral_details"><a href="/intergral/details.html?salesid=<!--{$smarty.get.salesid}-->" style="color:#185fbf">积分明细</a></span>
+						<span>可用积分：<font><!--{if empty($salesinfo.json.score)}-->0<!--{else}--><!--{$salesinfo.json.score}--><!--{/if}-->分</font></span>
+					</div>
+				</div>
+			</div>
+			<div class="clear" style="height:30px;"></div>
+			<!--{include file="intergral/wgt-month-ranking.tpl"}-->
+		</div>
+	</div>
+	</div>
+</div></div>
+<!--{else}-->
+<!--{$assign.logoutmsg}-->
+<!--{/if}-->

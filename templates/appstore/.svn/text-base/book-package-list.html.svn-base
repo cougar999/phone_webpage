@@ -1,0 +1,107 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK ret='menu'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menu.menuid order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"  seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_BOOK seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_BOOK'}-->
+	</div>
+	<div class="scroll">
+	<div class="book_index_body">
+		<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_PACKAGE ret='packagemenulist'}-->
+		<div class="b_right">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+					<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_HOT ret='columnlist'}-->
+					<!--{include file="wgt-book-top-list-new.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_PACKAGE code2_id=$smarty.request.mid|default:$packagemenulist.menuid code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_HOT}-->
+					<br />
+					<!-- {menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_TOP_DOWNLOAD ret='columnlist'}-->
+					<!-- {include file="wgt-book-top-list-new.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_PACKAGE code2_id=$smarty.request.mid|default:$packagemenulist.menuid code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_TOP_DOWNLOAD}-->
+					
+					<!-- <!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_SHOP_REC ret='columnlist'}-->
+					<!--{include file="wgt-book-top-list-new.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_PACKAGE code2_id=$smarty.request.mid|default:$packagemenulist.menuid code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_SHOP_REC}--> -->
+	
+				</td></tr></table>
+		</div>
+		
+		<div class="book_main">
+			<div class="cat-top">
+				<div class="cat-top-left"><img src="<!--{#img2#}-->/resources/img/cat-top-left.png" /></div>
+				<div class="cat-top-title">图书分类</div>
+				<div class="cat-top-right"><img src="<!--{#img3#}-->/resources/img/cat-top-right.png" /></div>
+			</div>
+			<div class="cat-main">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+					<td>
+						<img src="<!--{#img3#}-->/resources/img/cat-novel.png" style="margin-left:14px; margin-right:10px;"/>
+					</td>
+					<td width="140" style="padding:0px; vertical-align:top; ">
+						<div class="cat-main-list">
+							<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_1 ret='cat_columnlist'}-->
+							<!--{include file="wgt-book-cat-column-list.tpl" columnid=$cat_columnlist.menuid typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK}--> 	
+						</div>
+					</td>
+					<td>
+						<img src="<!--{#img4#}-->/resources/img/cat-social.png" style="margin-left:14px; margin-right:10px;"/>
+					</td>
+					<td width="140" style="padding:0px; vertical-align:top; ">
+						<div class="cat-main-list">
+							<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_2 ret='cat_columnlist'}-->
+							<!--{include file="wgt-book-cat-column-list.tpl" columnid=$cat_columnlist.menuid typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK}--> 	
+						</div>
+					</td>
+					<td>
+						<img src="<!--{#img5#}-->/resources/img/cat-life.png" style="margin-left:14px; margin-right:10px;"/>
+					</td>
+					<td width="140" style="padding:0px; vertical-align:top; ">
+						<div class="cat-main-list">
+							<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_3 ret='cat_columnlist'}-->
+							<!--{include file="wgt-book-cat-column-list.tpl" columnid=$cat_columnlist.menuid typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK}--> 	
+						</div>
+					</td>
+					<td>
+						<img src="<!--{#img6#}-->/resources/img/cat-tech.png" style="margin-left:14px; margin-right:10px;"/>
+					</td>
+					<td width="140" style="padding:0px; vertical-align:top; ">
+						<div class="cat-main-list">
+							<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_4 ret='cat_columnlist'}-->
+							<!--{include file="wgt-book-cat-column-list.tpl" columnid=$cat_columnlist.menuid typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK}--> 	
+
+						</div>
+					</td>
+					</tr>
+				</table>
+			</div>
+			<!--  
+			<div class="location_toolbar">
+				<div class="location_t"><img src="/resources/img/right-arrow.png"><span class="area">爱皮桌面</span>><span class="area">促销包</span>
+				</div>
+				<div class="location_sort">
+					<div class="mode">
+						<div class="lf">排序方式：</div>
+						<div class="<!--{if $smarty.get.sortby == "default"}-->sortby_a<!--{else}-->sortby<!--{/if}-->">
+							<a href="?<!--{params sortby=default order=null pageno=null}-->&order=0" onclick="gotopage(this); return false;"><span class="title">默认</span><span class="down">&nbsp;&nbsp;</span></a>
+						</div>
+						<div class="<!--{if $smarty.get.sortby == "price"}-->sortby_a<!--{else}-->sortby<!--{/if}-->" style="border-left:0px;">
+							<a href="?<!--{params sortby=price order=null  pageno=null}-->&order=4" onclick="gotopage(this); return false;"><span class="title">价格</span><span class="down">&nbsp;&nbsp;</span></a>
+						</div>
+					</div>
+					<div class="show_number">
+						<span class="show_t">每页显示数量 </span>
+						<span class="n_pagesize <!--{if $smarty.get.count == 40}-->n_active<!--{/if}-->"><a href="?<!--{params pageno=null pagesize=null}-->&pagesize=40" class="hist tc" onclick="gotopage(this); return false;">40</a></span>
+						<span class="n_pagesize <!--{if $smarty.get.count == 20}-->n_active<!--{/if}-->"><a href="?<!--{params pageno=null pagesize=null}-->&pagesize=20" class="hist tc" onclick="gotopage(this); return false;">20</a></span>	
+					</div>
+				</div>
+			</div>-->
+			<div class="cat-top">
+				<div class="cat-top-left"><img src="<!--{#img7#}-->/resources/img/cat-top-left.png" /></div>
+				<div class="cat-top-title">促销包列表</div>
+				<div class="cat-top-right"><img src="<!--{#img8#}-->/resources/img/cat-top-right.png" /></div>
+			</div>
+			<div class="show_lists">
+				<!--{include file="wgt-book-package-show-list.tpl" box_id=$smarty.request.mid|default:$packagemenulist.menuid  order=$smarty.request.order|default:$assign.ap_int.AP_INT_ORDER_DEFAULT count=$smarty.request.pagesize|default:30}-->
+			</div>
+		</div>
+		</div>
+	</div>
+</div></div>

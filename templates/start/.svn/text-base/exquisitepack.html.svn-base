@@ -1,0 +1,54 @@
+<!--{config_load file="smarty.conf"}-->
+<style>
+.packetframe {float:left;margin:0px 0 40px 40px}
+.halfagnleframe {clear:both;width:460px;display:inline-block}
+.halfagnleframe li{list-style:none;float:left;height:30px}
+.halfagnleframe .centera{background:url(<!--{$assign.tp.TP_RES_URL}-->resources/images/jc-center1a.gif) no-repeat;width:6px;}
+.halfagnleframe .centerb{background:url('<!--{$assign.tp.TP_RES_URL}-->resources/images/jc-center1b.gif') repeat;width:448px;}
+.halfagnleframe .centerc{background:url('<!--{$assign.tp.TP_RES_URL}-->resources/images/jc-center1c.gif') no-repeat;width:6px;}
+.halfagnleframe .centertext{margin:8px 5px 5px 10px;color:#fff;font-weight:bold;font-family:arial;}
+.packetframe .packetcontent {border:1px solid #cccccc;width:428px;padding:15px;}
+.packetframe .packeticon{float:left;;width:133px;height:100px}
+.packetframe .packetdescription{float:right;width:280px;height:70px;padding-left:10px}
+.packetframe .packettext{float:left;padding:5px 5px 5px 15px;font-size:13px}
+.packetframe .downinitpack img{cursor: hand;width:73px;height:33px;float:right;border:0px;}
+</style>
+<div class="content">
+	<div class="wrap">
+		<div class="contentside">
+			<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+		</div>
+		<div class="scroll">
+			<div style="padding:20px 40px; height:40px; line-height:40px;">
+				<font class="lf f9 t" style="color:#EF5000">精品打包</font>
+			</div>
+			<div class="section">
+				
+				<!--{foreach key=key item=item from=$assign.pagekelist}-->
+				<div class="packetframe">
+					<div class="halfagnleframe">
+						<li class="centera"></li>
+						<li class="centerb"><div class="centertext"><!--{$item.name}--></div></li>
+						<li class="centerc"></li>
+					</div>
+					<div class="packetcontent">
+						<a href="#" class="packeticon"><img src="/resources/images/example.jpg"></a>
+						<span class="packetdescription"><!--{$item.desc|truncate_utf8_string:40:"...":true}--></span>
+						<span class="packettext">资源数：2个</span>
+						<span class="packettext">打包价：10元</span>
+						<div class="downinitpack" rel="<!--{$item.id}-->,<!--{$item.name}-->,<!--{$item.sid}-->">
+						<!--{foreach key=key2 item=items from=$item.items}-->
+							<a class="no" id="<!--{$items.softid}-->" href="<!--{$items.downloadurl}-->&pack=1" installlocate="<!--{$items.installlocate}-->" appid="<!--{$items.appid}-->"  versioncode="<!--{$items.versioncode}-->"  version="<!--{$items.version}-->" title="<!--{$items.name}-->" type="1"  price="<!--{math equation='(x)/100' x=$items.price|default:0}-->" servicefee="<!--{math equation='(x)/100' x=$items.servicefee|default:0}-->" onclick="return false;"></a>
+						<!--{/foreach}-->
+						  	<img src="<!--{#img4#}-->/resources/images/transparent.gif"  style="background:url(<!--{$assign.tp.TP_RES_URL}--><!--{if $item.price or $item.servicefee}-->resources/img/btn_buy_middle.png<!--{else}-->resources/img/btn_buy.png<!--{/if}-->) no-repeat center center;" />
+						</div>
+						
+						<div class="clear"></div>
+					</div>
+				</div>
+				<!--{/foreach}-->
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+</div>

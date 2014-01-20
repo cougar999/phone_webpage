@@ -1,0 +1,518 @@
+<!--{config_load file="smarty.conf"}-->
+<style>
+	#base_info ,#mob_numbers{border-bottom: #CCC dotted 2px;}
+	#base_info li,#mob_numbers li,#card_numbers li{list-style: none;padding-bottom:5px;clear:both;height:35px;}
+</style>
+<div class="content"><div class="wrap">
+	<div class="scroll">
+		<div class="task_box">
+			<h1><span>金币兑换申请</span></h1>
+			<div class="rg tasktext no" id="changeNoticetext">下载推荐软件得金币，<strong><span class="cred" id="exchangeRate">10</span>金币=<span class="cred">1</span>块钱</strong>，请输入兑换比例的整数倍。</div>
+		</div>
+		<div class="clear"></div>
+		<div class="task_rules">
+			
+			<div class="changebg clear">
+				<div class="ctrl_float">
+					<div class="lf text_tips" style="font-size:16px;font-weight:800;">基本信息：</div>
+					<ul class="ctrl-group clear" id="base_info">
+						<li>
+							<label for="goldcoin">要兑换的金币总数：</label>
+							<input type="text" name="goldcoin" id="goldcoin" class="lf input-large" required="required" placeholder="请输入要兑换的金币数"/>
+							<span class="coins_message"></span>
+						</li>
+						<li>
+							<label for="user_telphone">请输入您的联系电话：</label>
+							<input type="text" name="telphone" id="user_telphone" class="lf input-large" required="required" placeholder="请输入您的手机号码"/>
+							<span class="mob_message"></span>
+						</li>
+					</ul>
+					
+					<div class="ctrl-group clear" style="border:none;" id="bouns_payment">
+						<div class="lf text_tips" style="font-size:16px;font-weight:800;">奖金发放方式：</div>
+						<div class="lf" style="padding-top:5px;">
+							<input type="radio" name="ex_type" value="1" id="mob_bills" class="lf" checked="checked" required="required" onclick="paySelect('phone');" />
+							<label for="mob_bills" class="short" onclick="paySelect('phone');">手机话费充值</label>
+							<input type="radio" name="ex_type" value="2" id="card_transfer" class="lf" required="required" onclick="paySelect('bankcard');" />
+							<label for="card_transfer" class="short" onclick="paySelect('bankcard');">银行卡转账</label>
+						</div>
+					</div>
+					
+					<div class="clear" id="mob_numbers">
+						<ul class="ctrl-group clear">
+							<li>
+								<label for="payment_mobnumber">输入充值的手机号：</label>
+								<input type="text" name="payment_mobnumber" id="payment_mobnumber" class="lf input-large" required="required" placeholder="输入用于充值的手机号" />
+								<span class="mobile_message"></span>
+							</li>
+							<li>
+								<label for="payment_mobnumber2">确认充值的手机号：</label>
+								<input type="text" name="payment_mobnumber2" id="payment_mobnumber2" class="lf input-large" required="required" placeholder="确认用于充值的手机号" />
+								<span class="confirmmobile_message"></span>
+							</li>
+						</ul>
+					</div>
+					
+					<div class="clear no" id="card_numbers">
+						<ul class="ctrl-group clear">
+							<li>
+								<label for="account_name">开户名：</label>
+								<input type="text" name="account_name" id="account_name" class="lf input-large" required="required" placeholder="输入银行卡开户人姓名"/>
+								<span class="account_namer_message"></span>
+							</li>
+							<li>
+								<label for="identity_card">身份/证件号：</label>
+								<input type="text" name="identity_card" id="identity_card" class="lf input-large" required="required" placeholder="输入身份/证件号"/>
+								<span class="identity_card_message"></span>
+							</li>
+							<li>
+								<label for="bank_name">开户行：</label>
+								<input type="text" name="bank_name" id="bank_name" class="lf input-large" required="required" placeholder="输入银行卡的开户行"/>
+								<span class="bank_name_message"></span>
+							</li>
+							<li class="clear">
+								<label for="card_number">转账的银行卡号：</label>
+								<input type="text" name="card_number" id="card_number" class="lf input-large" required="required" placeholder="输入用于转账的银行卡号"/>
+								<span class="cardnumber_message"></span>
+							</li>
+							<li class="clear">
+								<label for="card_number2">确认转账的银行卡号：</label>
+								<input type="text" name="card_number2" id="card_number2" class="lf input-large" required="required" placeholder="确认用于转账的银行卡号"/>
+								<span class="confirm_cardnumber_message"></span>
+							</li>
+						</ul>
+					</div>
+					<div class="clear">
+						<a class="lf button" href="##" id="btn_goldexchange">提交申请</a>
+						<input type="hidden" name="scale" id="scale" value="" />
+						<div class="submit_message" style="float: left;margin: 25px 0 0 10px;"></div>
+					</div>
+				</div>
+				
+				<div class="tipsline clear">
+					<ul>
+						<li><h2>1.提交申请</h2><span>申请银行卡转账请详细填写开户银行名称。</span></li>
+						<li class="arrow"></li>
+						<li><h2>2.等待审核</h2><span>月初对上月的申请进行审核，可随时查看状态。</span></li>
+						<li class="arrow"></li>
+						<li><h2>3.等待付款</h2><span>每月中旬前，完成审核，然后进行充值或付款。</span></li>
+						<li class="arrow"></li>
+						<li><h2>4.付款到账</h2><span>每月15日之前，上月的付款将到账，请注意查收。</span></li>
+					</ul>
+				</div>
+				
+			</div>
+			<div class="clear" style="height:20px;"></div>
+			<div class="changedata">
+				<h3>兑换记录</h3>
+				<div id="goldcoinlist"></div>
+			</div>
+			
+		</div>
+	</div>
+</div></div>
+
+<script type="text/javascript">
+var goldexchangestatus = {
+		1:"兑换申请已提交，请等待审核",
+		2:"审核完成，请耐心等待财务付款……",
+		3:"兑换被拒",
+		4:"已付款，请注意查收"
+};
+var GoldExchangeFrom = {
+	showMessage:function(msg, ele, style){
+		$(ele).html(msg);
+		if (style && style == true) {
+			$(ele).addClass('suc_message');
+			$(ele).siblings('.input-large').addClass('suc_input');
+		} else {
+			$(ele).addClass('error_message');
+			$(ele).siblings('.input-large').addClass('error_input');
+		}
+		setTimeout(function(){
+			$(ele).html('');
+			$(ele).removeClass('error_message').removeClass('suc_message');
+			$(ele).siblings('.input-large').removeClass('error_input');
+			$(ele).siblings('.input-large').removeClass('suc_input');
+		},4000);
+	},
+	checktelphone:function(){
+		var regex =  /(^0{0,1}1[3|4|5|6|7|8|9][0-9]{9}$)/;
+		var s = $("#user_telphone").val();
+		return regex.exec(s);
+	},
+	checktelphonestate:function(){
+		if(GoldExchangeFrom.checktelphone() == null){
+			GoldExchangeFrom.showMessage('请输入正确的手机号码！', '.mob_message', false);
+			return false;
+		}else{
+			GoldExchangeFrom.showMessage('&nbsp;', '.mob_message', true);
+			return true;
+		}
+	},
+	checkgoldcoin:function(){
+		var regex =  /[1-9]([0-9]*)00$/;
+		var s = $("#goldcoin").val();
+		if((regex.exec(s) != null) && ((s%100) == 0)){
+			return s%100;
+		}else{
+			return null;
+		}
+	},
+	checkgoldcoinstate:function(){
+		if(GoldExchangeFrom.checkgoldcoin() == null){
+			GoldExchangeFrom.showMessage('请输入100的整数倍字数！', '.coins_message', false);
+			return false;
+		}else{
+			GoldExchangeFrom.showMessage('&nbsp;', '.coins_message', true);
+			return true;
+		}
+	},
+	checkexchangephone:function(){
+		var regex =  /(^0{0,1}1[3|4|5|6|7|8|9][0-9]{9}$)/;
+		var s = $("#payment_mobnumber").val();
+		return regex.exec(s);
+	},
+	checkmobilenumber:function(){
+		if(GoldExchangeFrom.checkexchangephone() == null){
+			GoldExchangeFrom.showMessage('请检查手机号码！', '.mobile_message', false);
+			return false;
+		} else {
+			GoldExchangeFrom.showMessage('&nbsp;', '.mobile_message', true);
+			return true;
+		}
+	},
+	confirmMobilenumber:function(){
+		var num = $("#payment_mobnumber").val();
+		var num2 = $("#payment_mobnumber2").val();
+		if (num != num2) {
+			GoldExchangeFrom.showMessage('两次手机号输入不一致！', '.confirmmobile_message', false);
+			return false;
+		} else if(num == '' || num2 == '') {
+			GoldExchangeFrom.showMessage('充值手机号、确认手机号不能为空！', '.confirmmobile_message', false);
+			return false;
+		} else {
+			GoldExchangeFrom.showMessage('&nbsp', '.confirmmobile_message', true);
+			return true;
+		}
+	},
+	checkcardname:function(){
+		var regex= /[\u4e00-\u9fa5\/]/ig;
+		var name = $("#account_name").val();
+		return regex.exec(name);
+	},
+	checkcardnameState:function(){
+		if(GoldExchangeFrom.checkcardname() == null){
+			GoldExchangeFrom.showMessage('请检查开户人姓名！', '.account_namer_message', false);
+			return false;
+		} else {
+			GoldExchangeFrom.showMessage('&nbsp;', '.account_namer_message', true);
+			return true;
+		}
+	},
+	checkIdentityCard:function(){
+		var _str = $("#identity_card").val().trim();
+		var result = validateIdCard(_str);
+		if(result){
+			GoldExchangeFrom.showMessage('证件号输入错误！', '.identity_card_message', false);
+			return false;
+		}else{
+			GoldExchangeFrom.showMessage('&nbsp;', '.identity_card_message', true);
+			return true;
+		}
+	},
+	checkbankname:function(){
+		var regex= /[\u4e00-\u9fa5\/]/ig;
+		var bank = $("#bank_name").val();
+		return regex.exec(bank);
+	},
+	checkbanknameState:function(){
+		if(GoldExchangeFrom.checkbankname() == null){
+			GoldExchangeFrom.showMessage('开户行不能为空！', '.bank_name_message', false);
+			return false;
+		} else {
+			GoldExchangeFrom.showMessage('&nbsp;', '.bank_name_message', true);
+			return true;
+		}
+	},
+	checkcardnumber:function(){
+		var regex = /([0-9]+)$/;
+		//var regex = /^([+-]?)\d*\.?\d{16,}$/;
+		var card = $("#card_number").val();
+		return regex.exec(card);
+	},
+	checkCardnumberSuc:function(){
+		if(GoldExchangeFrom.checkcardnumber() == null){
+			GoldExchangeFrom.showMessage('卡号必须是纯数字组合！', '.cardnumber_message', false);
+			return false;
+		} else {
+			GoldExchangeFrom.showMessage('&nbsp;', '.cardnumber_message', true);
+			return true;
+		}
+	},
+	confirmCardnumberSuc:function(){
+		var card = $("#card_number").val();
+		var card2 = $("#card_number2").val();
+		if (card != card2) {
+			GoldExchangeFrom.showMessage('两次卡号输入不一致！', '.confirm_cardnumber_message', false);
+			return false;
+		} else if(card == '' || card2 == ''){
+			GoldExchangeFrom.showMessage('卡号、确认卡号不能为空！', '.confirm_cardnumber_message', false);
+			return false;
+		} else {
+			GoldExchangeFrom.showMessage('&nbsp', '.confirm_cardnumber_message', true);
+			return true;
+		}
+	}
+};
+function strToDateMonth(str){
+	var r = str.split("-");
+	if (r!=null) return unescape(parseInt(r[1])); return null;
+}
+
+function getGoldExchangeList(row){
+	$('#goldcoinlist').html('<center><img src="<!--{#img1#}-->/resources/img40/loading_trans_middle.gif"></center>');
+	$.post('/api/api_goldexchangelist.php',row,function(data){
+		var html_content = '';
+		var current = new Date();
+	    var currentMonth = current.getMonth()+1;
+		if(data.totalcount > 0){
+			html_content += '<table class="datatable2" cellspacing="1" cellpadding="0" border="0" width="98%">';
+			html_content += '<colgroup><col width="145"><col width="100"><col width="240"><col width="auto"></colgroup>';
+			html_content += '<tbody id="table_tr">';
+			html_content += '<tr><th class="first">兑换时间</th><th>兑换金币数</th><th>处理状态</th><th>备注</th></tr>';
+			for(i = 0;i < data.items.length;i++){
+				var item = data.items[i];
+				/* if((3 != item.status) && (strToDateMonth(item.create_time) == currentMonth)){
+					$('.changebg input').each(function(){
+						$(this).attr("disabled",'disabled');
+					});
+					$("#btn_goldexchange").unbind("click");
+					$('.submit_message').html('<font style="font-size:16px;color:red;">温馨提示：您本月已提交过申请!</font>');
+				} */
+				var description = item.description || '';
+				html_content += '<tr>' 
+						 + '<td>' + item.create_time + '</td>'
+						 + '<td>' + item.goldcoin + '</td>'
+						 + '<td>' + goldexchangestatus[item.status] + '</td>'
+						 + '<td>' + description + '</td>'
+						 + '</tr>';
+			}
+			html_content += '</tbody></table>';
+			var row_paging = {
+					salesid : row.salesid,
+					count : row.count,
+					pageno : row.pageno,
+					totalcount : data.totalcount
+				};
+			html_content += getListPagingJS(row_paging,'goldexchange');
+		}else{
+			html_content += '<table cellspacing="1" cellpadding="0" border="0" class="datatable2">';
+			html_content += '<colgroup><col width="145"><col width="100"><col width="240"><col width="auto"></colgroup>';
+			html_content += '<tbody id="table_tr">';
+			html_content += '<tr><th class="first">兑换时间</th><th>兑换金币数</th><th>处理状态</th><th>备注</th></tr>';
+			html_content += '<tr><td colspan="4"><center><h1>暂无记录</h1></center></td></tr></table>';
+		}
+		$('#goldcoinlist').html(html_content);
+		
+		$('.goldexchangepageno').click(function(){
+			row.pageno = parseInt($(this).find('span').html());
+			getGoldExchangeList(row);
+			return false;
+		});
+		$('.goldexchangefirstpage').click(function(){
+			row.pageno = 1;
+			getGoldExchangeList(row);
+			return false;
+		});
+		$('.goldexchangeprevpage').click(function(){
+			row.pageno = row.pageno - 1;
+			getGoldExchangeList(row);
+			return false;
+		});
+		$('.goldexchangenextpage').click(function(){
+			row.pageno = row.pageno + 1;
+			getGoldExchangeList(row);
+			return false;
+		});
+		$('.goldexchangelastpage').click(function(){
+			row.pageno = Math.ceil(data.page.totalcount/row.count);
+			getGoldExchangeList(row);
+			return false;
+		});
+		
+	},'json');
+}
+
+$(function(){
+	var channelcode =  JSON.parse(WebAppLocalStorage("channelcode"));
+	var salesid = JSON.parse(WebAppLocalStorage("salesid"));
+	var shopid = JSON.parse(WebAppLocalStorage("shopid"));
+	
+	//读取兑换比例填入页面隐藏输入框
+	$.post('/api/api_goldexchangeadd.php?rqType=interface&salesid='+salesid.data, function(result){
+		if(result) {
+			var json = JSON.parse(result);
+			if(json && json.code == '006') {
+				var rate = parseInt(json.data[0].gold_scale);
+				if (rate) {
+					$('#scale').val(rate);
+					$('#exchangeRate').html(rate);
+					$('#changeNoticetext').show();
+				} else {
+					$('#changeNoticetext').html("贵公司规定金币不针对个人兑换").show();
+					$('#scale').val(0);
+					$('.task_rules').find('input').attr("disabled","disabled");
+					$('#btn_goldexchange').attr("disabled","disabled").unbind().removeClass().addClass("button_dis").text("禁止兑换");
+				}
+			}
+		}
+	});
+	if(shopid.data != -1){
+		getGoldExchangeList({salesid:salesid.data, count:10, pageno:1});
+		$("#user_telphone").focusout(function(){
+			GoldExchangeFrom.checktelphonestate();
+		});
+		$("#goldcoin").focusout(function(){
+			GoldExchangeFrom.checkgoldcoinstate();
+		});
+		
+		$('#payment_mobnumber').focusout(function(){
+			GoldExchangeFrom.checkmobilenumber();
+		});
+		$('#payment_mobnumber2').focusout(function(){
+			GoldExchangeFrom.confirmMobilenumber();
+		});
+		$('#account_name').focusout(function(){
+			GoldExchangeFrom.checkcardnameState();
+		});
+		$('#identity_card').focusout(function(){
+			var _str = $(this).val().trim();
+			GoldExchangeFrom.checkIdentityCard();
+		});
+		$('#bank_name').focusout(function(){
+			GoldExchangeFrom.checkbanknameState();
+		});
+		$('#card_number').focusout(function(){
+			GoldExchangeFrom.checkCardnumberSuc();
+		});
+		$('#card_number2').focusout(function(){
+			GoldExchangeFrom.confirmCardnumberSuc();
+		});
+		
+		$('#btn_goldexchange').bind('click',function(){
+			if(GoldExchangeFrom.checkgoldcoinstate() == false) return ;
+			if(GoldExchangeFrom.checktelphonestate() == false) return ;
+			
+			var goldcoin = $("#goldcoin").val();
+			var telphone = $("#user_telphone").val();
+			var ex_type = parseInt($('input[name=ex_type]:checked').val());
+			var salesid = JSON.parse(WebAppLocalStorage("salesid"));
+			var shopid = JSON.parse(WebAppLocalStorage("shopid"));
+			var scale = $("#scale").val();
+			
+			switch(ex_type){
+				case 1:
+					if(GoldExchangeFrom.checkmobilenumber() == false) return ;
+					if(GoldExchangeFrom.confirmMobilenumber() == false) return ;
+					
+					var payment_mobnumber = $('#payment_mobnumber').val().trim();
+					var row = {
+							salesid				:	salesid.data,
+							shopid				:	shopid.data,
+							telphone			:	telphone,
+							goldcoin			:	goldcoin,
+							ex_type				:	ex_type,
+							payment_mobnumber	:	payment_mobnumber,
+							cur_scale			:	scale
+					};
+					break;
+				case 2:
+					if(GoldExchangeFrom.checkcardnameState() == false) return ;
+					if(GoldExchangeFrom.checkIdentityCard() == false) return ;
+					if(GoldExchangeFrom.checkbanknameState() == false) return ;
+					if(GoldExchangeFrom.checkCardnumberSuc() == false) return ;
+					if(GoldExchangeFrom.confirmCardnumberSuc() == false) return ;
+					
+					var account_name = $("#account_name").val().trim();
+					var identity_card = $("#identity_card").val().trim();
+					var card_no		 = $('#card_number').val().trim();
+					var bank_name	 = $('#bank_name').val().trim();
+					var row = {
+							salesid				:	salesid.data,
+							shopid				:	shopid.data,
+							telphone			:	telphone,
+							goldcoin			:	goldcoin,
+							ex_type				:	ex_type,
+							account_name		:	account_name,
+							identity_card		:	identity_card,
+							bank_card_no		:	card_no,
+							bank_name			:	bank_name,
+							cur_scale			:	scale
+					};
+					break;
+			}
+			
+			$.post('/api/api_gettotalcoin.php',row,function(data){
+				if(data){
+					var data = JSON.parse(data);
+					if(data.result && data.result.resultcode == '000000'){
+						row.totalcoins = data.totalcoins;
+						cbConfirm('您确认要兑换' + goldcoin +'个金币吗？',function(){
+							$(".submit_message").html('<img style="" src="/resources/img40/loading_trans_small.gif"> 提交处理中...');
+							$.post('/api/api_goldexchangeadd.php', row, function(data){
+								if(data.result == '1'){
+									GoldExchangeFrom.showMessage('<font color="green">您已提交申请，我们会尽快与您联络完成兑换！</font>','.submit_message', true);
+									$("#goldcoin").val('');
+									$("#user_telphone").val('');
+									$("#payment_mobnumber").val('');
+									$("#payment_mobnumber2").val('');
+									$("#account_name").val('');
+									$("#identity_card").val('');
+									$("#bank_name").val('');
+									$("#card_number").val('');
+									$("#card_number2").val('');
+									$("#scale").val('');
+									getGoldExchangeList({salesid:salesid.data, count:10, pageno:1});
+								} else if(data.result == '2'){
+									GoldExchangeFrom.showMessage('您所提交的申请总数超出您的金币余额，不能提交兑换申请！','.submit_message', false);
+								} else if(data.result == '1001'){
+									GoldExchangeFrom.showMessage('您所在的渠道不允许兑换金币！','.submit_message', false);
+								} else if(data.result == '1002'){
+									GoldExchangeFrom.showMessage('请重新提交！','.submit_message', false);
+								} else if(data.result == '1003'){
+									GoldExchangeFrom.showMessage('您提交的数据有误，不是兑换比例的整数倍！','.submit_message', false);
+								} else {
+									GoldExchangeFrom.showMessage('系统繁忙,请稍后尝试！','.submit_message', false);
+								}
+							},"json");
+							$.colorbox.close();
+						});
+					}else{
+						alert('店员金币总数数据读取失败！');
+					}
+				}
+			});
+		});
+	}else{
+		$('.scroll').html('<div style="padding:200px;font-size:20px;color:red;text-align:center;line-height:30px;">您尚未登录，暂不支持使用该功能。<br>重启客户端并登录后，即可使用！如果没有登录账号，请联系我们开通。</div>');
+	}
+	/*if (channelcode && channelcode.data && channelcode.data != '1100000') {
+		$('#exchangeRate').html('');
+	}*/
+	
+})
+
+function paySelect(id){
+	switch (id) {
+		case 'phone':
+		$("#mob_numbers").show();
+		$("#card_numbers").hide();
+		break;
+		case 'bankcard':
+		$("#mob_numbers").hide();
+		$("#card_numbers").show();
+	}
+	
+}
+</script>

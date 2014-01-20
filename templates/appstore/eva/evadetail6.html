@@ -1,0 +1,86 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>Android输入法横向评测—手写输入篇</h2>
+					<div class="evaDetail">
+						<p>在上期的输入法横评中，小编主要从输入方式、界面、语音输入以及内存占用等方面对谷歌、搜狗、百度、QQ、触宝以及讯飞输入法做了一个横向评测，不过当时并没有测试各款输入法中同样深受用户欢迎的手写输入功能，今天就主要对上述六款输入法的手写功能做一下对比，给喜欢手写输入的朋友一些参考。</p>
+						
+						<p>测试平台：小米一代 Android4.04<br />评测对象：谷歌拼音输入法2.10、搜狗拼音输入法手机版3.3、百度手机输入法3.25、QQ输入法手机版3.2、触宝输入法5.21、讯飞语音输入法2.3（均为当前最新版本）先来看看这几款输入法手写功能的对比：</p>
+						
+						<p class="tc"><img src="/resources/img40/eva/shouxie1.jpg" alt="shouxie1" /></p>
+						<p><strong>谷歌拼音输入法：</strong></p>
+						
+						<p class="tc"><img src="/resources/img40/eva/shouxie2.jpg" alt="shouxie2" /></p>
+						
+						<p>谷歌拼音输入法只能在手写区域半屏手写输入，支持实现中英文数字的混合输入，输入中文可以实现词组联想，但是并不支持英文单词联想，在输入英文的时候只能输入逐个字母了，普通标点符号也可以通过手写直接输入，整体来说谷歌拼音输入法的表现中规中矩，没有什么亮点。</p>
+						<p class="cred">评价：★★★</p>
+						
+						<p><strong>搜狗拼音输入法：</strong></p>
+						<p class="tc"><img src="/resources/img40/eva/shouxie3.jpg" alt="shouxie3" /></p>
+						<p>搜狗输入法的手写输入支持连笔和倒划笔，标点符号和英文不需切换直接写入，常用标点符号也可直接按键输入，手写界面支持半屏和全屏两种方式，和谷歌拼音输入法一样搜狗输入法也只支持中文的联想输入。搜狗输入法的手写设置比较简单，只有笔触颜色、轨迹粗细以及识别速度的调整，功能算是比较单一。</p>
+						<p class="cred">评价：★★★☆</p>
+						
+						<p><strong>百度输入法：</strong></p>
+						<p class="tc"><img src="/resources/img40/eva/shouxie4.jpg" alt="shouxie4" /></p>
+						<p>支持半屏和全屏输入，在切换到全屏手写输入后屏幕中会出现前后选择按钮，可以控制光标的前后移动（需在设置中开启），在编辑文本的时候比较方便。百度输入法的手写支持中英文联想输入，在手写输入英文字母的时候是支持英文单词联想的，如果是常用单词的话基本上主屏中就能找到候选词。在手写设置中你可以调节手写的识别速度和笔刷颜色粗细等，如果开启键盘手写后在使用其它输入方式时也能直接在屏幕上进行全屏手写输入，也许是为了不影响输入法本身的滑键功能，在键盘区是无法进行手写输入的。</p>
+						<p class="cred">评价：★★★★</p>
+						
+						<p><strong>QQ输入法：</strong></p>
+						<p class="tc"><img src="/resources/img40/eva/shouxie5.jpg" alt="shouxie5" /></p>
+						<p>QQ输入法不支持全屏手写，可实现中文、英文以及数字的混合手写输入，不过英文输入并不能像百度那样进行单词联想。QQ输入法支持手势功能，可以通过特定手势实现退格、回车、删除以及空格的基本编辑操作。</p>
+						<p class="cred">评价：★★★★</p>
+						
+						<p><strong>触宝输入法：</strong></p>
+						<p class="tc"><img src="/resources/img40/eva/shouxie6.jpg" alt="shouxie6" /></p>
+						<p>由于触宝输入法的手写输入模式中中文输入和英文输入是分开的，所以并不能实现中英文混合手写输入，在中英混输的时候需要来回切换，这一点比较影响用户体验；在切换到全屏手写模式下的时候，输入区域会有一层蒙版，使得编辑区的文字非常暗，看起来比较吃力，特别是在晚上进行输入的时候。</p>
+						<p class="tc"><img src="/resources/img40/eva/shouxie7.jpg" alt="shouxie7" /></p>
+						<p>不过触宝输入法有两个比较强大的功能：支持叠字和连字手写功能，叠字也就是说只要你输入速度够快，在输入的时候你可以快速的在输入前一个字之上输入另外一个字，从而实现中文词组的输入，而连字手写则是在横屏手写输入模式下可以实现一个字接一个字的快速手写输入。在使用键盘输入时，点击工具栏中的手写板按钮可实现键盘手写输入。</p>
+						<p class="cred">评价：★★★★</p>
+						
+						<p><strong>讯飞语音输入法：</strong></p>
+						<p class="tc"><img src="/resources/img40/eva/shouxie8.jpg" alt="shouxie8" /></p>
+						<p>讯飞的手写输入可以直接在键盘上进行手写，并没有出现前面介绍的百度输入法那样在键盘区无法手写的问题，反应灵敏，体验不错。在竖屏手写模式下同样可以像触宝输入法那样支持叠字输入，能快速的实现词组的输入。打开全屏手写模式之后，全屏输入框会变稍稍变暗，但是当检测到点击而非滑动输入动作时全屏手写就会临时关闭并弹出移动光标和删除的快捷键。</p>
+						<p class="tc"><img src="/resources/img40/eva/shouxie9.jpg" alt="shouxie9" /></p>
+						<p>在设置中同样可以查看讯飞输入法的手势，在手写界面画出相应的手势即可实现相应的功能。讯飞的手写引入了云手写功能，当你输入的笔画太过潦草或者生僻的时候，它会联网智能识别，大大提高了手写识别的准确率。</p>
+						<p class="cred">评价：★★★★☆</p>
+						
+						<p><strong>小结：</strong></p>
+						<p>这六款输入法的手写功能整体上都能满足基本的手写输入，在识别率上也并没有出现很大的偏差，其中谷歌和搜狗输入法的手写算是中规中矩，没有什么亮点；遗憾的是这六款输入法均不支持英文单词手写输入功能，如果想快速的输入英文单词的话还是通过键盘输入吧，其中只有百度输入法支持输入首字母单词联想，相比来说输入英文还是方便一些；触宝输入法和讯飞的叠字输入功能对于想快速手写输入的朋友来说还是比较方便的一个功能，不过触宝输入法的手写并不能实现中英混输，来回切换比较影响体验。</p>
+						<p>在手写这一方面，无论是从支持的功能还是手写识别率以及输入速度上，讯飞输入法的手写相比其它几款输入法来说还是要强大很多，而谷歌输入法依旧和上次的评测一样，守旧不愿更新，并不适合中国用户习惯，手写功能也是没什么亮点。</p>
+						<p>PS：在测试过程中小编发现搜狗输入法和百度输入法在输入字母O、Q和数字0的时候识别起来比较麻烦，而其它4款输入法均能正常输入，不知道大家能不能正常输入呢？</p>
+						<p><strong>
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=315559&amp;phonetype=" onclick="gotopage(this); return false;">谷歌拼音输入法 下载</a>】
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=123450&amp;phonetype=" onclick="gotopage(this); return false;">搜狗手机输入法 下载</a>】
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=118082&amp;phonetype=" onclick="gotopage(this); return false;">百度输入法 下载</a>】
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=110781&amp;phonetype=" onclick="gotopage(this); return false;">QQ输入法 下载</a>】
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=142841&amp;phonetype=" onclick="gotopage(this); return false;">触宝输入法 下载</a>】
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=409587&amp;phonetype=" onclick="gotopage(this); return false;">讯飞手写输入法 下载</a>】
+						</strong></p>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

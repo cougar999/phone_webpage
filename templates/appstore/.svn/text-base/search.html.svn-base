@@ -1,0 +1,42 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content">
+	<div class="wrap">
+		<div class="contentside">
+		<!--{if $smarty.request.seatype=="1"}-->
+				<!--{include file="toolbar/wgt-toolbar-type.tpl"  seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+			<!--{elseif $smarty.request.seatype=="2"}-->
+				<!--{include file="toolbar/wgt-toolbar-type.tpl"  seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_GAME seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_GAME'}-->
+			<!--{elseif $smarty.request.seatype=="3"}-->
+				<!--{include file="toolbar/wgt-toolbar-type.tpl"  seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_MUSIC seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_MUSIC'}-->
+			<!--{elseif $smarty.request.seatype=="4"}-->
+				<!--{include file="toolbar/wgt-toolbar-type.tpl"  seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+			<!--{elseif $smarty.request.seatype=="5"}-->
+				<!--{include file="toolbar/wgt-toolbar-type.tpl"  seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_BOOK seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_BOOK'}-->
+			<!--{elseif $smarty.request.seatype=="7"}-->
+				<!--{include file="toolbar/wgt-toolbar-type.tpl"  seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_THEMESOFT seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_THEMESOFT'}-->
+			<!--{else}-->
+				<!--{include file="toolbar/wgt-toolbar-type.tpl"  seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+			<!--{/if}-->
+			
+		</div>
+		<div class="scroll">
+		<div class="contentbody contentwrap">
+			<!--{if $smarty.request.seatype=="1"}-->
+				<!--{include file="wgt-search-soft-list.tpl"	keyword=$smarty.request.keyword}-->
+			<!--{elseif $smarty.request.seatype=="2"}-->
+				<!--{include file="wgt-search-game-list.tpl"	keyword=$smarty.request.keyword}-->
+			<!--{elseif $smarty.request.seatype=="3"}-->
+				<!--{include file="wgt-search-music-list.tpl"	keyword=$smarty.request.keyword}-->
+			<!--{elseif $smarty.request.seatype=="4"}-->
+				<!--{include file="wgt-search-video-list.tpl"	keyword=$smarty.request.keyword}-->
+			<!--{elseif $smarty.request.seatype=="5"}-->
+				<!--{include file="wgt-search-book-list.tpl"	keyword=$smarty.request.keyword}-->
+			<!--{elseif $smarty.request.seatype=="7"}-->
+				<!--{include file="wgt-search-theme-list.tpl"	keyword=$smarty.request.keyword}-->
+			<!--{else}-->
+				<!--{include file="wgt-search-app-list.tpl"		keyword=$smarty.request.keyword}-->
+			<!--{/if}-->
+		</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,58 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-file.tpl"}-->
+	</div>
+	
+		<div class="scroll">
+			<div class="loadings">
+				<div class="progressbar"><div id="progresswait" class="waiting"><div class="progressbg"></div></div></div>
+				正在读取音频，请稍候...
+			</div>
+			<script id="filelistTemplate" type="text/x-jquery-tmpl">
+				<tr>
+					<td nowrap="nowrap" class="tc vm fixwidth"><input type="checkbox" value="${path}${name}||${name}||${path}" class="checkbox" id="${index}" /><label for="${index}"></label></td>
+					<td nowrap="nowrap" class="tc vm fixwidth">${index}</td>
+					<td class="tl vm arrow fixwidth">
+						<span class="icon" style="background-image:url(<!--{#res1#}-->/resources/files/{{if type == 1}}folder{{else}}${fileext}{{/if}}.png);"></span>
+						<a href="#null" class="fileprev" onclick="return false;" ref="${ref}"><span>${name}</span></a>
+						<br />${path}
+					</td>
+					<td nowrap="nowrap" class="tl vm fixwidth">{{if type == 2}}${fileext} ${filetype}{{/if}}</td>
+					<td nowrap="nowrap" class="tl vm fixwidth">${time}</td>
+					<td nowrap="nowrap" class="tl vm number fixwidth">${filesize}</td>
+				</tr>
+			</script>
+			
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable2 fixwidth" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+				<col style="width:60px"></col>
+				<col style="width:80px"></col>
+				<col style="width:auto;"></col>
+				<col style="width:80px"></col>
+				<col style="width:255px"></col>
+				<col style="width:155px"></col>
+				<thead>
+					<tr>
+						<th nowrap="nowrap" class="tc fixwidth"><input type="checkbox" class="selector checkbox" id="selectors" /><label for="selectors"></label></th>
+						<th nowrap="nowrap" class="tc fixwidth">序号<span id="optdesc"></span></th>
+						<th nowrap="nowrap" class="tl arrow fixwidth">名称</th>
+						<th nowrap="nowrap" class="tl fixwidth">类型</th>
+						<th nowrap="nowrap" class="tl fixwidth"> </th>
+						<th nowrap="nowrap" class="tr fixwidth">大小</th>
+					</tr>
+				</thead>
+			<tbody id="filelist">
+			
+			</tbody>
+			</table>
+			
+			</div>
+	</div>
+</div>
+<script type="text/javascript">
+	dispMediaFileList('#filelist','2');
+if (/jumpUrl/.test(location.href) == false) {
+	jumpUrl('phonemenu','sound');
+}
+</script>

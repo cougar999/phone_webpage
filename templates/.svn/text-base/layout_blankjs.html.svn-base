@@ -1,0 +1,50 @@
+<!--{config_load file="smarty.conf" scope="global"}--><!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+<!-- <!--{#version#}--> <!--{$smarty.now|date_format:"%Y-%m-%d %H:%M:%S"}--> -->
+<link href="<!--{#res1#}-->/resources/css<!--{#version#}-->/layout.css" rel="stylesheet" type="text/css" />
+<link href="<!--{#res2#}-->/resources/css<!--{#version#}-->/main.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="<!--{#res5#}-->/resources/js<!--{#version#}-->/jquery-1.7.2.min.js"></script>
+
+</head>
+<body>
+<div class="page"><div class="wrap">
+	<div class="body"><div class="wrap">
+		<!-- head start -->
+		<div class="head"><div class="wrap">
+		</div></div>
+		<!-- head end -->
+		
+		<!-- container start -->
+		<div class="container"><div class="wrap">
+					
+			<!-- left start -->
+			<div class="right"><div class="wrap">
+				
+			</div></div>
+			<!-- left end -->
+			
+			<!-- center start -->
+			<div class="center" style="margin-left:0px;"><div class="warp">
+				<!--{$page}-->
+			</div></div>
+			<!-- center end -->
+			
+		</div></div>
+		<!-- container end -->
+		
+		<!-- foot start -->
+		<div class="foot"><div class="wrap">
+		</div></div>
+		<!-- foot end -->
+		
+		<div class="no"><div id="conver"></div></div>
+	</div></div>
+</div></div>
+
+
+</body>
+</html>

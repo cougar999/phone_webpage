@@ -1,0 +1,46 @@
+<!--{config_load file="smarty.conf"}-->
+<!--{if $assign.isok==1}-->
+	<table width="100%" cellpadding="0" cellspacing="0">
+		<tr height="40">
+			<td class="tc">
+				
+			</td>
+		</tr>
+		<tr height="40">
+			<td class="tc"  style="padding-left:10px;">
+				<span class="f4 b" style="color:#ef4f03;"> 密码更新成功！</span>
+			</td>
+		</tr>
+		<tr height="40">
+			<td class="tc f2" >
+				会员中心重新登录后，您的新密码将会生效。
+			</td>
+		</tr>
+		<tr height="40">
+			<td style="text-align:center;">
+			<a href='' class="f2" onclick="parent.$.fn.colorbox.close(); return false;" style="cursor:pointer;"><img alt="" src="<!--{#res1#}-->/resources/img/btn_ok.png" border="0"></a>
+			</td>
+		</tr>
+	</table>
+	<script>
+	
+	</script>
+<!--{else}-->
+	<table width="100%" cellpadding="0" cellspacing="0" >
+		<tr height="30">
+			<td class="tc"  style="padding-left:10px;">
+				<span class="f4 b" style="color:#ef4f03;"> 密码更新失败，请重新修改！</span>
+			</td>
+		</tr>
+		<tr height="30">
+			<td class="tc f2" >
+				请检查输入密码是否正确！
+			</td>
+		</tr>
+		<tr height="40">
+			<td style="text-align:center;">
+			<a href='' class="f2" onclick="parent.fb.start('/updatepasswd_page.html', {width:400, height:275, mobileNewWindow: true, sameBox: true, showClose:false}); return false;" style="cursor:pointer;"><img alt="" src="<!--{#res2#}-->/resources/img/btn_ok.png" border="0"></a>
+			</td>
+		</tr>
+	</table>
+<!--{/if}-->

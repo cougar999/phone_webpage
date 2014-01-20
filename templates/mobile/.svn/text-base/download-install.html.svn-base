@@ -1,0 +1,78 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="wgt-toolbar-download-install.tpl"}-->
+	</div>
+	
+	<div class="scroll">
+	<div class="contentbody contentwrap">
+		<div class="section">
+			<div  style="padding:2px 0px;">
+				<div class="re">
+					<div>
+						<!--{include file="wgt-navs-download.tpl"}-->
+					</div>
+				</div>
+			</div>
+		</div>	
+		
+		<div class="section">
+			<div style="">
+				<textarea id="downlist-install-template" style="display:none">
+					{#foreach $T.table as record}
+					<tr id="downitem-{$T.record.uid}">
+						<td class="tl vm"><input id="{$T.record.uid}" type="checkbox" value="{$T.record.id}" title="{$T.record.name}" /></td>
+						<td class="tl vm arrow text" style="line-height:48px;">
+							<span class="icon folder" style="background-image:url(/icon.php?width=48&height=48&uid={$T.record.value});"></span>
+							<a id="{$T.record.id}" href="{$T.record.url}" title="{$T.record.name}" onclick="return false;"><span>{$T.record.name}</span></a>
+						</td>
+						<td class="tl vm text">{$T.record.filetype}</td>
+						<td class="tr vm number">{$T.record.filetotlesize}</td>
+						<td class="tr vm number">--</td>
+						<td class="tr vm number">--</td>
+						<td class="tr vm number">--</td>
+						<td class="tl vm">
+							<div class="re" style="margin:5px 0;">
+								<span class="ab item_desc" style="top:-3px; left:160px;">{$T.record.status}</span>
+							</div>
+						</td>
+					</tr>
+					{#/for}
+				</textarea>
+				<div style="padding:0px 0px;">
+					<table width="100%" cellpadding="0" cellspacing="0"  class="table datatable f2"   style="border-left:1px solid #cccccc;border-right:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+						<col style="width:20px;"></col>
+						<col style="width:auto;"></col>
+						<col style="width:100px;"></col>
+						<col style="width:100px;"></col>
+						<col style="width:100px;"></col>
+						<col style="width:100px;"></col>
+						<col style="width:100px;"></col>
+						<col style="width:240px;"></col>
+						<thead>
+							<tr>
+								<th nowrap="nowrap" class="tl"><input type="checkbox" class="selector" /></th>
+								<th nowrap="nowrap" class="tl arrow">文件名　<span id="optdesc"></span></th>
+								<th nowrap="nowrap" class="tl">类型</th>
+								<th nowrap="nowrap" class="tr">大小</th>
+								<th nowrap="nowrap" class="tr">进度</th>
+								<th nowrap="nowrap" class="tr">下载速度</th>
+								<th nowrap="nowrap" class="tr">剩余时间</th>
+								<th nowrap="nowrap" class="tl">&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody id="downlist-install" class="jTemplates">
+							
+						</tbody>
+					</table>
+				</div>
+				<div id="console">
+				</div>
+			</div>
+		</div>	
+		
+	</div>
+	</div>
+	
+</div></div>

@@ -1,0 +1,17 @@
+
+<div id="wgt-navs" class="wgt-navs"><div class="navs">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+		<h3 class="lf">
+			<a href="download.html" class="hist tc" style="padding:0 15px;" onclick="gotopage(this); return false;"><span class="title">正在下载列表</span></a>
+		</h3>
+		<h3 class="lf">
+			<a href="download-uninstall.html" class="hist tc"  onclick="gotopage(this); return false;"><span class="title">已完成列表</span></a>
+		</h3>
+		<!-- 
+		<h3 class="lf">
+			<a href="download-install.html" class="hist tc"  onclick="gotopage(this); return false;"><span class="title">已安装列表</span></a>
+		</h3>
+		 -->
+		<div class="cl"></div>
+	</td></tr></table>
+</div></div>

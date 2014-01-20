@@ -1,0 +1,24 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="scroll" style="overflow:hidden;">
+		<iframe name="pagecontainer" id="pagecontainer" src="about:blank" frameborder="0" height="100%" width="100%"></iframe>
+	</div>
+</div></div>
+
+
+<script>
+(function loadmusic() {
+	var pagecontainer = document.getElementById('pagecontainer');
+	if (pagecontainer) {
+		try {
+			var child = pagecontainer.contentWindow;
+			var phone = getCurrentPhone();
+			var imei = phone ? phone.imei : '';
+			child.location.href = 'http://wdj.ting.baidu.com/embed?pl=aipi&imei=' + imei;
+		} catch (e) {
+			alert(e);
+		}
+	}
+})();
+
+</script>

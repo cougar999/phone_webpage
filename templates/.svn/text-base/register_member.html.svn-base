@@ -1,0 +1,82 @@
+<!--{config_load file="smarty.conf" scope="global"}--><!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=10" />
+<title></title>
+<!-- <!--{#version#}--> <!--{$smarty.now|date_format:"%Y-%m-%d %H:%M:%S"}--> -->
+<link href="<!--{#res1#}-->/resources/css<!--{#version#}-->/layout.css" rel="stylesheet" type="text/css" />
+<link href="<!--{#res2#}-->/resources/css<!--{#version#}-->/main.css" rel="stylesheet" type="text/css" />
+<link href="<!--{#res3#}-->/resources/lib/colorbox/colorbox.css" rel="stylesheet" type="text/css" />
+<link href="<!--{#res4#}-->/resources/lib/tooltip/jquery.tooltip.css" rel="stylesheet" type="text/css" />
+<link href="<!--{#res5#}-->/resources/css<!--{#version#}-->/register.css" rel="stylesheet" type="text/css" />
+<link href="<!--{#res6#}-->/resources/lib/jquery.autocomplete/jquery.autocomplete.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="<!--{#res3#}-->/resources/js<!--{#version#}-->/init.js"></script>
+<script type="text/javascript" src="<!--{#res1#}-->/resources/js<!--{#version#}-->/core.js"></script>
+<script type="text/javascript" src="<!--{#res2#}-->/resources/js<!--{#version#}-->/phone.js"></script>
+<script type="text/javascript" src="<!--{#res4#}-->/resources/js<!--{#version#}-->/common.js"></script>
+
+<script type="text/javascript" src="<!--{#res5#}-->/resources/js<!--{#version#}-->/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<!--{#res6#}-->/resources/js<!--{#version#}-->/register.js"></script>
+<script type="text/javascript" src="<!--{#res7#}-->/resources/js<!--{#version#}-->/jquery.provincesCity.js"></script>
+<script type="text/javascript" src="<!--{#res8#}-->/resources/js<!--{#version#}-->/provincesdata.js" charset="utf-8"></script>
+</head>
+<body>
+<form name="register1" id="register1">
+<div class="register_header">
+	<ul class="clear">
+		<li id="normal_user" class="hover">手机零售店注册</li>
+	</ul>
+</div>
+<div class="register_body border5">
+	<div class="select_agent_content">
+		<div class="select_provincescity" style="display:block;">
+			<span class="labelprovinces"> 地区：</span><span id="city_select_show"></span>
+		</div>
+		<input type="hidden" name="register_type" id="register_type" value="2">
+		<input type="hidden" name="agent_id" id="agent_id" value="">
+	</div>
+	<div class="ctrl-group clear">
+		<label for="user_name">用户名：</label><input type="text" name="username" id="user_name" class="input-large" required="required" placeholder="请输入账号">
+		<span></span>
+	</div>
+	<div class="ctrl-group clear">
+		<label for="user_password">爱皮登录密码：</label><input type="password" name="password" id="user_password" class="input-large" required="required" placeholder="请输入密码">
+		<span></span>
+	</div>
+	<div class="ctrl-group clear">
+		<label for="user_password_confirmation">确认登录密码：</label><input type="password" name="cpassword" id="user_password_confirmation" class="input-large" required="required" placeholder="请确认密码">
+		<span></span>
+	</div>
+	<div class="ctrl-group clear">
+		<label for="user_real_name">店面名：</label><input type="text" name="agent_name" id="agent_name" class="input-large" placeholder="请输入汉字">
+		<span></span>
+	</div>
+	<div class="ctrl-group clear">
+		<label for="user_real_name">店员名：</label><input type="text" name="real_name" id="user_real_name" class="input-large" placeholder="请输入汉字">
+		<span></span>
+	</div>
+	<div class="ctrl-group clear">
+		<label for="user_telphone">手机：</label><input type="text" name="telphone" id="user_telphone" class="input-large" placeholder="正确的联系方式有助于尽快兑奖并领取奖金">
+		<span></span>
+	</div>
+	<!-- <div class="ctrl-group clear">
+		<label for="code">验证码：</label><input type="text" name="code" id="code" class="input-large2">
+		<img id="code_img" src="/api/checkcode.php?code_len=4&font_size=12&width=92&height=23&font_color=&background=" onclick="this.src=this.src+'&'+Math.random()"/>
+		<a style="margin:5px 0 0 10px;float:left;" href="javascript:document.getElementById('code_img').src='/api/checkcode.php?code_len=4&font_size=12&width=92&height=23&font_color=&background='+'&'+Math.random();void(0);">看不清？</a>
+		<span></span>
+	</div> -->
+</div>
+<div class="register_footer">
+	<span class="btn_register_submit" id="btn_register_submit"></span>
+	<span class="register_error_message"></span>
+</div>
+</form>
+<script language="javascript">
+$(function(){
+	$("#city_select_show").ProvinceCity((''),'','');
+})
+</script>
+</body>
+</html>

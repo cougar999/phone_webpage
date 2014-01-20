@@ -1,0 +1,192 @@
+<!--{feed int=AP_INT_MENU_LIST navid=$assign.ap_int.AP_INT_MENU_START_ID order=0 pageno=1 count=8 ret='arr_menulist'}-->
+<!--{menu items=$arr_menulist.list.items index='menucode' code=200065 ret='menu1_info'}-->
+<!--{feed int=AP_INT_MENU_LIST navid=$menu1_info.menuid order=0 pageno=1 count=15 ret='menulist' iscrack=$smarty.get.iscrack|default:0}-->
+
+<!--{config_load file="smarty.conf"}-->
+
+<!--{menu items=$menulist.list.items index='menucode' code=200063 ret='menu2_info'}-->
+<!--{feed int=AP_INT_PACKAGE_LIST cid=$menu2_info.menuid order=1 pageno=1 count=10 ret='packagelist' iscrack=$smarty.get.iscrack|default:0}-->
+<table id="pageloading" border="0" style="position:absolute; left:42%; top:40%; width:20%; height:20%;z-index:900000;"><tr><td align="center" valign="middle"><img src="<!--{#img1#}-->/resources/img40/loading_trans_middle.gif" /></td></tr></table>
+<div id="start_pack">
+	<h2>精品大礼包</h2>
+	<!--{if $packagelist.page}-->
+		<div id="preins_pack" class="no">
+			<!--{foreach key=key item=items from=$packagelist.page.items}-->
+			<!--{if $items.cid == 100010 || $items.cid == 100011  }-->
+				<div class="packunit" cid="<!--{$items.cid}-->" <!--{if $items.cid == 100011 }-->style="margin-right:0;"<!--{/if}-->>
+					<div id="pack<!--{$key}-->"></div>
+					<!--{if $key == 0}-->
+						<div class="recommed_img"></div>
+					<!--{/if}-->
+					<h3><strong><!--{if $items.name}--><!--{$items.name}--><!--{else}-->未知<!--{/if}--></strong>&nbsp;&nbsp;(软件数：<!--{if $items.rescount}--><!--{$items.rescount}--><!--{else}-->0<!--{/if}-->) <span class="showSoftlist" style="margin:2px 0 0 10px;text-decoration:underline;">详情</span><span class="closeSoftlist no" style="margin:2px 0 0 10px;text-decoration:underline;">关闭</span></h3>
+					<ul>
+						<li><!--{if $items.desc}--><!--{$items.desc}--><!--{else}-->未知<!--{/if}--></li>
+						<li class="coins">奖励金币: <!--{if $items.packcoin}--><!--{$items.packcoin}--><!--{else}-->0<!--{/if}-->个</li>
+						<li class="coinsbtn"><a href="##" class="downbtn_mid" onclick="packageDown(this);return false;"></a></li>
+						<li>
+							<!--{foreach key=key item=package from=$items.resources}-->
+								<a id="<!--{$package.rid}-->" businesstype="<!--{$package.businesstype}-->" isbiz="<!--{$package.isbiz}-->" href="<!--{if $package.downloadurl && ($package.downloadurl!='#')}--><!--{$package.downloadurl}-->&code1=<!--{$tpl_code1}-->&code1_id=<!--{$tpl_code1_id}--><!--{/if}-->" installlocate="<!--{$package.installlocate}-->" appid="<!--{$package.rappid}-->"  versioncode="<!--{$package.versioncode}-->"  version="<!--{$package.version}-->" title="<!--{$package.rname}-->" type="1"  class="<!--{if ($package.price or $package.servicefee) && ($smarty.get.phonetype != '3.') && ($smarty.get.phonetype != '.')}-->addcart no<!--{else}-->downinit no<!--{/if}-->"  onclick="return false;"></a>
+							<!--{/foreach}-->
+						</li>
+					</ul>
+					<div class="softlist">
+						<!--{foreach key=key item=package from=$items.resources}-->
+								<span><!--{$package.rname}--></span>,
+						<!--{/foreach}-->
+					</div>
+				</div>
+			<!--{/if}-->
+			<!--{/foreach}-->
+		</div>
+		<div id="unpreins_pack" class="no">
+			<!--{foreach key=key item=items from=$packagelist.page.items}-->
+			<!--{if $items.cid != 100010 && $items.cid != 100011  }-->
+			<div class="packunit" cid="<!--{$items.cid}-->" <!--{if $key == 1}-->style="margin-right:0;"<!--{/if}-->>
+				<div id="pack<!--{$key}-->"></div>
+				<!--{if $key == 0}-->
+					<div class="recommed_img"></div>
+				<!--{/if}-->
+				<h3><strong><!--{if $items.name}--><!--{$items.name}--><!--{else}-->未知<!--{/if}--></strong>&nbsp;&nbsp;(软件数：<!--{if $items.rescount}--><!--{$items.rescount}--><!--{else}-->0<!--{/if}-->) <span class="showSoftlist" style="margin:2px 0 0 10px;text-decoration:underline;">详情</span><span class="closeSoftlist no" style="margin:2px 0 0 10px;text-decoration:underline;">关闭</span></h3>
+				<ul>
+					<li><!--{if $items.desc}--><!--{$items.desc}--><!--{else}-->未知<!--{/if}--></li>
+					<li class="coins">奖励金币: <!--{if $items.packcoin}--><!--{$items.packcoin}--><!--{else}-->0<!--{/if}-->个</li>
+					<li class="coinsbtn"><a href="##" class="downbtn_mid" onclick="packageDown(this);return false;"></a></li>
+					<li>
+						<!--{foreach key=key item=package from=$items.resources}-->
+							<a id="<!--{$package.rid}-->" businesstype="<!--{$package.businesstype}-->" isbiz="<!--{$package.isbiz}-->" href="<!--{if $package.downloadurl && ($package.downloadurl!='#')}--><!--{$package.downloadurl}-->&code1=<!--{$tpl_code1}-->&code1_id=<!--{$tpl_code1_id}--><!--{/if}-->" installlocate="<!--{$package.installlocate}-->" appid="<!--{$package.rappid}-->"  versioncode="<!--{$package.versioncode}-->"  version="<!--{$package.version}-->" title="<!--{$package.rname}-->" type="1"  class="<!--{if ($package.price or $package.servicefee) && ($smarty.get.phonetype != '3.') && ($smarty.get.phonetype != '.')}-->addcart no<!--{else}-->downinit no<!--{/if}-->"  onclick="return false;"></a>
+						<!--{/foreach}-->
+					</li>
+				</ul>
+				<div class="softlist">
+					<!--{foreach key=key item=package from=$items.resources}-->
+							<span><!--{$package.rname}--></span>,
+					<!--{/foreach}-->
+				</div>
+			</div>
+			<!--{/if}-->
+			<!--{/foreach}-->
+		</div>
+	<!--{else}-->
+	<div style="text-align:center;line-height: 32px;padding:30px;" class="f7">抱歉，没有找到合适的礼包资源。</div>
+	<!--{/if}-->
+</div>
+
+<!--{if $smarty.get.phonetype == '' || $smarty.get.phonetype == '.' || $smarty.get.phonetype == 3 || $smarty.get.phonetype == '3.' }-->
+<div id="recomm_green_channel" class="no">
+	<!--{feed int=AP_INT_MENU_LIST navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 ret='arr_menulist'}-->
+	<!--{menu items=$arr_menulist.list.items index='menucode' code=1301 ret='menu1_info'}-->
+	<!--{feed int=AP_INT_MENU_LIST  navid=$menu1_info.menuid order=0 pageno=1 count=15 tplcode=200060 channelcode=$smarty.request.channelcode iscrack=$smarty.request.iscrack|default:0 ret='menulist'}-->
+
+	<!--{menu items=$menulist.list.items index='menucode' code=200076 ret='green_channel_menu'}-->
+	<!--{feed int=AP_INT_MENU_LIST navid=$green_channel_menu.menuid order=0 pageno=1 count=7 ret='green_chn_list'}-->
+	<!--{include file="start/green_channel.tpl"}-->
+</div>
+<!--{/if}-->
+
+<style>
+	body {overflow:hidden;}
+</style>
+<script>
+	function packageDown(ele) {
+		var list = $(ele).parent().next().find('a.downinit');
+		var downlist = jQuery.makeArray(list);
+		var downlistleng = downlist.length;
+		var groupid = $(ele).closest(".packunit").attr("cid");
+		var packtitle = $(ele).closest(".packunit").find("h3 strong").text();
+		if (downlistleng == 0) {
+			setTimeout(function(){
+				cbMessage('没有找到合适的文件');
+			}, 1000);
+			return false;
+		}
+		var undatacall = function(){
+			if (!downlist || downlist.length == 0) {
+				$.floatingMessage('<span class="s addtodown">已将 <span class="cblue">'+ packtitle +'</span> 中 <span class="cblue">' + downlistleng + '</span> 个应用添加到下载列表</span>', {
+						time: 3000,
+						align: "right",
+						verticalAlign: "bottom"
+				});
+				return;
+			}
+			var item = downlist.shift(downlist.length, 1);
+			var rows = {
+				id : item.id,
+				url : item.href,
+				name : item.title,
+				appid : item.getAttribute("appid"),
+				installlocate : item.getAttribute("installlocate"),
+				is_sc : item.getAttribute("is_sc"),
+				businesstype : item.getAttribute("businesstype"),
+				isbiz : item.getAttribute("isbiz"),
+				groupid : groupid
+			};
+			addTask(rows, null, true);
+			setTimeout(undatacall, 200);
+		}
+		undatacall();
+	}
+	
+	function showPackage (){
+		var phone = getCurrentPhone();
+		var phonetype = phone.phonetype || 0;
+		var preins = WebAppLocalStorage("accountbytermcode") || 0;
+		if(preins) {
+			var preins_num = JSON.parse(preins).ispreins;
+		}
+		if (preins_num && (preins_num == '1' || preins_num == 1)){
+			$("#pageloading").hide();
+			$("#unpreins_pack,#recomm_green_channel").fadeIn(500);
+		} else {
+			$("#pageloading").hide();
+			$("#preins_pack,#recomm_green_channel").fadeIn(500);
+		}
+		if(phonetype == 8){
+			$("#pageloading").hide();
+			$("#unpreins_pack,#recomm_green_channel").fadeIn(500);
+		}
+		//clearTimeout(showPackage, 1000);
+		return false;		
+	}
+	
+	if (typeof(accountbytermcode_event_listener) != 'function' && parent == self) {
+		var accountbytermcode_event_listener = function(newValue, oldValue, url) {
+			var accountbytermcode = JSON.parse(newValue)['data'];
+			cookies('accountbytermcode', accountbytermcode, {path: '/'});
+			if (/com\/start\/recommend\.html/.test(location.href)) {
+				//window.location.reload(location.href);
+				setTimeout(showPackage, 500);
+			}
+		};
+		WebAppLocalStorageEvent('accountbytermcode', accountbytermcode_event_listener);
+	}
+	
+	$(document).ready(function(){
+		$('.showSoftlist').click(function(){
+			$(this).closest('.packunit').find('.softlist').show();
+			$(this).hide().siblings('.closeSoftlist').show();
+		});
+		$('.closeSoftlist').click(function(){
+			$(this).closest('.packunit').find('.softlist').hide();
+			$(this).hide().siblings('.showSoftlist').show();
+		});
+		
+		var pcr = WebAppLocalStorage("pcrcode") || 0;
+		var pcrcode = JSON.parse(pcr).data;
+		if (pcrcode < 3) {
+			setTimeout(showPackage, 500);
+		}
+		
+		$("#green_channel li a").bind("click", function(){
+			var cid = $(this).attr('cid');
+			var cname = $(this).attr('cname');
+			var tplcode = $(this).attr('tplcode');
+			var phonetype = $(this).attr('phonetype');
+			var iscrack = $(this).attr('iscrack');
+			var para = "/appstore/green_channel.html&cid=" + cid + "&cname=" + cname + "&tplcode=" + tplcode + "&phonetype=" + phonetype + "&iscrack=" + iscrack + "&from=start";
+			jumpUrl("appstore", para);
+			return false;
+		});
+		
+		
+	});
+</script>

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/bbclone/lib/plugin
+END
+ext_lookup_geoip.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/bbclone/lib/plugin/ext_lookup_geoip.php
+END
+ext_lookup_ip2ext.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/bbclone/lib/plugin/ext_lookup_ip2ext.php
+END

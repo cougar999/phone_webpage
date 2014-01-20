@@ -1,0 +1,160 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK ret='menu'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menu.menuid order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"  seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_BOOK seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_BOOK'}-->
+	</div>
+	<div class="scroll">
+	<div class="book_index_body">
+		<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT ret='catmenulist'}-->
+		<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK  order=0 pageno=1 count=30 ret='book_catlist'}-->
+		<div class="b_right">
+			<div style="margin-top:5px;">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+					<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_HOT ret='columnlist'}-->
+					<!--{include file="wgt-book-top-list-new.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_DETAIL code2_id=$smarty.request.bid code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_HOT}-->
+					<br />
+					<!-- {menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_TOP_DOWNLOAD ret='columnlist'}-->
+					<!-- {include file="wgt-book-top-list-new.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_DETAIL code2_id=$smarty.request.bid code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_TOP_DOWNLOAD}-->
+					
+					<!--<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_SHOP_REC ret='columnlist'}-->
+					<!--{include file="wgt-book-top-list-new.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_DETAIL code2_id=$smarty.request.bid code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_SHOP_REC}-->-->
+	
+				</td></tr></table>
+			</div>
+		</div>
+		<div class="book_main">
+			<div class="cat-top">
+				<div class="cat-top-left"><img src="<!--{#img2#}-->/resources/img/cat-top-left.png" /></div>
+				<div class="cat-top-title">图书分类</div>
+				<div class="cat-top-right"><img src="<!--{#img3#}-->/resources/img/cat-top-right.png" /></div>
+			</div>
+			<div class="cat-main">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+					<td>
+						<img src="<!--{#img3#}-->/resources/img/cat-novel.png" style="margin-left:14px; margin-right:10px;"/>
+					</td>
+					<td width="140" style="padding:0px; vertical-align:top; ">
+						<div class="cat-main-list">
+							<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_1 ret='cat_columnlist'}-->
+							<!--{include file="wgt-book-cat-column-list.tpl" columnid=$cat_columnlist.menuid typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK}--> 	
+						</div>
+					</td>
+					<td>
+						<img src="<!--{#img4#}-->/resources/img/cat-social.png" style="margin-left:14px; margin-right:10px;"/>
+					</td>
+					<td width="140" style="padding:0px; vertical-align:top; ">
+						<div class="cat-main-list">
+							<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_2 ret='cat_columnlist'}-->
+							<!--{include file="wgt-book-cat-column-list.tpl" columnid=$cat_columnlist.menuid typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK}--> 	
+						</div>
+					</td>
+					<td>
+						<img src="<!--{#img5#}-->/resources/img/cat-life.png" style="margin-left:14px; margin-right:10px;"/>
+					</td>
+					<td width="140" style="padding:0px; vertical-align:top; ">
+						<div class="cat-main-list">
+							<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_3 ret='cat_columnlist'}-->
+							<!--{include file="wgt-book-cat-column-list.tpl" columnid=$cat_columnlist.menuid typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK}--> 	
+						</div>
+					</td>
+					<td>
+						<img src="<!--{#img6#}-->/resources/img/cat-tech.png" style="margin-left:14px; margin-right:10px;"/>
+					</td>
+					<td width="140" style="padding:0px; vertical-align:top; ">
+						<div class="cat-main-list">
+							<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_4 ret='cat_columnlist'}-->
+							<!--{include file="wgt-book-cat-column-list.tpl" columnid=$cat_columnlist.menuid typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK}--> 	
+						</div>
+					</td>
+					</tr>
+				</table>
+			</div>
+			<!-- <div class="location_toolbar">
+				<div class="location_t"><img src="/resources/img/right-arrow.png"><span class="area">爱皮桌面</span>><span class="area">读书频道</span>><span class="area">情感</span></div>
+				<div class="location_sort">
+					<div class="mode">
+					</div>
+				</div>
+			</div> -->
+			<div class="cat-top">
+				<div class="cat-top-left"><img src="<!--{#img7#}-->/resources/img/cat-top-left.png" /></div>
+				<div class="cat-top-title">详细信息</div>
+				<div class="cat-top-right"><img src="<!--{#img8#}-->/resources/img/cat-top-right.png" /></div>
+			</div>
+			<div class="show_lists">
+				<div class="show_item clear">
+					<!--{feed int=AP_INT_BOOK_INFO bid=$smarty.request.bid order=0 pageno=1 count=10 ret='bookinfo'}-->
+					<div class="lf book_shadow"><img  src="<!--{if $bookinfo.imageurl != ''}--><!--{$bookinfo.imageurl}-->_sf_166x233.png<!--{else}--><!--{/if}-->" style="float:left; width:166px; height:233px;border:1px solid #cccccc; padding:5px;" /></div>
+					<div class="rg_part">
+						<ul>
+							<li class="title" style="height:30px;">
+								<span class="lf cblue"><!--{$bookinfo.name}-->&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<div class="lf re">
+									<div class="lf" style="width:80px; height:15px; background:url(<!--{#img1#}-->/resources/img/star.png) repeat-x left center;"></div>
+									<div class="ab" style="right:0px;width:<!--{math equation='(x*(50-y)/z)' x=80 y=$bookinfo.grade|default:50 z=50}-->px; height:15px; background:url(<!--{#img2#}-->/img/star_gray.png) repeat-x right center;"></div>
+								</div>
+							</li>
+							<li class="content f_s_10">
+								<!--{if $bookinfo.desc}--><!--{$bookinfo.desc}--><!--{else}-->暂无内容<!--{/if}-->						</li>
+							<li class="items">
+								<ul class="attr">
+									<li class="attr_1">作者:</li><li class="name"><!--{$bookinfo.author}--></li><li class="line"> | </li>
+									<li class="attr_1">类别:</li><li class="category"><!--{$bookinfo.catalog|default:'电子书籍'}--></li><li class="line"> | </li>
+									<li class="attr_2">更新日期:</li><li class="date"><!--{$bookinfo.date|default:'未知'}--></li><li class="line"> | </li>
+									<li class="attr_2">下载次数:</li><li class="download"><!--{if $bookinfo.download}--><!--{$bookinfo.download}--><!--{else}-->0<!--{/if}-->次</li>
+								</ul>
+							</li>
+							<li class="bottom">
+								<img src="<!--{#img3#}-->/resources/img/promotion.png" border="0" class="lf"/>
+								<p>
+									<!--<span class="price">爱皮价:<!--{if $bookinfo.price}--><!--{math equation='(x/100)' x=$bookinfo.price|default:0}-->元<!--{else}-->免费<!--{/if}--></span>-->
+									<span class="price">爱皮价:免费</span>
+								</p>
+									<!--{if $bookinfo.formatitems|@count==1}-->
+										<!--<a id="<!--{$bookinfo.bookid}-->" href="<!--{$bookinfo.formatitems[0].downloadurl}-->&ref=<!--{$assign.referer|base64_en}-->" type="5" price="<!--{math equation='(x)/100' x=$bookinfo.price|default:0 }-->" servicefee="0"  title="<!--{$bookinfo.name}-->" class="rg <!--{if $bookinfo.price}-->addcart<!--{else}-->downinit<!--{/if}-->"  onclick="return false;">
+												<img src="<!--{#img2#}--><!--{if $bookinfo.price}-->/resources/img/btn_buy_big.png<!--{else}-->/resources/img/btn_download_big.png<!--{/if}-->" class="png_bg" border="0" style="margin-right:-10px;">-->
+										<a id="<!--{$bookinfo.bookid}-->" href="<!--{$bookinfo.formatitems[0].downloadurl}-->&ref=<!--{$assign.referer|base64_en}-->" type="5" price="<!--{math equation='(x)/100' x=$bookinfo.price|default:0 }-->" servicefee="0"  title="<!--{$bookinfo.name}-->" class="rg downinit"  onclick="return false;">
+											<img src="<!--{#img2#}-->/resources/img/btn_download_big.png" class="png_bg" border="0" style="margin-right:-10px;">
+										</a>
+									<!--{elseif $bookinfo.formatitems|@count>1}-->
+											<!--{foreach key=key item=formatitem from=$bookinfo.formatitems}-->
+												<!--{if $formatitem.format == 'txt'}-->
+													<!--<a id="<!--{$item.bookid}-->" href="<!--{$formatitem.downloadurl}-->&ref=<!--{$assign.referer|base64_en}-->" type="5" price="<!--{math equation='(x)/100' x=$bookinfo.price|default:0 }-->" servicefee="0" title="<!--{$bookinfo.name}-->" class="rg <!--{if $bookinfo.price}-->addcart<!--{else}-->downinit<!--{/if}-->"  onclick="return false;">
+															<img src="<!--{#img2#}--><!--{if $bookinfo.price}-->/resources/img/btn_buy_big.png<!--{else}-->/resources/img/btn_download_big.png<!--{/if}-->" class="png_bg" border="0" style="margin-right:-10px;">-->
+													<a id="<!--{$item.bookid}-->" href="<!--{$formatitem.downloadurl}-->&ref=<!--{$assign.referer|base64_en}-->" type="5" price="<!--{math equation='(x)/100' x=$bookinfo.price|default:0 }-->" servicefee="0" title="<!--{$bookinfo.name}-->" class="rg downinit"  onclick="return false;">
+															<img src="<!--{#img2#}-->/resources/img/btn_download_big.png" class="png_bg" border="0" style="margin-right:-10px;">
+													</a>
+													<!--{php}-->
+													break;
+													<!--{/php}-->
+												<!--{/if}-->
+											<!--{/foreach}-->
+									<!--{/if}-->
+									<!--{if $bookinfo.formatitems|@count>1}-->
+										<!--{foreach key=key item=formatitem from=$bookinfo.formatitems}-->
+											<!--{if $formatitem.format != 'txt'}-->
+												<!--<a id="<!--{$bookinfo.bookid}-->" href="<!--{$formatitem.downloadurl}-->&ref=<!--{$assign.referer|base64_en}-->" type="5" price="<!--{math equation='(x)/100' x=$bookinfo.price|default:0 }-->" servicefee="0" title="<!--{$bookinfo.name}-->" class="rg f2 <!--{if $bookinfo.price}-->addcart<!--{else}-->downinit<!--{/if}-->" onclick="return false;" style="margin-left:10px;"><!--{if $bookinfo.price}-->购买<!--{else}-->下载<!--{/if}--><!--{$formatitem.format}-->格式文件</a>-->	
+												<a id="<!--{$bookinfo.bookid}-->" href="<!--{$formatitem.downloadurl}-->&ref=<!--{$assign.referer|base64_en}-->" type="5" price="<!--{math equation='(x)/100' x=$bookinfo.price|default:0 }-->" servicefee="0" title="<!--{$bookinfo.name}-->" class="rg f2 downinit" onclick="return false;" style="margin-left:10px;">下载<!--{$formatitem.format}-->格式文件</a>
+											<!--{/if}-->
+										<!--{/foreach}-->
+									<!--{/if}-->
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="rec">
+				<div class="lf rec_txt">精彩推荐</div>
+				<ul class="rec_list"  style="">
+					<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_COLUMNLIST_4 ret='reclist'}-->
+					<!--{include file="wgt-book-intro-rec-list.tpl"  column_id=$reclist.menuid column_name=$reclist.menuname}-->
+				</ul>
+			</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</div></div>

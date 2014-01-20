@@ -1,0 +1,126 @@
+<!--{config_load file="smarty.conf"}-->
+<div>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable fixwidth">
+		<col style="width:30px;"></col>
+		<col style="width:auto;"></col>
+		<col style="width:100px;"></col>
+		<col style="width:100px;"></col>
+		<thead>
+			<tr>
+				<th nowrap="nowrap" class="tl"><input type="checkbox" class="selector" value="#contactrestorelist" /></th>
+				<th nowrap="nowrap" class="tl arrow">
+					<button class="apprestore" onclick="restorecatsel('<!--{$smarty.request.userid}-->'); return false;">确定还原</button>
+					<button class="apprestoredel" onclick="$(document).trigger('contactrestorelistdel', '<!--{$smarty.request.userid}-->'); return false;">删除</button>
+					<!--{if $assign.datacount > 0}-->
+						<span id="contactrestorelisttext"><!--{$assign.datacount}-->个联系人</span>
+					<!--{else}-->
+						<font color="red">没有找到联系人</font>
+					<!--{/if}-->
+				</th>
+				<th nowrap="nowrap" class="tr"></th>
+				<th nowrap="nowrap" class="tr"><button href="#" onclick="window.history.go(-1); return false;">返回</button></th>
+			</tr>
+		</thead>
+	</table>
+	<div>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable fixwidth">
+			<col style="width:30px;"></col>
+			<col style="width:40px;"></col>
+			<col style="width:200px;"></col>
+			<col style="width:200px;"></col>
+			<col style="width:auto"></col>
+			<tbody id="contactrestorelist">
+				<!--{foreach key=key item=item from=$assign.data.contacts name='list'}-->
+				<tr class="<!--{if $key % 2 == 0}-->odd<!--{else}-->even<!--{/if}-->" rel="<!--{$item.contactid}-->">
+					<td nowrap="nowrap" class="tl fixwidth"><input type="checkbox" class="selector" value="" /><textarea style="display:none;"><!--{$item.data|escape:'html'}--></textarea></td>
+					<td nowrap="nowrap" class="tr fixwidth"><!--{$smarty.foreach.list.iteration}--></td>
+					<td nowrap="nowrap" class="tl arrow fixwidth" style="line-height:20px;">
+						<span class="icon" style="padding:8px; background-image:url(/icon.php?width=16&height=16&image=<!--{#res2#}-->/resources/img/account_icon.png)"></span>
+						<!--{if is_array($item.firstname) }-->
+							<!--{$item.firstname[0].value}-->
+						<!--{else}-->
+							<!--{$item.firstname}-->
+						<!--{/if}--> 
+						<!--{if is_array($item.lastname) }-->
+							<!--{$item.lastname[0].value}-->
+						<!--{else}-->
+							<!--{$item.lastname}-->
+						<!--{/if}--> 
+					</td>
+					<td nowrap="nowrap" class="tl fixwidth">
+						<!--{if $item.mobile}-->
+							<!--{if is_array($item.mobile) }-->
+								<!--{$item.mobile[0].value}-->
+							<!--{else}-->
+								<!--{$item.mobile}-->
+							<!--{/if}-->
+							
+						<!--{elseif $item.mobile_home}-->
+							<!--{if is_array($item.mobile_home) }-->
+								<!--{$item.mobile_home[0].value}-->
+							<!--{else}-->
+								<!--{$item.mobile_home}-->
+							<!--{/if}--> 
+							
+						<!--{elseif $item.mobile_work}-->
+							<!--{if is_array($item.mobile_work) }-->
+								<!--{$item.mobile_work[0].value}-->
+							<!--{else}-->
+								<!--{$item.mobile_work}-->
+							<!--{/if}--> 
+							
+						<!--{elseif $item.tel_home}-->
+							<!--{if is_array($item.tel_home) }-->
+								<!--{$item.tel_home[0].value}-->
+							<!--{else}-->
+								<!--{$item.tel_home}-->
+							<!--{/if}--> 
+							
+						<!--{elseif $item.tel_work}-->
+							<!--{if is_array($item.tel_work) }-->
+								<!--{$item.tel_work[0].value}-->
+							<!--{else}-->
+								<!--{$item.tel_work}-->
+							<!--{/if}--> 
+							
+						<!--{elseif $item.telephone}-->
+							<!--{if is_array($item.telephone) }-->
+								<!--{$item.telephone[0].value}-->
+							<!--{else}-->
+								<!--{$item.telephone}-->
+							<!--{/if}--> 
+						<!--{/if}-->
+					</td>
+					<td nowrap="nowrap" class="tl fixwidth">
+						<!--{if $item.email && $item.email}-->
+							<!--{if is_array($item.email) }-->
+								<!--{$item.email[0].value}-->
+							<!--{else}-->
+								<!--{$item.email}-->
+							<!--{/if}--> 
+						<!--{elseif $item.email_home && $item.email_home}-->
+							<!--{if is_array($item.email_home) }-->
+								<!--{$item.email_home[0].value}-->
+							<!--{else}-->
+								<!--{$item.email_home}-->
+							<!--{/if}--> 
+						<!--{elseif $item.email_work && $item.email_work}-->
+							<!--{if is_array($item.email_work) }-->
+								<!--{$item.email_work[0].value}-->
+							<!--{else}-->
+								<!--{$item.email_work}-->
+							<!--{/if}--> 
+						<!--{/if}-->
+					</td>
+					
+				</tr>
+				<!--{/foreach}-->
+			</tbody>
+		</table>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table fixwidth">
+		<tr>
+		<td class="tc"><!-- <button class="apprestore" onclick="$(document).trigger('contactrestorelistsel', ''); return false;">确定还原</button> <button href="#" onclick="parent.fb.end(); return false;">关闭</button> --></td>
+		</tr>
+		</table>		
+	</div>
+</div>

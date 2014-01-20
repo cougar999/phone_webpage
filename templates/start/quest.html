@@ -1,0 +1,266 @@
+<style>
+.quest_body{background-color:#eef3f9;width:181px;height:197px;overflow:hidden;border-top:1px solid #fff;}
+.login_text{line-height:25px;color:#3c3c3c;text-align:left;padding:10px;}
+.quest_content{padding:0 5px;}
+
+.quest_gold{display:inline-block;background:url('/resources/img/quest_gold.png') 0 2px no-repeat;width:20px;height:15px;float:left;}
+.login_content{text-align:center;}
+.login_content,.quest_content{display:none;}
+.my_quest{margin-top:10px;font-size:12px;}
+.my_quest_head{position:relative;overflow:hidden;}
+.quest_refresh{float:right;cursor: pointer;margin-top:3px;}
+.runtask_loading{position:absolute;right:20px;}
+.my_quest_list center{height:58px;margin:5px;}
+.my_quest_title{font-size:16px;font-weight:800;cursor: pointer;}
+.my_quest_list ul,.my_quest_list li{padding:0;margin:0;}
+.my_quest_list ul{padding:5px 0;}
+.my_quest_list li{list-style:none;line-height:25px;osition:relative;overflow:hidden;}
+.my_quest_list li span{float:left;}
+.my_quest_list li span.tip{background:url('/resources/img40/quest_tip.png') no-repeat;width:171px;height:25px;display:block;padding:3px 0 0 5px;font-size:10px;}
+.my_quest_list li .quest_over_icon{background:url('/resources/img/quest_status_icon.png')0 2px no-repeat;height:22px;width:20px;display:inline-block;}
+.my_quest_list li .quest_no_icon{background:url('/resources/img/quest_status_icon.png') 0 -22px no-repeat;height:22px;width:20px;display:inline-block;}
+.quest_done,a.quest_done{color:#329ed5;cursor: default;	}
+.quest_over{color:#ff5400;}
+.quest_no,a.quest_no{color:#A0A0A0;cursor: default;}
+a.quest_help{color:#2e80ed;cursor: pointer;border-bottom: 1px solid #2e80ed;}
+</style>
+<div class="quest_body">
+	<div class="login_content">
+		<div class="login_text">
+			您尚未登录，登录后下载软件、完成任务即可获取金币、兑换现金！
+		</div>
+		<input id="quest_login_user" type="image" src="<!--{#img1#}-->/resources/img40/btn_login.png">
+		<input id="quest_register_user" type="image" src="<!--{#img2#}-->/resources/img40/btn_register.png">
+	</div>
+	<div class="quest_content">
+		<div class="my_quest">
+			<div class="my_quest_head clear">
+				<span class="f_l my_quest_title">我的金币</span>
+				<div class="f_l" style="margin-top:2px;padding-left:10px;">
+					<span class="quest_gold"></span><span class="f_r totalcoin"></span>
+				</div>
+				<img class="quest_refresh" src="<!--{#img5#}-->/resources/img/btn-refresh.png">
+			</div>
+			<div style="height:20px;margin:10px 0 0 3px;">做任务得金币，<span class="quest_over">10</span>金币=<span class="quest_over">1</span>块钱</div>
+			<div class="my_quest_list">
+				<center><img src="<!--{#img6#}-->/resources/img40/loading_trans_middle.gif"></center>
+			</div>
+			<div>手机需装SIM卡，否则不奖金币</div>
+		</div>
+	</div>
+</div>
+<script language="javascript">
+$(function(){
+	$('.my_quest_title').click(function(){
+		setDataCache(null,'intergral','/intergral/quests.html');
+	});
+	var taskall_cache = new Array();
+	var task_type_desc = {1:'连续登录任务',2:'手机连接任务',3:'推荐软件下载任务',4:'手机复制任务'};
+	var task_status = {0:'未完成',1:'领金币',2:'已领奖'};
+	var task_status_icon = {0:'quest_no_icon',1:'quest_no_icon',2:'quest_over_icon'};
+	var task_status_class = {0:'quest_no',1:'quest_over',2:'quest_done'};
+	var i = 0;
+	var runtask = function(){
+		if(!$('.runtask_loading').length){
+			$('.quest_refresh').after('<img class="runtask_loading" src="/resources/img40/loading_trans_small.gif">');
+		}
+		i--;
+		var _taskall_cache = taskall_cache;
+		var salesid = JSON.parse(WebAppLocalStorage("salesid"));
+		var salesname = JSON.parse(WebAppLocalStorage("salesname"));
+		var _tasktime = new Array();
+		for(_i = 0; _i < _taskall_cache.length;_i++){
+			_tasktime[_taskall_cache[_i].tasktype] = _taskall_cache[_i].timestamp;
+		}
+		var row = {
+				salesid : salesid.data,
+				task1time : _tasktime[1],
+				task2time : _tasktime[2],
+				task3time : _tasktime[3],
+				task4time : _tasktime[4]
+			};
+		var untill_num = 3;
+		var untill = function(row){
+			if(untill_num > 0){
+				$.post('/api/api_taskall.php',row,function(data){
+					var data = JSON.parse(data);
+					if(data && data.result.resultcode == '000000'){
+						if(data.array.count > 0){
+							$(".totalcoin").html(data.totalcoins);
+							
+							var html = '<ul>';
+							var __taskall_cache = new Array();
+							$.each(_taskall_cache, function(_i, items){
+								__taskall_cache[items.tasktype] = items;
+							});
+							$.each(data.array.items, function(_i, items){
+								__taskall_cache[items.tasktype] = items;
+							});
+							$.each(_taskall_cache, function(_i, items){
+								taskall_cache[_i] = __taskall_cache[items.tasktype];
+								var tasktype = taskall_cache[_i].tasktype;
+								var timestamp = taskall_cache[_i].timestamp;
+								var tstatus = taskall_cache[_i].tstatus;
+								
+								html += '<li class="clear"><span class="' + task_status_icon[tstatus] + '"></span><span>' + task_type_desc[tasktype] + '</span><a tasktype="' + tasktype + '" timestamp="' + timestamp + '" href="#" class="f_r ' + task_status_class[tstatus] + '">' + task_status[tstatus] + '</a></li>'
+							});
+							html += '</ul>';
+							$(".my_quest_list").html(html);
+							$(".my_quest_list li a.quest_over").click(function(){
+								var award_row = {
+										salesid : salesid.data,
+										salesname : salesname.data,
+										tasktype : $(this).attr('tasktype')
+								};
+								$(this).parent("li").append("<span class=\"tip\"><img src=\"/resources/img40/loading_trans_small.gif\" /></span>");
+								var this_obj = $(this);
+								$.post('/api/api_taskaward.php',award_row,function(data1){
+									if(data1){
+										var data1 = JSON.parse(data1);
+										if(data1.result && data1.result.resultcode == '000000'){
+											$(".totalcoin").html(data1.totalcoins);
+											this_obj.parent("li").find(".tip").html("成功领取金币<font class=\"quest_over\">" + data1.coins + "</font>枚，共有<font class=\"quest_over\">" + data1.totalcoins + "</font>枚！");
+											this_obj.parent("li").find(".quest_no_icon").removeClass("quest_no_icon").addClass("quest_over_icon");
+											this_obj.removeClass("quest_over").addClass("quest_done").html("已领奖");
+											this_obj.unbind('click');
+											setTimeout(function(){
+												$(".my_quest_list li").find('.tip').remove();
+											},2000);
+										}else{
+											this_obj.parent("li").find(".tip").html("<font style=\"color:red\">任务系统错误，code：" + data1.result.resultcode + "</font>");
+											setTimeout(function(){
+												$(".my_quest_list li").find('.tip').remove();
+											},2000);
+										}
+									}else{
+										this_obj.parent("li").find(".tip").html("<font style=\"color:red\">任务系统比较繁忙，稍后再试！</font>");
+										setTimeout(function(){
+											$(".my_quest_list li").find('.tip').remove();
+										},2000);
+									}
+								});
+							});
+							untill_num = 0;
+							$('.runtask_loading').remove();
+							return ;
+						}else{
+							setTimeout(function(){
+								untill(row);
+							},5000);
+						}
+					}
+				});
+			}else{
+				$('.runtask_loading').remove();
+			}
+			untill_num--;
+		};
+		untill(row);
+	};
+	
+	var runtaskFirst = function(){
+		$(".my_quest_list").html("<center><img src=\"/resources/img40/loading_trans_small.gif\"></center>");
+		var salesid = JSON.parse(WebAppLocalStorage("salesid"));
+		var salesname = JSON.parse(WebAppLocalStorage("salesname"));
+		var task1time = 0;
+		var task2time = 0;
+		var task3time = 0;
+		var task4time = 0;
+		var row = {
+			salesid : salesid.data,
+			task1time : task1time,
+			task2time : task2time,
+			task3time : task3time,
+			task4time : task4time
+		};
+		$.post('/api/api_taskall.php',row,function(data){
+			if(data){
+				var data = JSON.parse(data);
+				if(data.result && data.result.resultcode == '000000'){
+					taskall_cache = data.array.items;
+					$(".totalcoin").html(data.totalcoins);
+					var html = '<ul>';
+					for(num = 0;num < data.array.count;num++){
+						var tasktype = data.array.items[num].tasktype;
+						var timestamp = data.array.items[num].timestamp;
+						var tstatus = data.array.items[num].tstatus;
+						
+						html += '<li class="clear"><span class="' + task_status_icon[tstatus] + '"></span><span>' + task_type_desc[tasktype] + '</span><a tasktype="' + tasktype + '" timestamp="' + timestamp + '" href="#" class="f_r ' + task_status_class[tstatus] + '">' + task_status[tstatus] + '</a></li>'
+					}
+					html += '</ul>';
+					$(".my_quest_list").html(html);
+
+					$(".my_quest_list li a.quest_over").click(function(){
+						var award_row = {
+								salesid : salesid.data,
+								salesname : salesname.data,
+								tasktype : $(this).attr('tasktype')
+						};
+						$(this).parent("li").append("<span class=\"tip\"><img src=\"/resources/img40/loading_trans_small.gif\" /></span>");
+						var this_obj = $(this);
+						$.post('/api/api_taskaward.php',award_row,function(data1){
+							if(data1){
+								var data1 = JSON.parse(data1);
+								if(data1.result && data1.result.resultcode == '000000'){
+									$(".totalcoin").html(data1.totalcoins);
+									this_obj.parent("li").find(".tip").html("成功领取金币<font class=\"quest_over\">" + data1.coins + "</font>枚，共有<font class=\"quest_over\">" + data1.totalcoins + "</font>枚！");
+									this_obj.parent("li").find(".quest_no_icon").removeClass("quest_no_icon").addClass("quest_over_icon");
+									this_obj.removeClass("quest_over").addClass("quest_done").html("已领奖");
+									this_obj.unbind('click');
+									setTimeout(function(){
+										$(".my_quest_list li").find('.tip').remove();
+									},2000);
+								}else{
+									this_obj.parent("li").find(".tip").html("<font style=\"color:red\">任务系统错误，code：" + data1.result.resultcode + "</font>");
+									setTimeout(function(){
+										$(".my_quest_list li").find('.tip').remove();
+									},2000);
+								}
+							}else{
+								this_obj.parent("li").find(".tip").html("<font style=\"color:red\">任务系统比较繁忙，稍后再试！</font>");
+								setTimeout(function(){
+									$(".my_quest_list li").find('.tip').remove();
+								},2000);
+							}
+						});
+					});
+				}else{
+					$(".my_quest_list").html("<center>任务系统错误，code：" + data.result.resultcode + "</center>");
+				}
+			}else{
+				$(".my_quest_list").html("<center>任务系统比较繁忙，稍后再试！</center>");
+			}
+		});
+	};
+	
+	var shopid = JSON.parse(WebAppLocalStorage("shopid"));
+	getQuestMessage(function(){
+		if (i == 0) {
+			i++;
+			if(shopid.data != -1){
+				runtask();
+			}
+		} else {
+			i++;
+		}
+	});
+	if(shopid.data == -1){
+		$(".login_content").show();
+	}else{
+		var salesname = JSON.parse(WebAppLocalStorage("salesname"));
+		$('.salesname').html(salesname.data);
+		$(".quest_content").show();
+		runtaskFirst();
+	}
+	$("#quest_login_user").click(function(){
+		setDataCache(null,'login');
+	});
+	$("#quest_register_user").click(function(){
+		openRegister();
+	});
+	$(".quest_refresh").click(function(){
+		//location.href = location.href;
+		runtaskFirst();
+	});
+})
+</script>

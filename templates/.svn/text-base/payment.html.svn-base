@@ -1,0 +1,149 @@
+<!--{config_load file="smarty.conf" scope="global"}-->
+<div class="contentside">
+	<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+</div>
+<div id="iso_pay_msg" style="text-align:center;display:none">
+	<div style="padding-top:100px;height:50px;color:red">提示：您的IOS设备尚未绑定苹果卡，无法下载收费文件，请联系店员购卡并激活。</div>
+	<div><button onclick="document.location.href='/appstore/cart.html'; return false;">确  定</button></div>
+</div>
+<div id="other_pay_msg" style="display:none">
+	<div class="tc" style="padding-top:20px;padding-bottom:30px;">
+		<span class="f4 b tc">您需要付款<span class="c5"><!--{$assign.price}-->元</span>，请在下面选择付款方式</span>
+	</div>
+	<table width="100%" cellpadding="0" cellspacing="0"  class="f2">
+		<tr>
+			<td  width="10" class="tc">
+				
+			</td>
+			<td width="210" valign="top"  class="f4 tc">
+				
+				<table  id="account_content"  width="100%" cellpadding="0" cellspacing="0"  class="f2">
+					<tr>
+						<th id="account_title" class="tl" style="padding-left:20px;">
+							<!--<input type="radio" name="pay_type" value="0" id="pay_type_1">下载卡付款-->下载卡付款
+						</th>
+					</tr>
+					<tr>
+						<td  width="200" class="tl f2" valign="top">
+							  <div id="account" class="tl f2" style="padding:5px;line-height:20px;white-space:normal;">
+							  	<img src="<!--{#res1#}-->/resources/img/paycard.jpg" width="70" height="70" hspace="15" align="left" />
+							  	如果您已经购买并成功激活爱皮下载卡，可选择此付款方式。
+							  </div>
+	                              
+							  <table id="account_msg"  width="100%" cellpadding="0" cellspacing="0"  class="f2" style="display:none;">
+							  	<tr height="30">
+									<td class="tl f2" style="color:#ef4f03;padding:5px;line-height:14px;">
+										请在此输入您的下载卡卡号，在有效期内免费下载。						
+									</td>
+								</tr>
+							  </table>
+						</td>
+					</tr>
+	                <tr>
+	                   <td>
+	                   <div class="tc" style="margin-top:10px;"><button type="button" name="pay_type" value="0" id="pay_type_1">选此支付</button></div>      
+	                   </td>
+	                   </tr>
+					<tr>
+						<td class="tl" valign="top">
+							<table id="account_login"  width="100%" cellpadding="0" cellspacing="0"  class="f2" style="display:none;">
+							  	<tr height="30">
+									<td class="tl">
+										<span class="lf tr" style="width:80px;">卡号：</span><input id="card" class="lf" type="text" name="card" style="width:137px;margin:0px;padding:0px;">
+									</td>
+								</tr>
+								<tr height="40">
+									<td class="tr"  style="padding-right:60px;padding-bottom:30px;">
+										<a id="paybycard" href='' onclick="return false;"><img alt="" src="<!--{#res2#}-->/resources/img/btn_ok.png" border="0"></a>
+	                                    <a href="#" id="cancel_account" onclick="return false;"><img src="<!--{#res2#}-->/resources/img/btn_cancel.jpg" border="0" /></a>
+									</td>
+								</tr>
+							 </table>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td  width="10" class="tc">
+				
+			</td>
+			<td width="210" valign="top">
+				<table  id="shop_content" width="100%" cellpadding="0" cellspacing="0"  class="f2">
+					<tr>
+						<th id="shop_title" class="tl" style="padding-left:20px;">
+							<!--<input type="radio" name="pay_type" value="1"   id="pay_type_2">-->前台付款
+						</th>
+					</tr>
+					<tr>
+						<td width="200" class="tl f2" valign="top">
+							  <div id="shop" class="tl f2" style="padding:5px;line-height:20px;white-space:normal;"><img src="<!--{#res3#}-->/resources/img/payclient.jpg" width="70" height="70" hspace="15" align="left" />去收银台交款请选择此付款方式，交款后请店员输入其账号和密码以便开始下载。</div>
+							  <table id="shop_msg" width="100%" cellpadding="0" cellspacing="0"  class="f2" style="display:none;">
+							  	<tr height="30">
+									<td class="tl f2" style="color:#ef4f03;padding:5px;line-height:14px;">
+										前台付款后，由店员在此输入用户名和密码以便开始下载。						
+									</td>
+								</tr>
+							  </table>
+	                    </td>
+	               </tr>
+	               <tr>
+	               <td>
+	                <div class="tc" style="margin-top:10px;"><button type="button" name="pay_type" value="1" id="pay_type_2">选此支付</div></div>
+	                </td>
+	               </tr>
+	                          <tr>
+	                          <td class="tl" valign="top">
+							<table id="shop_login" width="100%" cellpadding="0" cellspacing="0"  class="f2" style="display:none;">
+								<tr height="30">
+									<td class="tl">
+										<span class="lf tr" style="width:80px;">用户名：</span><input class="lf" type="text" id="assistant" name="assistant" value="" style="width:137px;margin:0px;padding:0px;">
+									</td>
+								</tr>
+								<tr height="40">
+									<td class="tl">
+										<span class="lf tr" style="width:80px;">密码：</span>
+										<input class="lf"  type="password" id="assistant_pwd"  name="assistant_pwd" style="width:137px;margin:0px;padding:0px;" value="">
+									</td>
+								</tr>
+								<tr height="40">
+									<td class="tl">
+										<span class="lf tr" style="width:80px;">消费单号：</span>
+										<input class="lf" type="text" id="shoporder"  name="shoporder" value="" style="width:137px;margin:0px;padding:0px;">
+									</td>
+								</tr>
+								<tr height="40">
+									<td class="tr"  style="padding-right:60px;padding-bottom:30px;">
+									<a id="paybyshop" href='' onclick="return false;"><img alt="" src="<!--{#res1#}-->/resources/img/btn_ok.png" border="0"></a>
+	                                <a href="#" id="cancel_shop" onclick="return false;"><img src="<!--{#res2#}-->/resources/img/btn_cancel.jpg" border="0" /></a>
+									</td>
+								</tr>
+							</table>					
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td  width="10" class="tc">
+				
+			</td>
+		</tr>
+	</table>
+	
+	<input type="hidden" name="orderid" id="orderid" value="<!--{$assign.orderid}-->">
+	<input type="hidden" name="price" id="price" value="<!--{$assign.price}-->">
+	<input type="hidden" name="token" id="token" value="<!--{$assign.token}-->">
+	
+	<div class="tc" style="background:#e6e6e6; height:38px; border:1px solid #d0d0d0;line-height:38px;display:none;">
+		<span class="f4 b" style="color:#ef4f03">建议您成为爱皮会员，注册送大礼，支付更便捷，还可享受折扣哦！现在加入</span>
+	</div>
+</div>
+<script language="javascript">
+$(function(){
+	var phone = getCurrentPhone();
+	if(phone && phone.phonetype){
+		if (phone.phonetype == phoneOptions.ios){
+			$("#iso_pay_msg").show();
+		}else{
+			$("#other_pay_msg").show();
+		}
+	}
+})
+</script>

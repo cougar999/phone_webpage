@@ -1,0 +1,67 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>热门应用横向评测——帮你找出最合适的哪一个</h2>
+					<div class="evaCont">
+						<dl>
+							<dt><strong>&gt;</strong> <a href="eva/evadetail1.html">三款买房APP横向对比评测</a></dt>
+							<dd>房价涨了一轮又一轮，你可以每天骂街骂无良地产商，吐槽中国人民都疯了。可是婚还是要结，孩子还是要生，房子到头来还是要买。今天就为正在买房路上奋斗的80后们挑选了三款房产类APP，希望能助在找房之路上的各位一臂之力...</dd>
+						</dl>
+					</div>
+					<div class="evaCont odd">
+						<dl>
+							<dt><strong>&gt;</strong> <a href="eva/evadetail2.html">春运抢票神器 新版触宝拨号订票助手评测</a></dt>
+							<dd>又是一年春运时，对于在外辛苦工作一年的人们，顺利回家过年是每个人现在最大的愿望，不过抢不着火车票往往是摆在归心似箭的人们面前的第一座大山。火车运输能力严重不足是导致所能够合理分配给普通民众交通资源的主要原因...</dd>
+						</dl>
+					</div>
+					<div class="evaCont">
+						<dl>
+							<dt><strong>&gt;</strong> <a href="eva/evadetail3.html">安卓系统巅峰对决!阅读软件应用评测 </a></dt>
+							<dd>伴随着无线阅读行业的飞速发展，许多商家在抢占阅读市场的同时，积极带动应用软件的研发，软件种类繁多也造成了用户在选择时的困惑。今天我们就来评测近两年安卓系统下口碑较好的小说阅读客户端，希望能够帮助读者朋友们找到最适合自己的软件...</dd>
+						</dl>
+					</div>
+					<div class="evaCont odd">
+						<dl>
+							<dt><strong>&gt;</strong> <a href="eva/evadetail4.html">特效相机 Cymera试用评测</a></dt>
+							<dd>cymera是个免费的拍照应用程序，可以帮助任何人像专业摄影师一样拍摄美丽的照片。cymera采用了7种优秀镜头和4种拍摄模式，还提供各种装饰效果和过滤器，通过人脸识别，所以你可以制作自己独特的照片。你可以轻松分享您的照片与各种社交网站如脸谱网，小窝，推特，围脖，和mixsh...</dd>
+						</dl>
+					</div>
+					<div class="evaCont odd">
+						<dl>
+							<dt><strong>&gt;</strong> <a href="eva/evadetail5.html">六大Android中文输入法横向评测</a></dt>
+							<dd>记得三星的“张师兄很忙”那张广告图片么，你想拥有师妹那闪电般的输入速度吗？拥有一款好的输入法可以让你无论是在移动社交还是移动办公都能事半功倍，目前Android平台主流的输入法主要有谷歌、搜狗、百度、QQ、触宝以及讯飞等，下面小编就从输入效率、功能以及性能等方面对这六款输入法进行横向评...</dd>
+						</dl>
+					</div>
+					<div class="evaCont odd">
+						<dl>
+							<dt><strong>&gt;</strong> <a href="eva/evadetail6.html">Android输入法手写输入功能评测</a></dt>
+							<dd>小编主要从输入方式、界面、语音输入以及内存占用等方面对谷歌、搜狗、百度、QQ、触宝以及讯飞输入法做了一个横向评测，不过当时并没有测试各款输入法中同样深受用户欢迎的手写输入功能，今天就主要对上述六款输入法的手写功能做一下对比...</dd>
+						</dl>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

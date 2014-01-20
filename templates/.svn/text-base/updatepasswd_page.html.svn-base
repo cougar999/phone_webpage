@@ -1,0 +1,48 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="tc" style="padding-top:20px;padding-bottom:20px;"><span class="f4 b tc c5">修改密码</span></div>
+<div class="tc" style="padding:2px;">
+<table  width="100%" cellpadding="0" cellspacing="0"class="f2 tc">
+	<tr>
+		<td valign="top" style="">
+			<table width="100%" cellpadding="0" cellspacing="0" class="f2 tc">
+				<tr height="30">
+					<td class="tr" width="130">
+						请输入原密码：
+					</td>
+					<td class="tl">
+						<input type="password" id="oldpasswd" name="oldpasswd" value="" style="width:137px;margin:0px;padding:0px;" />
+					</td>
+				</tr>
+				<tr height="40">
+					<td class="tr" width="130">
+						请输入新密码：
+					</td>
+					<td class="tl">
+						<input  type="password" id="newpasswd"  name="newpasswd" value="" style="width:137px;margin:0px;padding:0px;">
+					</td>
+				</tr>
+				<tr height="40">
+					<td class="tr" width="130">
+						再次输入新密码：
+					</td>
+					<td class="tl">
+						<input  type="password" id="next_newpasswd"  name="next_newpasswd" value="" style="width:137px;margin:0px;padding:0px;">
+					</td>
+				</tr>
+				<tr height="40">
+					<td class="tr" width="130">
+						
+					</td>
+					<td class="tl"  style="padding-bottom:30px;">
+					<a id="updatepasswd" href='' onclick="return false;"><img src="<!--{#res3#}-->/resources/img/btn_ok.png" border="0"></a>
+					&nbsp;
+					<a href="#null" onclick="parent.$.fn.colorbox.close(); return false;"><img src="<!--{#res2#}-->/resources/img/btn_cancel.jpg" /></a>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+<input type="hidden" name="sessionid" id="sessionid" value="<!--{$assign.sessionid}-->">
+<input type="hidden" name="userid" id="userid" value="<!--{$assign.userid}-->">

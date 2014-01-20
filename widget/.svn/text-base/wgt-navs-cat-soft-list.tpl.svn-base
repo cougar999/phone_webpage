@@ -1,0 +1,91 @@
+<!--{feed int=AP_INT_COLUMN_CATSOFT_LIST cid=$column_id order=0 pageno=1 count=40 iscrack=$smarty.request.iscrack|default:0 ret='colomunlist'}-->
+<div id="wgt-navs-cat-soft-list" class="wgt-navs-cat-soft-list"><div>
+<!--{if $colomunlist.list.items}-->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table" style="table-layout:fixed;" id="fealist">
+	<col style="width: 20px;"></col>
+	<col style="width: 48px;"></col>
+	<col style="width: 240px;"></col>
+	<col style="width: 90px;"></col>
+	<col style="width: 90px;"></col>
+	<col style="width: 80px;"></col>
+	<col style="width: 100px;"></col>
+	<col style="width: 100px;"></col>
+	<col style="width: auto;"></col>
+		<tr>
+			<td></td>
+			<td>
+				
+			</td>
+			<td class="softN"><span class="f3 b"></span></td>
+			<!-- <td>价格</td> -->
+			<td>服务费</td>
+			<td>大小</td>
+			<td>评级</td>
+			<td>更新日期</td>
+			<td>详细介绍</td>
+			<td style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"><span class=""></span></td>
+		</tr>
+</table>
+<div style="margin-top:-30px;">
+<!--{foreach key=key item=item from=$colomunlist.list.items name=list}-->
+	<!--{if $item.type == 3}-->
+		<div class="list">
+			<div class="listtt">
+				<div style="margin-left: 5px; line-height: 32px;">
+					<span><!--{$item.name}--></span>
+				</div>
+			</div>
+			<!--{if $colomunlist.list.items[$smarty.foreach.list.iteration].type == 17}-->
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table" style="table-layout:fixed;">
+					<col style="width: 20px;"></col>
+					<col style="width: 48px;"></col>
+					<col style="width: 240px;"></col>
+					<!-- <col style="width: 80px;"></col> -->
+					<col style="width: 80px;"></col>
+					<col style="width: 70px;"></col>
+					<col style="width: 100px;"></col>
+					<col style="width: 100px;"></col>
+					<col style="width: auto;"></col>
+					<!--{section start=$smarty.foreach.list.iteration loop=$colomunlist.list.items name=sect}-->
+						<!--{if $colomunlist.list.items[$smarty.section.sect.index].type == 3}-->
+							<!--{php}-->break;<!--{/php}-->
+						<!--{else}-->
+							<tr class="tooltip" title="<!--{if $colomunlist.list.items[sect].terms}-->支持型号：<br /><!--{foreach key=key item=terms from=$colomunlist.list.items[sect].terms}--><!--{$terms}-->&nbsp;<!--{/foreach}--><!--{/if}-->">
+								<td class="input_debug"><input type="checkbox" class="<!--{if $colomunlist.list.items[sect].price > 0 || $colomunlist.list.items[sect].servicefee > 0}-->buyitem<!--{else}-->downitem<!--{/if}-->" value="<!--{$colomunlist.list.items[sect].contentid}-->||<!--{$colomunlist.list.items[sect].downloadurl}-->&code1=<!--{$code1}-->&code1_id=<!--{$menulist.menuid}-->&code2=<!--{$code2}-->&code2_id=<!--{$column_id}-->||<!--{$colomunlist.list.items[sect].name}-->" appid="<!--{$colomunlist.list.items[sect].appid}-->"  versioncode="<!--{$colomunlist.list.items[sect].versioncode}-->"  version="<!--{$colomunlist.list.items[sect].version}-->"  price="<!--{math equation='(x)/100' x=$colomunlist.list.items[sect].price|default:0}-->" servicefee="<!--{math equation='(x)/100' x=$colomunlist.list.items[sect].servicefee|default:0}-->" contentid="<!--{$colomunlist.list.items[sect].contentid}-->" contenttype="<!--{$smarty.get.navtype}-->" title="<!--{$colomunlist.list.items[sect].name}-->" downloadurl="<!--{$colomunlist.list.items[sect].downloadurl}-->&code1=<!--{$code1}-->&code1_id=<!--{$menulist.menuid}-->&code2=<!--{$code2}-->&code2_id=<!--{$column_id}-->" /></td>
+								<td class="input_debug">
+									<a href="<!--{if $smarty.get.navtype==2}-->/appstore/game-detail.html?iscrack=<!--{$smarty.get.iscrack}-->&!--{else}-->soft.html<!--{/if}-->?softid=<!--{$colomunlist.list.items[sect].contentid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><img class="" src="<!--{$colomunlist.list.items[sect].imgurl}-->_sf_48x48.png" border="0" /></a>
+								</td>
+								<td class="softN"><a href="<!--{if $smarty.get.navtype==2}-->/appstore/game-detail.html?iscrack=<!--{$smarty.get.iscrack}-->&!--{else}-->soft.html<!--{/if}-->?softid=<!--{$colomunlist.list.items[sect].contentid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><!--{$colomunlist.list.items[sect].name}--></a></td>
+								<!-- 
+								<td><!--{if $colomunlist.list.items[sect].price}--><!--{math equation='(x/100)' x=$colomunlist.list.items[sect].price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+								<td><span class="n"><!--{if $colomunlist.list.items[sect].servicefee}--><!--{math equation='(x/100)' x=$colomunlist.list.items[sect].servicefee|default:0}-->元<!--{else}-->免费<!--{/if}--></span></td>
+								-->
+								<td><span class="n"><!--{if $colomunlist.list.items[sect].price || $colomunlist.list.items[sect].servicefee }--><!--{math equation='(x/100 + y/100)' x=$colomunlist.list.items[sect].price|default:0 y=$colomunlist.list.items[sect].servicefee|default:0}-->元<!--{else}-->免费<!--{/if}--></span></td>
+								<td><span class="n"><!--{$colomunlist.list.items[sect].size|sizetext|default:'未知'}--></span></td>
+								<td><span class="n">
+								<div class="lf re">
+									<div class="lf" style="width:80px; height:15px; background:url(<!--{#img1#}-->/resources/img/star.png) repeat-x left center;"></div>
+									<div class="ab" style="right:0px;width:<!--{math equation='(x*(50-y)/z)' x=80 y=$colomunlist.list.items[sect].grade|default:50 z=50}-->px; height:15px; background:url(<!--{#img2#}-->/resources/img/star_gray.png) repeat-x right center;"></div>
+								</div>
+								</span></td>
+								<td class="softdt"><span class="n"><!--{$colomunlist.list.items[sect].date}--></span></td>
+								<td style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"><span class=""><!--{$colomunlist.list.items[sect].intro|default:'暂无内容'}--></span></td>
+							</tr>
+						<!--{/if}-->
+					<!--{/section}-->
+				</table>
+			<!--{/if}-->
+		</div>
+		<br />
+	<!--{/if}-->
+<!--{/foreach}-->
+<!--{else}-->
+
+			<div>
+				<div style="text-align:center;line-height: 32px;padding:30px;" class="f7">
+					暂无适合您手机的资源，敬请谅解...
+				</div>
+			</div>
+<!--{/if}-->
+</div>
+</div></div>

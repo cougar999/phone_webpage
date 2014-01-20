@@ -1,0 +1,37 @@
+<!--{feed int=AP_INT_BOARD_LIST cid=$top_id order=0 pageno=1 count=10 ret='boardlist'}-->
+<div id="wgt-download-top-list" class="wgt-download-top-list"><div>
+	<!--{if $boardlist.page.items}-->
+	<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+	<!--{foreach key=key item=item_b from=$boardlist.page.items name=list}-->
+		<div class="lf" style="margin:0 20px 20px 0; width:300px; border:1px solid #cccccc;">
+			<div style="padding:0px 10px; height:32px; line-height:32px; background:#F6F6F6 url(<!--{$item_b.imgurl}-->) no-repeat 234px center;">
+				<span class="f4 b" style="color:#777777"><!--{$item_b.name}--></span>
+			</div>
+			<div style="height:1px; margin:0; background:#cccccc;"></div>
+			<!--{feed int=AP_INT_BOARD_SOFTLIST bid=$item_b.bid bsid=0 pageno=1 count=10 iscrack=$smarty.get.iscrack|default:0 ret='boardsoftlist'}-->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable">
+				<col style="width:20px;"></col>
+				<col style="width:auto;"></col>
+				<col style="width:66px;"></col>
+				<!--{foreach key=key item=item from=$boardsoftlist.page.items name=list}-->
+					<tr>
+						<td height="25"><img class="" style="vertical-align:middle;" src="<!--{#res1#}-->/resources/img/<!--{$smarty.foreach.list.iteration}-->.png"/>  </td>
+						<td><a href="<!--{if $smarty.get.navtype==2}-->/appstore/game-detail.html?iscrack=<!--{$smarty.get.iscrack}-->&!--{else}-->/appstore/soft.html?iscrack=<!--{$smarty.get.iscrack}-->&!--{/if}-->?softid=<!--{$item.softid}-->&phonetype=<!--{$smarty.get.phonetype}-->"  class="f4" onclick="gotopage(this); return false;"><!--{$item.name}--></a></td>
+						<td class="tr downinit_s">
+							<a id="<!--{$item.softid}-->" href="<!--{$item.downloadurl}-->&code1=<!--{$code1}-->&code1_id=<!--{$menulist.menuid}-->&code2=<!--{$code2}-->&code2_id=<!--{$top_id}-->&code3=boardlist&code3_id=<!--{$item_b.bid}-->" installlocate="<!--{$item.installlocate}-->" appid="<!--{$item.appid}-->"  versioncode="<!--{$item.versioncode}-->"  version="<!--{$item.version}-->"  type="<!--{$smarty.get.navtype}-->"  price="<!--{math equation='(x)/100' x=$item.price|default:0}-->"  servicefee="<!--{math equation='(x)/100' x=$item.servicefee|default:0}-->" class="change <!--{if ($item.price or $item.servicefee) && ($smarty.get.phonetype != '3.') && ($smarty.get.phonetype != '.')}-->addcart<!--{else}-->downinit<!--{/if}-->" title="<!--{$item.name}-->"></a>
+						</td>
+					</tr>
+				<!--{/foreach}-->
+			</table>
+		</div>
+	<!--{/foreach}-->
+	<div class="cl"></div>
+	</td></tr></table>
+	<!--{else}-->
+		<div>
+			<div style="text-align:center;line-height: 32px;padding:30px;" class="f7">
+				暂无适合您手机的资源，敬请谅解...
+			</div>
+		</div>
+		<!--{/if}-->
+</div></div>

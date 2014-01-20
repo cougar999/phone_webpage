@@ -1,0 +1,26 @@
+<!--{config_load file="smarty.conf"}-->
+<!--{if $assign.isok}-->
+<div class="tc" style="padding-top:70px;padding-bottom:40px;">
+	<span class="f4 b" style="color:#ef4f03;">手机号验证码已经成功发送！</span>
+</div>
+<div class="tc" style="padding-top:10px;padding-bottom:20px;">
+	<span class="f2">验证码：<input type="text" name="checkcode" id="checkcode" value="" style="width:150px;" /></span>
+</div>
+<div class="tc" style="padding-top:10px;padding-bottom:20px;">
+<input type="hidden" name="card" id="card" value="<!--{$assign.card}-->">
+<input type="hidden" name="passwd" id="passwd" value="<!--{$assign.passwd}-->">
+<input type="hidden" name="mobile" id="mobile" value="<!--{$assign.mobile}-->">
+	<a href='' id="activecard" class="f2" style="cursor:pointer;" onclick="return false;"><img alt="" src="<!--{#res1#}-->/resources/img/btn_ok.png" border="0"></a>
+</div>
+<!--{else}-->
+<div class="tc" style="padding-top:40px;padding-bottom:40px;">
+	<span class="f4 b" style="color:#ef4f03;">会员卡验证失败！</span>
+</div>
+<div class="tc" style="padding-top:40px;padding-bottom:40px;">
+	<span class="f4 b" style="color:#ef4f03;">请输入正确输入您的会员卡卡号、密码和手机号码，以便验证成功！</span>
+</div>
+
+<div class="tc" style="padding-top:10px;padding-bottom:20px;">
+	<a href='' id="activecard" class="f2" style="cursor:pointer;" onclick="return false;"><img alt="" src="<!--{#res2#}-->/resources/img/btn_ok.png" border="0"></a>
+</div>
+<!--{/if}-->

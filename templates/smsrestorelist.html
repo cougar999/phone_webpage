@@ -1,0 +1,58 @@
+<!--{config_load file="smarty.conf"}-->
+<div>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0"  class="table datatable fixwidth">
+		<col style="width:30px;"></col>
+		<col style="width:auto;"></col>
+		<col style="width:100px;"></col>
+		<col style="width:100px;"></col>
+		<thead>
+			<tr>
+				<th nowrap="nowrap" class="tl"><input type="checkbox" class="selector" value="#smsrestorelist" /></th>
+				<th nowrap="nowrap" class="tl arrow">
+					<button class="apprestore" onclick="restoresmssel('<!--{$smarty.request.userid}-->', ''); return false;">还原信息</button>
+					<!--{if $assign.datacount > 0}-->
+						<!--{$assign.datacount}-->条短信
+					<!--{else}-->
+						<font color="red">没有找到短信</font>
+					<!--{/if}--> 
+				</th>
+				<th nowrap="nowrap" class="tr"></th>
+				<th nowrap="nowrap" class="tr"><button id="returnSmslist" onclick="window.history.go(-1); return false;">返回列表</button></th>
+			</tr>
+		</thead>
+	</table>
+	<div class="scroll" style="height:500px;">
+		<table width="100%" border="0" cellpadding="0" cellspacing="0"  class="table datatable fixwidth">
+			<col style="width:30px;"></col>
+			<col style="width:40px;"></col>
+			<col style="width:200px;"></col>
+			<col style="width:auto"></col>
+			<col style="width:200px;"></col>
+			<tbody id="smsrestorelist">
+				<!--{foreach key=key item=item from=$assign.data.sms name='list'}-->
+				<tr class="<!--{if $key % 2 == 0}-->odd<!--{else}-->even<!--{/if}-->">
+					<td nowrap="nowrap" class="tl fixwidth"><input type="checkbox" class="selector" value="" /><textarea style="display:none;"><!--{$item.data|escape:'html'}--></textarea></td>
+					<td nowrap="nowrap" class="tr fixwidth"><!--{$smarty.foreach.list.iteration}--></td>
+					<td nowrap="nowrap" class="tl arrow fixwidth" style="line-height:20px;">
+						<!--{if $item.type == 1}-->
+							<span class="icon" style="padding:8px; background-image:url(/icon.php?width=16&height=16&image=<!--{#res1#}-->/resources/files/in.png);"></span>
+						<!--{elseif $item.type == 2 || $item.type == 3}-->
+							<span class="icon" style="padding:8px; background-image:url(/icon.php?width=16&height=16&image=<!--{#res2#}-->/resources/files/out.png);"></span>
+						<!--{else}-->
+							<span class="icon" style="padding:8px; background-image:url(/icon.php?width=16&height=16&image=);"></span>
+						<!--{/if}-->
+						<!--{$item.address}-->
+					</td>
+					<td nowrap="nowrap" class="tl fixwidth"><!--{$item.message|truncate:100:"..."}--></td>
+					<td nowrap="nowrap" class="tl fixwidth"><!--{$item.date}--></td>
+				</tr>
+				<!--{/foreach}-->
+			</tbody>
+		</table>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table fixwidth">
+		<tr>
+		<td class="tc"><!-- <button class="apprestore" onclick="$(document).trigger('smsrestorelistsel', ''); return false;">还原信息</button> <button href="#" onclick="parent.fb.end(); return false;">关闭</button> --></td>
+		</tr>
+		</table>
+	</div>
+</div>

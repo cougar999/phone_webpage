@@ -1,0 +1,39 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_FEA ret='menulist'}-->
+
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 ret='navlist'}-->
+<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_FEA_SOFT ret='defaultmenu'}-->
+<!--{config_load file="smarty.conf"}-->
+
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	<div class="scroll">
+	<div class="contentbody contentwrap">
+		<div class="section">
+			<div style="padding:5px 0px;">
+				<div class="re">
+					<div>
+						<!--{include file="wgt-navs.tpl" navid=$menulist.menuid}-->
+					</div>
+					<div class="ab" style="right:2px; bottom:2px;">
+						<a id="mo_inapps" href="" class="buybath"><img src="<!--{#res1#}-->/resources/img/btn_buy_big.png" border="0" class="rg" /></a>
+					</div>
+				</div>
+			</div>
+		</div>	
+		<div class="section">
+			<div style="padding:10px 0px;>
+				<!--{if $smarty.request.cid == $defaultmenu.menuid || $smarty.request.cid == null}-->
+					<!--{include file="wgt-navs-cat-soft-list.tpl" column_id=$smarty.request.cid|default:$defaultmenu.menuid navtype=$navtype code1=$assign.ap_int.AP_INT_MENUCODE_TYPE_FEA code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_FEA_SOFT}-->	
+				<!--{else}-->
+					<!--{include file="wgt-navs-cat-soft-list.tpl" column_id=$smarty.request.cid|default:$defaultmenu.menuid navtype=$navtype code1=$assign.ap_int.AP_INT_MENUCODE_TYPE_FEA code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_FEA_GAME}-->	
+				<!--{/if}-->
+			</div>
+		</div>	
+		
+	</div>
+	</div>
+</div></div>

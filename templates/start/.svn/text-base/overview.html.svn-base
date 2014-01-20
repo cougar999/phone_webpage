@@ -1,0 +1,404 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	<div class="scroll">
+	<div id="notice"><!--{include file="start/notice_show.tpl"}--></div>
+	<div class="contentbody contentwrap">
+		
+		<div id="diskoverview" class="connectblock no">
+			<div id="diskbasic" class="section no">
+				<div style="padding:20px 40px;">
+					<table border="0" cellpadding="0" cellspacing="0" style="color:#333333;"><tr>
+						<td class="vm" width="40">
+							<img id="disk_logo" src="<!--{#img4#}-->/resources/img/transparent.gif" style="background:no-repeat center center;" />
+						</td>
+						<td width="30"></td>
+						<td class="vm">
+							<div class="lf" style="line-height:60px;margin-right:100px;"><font class="f9 t" color="#EF5000">当前连接U盘<span id="disk_name"></span></font></div>
+							<div class="member_notice" id="member_not_u">
+								<dl>
+									<dt>该手机未绑定爱皮下载卡！</dt>
+									<dd>...</dd>
+								</dl>
+							</div>
+							<div class="member_notice" id="member_is_u">
+								<dl>
+									<dt>欢迎您：爱皮下载时段卡用户！</dt>
+									<dd>...</dd>
+								</dl>
+							</div>
+							<div class="member_notice" id="member_fail_u">
+								<dl>
+									<dt>欢迎您：爱皮下载时段卡用户！</dt>
+									<dd>...</dd>
+								</dl>
+							</div>								
+						</td>
+						<td width="30"></td>
+					</tr></table>
+			    </div>
+			    <div style="height:1px; margin:0 40px; background:#EEEEEE;"></div>
+			    <div style="padding:80px 40px;">
+					<div class="tc" style="width:960px;">
+						<span class="f6 t" style="color:#777777">您可以从应用商城中下载 <a href="#" onclick="navUrl('2', '/appstore/music.html'); return false;" style="color:#EF5000; text-decoration:underline;"><img src="<!--{#res2#}-->/resources/img/icon_music_zone.png" align="middle" border="0" /> 音乐</a> 和 <a href="#" onclick="navUrl('2', '/appstore/book-index.html'); return false;" style="color:#EF5000; text-decoration:underline;"><img src="<!--{#res3#}-->/resources/img/icon_books.png" align="middle"  border="0" /> 电子书</a></span></div>
+                    <div class="tc" style="width:960px;padding:20px 0;">
+                    如果您想管理通讯录或短信，请重新连接手机，并选择“串行端口”或“<span class="tc" style="width:960px;padding:20px 0;">序列接口</span>”模式。</div>
+			    </div>
+			</div>
+		</div>
+		
+		<div id="mtkoverview" class="connectblock no">
+			<div id="mtkbasic" class="section no">
+				<div style="padding:20px 40px;">
+					<table border="0" cellpadding="0" cellspacing="0" style="color:#333333;"><tr>
+						<td class="vm" width="40">
+							<img id="mtk_logo" src="<!--{#img4#}-->/resources/img/transparent.gif" style="background:no-repeat center center;" />
+						</td>
+						<td width="30"></td>
+						<td class="vm">
+							<div class="lf" style="line-height:60px;"><font class="f9 t" color="#EF5000">当前连接<span id="mtk_name"></span></font></div>
+							
+							<div class="member_notice" id="member_not_mtk">
+								<dl>
+									<dt>该手机未绑定爱皮下载卡！</dt>
+									<dd>...</dd>
+								</dl>
+							</div>
+							<div class="member_notice" id="member_is_mtk">
+								<dl>
+									<dt>欢迎您：爱皮下载时段卡用户！</dt>
+									<dd>...</dd>
+								</dl>
+							</div>
+							<div class="member_notice" id="member_fail_mtk">
+								<dl>
+									<dt>欢迎您：爱皮下载时段卡用户！</dt>
+									<dd>...</dd>
+								</dl>
+							</div>							
+						</td>
+						<td width="30"></td>
+					</tr></table>
+			    </div>
+			    <div style="height:1px; margin:0 40px; background:#EEEEEE;"></div>
+			    <div style="padding:80px 40px;">
+					<div class="tc" style="width:960px;">
+						<span class="f6 t" style="color:#777777">您可以管理 <a href="#" onclick="navUrl('3', '/mobile/contacts.html'); return false;" style="color:#EF5000; text-decoration:underline;"><img src="<!--{#res4#}-->/resources/img/icon_contacts.png" align="middle"  border="0" /> 通信录</a> 和 <a href="#" onclick="navUrl('3', '/mobile/sms.html'); return false;" style="color:#EF5000; text-decoration:underline;"><img src="<!--{#res3#}-->/resources/img/icon_sms.png" align="middle"  border="0" />  短信</a></span>
+					</div>
+					<div class="tc" style="width:960px;padding:20px 0;"> 如果您想传输、存储音乐或电子书等，请在连接时选择“<strong>大容量存储模式</strong>”。</div>
+                </div>
+			</div>
+		</div>
+		
+		<div id="iosoverview" class="connectblock no">
+			<div id="iosbasic">
+				<div style="padding:0 40px 20px 40px;">
+					<table border="0" cellpadding="0" cellspacing="0" style="color:#333333;"><tr>
+						<td class="vm" width="40">
+							<img id="ios_logo" src="<!--{#img4#}-->/resources/img/transparent.gif" style="background:no-repeat center center;" />
+						</td>
+						<td width="30"></td>
+						<td class="vm">
+							<div class="lf" style="line-height:60px;"><font class="f9 t" color="#EF5000">当前连接 <span id="ios_name"></span></font></div>
+							<div class="member_notice" id="iosmember_not">
+								<dl>
+									<dt>该手机未绑定爱皮下载卡！</dt>
+									<dd>...</dd>
+								</dl>
+							</div>
+							<div class="member_notice" id="iosmember_is">
+								<dl>
+									<dt>欢迎您：爱皮下载时段卡用户！</dt>
+									<dd>...</dd>
+								</dl>
+							</div>
+							<div class="member_notice" id="iosmember_fail">
+								<dl>
+									<dt>欢迎您：爱皮下载时段卡用户！</dt>
+									<dd>...</dd>
+								</dl>
+							</div>
+																					
+						</td>
+						<td width="10"></td>
+					</tr></table>
+			    </div>
+			    <div class="line"></div>
+				</div>
+				
+				<div id="iosinfos" class="clear">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" class="fixwidth" style="color:#333333;line-height:30px;">
+						<tr>
+							<td width="350" class="vt fixwidth">
+								设备名称：<span id="ios_info_nickname"></span>
+							</td>
+							<td width="30"></td>
+							<td width="250" class="vt fixwidth">
+								设备类型：<span id="ios_info_os"></span>
+							</td>
+							<td width="30"></td>
+							<td width="auto" class="vt fixwidth">
+								设备型号：<span id="ios_info_type"></span>
+							</td>
+							
+						</tr>
+						<tr>
+							<td class="vt fixwidth">
+								U D I D：<span id="ios_info_imei"></span>
+							</td>
+							<td></td>
+							<td class="vt fixwidth">
+								系统版本：<span id="ios_info_vision"></span>
+							</td>
+							<td></td>
+							<td class="vt fixwidth">
+								销售地区：<span id="ios_info_area"></span>
+							</td>
+						</tr>
+						<tr>
+							<td class="vt fixwidth">
+								MAC地址：<span id="ios_info_mac"></span>
+							</td>
+							<td></td>
+							<td width="auto" class="vt fixwidth">
+								设备颜色：<span id="ios_info_color"></span>
+							</td>
+							<td></td>
+							<td class="vt fixwidth">
+								是否越狱：<span id="ios_info_break"></span>
+							</td>
+						</tr>
+					</table>
+					<div id="ios_memory">
+						<div class="lf">内存占用：</div>
+						<div id="ios_ram" style="height:15px; width:350px; border:1px solid #aaaaaa;"><div style="height:15px; width:0%;float:left;"></div></div>
+						<div id="ios_ramtxt">
+							<span class="n">正在检查... </span>
+							<span class="n"> </span>
+							<div class="clr"></div>
+						</div>
+					</div>
+				</div>
+				<div class="line"></div>
+				<div id="ios_creative">
+					<span class="f6" style="color:#EF5000">IOS设备安装软件前请按照下面步骤操作一遍，否则会闪退</span>
+					<div id="creative_stat">
+						<ul class="clear">
+							<li class="cr_stat1" style="color:#00b1ed;">1、检测电脑授权</li>
+							<li class="cr_stat2">2、用iTunes给IOS设备授权</li>
+							<li class="cr_stat3">3、使用爱皮下载安装软件</li>
+						</ul>
+						<div id="cr_progress">
+							<div id="cr_progress_in" style="width:33%;"></div>
+						</div>
+						<div class="cr_steps">
+							<div id="cr_step1">
+								<a class="button" href="#null" onclick="getIosAuthorize();return false;">检测电脑授权</a>
+								<div class="cr_message">需使用iTunes同步一个软件<a href="http://content.appdear.com/soft/ios/tongbu.zip" target="_blank" title="点此下载" class="tooltip openlink"><span style="color:blue">（点此下载）</span></a>至您的IOS设备，以便完成授权！　<a target="_blank" style="color:blue" href="/start/ios_course.html" title="操作教程" onclick="$.colorbox({href:this.href, iframe:true, returnFocus:true, width:'80%', height:650, scrolling:true, overlayclose:false});return false;">查看如何同步？</a><br />
+								同步成功后，请关闭iTunes返回此页面，然后点击下一步按钮继续操作。
+								</div>
+								<div class="tr">
+									<a class="small_btn" href="#cr_step2" onclick="return false;" id="gotosetp2" style="display:none;">下一步</a>
+								</div>
+							</div>
+							<div id="cr_step2" class="no">
+								<a class="button" href="#null" onclick="startiTunes();return false;">启动iTunes</a>
+								<div class="cr_message">需使用iTunes同步一个软件至IOS设备以完成授权。  <a target="_blank" style="color:blue" href="/start/ios_course.html" title="操作教程" onclick="$.colorbox({href:this.href, iframe:true, returnFocus:true, width:'85%', height:650, scrolling:true, overlayclose:false});return false;">查看详细教程</a><br />同步成功后关闭iTunes返回该页面，点击下一步。</div>
+								<div class="tr">
+									<a class="small_btn" href="#cr_step3" onclick="return false;" id="gotosetp3" style="display:none;">下一步</a>
+									<a class="small_btn" href="#cr_step1" onclick="return false;" id="gotosetp1" style="display:none;">返回</a>
+								</div>
+							</div>
+							<div id="cr_step3" class="no">
+								<div class="cr_message">
+									<h1>恭喜您，授权完成！</h1>
+									接下来请在IOS设备上运行刚同步的软件，如果正常运行即可随意使用爱皮下载安装IOS软件；如果闪退，<a href="#cr_step11" onclick="return false;" id="gotosetp1" class="cred">请返回第一步</a>，重新操作一遍！
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+		</div><!-- ios overview end-->		
+		
+		<div id="devoverview" class="connectblock no">
+			<div id="phonebasic" class="section no">
+				<div style="padding:20px 40px;">
+					<table border="0" cellpadding="0" cellspacing="0" style="color:#333333;"><tr>
+						<td class="vm" width="40">
+							<img id="mo_logo" src="<!--{#img4#}-->/resources/img/transparent.gif" style="background:no-repeat center center;" />
+						</td>
+						<td width="30"></td>
+						<td class="vm">
+							<div class="lf" style="line-height:60px;"><font class="f9 t" color="#EF5000">当前连接 <span id="mo_name"></span></font></div>
+							<div class="member_notice" id="member_not">
+								<dl>
+									<dt>该手机未绑定爱皮下载卡！</dt>
+									<dd>...</dd>
+								</dl>
+							</div>
+							<div class="member_notice" id="member_is">
+								<dl>
+									<dt>欢迎您：爱皮下载时段卡用户！</dt>
+									<dd>...</dd>
+								</dl>
+							</div>
+							<div class="member_notice" id="member_fail">
+								<dl>
+									<dt>欢迎您：爱皮下载时段卡用户！</dt>
+									<dd>...</dd>
+								</dl>
+							</div>
+																					
+						</td>
+						<td width="10"></td>
+					</tr></table>
+			    </div>
+			    <div style="height:1px; margin:0 40px; background:#EEEEEE;"></div>
+			</div>
+			<div id="phoneinfo" class="section no">
+				<div style="padding:20px 40px;">
+					<div>
+						<table width="100%" border="0" cellpadding="0" cellspacing="0" class="fixwidth" style="color:#333333;line-height:30px;">
+							<tr>
+								<td width="260" class="vt fixwidth">
+									<b>品牌</b> : <span id="mo_info_v" title=""> </span>
+								</td>
+								<td width="30"></td>
+								<td width="260" class="vt fixwidth">
+									<b>型号</b> : <span id="mo_info_p" title=""> </span>
+								</td>
+								<td width="30"></td>
+								<td width="260" class="vt fixwidth">
+									<b>IMEI</b> : <span id="mo_info_sn" title=""> </span>
+								</td>
+								<td width="30"></td>
+								<td width="260" class="vt fixwidth">
+									<b>网络模式</b> : <span id="mo_info_nt" title=""> </span>
+								</td>
+								<td width="auto"></td>
+							</tr>
+							<tr>
+								<td class="vt fixwidth">
+									<b title="" id="cuptitle">CPU</b> : <span id="mo_info_cpu" title=""> </span>
+								</td>
+								<td></td>
+								<td class="vt fixwidth">
+									<b>摄像头</b> : <span id="mo_info_camera" title=""> </span>
+								</td>
+								<td></td>
+								<td class="vt fixwidth">
+									<b>蓝牙</b> : <span id="mo_info_blue" title=""> </span>
+								</td>
+								<td></td>
+								<td class="vt fixwidth">
+									<b>WIFI</b> : <span id="mo_info_wifi" title=""> </span>
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td class="vt fixwidth">
+									<b>屏幕</b> : <span id="mo_info_sc" title=""> </span> 
+								</td>
+								<td></td>
+								<td class="vt fixwidth">
+									<b>分辨率</b> : <span id="mo_info_wh" title=""> </span>
+								</td>
+								<td></td>
+								<td class="vt fixwidth">
+									<b>操作系统</b> : <span id="mo_info_os" title=""> </span>
+								</td>
+								<td></td>
+								<td class="vt fixwidth">
+									<b>系统版本</b> : <span id="mo_info_vr" title=""> </span>
+								</td>
+								<td></td>
+							</tr>
+						</table>
+						
+						<table width="100%" border="0" cellpadding="0" cellspacing="0" class="fixwidth" style="color:#333333;line-height:30px;">
+							<tr>
+								<td width="260" class="vt fixwidth">
+									<b>内存占用</b>
+									<div style="">
+										<div id="mo_ram" style="height:15px; width:200px; border:1px solid #aaaaaa;"><div style="height:15px; width:0%;"></div></div>
+										<div style="width:200px; height:30px;">
+											<span class="lf f2 n" style="color:#3081ed;">正在检查... </span>
+											<span class="rg f2 n" style="color:#3081ed;"> </span>
+											<div class="clr"></div>
+										</div>
+									</div>
+								</td>
+								<td width="30"></td>
+								<td width="260" class="vt fixwidth">
+									<b>手机存储</b>
+									<div style="">
+										<div id="mo_rom" style="height:15px; width:200px; border:1px solid #aaaaaa;"><div style="height:15px; width:0;"></div></div>
+										<div style="width:200px; height:30px;">
+											<span class="lf f2 n" style="color:#3081ed;">正在检查... </span>
+											<span class="rg f2 n" style="color:#3081ed;"> </span>
+											<div class="clr"></div>
+										</div>
+									</div>
+								</td>
+								<td width="30"></td>
+								<td width="260" class="vt fixwidth">
+									<b>SD卡存储</b>
+									<div style="">
+										<div id="mo_fla" style="height:15px; width:200px; border:1px solid #aaaaaa;"><div style="height:15px; width:0;"></div></div>
+										<div style="width:200px; height:30px;">
+											<span class="lf f2 n" style="color:#3081ed;">正在检查... </span>
+											<span class="rg f2 n" style="color:#3081ed;"> </span>
+											<div class="clr"></div>
+										</div>
+									</div>
+								</td>
+								<td width="auto"></td>
+							</tr>
+						</table>
+					</div>
+					<div style="height:1px; background:#EEEEEE;"></div>
+			    </div>
+			    
+			    <div style="padding:0px 40px;" class="clear">
+					<p style="clear:both;line-height:47px;margin:10px 0;">
+						<b class="lf">预置应用列表 </b>
+						<span style="line-height:30px;">
+							<a id="mo_update" onclick="$(document).trigger('appupdatedown',['']); return false;" class="btn_update" style="cursor:pointer;margin:12px 0 0 10px;float:left;">全部更新</a>
+							<a id="mo_unapps" href="#" onclick="undefappdel(); return false;" alt="卸载" class="btn_update lf" style="cursor:pointer;float:left;margin:12px 10px 10px;">卸 载</a>
+							<span class="no" style="color:#333;display:block;line-height:44px;" id="defapps"></span>
+						</span> 
+					</p>
+					<div style="height:1px; background:#EEEEEE;clear:both;"></div>
+					<div style="min-width:1000px;">
+							<script id="defapplistTemplate"  type="text/x-jquery-tmpl">
+									<div class="lf" style="width:470px; height:40px; line-height:40px; padding-bottom:4px; margin-right:4px; border-bottom:1px solid #EEEEEE;">
+										<input type="checkbox" class="checkbox" id="${uid}" value="${name}||${uid}" {{if system && system==1}} disabled="disabled" title="ROM内置 无法卸载" class="tooltips" {{/if}} style="vertical-align:middle;"/>
+										<label for="${uid}"></label>
+										<span class="ib" style="width:35px;">
+											<img src="<!--{#img4#}-->/resources/img/transparent.gif" style="width:35px; height:35px; background:url(<!--{#img5#}-->/icon.php?width=35&height=35&uid=${uid}) no-repeat center center; border:0px; vertical-align:middle;" />
+										</span>
+										<span class="ib" style="width:300px;overflow:hidden;white-space:nowrap;">{{if name}}${name}{{else}}未知{{/if}} {{if system && system==1}} <span class="f0 c2 tooltip" title="ROM内置 无法卸载">ROM内置 </span>{{/if}} <span id="${value}" vendor="${vendor}" system="${system}" class="updatecheck" width="50"></span></span>
+										<span class="ib" style="width:80px; ">${size}</span>
+										<span id="status" class="ib" style="width:20px;"></span>
+									</div>
+							</script>
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tr><td>
+								<div id="defapplist" class="jTemplates">
+									<img src="<!--{#res4#}-->/resources/img40/loading_trans_small.gif" />
+								</div>
+								<div class="cl"></div>
+							</td></tr>
+						</table>
+					</div>
+			    </div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div></div>
+
+<script type="text/javascript" src="<!--{#res1#}-->/resources/js<!--{#version#}-->/start.js"></script>

@@ -1,0 +1,58 @@
+/* This file is part of BBClone (A PHP based Web Counter on Steroids)
+ * 
+ * CVS FILE $Id: authors.txt,v 1.26 2010/12/31 23:00:28 joku Exp $
+ *  
+ * Copyright (C) 2001-2011, the BBClone Team (see doc/authors.txt for details)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * See doc/copying.txt for details
+ */
+
+The BBClone team are:
+---------------------
+Joachim Kuwan:
+jo [ at ] bbclone [ dot ] de
+(developer, server and forum administration)
+
+Matthijs van Wageningen:
+matthys [ at ] bbclone [ dot ] de
+(developer, forum moderation)
+
+Francois Pradignac:
+prad [ at ] bbclone [ dot ] de
+(developer, forum moderation)
+
+Rob Farnell:
+rjfarnell [ at ] msn [ dot ] com
+(public relations, forum moderation)
+
+Christoph Brill
+egore911 [ at ] egore911 [ dot ] de
+(maintainer)
+
+Retired team members:
+---------------------
+Amaury Amblard-Ladurantie:
+amaury [ at ] mandrakesoft [ dot ] com
+(original author)
+
+Laurent Jacques:
+ljacques [ at ] fyma [ dot ] ucl [ dot ] ac [ dot ] be
+(former maintainer)
+
+Olliver Wichmann:
+olliver [ dot ] wichmann [ at ] gmx [ dot ] net
+(former maintainer)
+
+Dave Higgins:
+dave [ at ] higginsnet [ dot ] com
+(former developer)

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/frontend/!svn/ver/8520/code/aipisoft_pc_server2/trunk/bbclone
+END
+show_detailed.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/bbclone/show_detailed.php
+END
+constants.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/bbclone/constants.php
+END
+show_views.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/bbclone/show_views.php
+END
+show_time.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/bbclone/show_time.php
+END
+show_global.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/bbclone/show_global.php
+END
+log_processor.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/bbclone/log_processor.php
+END
+show_config.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/bbclone/show_config.php
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/bbclone/.htaccess
+END
+mark_page.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/bbclone/mark_page.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/frontend/!svn/ver/7019/code/aipisoft_pc_server2/trunk/bbclone/index.php
+END

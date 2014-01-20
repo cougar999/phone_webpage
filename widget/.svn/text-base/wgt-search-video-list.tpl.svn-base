@@ -1,0 +1,81 @@
+<!--{feed int=AP_INT_C_VIDEOLIST cid=3434 order=0 pageno=1 count=10 ret='videolist'}-->
+<div class="section">
+	<div style="padding: 15px 15px;">
+		<div style="border: 1px solid #d2d2d2; padding: 8px 8px;" class="f4 b">
+			在<font color="#f04e06"><!--{$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_VIDEO}--></font>中搜索“<!--{$smarty.request.keyword}-->”共有<!--{$videolist.page.totalcount}-->条结果：
+		</div>
+	</div>
+</div>
+<div class="section">
+	<div style="padding:15px 15px;">
+		<div style="border:1px solid #d2d2d2;">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+				<div id="wgt-search-list" class="wgt-search-list"><div style="padding-top:10px;">
+						<!--{foreach key=key item=item from=$videolist.page.items}-->
+						<div class="lf" style="width:355px; padding-left:30px;padding-right:0px;padding-top:20px;padding-bottom:30px;border-bottom:1px dashed #cccccc;">
+							<a href="video-detail.html"><img class="lf tc" src="<!--{$item.imgurl}-->" style="width:136px; height:206px;border:1px solid #cccccc; padding:2px;" /></a>
+							<div  style="margin-left: 150px;width:auto;line-height:20px;">
+								<div style="height:25px;">
+									<span class="lf f4 b"><!-- {$item.name}-->千机变2-花都大战</span>
+									<span class="lf" style="margin-left:5px;"><img class="lf" src="<!--{#res2#}-->/resources/img/safety_certification.png"/></span>					
+								</div>
+								<div style="height:20px;">
+									<span class="lf f4 b">导演：</span>
+									<span class="lf f2"><!-- {$item.developer}-->元奎 、梁柏坚</span>
+								</div>
+								<div style="height:20px;">
+									<span class="lf f4 b">出品人：</span>
+									<span class="lf f2"><!-- {$item.catalog}-->宋乐群、杨受成</span>
+								</div>
+								<div style="height:20px;">
+									<span class="lf f4 b">上映时间：</span>
+									<span class="lf f2"><!-- {$item.catalog}-->2010-11-02</span>
+								</div>
+								<div style="height:20px;">
+									<span class="lf f4 b">主演：</span>
+									<span class="lf f2"><!-- {$item.catalog}-->甄子丹、房祖名</span>
+								</div>
+								<div style="height:20px;">
+									<span class="lf f4 b">分类：</span>
+									<span class="lf f2" style="width:70px;"><!-- {$item.size}-->电影传奇</span>
+									<span class="lf f4 b">格式：</span>
+									<span class="lf f2"><!-- {$item.size}-->TXT</span>
+								</div>
+								<div style="height:20px;">
+									<span class="lf f4 b">大小：</span>
+									<span class="lf f2" style="width:70px;">230KB<!-- {$item.size}--></span>
+									<span class="lf f4 b">下载：</span>
+									<span class="lf f2"><!-- {$item.size}-->2560次</span>
+								</div>
+								<div style="height:20px;">
+									<span class="lf f4 b">上架时间：</span>
+									<span class="lf f2"><!-- {$item.format}-->2011-10-05</span>
+								</div>
+								<div style="height:20px;">
+									<span class="lf f4 b">评级：</span>
+									<div class="lf re">
+										<div class="lf" style="width:80px; height:15px; background:url(<!--{#res3#}-->/resources/img/star.png) repeat-x left center;"></div>
+										<div class="ab" style="right:0px;width:40px; height:15px; background:url(<!--{#res1#}-->/resources/img/star_gray.png) repeat-x right center;"></div>
+									</div>
+								</div>
+								<div style="height:20px;">
+									<span class="lf f4 b">价格：</span>
+									<span class="lf f2 c5">3.2元<!--{$bookinfo.price}--></span>
+								</div>
+								<div style="margin-top:10px;line-height:25px;">
+									<!--{if $item.softid <3}-->
+										<a id="<!--{$item.contentid}-->" href="<!--{$item.downloadurl}-->" class="lf s downinit"><img src="<!--{#res2#}-->/resources/img/btn_download.png" class="png_bg" border="0"></a>
+									<!--{else}-->	
+										<a id="<!--{$item.contentid}-->" href="" class="lf s"><img src="<!--{#res2#}-->/resources/img/btn_buy.png" class="png_bg" border="0"></a>
+									<!--{/if}-->
+									<span class="lf f4 b" style="margin-left:15px;"><img alt="" src="<!--{#res3#}-->/resources/img/preview.png"> 预览</span>
+								</div>				
+							</div>	
+							<div class="cl"></div>					
+						</div>
+						<!--{/foreach}-->
+				</div></div>
+			</td></tr></table>	
+		</div>
+	</div>
+</div>	

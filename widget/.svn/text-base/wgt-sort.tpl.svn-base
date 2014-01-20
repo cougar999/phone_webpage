@@ -1,0 +1,19 @@
+<div id="wgt-sort" class="wgt-sort">
+<div class="sort">
+<!--{if $smarty.get.phonetype == "8." || $smarty.get.phonetype == "8"}-->
+	<ul>
+		<li class="first <!--{if $smarty.get.sortby == "" || $smarty.get.sortby =="default"}-->active<!--{/if}-->"><a href="?<!--{params sortby=default order=null pageno=1}-->&catid=<!--{if $smarty.get.catid}--><!--{$smarty.get.catid}--><!--{/if}-->&order=1" onclick="gotopage(this); return false;"><span>默认排序</span></a></li>
+		<li <!--{if $smarty.get.sortby == "time"}-->class="active"<!--{/if}-->><a href="?<!--{params sortby=time order=null pageno=1}-->&order=<!--{if $smarty.get.order == '11'}-->11<!--{else}-->11<!--{/if}-->" onclick="gotopage(this); return false;"><span <!--{if $smarty.get.order == '11'}-->class="down"<!--{else}-->class="down"<!--{/if}-->>更新时间</span></a></li>
+		<li <!--{if $smarty.get.sortby == "service"}-->class="active"<!--{/if}-->><a href="?<!--{params sortby=service order=null pageno=1}-->&order=<!--{if $smarty.get.order == '9'}-->8<!--{else}-->9<!--{/if}-->" onclick="gotopage(this); return false;"><span <!--{if $smarty.get.order == '9'}-->class="down"<!--{else}-->class="up"<!--{/if}-->>服务费</span></a></li>
+		<li <!--{if $smarty.get.sortby == "size"}-->class="active"<!--{/if}-->><a href="?<!--{params sortby=size order=null pageno=1}-->&order=<!--{if $smarty.get.order == '6'}-->5<!--{else}-->6<!--{/if}-->" onclick="gotopage(this); return false;"><span <!--{if $smarty.get.order == '6'}-->class="down"<!--{else}-->class="up"<!--{/if}-->>大小</span></a></li>
+	</ul>
+<!--{else}-->
+	<ul>
+		<li class="first <!--{if $smarty.get.sortby == "" || $smarty.get.sortby =="default"}-->active<!--{/if}-->"><a href="?<!--{params sortby=default order=null pageno=1}-->&catid=<!--{if $smarty.get.catid}--><!--{$smarty.get.catid}--><!--{/if}-->&order=1" onclick="gotopage(this); return false;"><span>默认排序</span></a></li>
+		<li <!--{if $smarty.get.sortby == "time"}-->class="active"<!--{/if}-->><a href="?<!--{params sortby=time order=null pageno=1}-->&order=<!--{if $smarty.get.order == '11'}-->11<!--{else}-->11<!--{/if}-->" onclick="gotopage(this); return false;"><span <!--{if $smarty.get.order == '11'}-->class="down"<!--{else}-->class="down"<!--{/if}-->>更新时间</span></a></li>
+		<li <!--{if $smarty.get.sortby == "service"}-->class="active"<!--{/if}-->><a href="?<!--{params sortby=service order=null pageno=1}-->&order=<!--{if $smarty.get.order == '9'}-->8<!--{else}-->9<!--{/if}-->" onclick="gotopage(this); return false;"><span <!--{if $smarty.get.order == '9'}-->class="down"<!--{else}-->class="up"<!--{/if}-->>服务费</span></a></li>
+		<li <!--{if $smarty.get.sortby == "size"}-->class="active"<!--{/if}-->><a href="?<!--{params sortby=size order=null pageno=1}-->&order=<!--{if $smarty.get.order == '6'}-->5<!--{else}-->6<!--{/if}-->" onclick="gotopage(this); return false;"><span <!--{if $smarty.get.order == '6'}-->class="down"<!--{else}-->class="up"<!--{/if}-->>大小</span></a></li>
+	</ul>
+<!--{/if}-->
+</div>
+</div>

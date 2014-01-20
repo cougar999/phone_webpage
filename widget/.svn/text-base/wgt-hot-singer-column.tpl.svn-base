@@ -1,0 +1,46 @@
+<div  style="margin-left:410px;">
+	<div id="wgt-music-singer-list" class="wgt-music-singer-list">
+		<div style="border-left:1px solid #cccccc;border-right:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+			<div style="line-height: 31px;background:url(<!--{#res3#}-->/resources/img/middle_title_bg.png) repeat-x scroll 0 0 transparent;">
+			
+					<span class="f5 b"  style="margin-left:10px;"><!--{$column_name}--></span>
+			</div>
+		<div>
+			<!--{feed int=AP_INT_C_SINGERLIST cid=$column_id order=0 pageno=1 count=10 ret='singerlist'}-->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class=""><tr><td>
+				<!--{section start=0 max=1 name=item loop=$singerlist.page.items}-->
+				<div  style="padding-left:10px;padding-right:10px;padding-top:10px;padding-bottom:10px;">
+					<div class="lf tc"><a href="#"><img  src="<!--{if $singerlist.page.items[item].imgurl}--><!--{$singerlist.page.items[item].imgurl}--><!--{else}--><!--{#res3#}-->/resources/temp/beauty.PNG<!--{/if}-->" style="width:85px; height:128px;border:1px solid #cccccc;padding:2px;margin-bottom:5px;" /></a><br /><a href="<!--{if $singerlist.page.items[item].singerid}-->/appstore/singer-detail.html?sid=<!--{$singerlist.page.items[item].singerid}--><!--{else}-->#<!--{/if}-->"><!--{$singerlist.page.items[item].singer}--></a></div>
+					<div  style="margin-left:110px; ">
+						<!--{feed int=AP_INT_C_MUSICLIST cid=$item.singerid order=0 pageno=1 count=10 ret='singer_musiclist'}-->
+						<!--{foreach key=key item=item from=$singer_musiclist.page.items}-->
+						<div style="height:28px;line-height:28px;">
+							<span class="lf s"><a href="" class="s" style="text-decoration:none;"><!--{$item.song}--></a></span>
+							<span class="rg" ><a href="" class="rg s"><img src="<!--{#res1#}-->/resources/img/btn_download.png" class="png_bg" border="0"></a></span>
+							<div class="cl"></div>
+						</div>
+						<!--{/foreach}-->
+						
+					</div>
+				</div>
+				<!--{/section}-->
+				<div class="cl"></div>
+				
+			</td></tr></table>
+			<div style="height:1px;border-bottom:1px dotted #cccccc;margin:10px;"></div>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class=""><tr><td>
+				<!--{section start=3 name=item loop=$singerlist.page.items}-->
+					<div class="lf" style="width:95px;padding:10px;">
+						<div class="lf tc"><img  src="<!--{$singerlist.page.items[item].imgurl}-->" style="width:72px; height:107px;border:1px solid #cccccc;padding:2px;margin-bottom:5px;" /><br /><!--{$singerlist.page.items[item].singer}--></div>
+					</div>
+				<!--{/section}-->
+				<div class="cl"></div>
+			</td></tr></table>
+			
+		</div>
+		
+		<div>
+		
+		</div>
+	</div></div>
+</div>

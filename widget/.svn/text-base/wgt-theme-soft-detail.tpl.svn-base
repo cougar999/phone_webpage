@@ -1,0 +1,115 @@
+<!--{feed int=AP_INT_SOFT_INFO softid=$box_id order=0 pageno=1 count=10 tplcode=$smarty.get.tplcode iscrack=$smarty.get.iscrack|default:0 ret='softinfo'}-->
+<!--{if $softinfo.softid > 0}-->
+
+<div id="wgt-soft-detail" class="wgt-soft-detail">
+		<div class="unit">
+			<div class="titlebar">
+				<div class="bread">
+			 		<ul>
+			 			<!--{include file="bread_cate.tpl"}-->
+			 			<li>主题桌面</li>
+			 			<li><!--{$softinfo.catalog}--></li>
+			 			<li><!--{$softinfo.name}--></li>
+			 		</ul>
+			 	</div>
+			</div>
+			<div class="details clear">
+				<div class="dt_imgs">
+					<img src="<!--{$softinfo.icon}-->_sf_72x72.png" />
+					<!--{if $softinfo.isbiz == 1 && $softinfo.goldcoin}--><div class="icon_coins"><!--{$softinfo.goldcoin}--></div><!--{/if}-->
+				</div>
+				<div class="dt_text">
+					<div class="dt_info">
+						<dl>
+							<dt id="softname"><!--{$softinfo.name}--></dt>
+							<!-- <dd style=" position:relative">
+								<div class="lf" style="width:80px; height:15px; background:url(<!--{#img1#}-->/resources/img/star.png) repeat-x left center;"></div>
+								<div class="ab" style="position:abosolute;right:0px;width:<!--{math equation='(x*(50-y)/z)' x=80 y=$softinfo.grade|default:50 z=50}-->px; height:15px; background:url(<!--{#img2#}-->/resources/img/star_gray.png) repeat-x right center;"></div>
+							</dd> -->
+						</dl>
+					</div>
+					<div class="dt_info">
+						<dl>
+							<dt>大小：<span><!--{if $softinfo.size}--><!--{$softinfo.size|sizetext}--><!--{else}-->未知<!--{/if}--></span></dt>
+							<dd>版本：<span><!--{if $softinfo.version}--><!--{$softinfo.version}--><!--{else}-->未知<!--{/if}--></span></dd>
+						</dl>
+					</div>
+					<div class="dt_info">
+						<dl>
+							<dt>服务费：<span><!--{if $softinfo.servicefee || $softinfo.price }--><!--{math equation='(x/100 + y/100)' x=$softinfo.servicefee|default:0 y=$softinfo.price|default:0}-->元 <!--{else}-->免费<!--{/if}--></span></dt>
+							<dd>更新时间：<span><!--{if $softinfo.updatedate}--><!--{$softinfo.updatedate}--><!--{else}-->未知<!--{/if}--></span></dd>
+							<!--{if $smarty.get.phonetype == "8." || $smarty.get.phonetype == "8"}-->
+							<dd>适配机型：<span><!--{$softinfo.applemtype}--></span></dd>
+							<!--{/if}-->
+						</dl>
+					</div>
+					
+				</div>
+				<div class="dt_btns">
+					<dl>
+						<dt><a id="<!--{$softinfo.softid}-->" href="<!--{$softinfo.downloadurl}-->&ref=<!--{$assign.referer|base64_en}-->" installlocate="<!--{$softinfo.installlocate}-->" appid="<!--{$softinfo.appid}-->"  versioncode="<!--{$softinfo.versioncode}-->"  version="<!--{$softinfo.version}-->" type="1" price="<!--{math equation='(x)/100' x=$softinfo.price|default:0}-->" servicefee="<!--{math equation='(x)/100' x=$softinfo.servicefee|default:0}-->" title="<!--{$softinfo.name}-->" class="<!--{if ($softinfo.price>0 or $softinfo.servicefee>0) && ($smarty.get.phonetype != '3.') && ($smarty.get.phonetype != '.')}-->addcart<!--{else}-->downinit downbtnbig<!--{/if}-->" onclick="return false;"></a></dt>
+						<dd><a icon="<!--{$softinfo.icon}-->" id="<!--{$softinfo.softid}-->" href="<!--{$softinfo.downloadurl}-->" installlocate="<!--{$softinfo.installlocate|default:0}-->" appid="<!--{$softinfo.appid}-->"  versioncode="<!--{$softinfo.versioncode}-->"  version="<!--{$softinfo.version}-->" title="<!--{$softinfo.name}-->" type="1"  price="<!--{$softinfo.price|default:0}-->" servicefee="<!--{$softinfo.servicefee|default:0}-->" size="<!--{$softinfo.size}-->" onclick="return false;" class="shopc">加入收藏</a> 
+						<!--{if ($smarty.request.phonetype == '3.') || ('.' == $smarty.request.phonetype)}-->
+						<a id="pushtophone" sid="<!--{$softinfo.softid}-->" sname="<!--{$softinfo.name}-->" title="免费推送下载地址到手机">免费推送到手机</a>
+						<!--{/if}-->
+						</dd>
+					</dl>
+				</div>
+			</div>
+			
+			<div id="pic_focus_cont">
+				<div id="pic_focus">
+						<div id="slideimgbar" class="slideimgbar"></div>
+						<ul class="slideimglist">
+							<!--{foreach key=key item=item from=$softinfo.imgitems  name=imglist}-->
+							<li id="photo-<!--{$smarty.foreach.imglist.iteration}-->" class="dl_line">
+								<img src="<!--{$item.imgurl}-->" height="390"  />
+							</li>
+							<!--{/foreach}-->
+						</ul>
+				</div>
+				<div id="pic_btns">
+				<a class="last"></a>
+				<span class="center_dot"></span>
+				<a class="next"></a>
+				</div>
+				<script>
+					$(document).ready(function(){
+						$("#pic_focus").slideimg({gostart_on:false,imgshow_num:3,hdCallBack:function(){
+						}});
+					});
+				</script>
+			</div>
+			
+			
+			
+			<div id="dt_cons">
+				<h2>详细介绍:</h2>
+				<div id="dt_constexts">
+					<!--{if $softinfo.desc}--><!--{$softinfo.desc}--><!--{else}-->暂无内容<!--{/if}-->
+				</div>
+			</div>
+			<!--{if $softinfo.terms}-->
+			<div id="dt_cons">
+				<h2>支持机型:</h2>
+				<div id="dt_constexts">
+					<!--{if $softinfo.terms}-->
+						<!--{foreach key=key item=item from=$softinfo.terms}-->
+								<span><!--{$item}-->,</span>
+						<!--{/foreach}-->
+					<!--{else}-->
+					暂无内容
+					<!--{/if}-->
+				</div>
+			</div>
+			<!--{/if}-->
+			
+		</div>
+
+<!--{else}-->
+<div>
+	<div style="text-align:center;line-height: 32px;padding:30px;" class="f7">
+		暂无适合您手机的资源，敬请谅解...
+	</div>
+</div>
+<!--{/if}-->

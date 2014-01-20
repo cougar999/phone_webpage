@@ -1,0 +1,26 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_START_ID order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_START_FEATHER ret='menu'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menu.menuid order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_START_FEATHER_NECESSARY ret='menu'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	<div class="scroll">
+	<div class="contentbody contentwrap">
+		<div class="section">
+			<div style="padding:20px 0px; height:40px; line-height:40px;">
+				<font class="lf f9 t" color="#EF5000">新机必备软件一键纯净安装&nbsp;</font>
+				<a id="mo_inapps" href="" class="buybath"><img src="<!--{#res1#}-->/resources/img/btn_install_big.png" border="0" class="rg" /></a>
+			</div>
+		</div>
+		<div class="section">
+			<div style="padding:0px 0px;">
+				<!--{include file="wgt-menu-cat-soft-list.tpl" column_id=$menu.menuid}-->	
+			</div>
+		</div>
+	</div>
+	</div>
+</div></div>

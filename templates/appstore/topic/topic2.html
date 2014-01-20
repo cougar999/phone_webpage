@@ -1,0 +1,192 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>起飞！安卓精品飞行射击游戏推荐</h2>
+					<div class="evaDetail">
+						<blockquote>
+							近日，中国首艘航母“辽宁舰”成功起降歼-15舰载机，标志着我国海军驶向世界大洋的又一个里程碑。说到飞机，又不得不提到精彩的飞行射击游戏，在各种各样的游戏中，飞行射击游戏是最紧张刺激的，这次我们就为大家精选了安卓平台的飞行射击游戏，一起来过把瘾吧。浩瀚的天空在等待你自由翱翔！起飞，英雄！…
+						</blockquote>
+						<div class="topiclist clear">
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121220/appdear_274836_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="432708" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121220/appdear_274836_1220_b.apk?rsid=1332784&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="com.enclosoft.chaoslite" versioncode="14" version="v4.7" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="直升机空战 C.H.A.O.S"></a></p>
+								</dt>
+								<dd>
+									<p>直升机空战 C.H.A.O.S</p>
+									<p>"C.H.A.O.S是一款从iOS平台上移植过来的画面极为出色的直升机空战类的游戏,里面能够让你体验到最为激烈逼真的飞行空战游戏.在这款游戏中,你将有机会体验到各个国家不同的直升机...</p>
+									<p>大小：40.60MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120907/appdear_57726_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="246839" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120913/appdear_20047_android.apk?rsid=1146834&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="com.axl.xelorians.full" versioncode="1204" version="v1.2.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="X战机"></a></p>
+								</dt>
+								<dd>
+									<p>X战机 Xelorians</p>
+									<p>游戏操作十分简单，只要用手指在屏幕上滑动就可控制飞机的移动，战斗中那您还要收集黄色水晶，这样您的分数就会提高！…</p>
+									<p>大小：41.43MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_128897_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="218662" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120514/appdear_249518_0514_g.apk?rsid=1118659&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="com.artinmgames.AirAttackHD" versioncode="8" version="v1.5" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="空中歼灭战 HD完整版"></a></p>
+								</dt>
+								<dd>
+									<p>空中歼灭战</p>
+									<p>空中歼灭战（HD Air Attack HD）是Android平台一款以相当优秀的3D画面，以及爽快的射击感，让玩家体验...</p>
+									<p>大小：41.45MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121223/appdear_277628_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="436563" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121223/appdear_277628_1223_b.apk?rsid=1336639&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="it.rorortos.f18carrierlandinglite" versioncode="592831959" version="v4.65" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="F18 Carrier Landing Lite"></a></p>
+								</dt>
+								<dd>
+									<p>F18模拟起降 F18 Carrier Landing</p>
+									<p>F18 Carrier Landing（F18舰载机模拟起降）是一款Android平台逼真的F18模拟飞行游戏，F18是美国海军目前在役的主力舰载机，现在，你通过…</p>
+									<p>大小：22.78MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120227/appdear_13664_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="176375" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120410/appdear_513103_0410_h.apk?rsid=1037173&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="net.int13.shogun" versioncode="1217" version="v1.2.17" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="散弹之狱"></a></p>
+								</dt>
+								<dd>
+									<p>散弹之狱 Shogun Bullet Hell Shooter</p>
+									<p>散弹之狱(Shogun: Bullet Hell Shooter)是Android平台一款刺激的复古风格的空战射击游戏，赶快驾驭你的战机，驰骋于星际之间吧！…</p>
+									<p>大小：22.46MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120517/appdear_51778_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="243441" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121023/appdear_443448_1023_b.apk?rsid=1143432&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="kalloc.android.Top2" versioncode="114" version="v1.14" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="太平洋空战2中文版"></a></p>
+								</dt>
+								<dd>
+									<p>太平洋空战2 Tigers of the Pacific 2</p>
+									<p>太平洋空战2Tigers of the Pacific 2是Android平台一款3D空战射击类游戏，游戏画面和音效都相当出色，背景题材取用于二战时期…</p>
+									<p>大小：11.75MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_149575_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="176866" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121114/appdear_2406806337_1114_b.apk?rsid=1037669&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="com.android77.escape" versioncode="100" version="v1.1.5" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="2012 大逃亡"></a></p>
+								</dt>
+								<dd>
+									<p>2012大逃亡</p>
+									<p>“时间的终结是 2012 年 12 月 21 日。地球并非人类所有，地球却拥有人类。”  这一天终于来临，从亚洲开始，瞬时陆地突起…</p>
+									<p>大小：5.46MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121201/appdear_235595_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="264912" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120620/appdear_280382_0620_g.apk?rsid=1164939&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="com.touchten.game.infinitesky" versioncode="2" version="v1.0.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="无尽长空"></a></p>
+								</dt>
+								<dd>
+									<p>无尽长空 Infinite Sky</p>
+									<p>Infinite Sky是继《雷电》之后的飞行射击类游戏的经典之作，在游戏中玩家需要控制着自己的飞机在长空中飞翔，抵御……</p>
+									<p>大小：26.85MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_2228060577_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="264912" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120620/appdear_280382_0620_g.apk?rsid=1164939&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="com.touchten.game.infinitesky" versioncode="2" version="v1.0.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="无尽长空"></a></p>
+								</dt>
+								<dd>
+									<p>无重力战机已付费版 No Gravity</p>
+									<p>无尽之战：绝不退缩！为生存而战！ 2132年，长期的恶性竞争终于耗尽了地球最后的资源。曾经文明一时的人类</p>
+									<p>大小：67.91MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121225/appdear_280328_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="440179" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121225/appdear_280328_1225_b.apk?rsid=1340255&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="com.epicforce.iFighter1" versioncode="119" version="v1.19" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="二战神鹰 1945"></a></p>
+								</dt>
+								<dd>
+									<p>二战神鹰 1945 iFighter 1945</p>
+									<p>iFighter 1945作为二战的王牌飞行员，你的任务是驾驶战机摧毁纳粹的秘密武器。游戏的流畅性非常好，激战……</p>
+									<p>大小：13.21MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120906/appdear_80667_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="313710" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121210/appdear_118525_1210_b.apk?rsid=1213771&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="com.glu.bombshells" versioncode="200" version="v2.0.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="弹壳：地狱佳丽"></a></p>
+								</dt>
+								<dd>
+									<p>弹壳：地狱佳丽 Bombshells: Hell's Belles</p>
+									<p>弹壳：地狱佳丽（Bombshells: Hell's Belles）是Android平台一款由Glu发布的全新的空战游戏，游戏的主角是三位美女…</p>
+									<p>大小：12.28MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120608/appdear_624322_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="249602" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121114/appdear_180255194_1114_b.apk?rsid=1149597&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="com.livezen.ew.wujing" versioncode="638" version="v8.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="无尽之战高清中文版"></a></p>
+								</dt>
+								<dd>
+									<p>无尽之战 Endless War</p>
+									<p>无尽之战：绝不退缩！为生存而战！ 2132年，长期的恶性竞争终于耗尽了地球最后的资源。曾经文明一时的人类，亲手毁灭……</p>
+									<p>大小：39.02MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121124/appdear_640599_icon_m.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="389392" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121124/appdear_640599_1124_m.apk?rsid=1289464&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="com.nuoxygen.ikaroracing" versioncode="101" version="v1.01" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="红翼王牌飞行员"></a></p>
+								</dt>
+								<dd>
+									<p>红翼王牌飞行员 Red Wing Ikaro Racing HD</p>
+									<p>在《红翼王牌飞行员 Red Wing Ikaro Racing HD》Android版中，你将化身为一名驾驭高性能飞机进行低空飞行的飞行员…</p>
+									<p>大小：10.05MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121023/appdear_1443323_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="329606" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121108/appdear_164018_1108_b.apk?rsid=1229672&topicid=002&topicname=飞行射击游戏推荐" installlocate="0" appid="com.sega.zaxxonescape" versioncode="2012102188" version="v1.1.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="空间逃脱"></a></p>
+								</dt>
+								<dd>
+									<p>空间逃脱 Zaxxon Escape</p>
+									<p>空间逃脱（Zaxxon）是Android平台一款飞行逃脱游戏，游戏中玩家驾驶的飞船已经把敌人的基地炸掉，在逃脱的路敌人为你设置了……</p>
+									<p>大小：29.41MB</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

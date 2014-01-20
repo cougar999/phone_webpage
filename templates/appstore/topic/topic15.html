@@ -1,0 +1,239 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>上班族抗疲劳必备</h2>
+					<div class="evaDetail">
+						<div class="topicImgs">
+							<img src="/resources/img40/eva/zhuanti15_big.jpg" alt="上班族抗疲劳必备" />
+						</div>
+						<blockquote>
+							本周连续七个工作日又让上班族或郁闷、或悲伤、或无奈。小编特意为大家收集了一些抗疲劳的软件，让我们努力工作的同时更加轻松的度过这七天。
+						</blockquote>
+						<div class="topiclist clear">
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130225/appdear_rfr7kmtxh_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="10046" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130225/appdear_lbptusovy_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.snda.youni" versioncode="91" version="v3.2.0.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="Youni短信"></a></p>
+								</dt>
+								<dd>
+									<p>Youni短信</p>
+									<p>盛大有你短信是一款比系统短信更好用的免费短信工具，通过网络您可以与移动、联通、电信，甚至国外用户，免费收发有你消息、图片、语音和贺卡…</p>
+									<p>大小：5.67MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20111221/appdear_20275_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="110544" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130208/appdear_48157_0208_m.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.tencent.mm" versioncode="253" version="v4.5" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="微信"></a></p>
+								</dt>
+								<dd>
+									<p>微信</p>
+									<p>微信是一款手机通信软件，支持通过手机网络发送语音短信、视频、图片和文字，可以单聊及群聊，还能根据地理位置找到附近的人，带给朋友们全新的移动沟通体验。支持ios、Android、塞班等多种平台手机…</p>
+									<p>大小：18.62MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20111121/appdear_66259_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="110892" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120809/appdear_78352_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.duomi.android" versioncode="4050100" version="v4.5.1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="多米音乐"></a></p>
+								</dt>
+								<dd>
+									<p>多米音乐</p>
+									<p>多米音乐是一款集本地音乐播放、在线音乐播放、歌曲搜索、歌曲下载、分享音乐到新浪微博等多功能于一体的完全免费的手机音乐软件…</p>
+									<p>大小：0.96MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130313/appdear_tc21ukfje_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="117523" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130313/appdear_fv7gjprf2_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.ddmap.android.privilege" versioncode="48" version="v2.5.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="丁丁优惠"></a></p>
+								</dt>
+								<dd>
+									<p>丁丁优惠</p>
+									<p>优惠使用最省力，展示即可，无需打印！ 优惠力度最给力，全城尽享，力度最大！ 优惠覆盖最得力，生活必需，面面俱到…</p>
+									<p>大小：5.4MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130118/appdear_t82kb5tkc_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="132320" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130118/appdear_9qq2wycrj_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="cn.kuwo.player" versioncode="4006" version="v4.0.0.6" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="酷我音乐"></a></p>
+								</dt>
+								<dd>
+									<p>酷我音乐</p>
+									<p>酷我音乐2012（For Android）是酷我音乐专为Android平台量身定做的专业在线音乐播放软件。一键搜索海量曲库，精心打造权威榜单；自动拉取精准歌词及高清专辑图片…</p>
+									<p>大小：5.09MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120401/appdear_85467_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="132322" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130301/appdear_45592_0301_m.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.tencent.mobileqq" versioncode="29" version="v4.0.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="手机QQ2013"></a></p>
+								</dt>
+								<dd>
+									<p>手机QQ2013</p>
+									<p>手机QQ是由腾讯公司打造的移动互联网应用，提供免费的多媒体沟通服务，方便用户在移动设备上通过语音、图片、视频等方式轻松交流…</p>
+									<p>大小：10.88MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120424/appdear_46284_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="141538" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120604/appdear_49763_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="org.cocos2dx.FishGame" versioncode="50" version="v1.7" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="捕鱼达人"></a></p>
+								</dt>
+								<dd>
+									<p>捕鱼达人</p>
+									<p>这是一款超过6千万人在玩的游戏！捕鱼达人(英文Fishing Joy)是一款深海捕鱼游戏。玩家在游戏中用网可捕捉到多达11种鱼类,从观赏鱼到大型鱼…</p>
+									<p>大小：20.79MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120618/appdear_49593_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="143116" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130306/appdear_17sy4hgby_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.baihe" versioncode="24" version="v3.7.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="百合婚恋"></a></p>
+								</dt>
+								<dd>
+									<p>百合婚恋</p>
+									<p>一款帮助中国1.8亿单身用户告别单身的婚恋交友应用。 百合网是实名婚恋网的开创者，拥有多项用户认证体系，提供更安全的婚恋服务…</p>
+									<p>大小：5.72MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120504/appdear_67211_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="235988" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120508/appdear_23883_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.julian.game.dkiii" versioncode="1" version="v1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="地下城英雄-暗黑王朝"></a></p>
+								</dt>
+								<dd>
+									<p>地下城英雄-暗黑王朝</p>
+									<p>游戏类型 :ARPG  游戏描述: 2012史诗巨作震撼登场！地狱之王大举入侵，风暴王国四英雄奋起反击。圣骑士、亡灵巫师、暗影刺客与精灵游侠四位主人公…</p>
+									<p>大小：8.13MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130403/appdear_eecp6v2yu_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="239081" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130403/appdear_hmsnjblbl_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.boyaa.lordland.sina" versioncode="21" version="v3.6" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="博雅斗地主"></a></p>
+								</dt>
+								<dd>
+									<p>博雅斗地主</p>
+									<p>博雅斗地主是带有浓厚中国特色的扑克游戏, 游戏简单有趣, 上手快, 娱乐性强。博雅公司出品的斗地主以其优秀的质量、玩法的多样赢得了百万用户的青睐, 已经成为市面上最火的免费游戏之一…</p>
+									<p>大小：10.73MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130320/appdear_p3uhktvzj_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="239559" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130320/appdear_3g5txozxv_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.imod" versioncode="1" version="v1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="魔与道OL"></a></p>
+								</dt>
+								<dd>
+									<p>魔与道OL</p>
+									<p>游戏类型 :ARPG  游戏描述: 2012史诗巨作震撼登场！地狱之王大举入侵，风暴王国四英雄奋起反击。圣骑士、亡灵巫师、暗影刺客与精灵游侠四位主人公…</p>
+									<p>大小：8.13MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130322/appdear_44dbqp3cs_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="511273" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130322/appdear_06gd4r1fw_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.zjh.cmge" versioncode="1" version="v1.1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="快乐炸金花"></a></p>
+								</dt>
+								<dd>
+									<p>快乐炸金花</p>
+									<p>史上最专业最富人气的快乐炸金花强势来袭，阵容豪华，高手云集，挑战智慧与运气的极限…</p>
+									<p>大小：9.29MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130312/appdear_6ak2avcud_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="277332" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121026/appdear_zddk6ftbz_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.mykj.game.ddz" versioncode="7" version="v1.2.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="赢话费斗地主"></a></p>
+								</dt>
+								<dd>
+									<p>赢话费斗地主</p>
+									<p>赢话费斗地主是全国网络智运会独家官方竞技平台中的主打项目，冠军单项奖10万现金， 累积奖金高达百万;每天还有斗地主奖话费比赛场，每场比赛约10分钟…</p>
+									<p>大小：7.8MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130321/appdear_q8mnf52ds_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="278582" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130321/appdear_h3y24hlmq_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.ss.android.article.news" versioncode="242" version="v2.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="今日头条"></a></p>
+								</dt>
+								<dd>
+									<p>今日头条</p>
+									<p>发现属于你的头条 - 收集热门新闻和你感兴趣的新闻，第一时间发现属于你的头条，新闻不再“刷”着看  ♥ 分享阅读乐趣 — 查看好友阅读动态…</p>
+									<p>大小：3.1MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121122/appdear_npdvivv3o_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="325733" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121122/appdear_w776cehze_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.sxiaoao.car3d" versioncode="17" version="v1.0.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="终极狂飙3D漂移"></a></p>
+								</dt>
+								<dd>
+									<p>终极狂飙3D漂移</p>
+									<p>《终极狂飙3D漂移》将燃起你在极速赛道中尽情驰骋的速度与激情！这是一款操作简单，但竞速体验感超强的赛车游戏…</p>
+									<p>大小：5.51MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130124/appdear_wlm42p1bi_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="378584" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130124/appdear_u5o7jimtu_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.game5a.leitingzhanjihd" versioncode="10400" version="v1.04.00" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="雷霆战机豪华版"></a></p>
+								</dt>
+								<dd>
+									<p>雷霆战机豪华版</p>
+									<p>一年前，格拉多尼星人依靠先进的能量科技打败了塞伯坦的机械文明，但在入侵地球的时候，因为错误的预计了地球联盟军队的数量，最终全军覆没…</p>
+									<p>大小：4.67MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130202/appdear_737894_icon_m.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="488130" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130308/appdear_737894_0308_m.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="com.gamebox.king.qq" versioncode="23" version="v1.36.0116" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="帝王三国"></a></p>
+								</dt>
+								<dd>
+									<p>帝王三国</p>
+									<p>《帝王三国》采用经典三国题材，以其奢华的游戏画面，源自经典又不断创新的策略玩法，开创独一无二的战斗模式，百人攻城，万人国战…</p>
+									<p>大小：14.29MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130411/appdear_k14buzdbp_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="490651" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130411/appdear_ejwsglk1f_android.apk?topicid=015&topicname=上班族抗疲劳必备" installlocate="0" appid="a5game.fruit.port10086" versioncode="10030" version="v1.00.30" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="水果传奇"></a></p>
+								</dt>
+								<dd>
+									<p>水果传奇</p>
+									<p>忍者下岗！武士逆袭！风靡全球的水果忍者登陆中国，开始了惊险刺激的传奇旅程：海滩、雪山、圣地、太空等丰富关卡带来精彩纷呈的创新玩法，神木、红莲、幻影、末日等传说刀刃供您挥舞…</p>
+									<p>大小：6.7MB</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

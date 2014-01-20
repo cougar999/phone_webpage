@@ -1,0 +1,51 @@
+<!--{feed int=AP_INT_CAT_BOOKLIST catid=$box_id order=$order pageno=$smarty.get.pageno|default:1  count=20 ret='booklist'}-->
+<div id="wgt-app-list" class="wgt-app-list"><div style="padding-top:10px;">
+	<!--{if $booklist.page.items}-->
+	<div>
+		<!--{foreach key=key item=item from=$booklist.page.items}-->
+		<div class="datadiv lf" style="width:360px;padding-left:10px;padding-right:10px;padding-top:10px;padding-bottom:10px;border-bottom:1px dotted #cccccc;">
+			<a href="book-detail.html?bid=<!--{$item.bookid}-->"  title="<!--{$item.book}-->" onclick="gotopage(this); return false;"><img class="lf" src="<!--{#img4#}-->/resources/images/transparent.gif" style="width:98px; height:127px;border:0px;background:url(<!--{if $item.imgurl != ''}--><!--{$item.imgurl}-->_sf_98x127.png<!--{else}--><!--{/if}-->) no-repeat center center; border:1px solid #cccccc;padding:2px;" /></a>
+			<div  style="margin-left:110px; ">
+				<div style="height:25px;line-height:25px;" class="f4 b">
+					<a href="/appstore/book-detail.html?bid=<!--{$item.bookid}-->" title="<!--{$item.book}-->" onclick="gotopage(this); return false;"><!--{$item.book|truncate_utf8_string:10}--></a>
+				</div>
+				<div class="bookdiv">
+					<div class="lf re">
+						<div class="lf" style="width:80px; height:15px; background:url(<!--{#img1#}-->/resources/img/star.png) repeat-x left center;"></div>
+						<div class="ab" style="right:0px;width:<!--{math equation='(x*(50-y)/z)' x=80 y=$item.grade|default:50 z=50}-->px; height:15px; background:url(<!--{#img2#}-->/resources/img/star_gray.png) repeat-x right center;"></div>
+					</div>
+					<div class="cl"></div>
+				</div>
+				<div class="bookdiv">
+					作者：<a href="/appstore/author.html?aid=<!--{$item.authorid}-->" title="<!--{$item.author}-->" onclick="gotopage(this); return false;"><!--{$item.author|truncate_utf8_string:5}--></a>
+				</div>
+				<!--<div class="bookdiv">
+					大小：<!--{$item.formatitems[0].size|sizebook}-->|<!--{$item.wordnum|sizebook}-->字
+				</div>-->
+				<!--<div class="bookdiv">
+					总下载：<!--{if $item.download}--><!--{$item.download}--><!--{else}-->0<!--{/if}-->次
+				</div>-->
+				<div class="bookdiv">
+					<span class="lf">服务费：</span><span class="lf"><!--{if $item.price==0}-->免费<!--{else}--><!--{math equation='(x/100)' x=$item.price|default:0}-->元<!--{/if}--></span>
+					<div class="cl"></div>
+				</div>
+				<div class="bookdiv" style="margin-top:5px;">
+				<a id="<!--{$item.bookid}-->" href="<!--{$item.formatitems[0].downloadurl}-->&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK}-->&code1_id=<!--{$menu.menuid}-->&code2=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT}-->&code2_id=<!--{$box_id}-->" type="5" price="<!--{math equation='(x)/100' x=$item.price|default:0 }-->" servicefee="0"   class="lf change <!--{if $item.price}-->addcart<!--{else}-->downinit<!--{/if}-->"  onclick="return false;" title="<!--{$item.book}-->"></a>
+				</div>
+			</div>	
+			<div class="cl"></div>	
+			<div class="f2 c2"  style="line-height:20px;margin-top:10px; height:60px;">简介：<!--{$item.desc|truncate_utf8_string:40:"...":true}--></div>				
+				
+		</div>
+		<!--{/foreach}-->
+	</div>
+	<!--{else}-->
+	<div>
+		<div style="text-align:center;line-height: 32px;padding:30px;" class="f7">
+			暂无适合您手机的资源，敬请谅解...
+		</div>
+	</div>
+	<!--{/if}-->
+	<div class="cl"></div>	
+</div></div>
+<!--{include file="wgt-paging.tpl" page=$booklist.page}-->

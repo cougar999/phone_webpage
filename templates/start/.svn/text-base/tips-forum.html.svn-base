@@ -1,0 +1,37 @@
+<!--{config_load file="smarty.conf"}-->
+<iframe name="pagecontainer" id="pagecontainer" src="about:blank" frameborder="0" height="100%" width="100%"></iframe>
+<script>
+(function loadpcrbbs() {
+	var salesid = JSON.parse(WebAppLocalStorage("salesid"));
+	if (salesid) {
+		var pagecontainer = document.getElementById('pagecontainer');
+		if (pagecontainer) {
+			try {
+				var child = pagecontainer.contentWindow;
+				child.location.href = 'about:blank';
+				child.location.href = '/pcrbbs?salesid=' + salesid.data;
+			} catch (e) {
+				log(e);
+			}
+		}
+	}
+
+	var salesid_event_listener = function(newValue, oldValue, url) {
+		var salesid = JSON.parse(newValue);
+		if (/com\/start\/tips-forum\.html/.test(location.href)) {
+			var pagecontainer = document.getElementById('pagecontainer');
+			if (pagecontainer) {
+				try {
+					var child = pagecontainer.contentWindow;
+					child.location.href = 'about:blank';
+					child.location.href = '/pcrbbs?salesid=' + salesid.data;
+				} catch (e) {
+					log(e);
+				}
+			}
+		}
+	};
+	WebAppLocalStorageEvent('salesid', salesid_event_listener);
+})();
+
+</script>

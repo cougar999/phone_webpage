@@ -1,0 +1,149 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	<div class="scroll">
+	<div class="contentbody contentwrap">
+		<div class="section">
+			<div style="padding:20px 40px;">
+				<table border="0" cellpadding="0" cellspacing="0" style="color:#333333;"><tr>
+					<td>
+						<img src="<!--{#res1#}-->/resources/img/pic_connect.png" />
+					</td>
+					<td width="30"></td>
+					<td valign="top">
+						<font class="f9 t" color="#EF5000">请将手机通过数据线连接到电脑上</font>
+					</td>
+					<td width="30"></td>
+				</tr></table>
+		    </div>
+		    <div style="height:1px; margin:0px 20px; background:#cccccc;"></div>
+		</div>
+		
+	  <div class="section">
+			<div class="f4" style="padding:20px 40px;">
+				<p><span class="b">提示：</span></p>
+				<p>1. Nokia手机请设置为“PC套件模式”</p>
+				<p>2. Android手机请设置为选择“仅充电”或者“ADB模式”，确认手机上“USB调试”和“允许未知来源”选项打勾</p>
+				<!-- <p>3. Windows mobile手机请选择“ActiveSync”连接</p> -->
+				<p>3. MTK手机请选择“串行端口/序列端口”</p>
+		    </div>
+		    <div style="height:1px; margin:0px 20px; background:#cccccc;"></div>
+		    <div class="f4" style="padding:20px 40px;">
+		      <div class="tc"><strong>爱皮下载支持手机列表（持续更新中... ）</strong><br />
+		        <br />
+		      </div>
+		      <table width="100%" border="0" cellpadding="0" cellspacing="1" id="connect_tb">
+                <tr>
+                  <th width="150">操作系统</th>
+                  <th width="150">品牌</th>
+                  <th>型号</th>
+                </tr>
+                <tr>
+                  <td rowspan="7">Android（安卓）</td>
+                  <td>HTC</td>
+                  <td>A9188|G7|G8|G10|G12</td>
+                </tr>
+                <tr>
+                  <td>摩托罗拉</td>
+                  <td>MB860|ME860|ME525</td>
+                </tr>
+                <tr>
+                  <td>索尼爱立信</td>
+                  <td>MT15i</td>
+                </tr>
+                <tr>
+                  <td>三星</td>
+                  <td>S5830|I9003|I9008|I9000|S5660</td>
+                </tr>
+                <tr>
+                  <td>华为</td>
+                  <td>C8500|U8500</td>
+                </tr>
+                <tr>
+                  <td>中兴</td>
+                  <td>V880|N600</td>
+                </tr>
+                <tr>
+                  <td>LG</td>
+                  <td>P503</td>
+                </tr>
+                <tr>
+                  <td rowspan="2">Symbian（塞班）</td>
+                  <td>诺基亚</td>
+                  <td>绝大部分机型均支持</td>
+                </tr>
+                <tr>
+                  <td>其他</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td rowspan="4">MTK</td>
+                  <td>OPPO</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>天语</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>联想</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>金立</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td colspan="3">如果您的手机不在列表中，请<a href="#" target="_blank" class="c4">点此报告型号</a>；如果您的手机型号在列表中但无法正常连接，请<a href="#" target="_blank" class="c4">点此报告问题</a>。</td>
+                </tr>
+              </table>
+	      </div>
+		</div>
+		<!-- 
+		<div class="section">
+			<div style="padding:20px 40px;width:500px;">
+				<p><span class="f4 b" style="line-height:25px;"><img alt="" src="../resources/img/icon_warning.png" style="vertical-align:middle;"> 若无法识别或型号有误，请手动设置机型：</span></p>
+		   		<table border="0" cellpadding="0" cellspacing="0" style="color:#333333;"><tr>
+					<td  class="f4 b" width="120"> 手机品牌：</td>
+					<td  class="f4 b">
+						<select style="width:150px;height:25px;cursor:pointer;">
+						 			<option>请选择手机品牌</option>
+						 			<option>诺基亚</option>
+						 			<option>三星</option>
+						 			<option>LG</option>
+						 			<option>HTC</option>
+						 			<option>MOTO</option>
+						 			<option>T-MOBILE</option>
+						 </select> 		
+					</td>
+					<td width="30"></td>
+					<td  class="f4 b" width="120"> 手机型号：</td>
+					<td  class="f4 b">
+						<select style="width:150px;height:25px;cursor:pointer;">
+									<option>请选择手机型号</option>
+						 			<option>gaegbc8652</option>
+						 			<option>5201</option>
+						 			<option>234df</option>
+						 			<option>LG5212</option>
+						 			<option>HTC0621</option>
+						 			<option>MOTO7444</option>
+						 			<option>T-MOBILE5412</option>
+						 </select> 		
+					</td>
+				</tr></table>
+		   		<p class="tc"><input type="button" id="mo_basic" style="width:65px;height:27px;background:url(<!--{#res2#}-->/resources/img/btn_connect.png) no-repeat;border:0px; cursor:pointer;"></p>
+		   </div>
+		   <div style="height:1px; margin:0px 20px;background:#cccccc;"></div>
+		</div>
+		 -->
+	</div>
+	</div>
+</div></div>

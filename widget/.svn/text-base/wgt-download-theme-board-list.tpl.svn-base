@@ -1,0 +1,29 @@
+<!--{feed int=AP_INT_BOARD_LIST cid=$top_id order=0 pageno=1 count=10 ret='boardlist'}-->
+<div id="wgt-download-board-list" class="wgt-download-board-list">
+	<div class="unit">
+	<!--{foreach key=key item=item from=$boardlist.page.items name=list}-->
+		<div class="titlebar">
+			<h2><!--{$item.name}--></h2>
+		</div>
+		<div style="border:0px solid #eeeeee;">
+			<!--{feed int=AP_INT_BOARD_SOFTLIST bid=$item.bid bsid=0 pageno=1 count=10 iscrack=$smarty.get.iscrack|default:0 ret='boardsoftlist'}-->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable">
+					<col style="width: 66px;"></col>
+					<col style="width: auto;"></col>
+				<!--{foreach key=key item=item from=$boardsoftlist.page.items name=list}-->
+					<tr>
+						<td class="tc" vlign="top"><a href="<!--{$assign.tp.TP_WEB_URL}-->appstore/soft.html?iscrack=<!--{$smarty.get.iscrack}-->&softid=<!--{$item.softid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><img class="" src="<!--{#img4#}-->/resources/images/transparent.gif" style="width: 48px; height: 48px;border:0px;background:url(<!--{if $item.imgurl != ''}--><!--{$item.imgurl}-->_sf_48x48.png<!--{else}--><!--{/if}-->) no-repeat center center; border:0px;" /></a></td>
+						<td>
+							<div><a href="<!--{$assign.tp.TP_WEB_URL}-->appstore/soft.html?iscrack=<!--{$smarty.get.iscrack}-->&softid=<!--{$item.softid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><!--{$item.name}--></a></div>
+							<div style="line-height:20px;height:28px;margin-top:2px;" class="downinit_s">
+								<a id="<!--{$item.softid}-->" href="<!--{$item.downloadurl}-->&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_APP}-->&code1_id=<!--{$menulist.menuid}-->&code2=<!--{$code2}-->&code2_id=<!--{$code2_id}-->&code3=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP}-->&code3_id=<!--{$top_id}-->" installlocate="<!--{$item.installlocate}-->" appid="<!--{$item.appid}-->"  versioncode="<!--{$item.versioncode}-->"  version="<!--{$item.version}-->" type="7" price="<!--{math equation='(x)/100' x=$item.price|default:0}-->" servicefee="<!--{math equation='(x)/100' x=$item.servicefee|default:0}-->" class="changex <!--{if ($item.price or $item.servicefee) && ($smarty.get.phonetype != '3.') && ($smarty.get.phonetype != '.')}-->addcart<!--{else}-->downinit<!--{/if}-->"  onclick="return false;" title="<!--{$item.name}-->"></a>
+								<span class="softservice">服务费:<!--{if $item.servicefee || $item.price}--><!--{math equation='(x/100 + y/100)' x=$item.servicefee|default:0 y=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}--></span>
+							</div>
+						</td>
+					</tr>
+				<!--{/foreach}-->
+			</table>
+		</div>
+	<!--{/foreach}-->
+	</div>
+</div>

@@ -1,0 +1,92 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="wgt-toolbar-download.tpl"}-->
+	</div>
+	
+	<div class="scroll">
+	<div class="contentbody contentwrap">
+		<div class="section">
+			<div style="padding:2px 0px;">
+				<div class="re">
+					<div>
+						<!--{include file="wgt-navs-download.tpl"}-->
+					</div>
+				</div>
+			</div>
+		</div>	
+		
+		<div class="section">
+			<div style="padding:0px 0px;">
+				<textarea id="downlist-template" style="display:none">
+					{#foreach $T.table as record}
+					<tr id="downitem-{$T.record.downloadid}">
+						<td class="tl vm"><input type="checkbox" value="{$T.record.downloadid}" /></td>
+						<td nowrap="nowrap" class="tr vm fixwidth">{$T.record.key}</td>
+						<td class="tl vm arrow text" style="line-height:48px;">
+							{#if $T.record.exttype == '应用程序'}
+								<span class="icon" style="background-image:url(/icon.php?width=48&height=48&sid={$T.record.downloadid});"></span>
+							{#elseif $T.record.exttype == '图片'}
+								<span class="icon" style="background-image:url(/icon.php?width=48&height=48&tid={$T.record.downloadid});"></span>
+							{#elseif $T.record.exttype == '视频'}
+								<span class="icon folder" style="background-image:url(/image.php?width=48&height=48&image=<!--{#res1#}-->/resources/files/{$T.record.fileext}.png);"></span>
+							{#elseif $T.record.exttype == '音频'}
+								<span class="icon folder" style="background-image:url(/image.php?width=48&height=48&image=<!--{#res2#}-->/resources/files/{$T.record.fileext}.png);"></span>
+							{#elseif $T.record.exttype == '文档'}
+								<span class="icon" style="background-image:url(/icon.php?width=48&height=48&bid={$T.record.downloadid});"></span>
+							{#else}
+								<span class="icon" style="background-image:url(/icon.php?width=48&height=48&image="></span>
+							{#/if}
+							<a href="#" onclick="return false;"><span>{$T.record.data}</span></a>
+						</td>
+						<td class="tl vm text"><span class="item_filetype">{$T.record.filetype}</span></td>
+						<td class="tr vm number"><span class="item_filetotlesize">{$T.record.filetotlesize}</span></td>
+						<td class="tr vm number"><span class="item_percent">{$T.record.percenttext}</span></td>
+						<td class="tr vm number"><span class="item_speed">{$T.record.speed}</span></td>
+						<td class="tr vm number"><span class="item_retimes">{$T.record.retimes}</span></td>
+						<td class="tl vm">
+							<div class="re" style="margin:5px 0;">
+								<div style="height:10px; width:146px; border:1px solid #999999;"><div class="item_progress" style="height:10px; width:{#if $T.record.percent}{$T.record.percent}{#else}0{#/if}%; background:#447de8;"></div></div>
+								<span class="ab item_desc" style="top:-3px; left:160px;"></span>
+							</div>
+						</td>
+					</tr>
+					{#/for}
+				</textarea>
+				<div style="padding:0px 0px;">
+					<table width="100%" cellpadding="0" cellspacing="0"  class="table datatable fixwidth" style="border-left:1px solid #cccccc;border-right:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+						<col style="width:20px;"></col>
+						<col style="width:40px;"></col>
+						<col style="width:auto;"></col>
+						<col style="width:120px;"></col>
+						<col style="width:120px;"></col>
+						<col style="width:100px;"></col>
+						<col style="width:100px;"></col>
+						<col style="width:100px;"></col>
+						<col style="width:340px;"></col>
+						<thead>
+							<tr>
+								<th nowrap="nowrap" class="tl"><input type="checkbox" class="selector" /></th>
+								<th nowrap="nowrap" class="tl"></th>
+								<th nowrap="nowrap" class="tl arrow">文件名　<span id="optdesc"></span></th>
+								<th nowrap="nowrap" class="tl">类型</th>
+								<th nowrap="nowrap" class="tr">大小</th>
+								<th nowrap="nowrap" class="tr">进度</th>
+								<th nowrap="nowrap" class="tr">下载速度</th>
+								<th nowrap="nowrap" class="tr">剩余时间</th>
+								<th nowrap="nowrap" class="tl">&nbsp;</th>
+							</tr>
+						</thead>
+						<tbody id="downlist" class="jTemplates">
+							
+						</tbody>
+					</table>
+				</div>
+				<div id="console">
+				</div>
+			</div>
+		</div>	
+		
+	</div>
+

@@ -1,0 +1,34 @@
+<!--{feed int=AP_INT_BOARD_LIST cid=$column_id order=0 pageno=1 count=10 ret='boardlist'}-->
+<div id="wgt-song-top-list" class="wgt-song-top-list"><div>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+	<!--{foreach key=key item=item from=$boardlist.page.items name=list}-->
+		<div  style="margin:5px 0px 20px 0; border-left:1px solid #cccccc;border-right:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+			<div style="padding:0px 0px 0px 10px; height:31px; line-height:31px;background:url(<!--{#res1#}-->/resources/img/middle_title_bg.png);">
+				<span class="m b"><!--{$item.name}--></span>
+			</div>
+			<div style="height:0px; margin:0; background:#cccccc;"></div>
+			<!--{feed int=AP_INT_BORAD_MUSICLIST bid=$item.bid bstageid=0 order=0 pageno=1 count=10 ret='songtoplist'}-->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable">
+				<col style="width:auto;"></col>
+				<col style="width:80px;"></col>
+				<col style="width:50px;"></col>
+				<col style="width:80px;"></col>
+				<col style="width: 100px;"></col>
+				<!--{foreach key=key item=item from=$songtoplist.page.items name=list}-->
+					<tr>
+						<td class="tl"><!--{$smarty.foreach.list.iteration}--> <!--{$item.song}--> </td>
+						<td><!--{$item.singeritems[0].singer}--></td>
+						<td><!--<span class="n"><!--{if $item.price}--><!--{math equation='(x/100)' x=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}--></span>--></td>
+						<td class="tc"><span class="">
+						<a id="<!--{$item.songid}-->" href="<!--{$item.fileitems[0].downloadurl}-->" type="3" price="<!--{math equation='(x)/100' x=$item.price|default:0}-->"  servicefee="<!--{math equation='(x)/100' x=$item.servicefee|default:0}-->" class="f2 change <!--{if $item.price or $item.servicefee}-->addcart<!--{else}-->downinit<!--{/if}-->" title="<!--{$item.name}-->">服务费:<!--{if $item.servicefee || $item.price}--><!--{math equation='(x/100 + y/100)' x=$item.servicefee|default:0} y=$item.price|default:0-->元<!--{else}-->免费<!--{/if}--></a>
+						</span></td>
+					</tr>
+				<!--{/foreach}-->
+			</table>
+			<div class="cl tc" style="margin:5px auto;"> </div>
+		</div>
+	<!--{/foreach}-->
+	
+	<div class="cl"></div>
+	</td></tr></table>
+</div></div>

@@ -1,0 +1,12 @@
+<!--{config_load file="smarty.conf" scope="global"}--><!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+<script type="text/javascript" src="<!--{#res5#}-->/resources/js<!--{#version#}-->/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="http://pcrapi.appdear.com/api/aipidown.js?key=test"></script>
+</head>
+<body style="padding:20px;">
+<button onclick='ApAddBook(null, "http://pcr5.appdear.com/test.txt", "测试电子书", function(status){ alert(status); }); return false;'>添加电子书</button>
+</body>
+</html>

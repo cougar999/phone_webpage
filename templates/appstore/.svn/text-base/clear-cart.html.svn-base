@@ -1,0 +1,24 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	<div class="scroll">
+	<div class="contentbody contentwrap" style="margin:20px 0 0 40px;">
+			<div id="cart_empty" class="section">
+				<div style="padding:60px;">
+						<table width="900" border="0" cellpadding="0" cellspacing="0" class="table" style="border:0px solid #cccccc;">
+							<tr>
+								<td width="200" class="tr"><img src="<!--{#res1#}-->/resources/img/img_cart.png" /> </td>
+								<td class="tl " style="padding-left:20px;line-height:30px;"> 
+										<font class="lf f9 t" color="#EF5000">文件开始下载，购物车数据已清空，欢迎继续挑选！</font>
+									<br />
+									<br />
+								</td>
+							</tr>
+						</table>
+				</div>
+			</div>	
+	</div>
+	</div>
+</div></div>

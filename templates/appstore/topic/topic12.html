@@ -1,0 +1,151 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>汉化游戏，不要错过哟！</h2>
+					<div class="evaDetail">
+						<div class="topicImgs">
+							<img src="/resources/img40/eva/zhuanti12_big.png" alt="汉化游戏，不要错过哟！" />
+						</div>
+						<blockquote>
+							汉化游戏，让您玩得清清楚楚，明明白白，不要错过哟！
+						</blockquote>
+						<div class="topiclist clear">
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120323/appdear_227223_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="156544" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120323/appdear_227223_g.apk?topicid=012&topicname=汉化游戏" installlocate="0" appid="com.game.baoshi2222" versioncode="7" version="v1.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="宝石大明星完美汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>宝石大明星完美汉化版</p>
+									<p>宝石大明星Jewels Star是一款经典的宝石消除类的游戏，你的任务赢得钻石之星，尝试每一个关卡都能够获取所有的星星…</p>
+									<p>大小：4.52MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_49643_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166394" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120903/appdear_540554_0903_m.apk?topicid=012&topicname=汉化游戏" installlocate="0" appid="net.kairosoft.android.gamedev3" versioncode="4" version="v1.0.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="游戏发展国 汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>游戏发展国 汉化版</p>
+									<p>体验游戏开发工作室的辛酸与乐趣！《游戏发展国》是一个易上手，易沉迷的小型模拟经营游戏，像素画风格的画面颇有怀旧味道…</p>
+									<p>大小：5.33MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130321/appdear_j92x6dwfx_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166583" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130321/appdear_lnbuorcac_android.apk?topicid=012&topicname=汉化游戏" installlocate="0" appid="com.android.JagsewPuzzle" versioncode="14" version="v1.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="疯狂的退休巫师 汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>疯狂的退休巫师 汉化版</p>
+									<p>《退休巫师（Retired Wizard Story）》曾经，我是这个王国中最伟大的巫师。但我放弃了财富和荣誉，住我的家乡过着一个…</p>
+									<p>大小：9.23MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_182276_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166831" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121114/appdear_3496979671_1114_b.apk?topicid=012&topicname=汉化游戏" installlocate="0" appid="com.zzj.dartNinja" versioncode="8" version="v1.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="飞镖忍者汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>飞镖忍者汉化版</p>
+									<p>你的手指就是你的武器。不断挥动你的武器来通过50个富有挑战的关卡。注意不同的飞镖，有的速度快，有些是透明的…</p>
+									<p>大小：8.45MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120517/appdear_199666_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166936" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130402/appdear_3474887325_0402_b.apk?topicid=012&topicname=汉化游戏" installlocate="0" appid="com.bringmore.game.Aliens" versioncode="228" version="v2.2.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="异形入侵 汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>异形入侵 汉化版</p>
+									<p>一款类似僵尸村的动作射击游戏，已汉化。 世界各地遭遇外星人入侵，作为一名幸存者，你必须为了生存而战…</p>
+									<p>大小：7.22MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120530/appdear_271560_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="253186" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121114/appdear_1818583658_1114_b.apk?topicid=012&topicname=汉化游戏" installlocate="0" appid="com.droidhen.defenderiii" versioncode="26" version="v1.2.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="魔域塔防2 汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>魔域塔防2 汉化版</p>
+									<p>魔域塔防2汉化版是一款来自DroidHen的又一游戏大作! 本次更新最大的特点是加入了联网对战模式…</p>
+									<p>大小：7.71MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120608/appdear_623667_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="256542" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120608/appdear_623667_0608_h.apk?topicid=012&topicname=汉化游戏" installlocate="0" appid="com.mmztech.bloodymaryhdd" versioncode="5" version="v1.2.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="血腥玛丽 汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>血腥玛丽 汉化版</p>
+									<p>《血腥玛丽》（Bloody Mary ）是一个冒险与自然扫描的结合的解谜游戏，如果你遇到了玛丽…</p>
+									<p>大小：28.19MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130321/appdear_gwwaj12yj_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="329759" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130321/appdear_pd47a5kgk_android.apk?topicid=012&topicname=汉化游戏" installlocate="0" appid="com.droidhen.defender2cnasm" versioncode="27" version="v1.2.7" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="猎魔勇士 III4 中文版"></a></p>
+								</dt>
+								<dd>
+									<p>猎魔勇士 III4 中文版</p>
+									<p>中文名：猎魔勇士 英文名：defender 游戏的玩法跟一代基本类似，还是一波又一波的怪物将要袭击…</p>
+									<p>大小：8.66MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121019/appdear_380946_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="333773" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121019/appdear_380946_1019_g.apk?topicid=012&topicname=汉化游戏" installlocate="0" appid="com.droidhen.newturbo" versioncode="21" version="v2.1.6" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="奔跑小孩 汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>奔跑小孩 汉化版</p>
+									<p>奔跑小孩（Turbo Kids）是Android平台一款可爱的休闲游戏，快来参加疯狂小孩们的比赛并赢取奖…</p>
+									<p>大小：13.11MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121222/appdear_357292_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="433085" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121222/appdear_357292_1222_g.apk?topicid=012&topicname=汉化游戏" installlocate="0" appid="com.minicliphr.devilninja2" versioncode="3200" version="v3.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="恶魔忍者2 汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>恶魔忍者2 汉化版</p>
+									<p>恶魔忍者2是 Devil Ninja 的第二部,这是一款还算不错的横版动作过关游戏,与第一部相比…</p>
+									<p>大小：6.57MB</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

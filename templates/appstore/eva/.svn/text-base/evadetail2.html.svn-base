@@ -1,0 +1,75 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>春运抢票神器 新版触宝拨号订票助手评测</h2>
+					<div class="evaDetail">
+						<p><strong>春运抢票神器触宝拨号</strong></p>
+						<p>又是一年春运时，对于在外辛苦工作一年的人们，顺利回家过年是每个人现在最大的愿望，不过抢不着火车票往往是摆在归心似箭的人们面前的第一座大山。火车运输能力严重不足是导致所能够合理分配给普通民众交通资源的主要原因，抢票抢资源是我们唯一能够获取这些资源的途径，“抢”才是硬道理，这也也成为了中国人日常生活中对待公共资源的一种文化和态度。</p>
+						<p class="tc"><img src="/resources/img40/eva/piao1.jpg" alt="春运抢票神器 新版触宝拨号订票助手评测" /><br />春运抢票神器 新版触宝拨号订票助手评测</p>
+						<p>在整个大环境下，为了方便民众提前做好回家的准备，铁道部也是提前了各种提前购票方式的日期，车站窗口和售票点的取票日期提前到了18天，而网络购票和电话订票则延长至20天，提前两天的预售期也让网络订票和电话订票变得更具优势。不过相比动不动就会因为点击量太大而瘫痪的12306订票网站，使用稳定而又快速的电话订票成功购得火车票的胜算更大一些。</p>
+						
+						<p class="tc"><img src="/resources/img40/eva/piao2.jpg" alt="触宝拨号春节订票助手" /><br />　触宝拨号春节订票助手</p>
+						<p>“工欲善其事必先利其器”，在你打电话的同一时刻也有成千上万的竞争者也在使用电话侵吞你的目标，这个时候想要从众多的对手中抢到那张可怜的回程票，快人一步才人获得成功。所谓“天下武功，无坚不破，唯快不破”，同样的道理也适用于抢购火车票上，想要在转瞬即逝的时间差抢到票，就需要我们具备能够快速拨通电话的工具，“触宝拨号”V4.5.3抢票神器版正是这样一款为抢购火车票而生的电话拨号助手。</p>
+						<p><strong>电话拨号快速订票</strong></p>
+						<p>新版触宝拨号中加入了火车票订票助手功能，通过创新的抢票功能以及号码慧眼的数据支持，用户借助最原始、最靠谱的电话订票方式预订火车票时，拨打订票电话触宝拨号的订票助手功能可以直接跳过语音提示过程，自动重播订票电话至接通，提高订火车票效率70%，成功订票率提高50%。</p>
+						<p class="tc"><img src="/resources/img40/eva/piao3.jpg" alt="快速拨打订票电话" /><br />快速拨打订票电话</p>
+						
+						<p class="tc"><img src="/resources/img40/eva/piao4.jpg" alt="复杂的电话订票流程（图片引自广西新闻网）" /><br />复杂的电话订票流程（图片引自广西新闻网）</p>
+						<p>在上图中我们可以看到一个完整的电话订票流程，在打电话之前我们要先确定乘车站、城市电话区号、乘车时间、席别、张数和订票车次，并记清订票人有效证件号码，并要按照语音提示选择订票的类型，整个过程操作下来非常的繁琐。</p>
+						<p><strong>两大订票杀手锏</strong></p>
+						<p>而“触宝拨号”之所以被称作为抢票神器，是因为在一开始它就化繁为简，略去繁琐的铺垫直接进入主订票环节。在“号码慧眼”这个非常好使的功能中，我们可以看到一个旁边有一个“订票助手”的标签，点击标签进入我们可以看到包括预定高铁、动车车票，预定普通车票以及预定学生车票和直拨订票电话95105105三种选项，这一环节直接省去了繁琐的语音提示，与普通的电话拨号相比，在拨号这一项我们就比其他用户在起跑线上提前助跑，相比之下我们的电话订票成功率将会更高。</p>
+						<p class="tc"><img src="/resources/img40/eva/piao5.jpg" alt="号码慧眼订票助手" /><br />号码慧眼订票助手</p>
+						<p class="tc"><img src="/resources/img40/eva/piao6.jpg" alt="快速进入订票环节" /><br />快速进入订票环节</p>
+						
+						<p>虽然电话订票系统不会像网络那样频繁瘫痪，但是它也有订票高峰时段，繁忙的电话系统迫使我们无法及时接入购票环节。这个时候“触宝拨号”的另一大杀手锏“自动重拨”功能的优势也逐渐凸现出来。相比手动重拨，“触宝拨号”的自动重拨功能不怕占线，能够无间断循环拨号，在电话未接通后自动重拨功能会自动拨打订票电话直到信号接入。这样省事省力的功能，可以在抢票时瞬间秒杀其他抢购者，将轻松把火车票收入囊中。</p>
+						<p class="tc"><img src="/resources/img40/eva/piao7.jpg" alt="自动重拨无缝接入" /><br />自动重拨无缝接入</p>
+						<p><strong>手势拨号快速告知家人</strong></p>
+						<p>能够在春运这样一个票源紧俏的时间段用触宝拨号抢到火车票当然是件值得欣慰的事情，为了及时告知回家的信息，不妨使用手势拨号功能告诉远在那头的牵挂着你的心爱的家人和朋友。作为一款强大的拨号功能，手势拨号允许我们通过画出简单的图形识别拨号人电话，例如画一个有爱的“心”就能拨通电话，将你的浓浓爱意传递给爱人，这要比翻阅查找电话簿简单得多。</p>
+						<p class="tc"><img src="/resources/img40/eva/piao8.jpg" alt="手势拨号快速告知家人" /><br />手势拨号快速告知家人</p>
+						<p>年底也是犯罪诈骗高峰期，无论是保险推销还是诈骗短信，总之我们会接收到很多骚扰电话，防骗和防骚扰是年底安稳过年所要翻越的另一座大山。触宝拨号也没有忽略到用户的这一需求，其核心功能“号码慧眼”通过“云+端”的形式精准的识别陌生来电。</p>
+						<p class="tc"><img src="/resources/img40/eva/piao9.jpg" alt="反骚扰防诈骗" /><br />反骚扰防诈骗</p>
+						<p><strong>号码慧眼智能防骗防骚扰</strong></p>
+						<p>通过精准的数据分析以及数据挖掘，触宝拨号会在云端收集并且整理海量数据，当再次有陌生的骚扰电话来电时，被标记为“疑似诈骗或推销保险电话”的号码就会显示“已被XX人标记过 该号码为保健品推销电话”，不仅如此用户还可以对陌生来电进行标注，该电话是否属于“骚扰电话、诈骗电话、人士猎头业务推销、理财保险、房产中介等等”，来电显示让用户一目了然。</p>
+						<p class="tc"><img src="/resources/img40/eva/piao10.jpg" alt="号码慧眼智能防骗防骚扰" /><br />号码慧眼智能防骗防骚扰</p>
+						<p class="tc"><img src="/resources/img40/eva/piao11.jpg" alt="号码慧眼智能防骗防骚扰" /><br />号码慧眼智能防骗防骚扰</p>
+						<p>用户上传后智能的云端系统会自行分析并且标记后分享给其他触宝拨号的用户。目前“号码慧眼”的识别数据量达到了千万级别，覆盖全国20多个人口密集城市，触宝拨号不仅可以识别全国公用陌生的号码，同时还可以来电显示被广大用户标记后的可疑来电，让用户安安稳稳过好年，而不必被骚扰电话而担心。</p>
+						<p>评测总结：快速购票和自动重拨功能在抢购火车票中的优秀表现使我们成功获取火车票的概率的大大增加，同时与实际生活紧密结合也是触宝拨号在推出时的核心价值，无论是抢火车票还是过年防骗的贴心功能，都让触宝拨号的服务理念不断提升，从而更好地帮助用户得到更好地生活体验。</p>
+						
+						<p>
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=112606&amp;phonetype=" onclick="gotopage(this); return false;">触宝拨号 下载</a>】
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=200465&amp;phonetype=" onclick="gotopage(this); return false;">手势拨号 下载</a>】
+							
+						</p>
+						
+						
+						
+						
+						
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

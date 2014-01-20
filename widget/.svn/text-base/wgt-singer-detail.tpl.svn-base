@@ -1,0 +1,44 @@
+<!--{feed int=AP_INT_SINGER_INFO sid=$box_id order=0 pageno=1 count=10 ret='singerinfo'}-->
+<div id="wgt-theme-detail" class="wgt-theme-detail"><div>
+	<div style="padding:0 0 20px;">
+		<div>
+			<img class="lf" src="<!--{#res1#}-->/resources/temp/singer_temp.png" style="width:136px; height:206px;border:1px solid #cccccc; padding:2px;" />
+			<div  style="margin-left: 161px;width:auto;line-height:23px;">
+				<div style="height:25px;">
+					<span class="lf f4 b"><!--{$singerinfo.name}--></span>
+				</div>
+				<div style="height:23px;">
+					<p>王心凌（Cyndi Wang，1982年9月5日出生）本名王君如，是一名台湾女歌手及女演员。2003年王心凌以偶像歌手身分出版首张个人专辑“Cyndi Begin”。</p>
+					<p>2003年出道时被媒体称为“新少男杀手”。2004年后，王心凌摆脱旧形象，以新的阳光学生造型出现，2005年因甜心的歌声及甜蜜的舞步被传媒称为“甜蜜教主”。</p>
+				</div>
+								
+			</div>	
+			<div class="cl"></div>	
+		</div>
+		<br />
+		<div class="section">
+			<div style="border-left:1px solid #cccccc;border-right:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+				<div style="padding:0px 10px;width:auto; height:31px; line-height:31px; background:url(<!--{#res2#}-->/resources/img/middle_title_bg.png);">
+					<span class="b f4 c1"><!--{$singerinfo.name|trim}-->的热门歌曲</span>
+				</div>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+					<div style="padding:0px;">
+					<!--{include file="wgt-singer-musiclist.html" box_id=$box_id}-->
+					</div>
+				</td></tr></table>		
+			</div>
+		</div>	
+		<div class="section">
+			<div style="border-left:1px solid #cccccc;border-right:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+				<div style="padding:0px 10px;width:auto; height:31px; line-height:31px; background:url(<!--{#res3#}-->/resources/img/middle_title_bg.png);">
+					<span class="b f4 c1"><!--{$singerinfo.name|trim}-->的专辑</span>
+				</div>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+					<div style="padding:20px 30px;">
+					<!--{include file="wgt-albumn-list.tpl" area_type=0}-->
+					</div>
+				</td></tr></table>		
+			</div>
+		</div>	
+	</div>
+</div></div>

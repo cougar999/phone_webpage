@@ -1,0 +1,38 @@
+<!--{feed int=AP_INT_C_BOOKLIST cid=$column_id order=0 pageno=1 count=10 ret='colomunlist'}-->
+<div class="fpic">
+	<a id="foclnk" href="/appstore/book-intro.html?bid=<!--{$colomunlist.page.items[0].bookid}-->"  onclick="gotopage(this); return false;"> 
+	<img id=focpic	style="FILTER: RevealTrans ( duration = 1，transition = 23 ); VISIBILITY: visible; POSITION: absolute"
+		height=282 alt="" src="<!--{if $colomunlist.page.items[0].imgurl}--><!--{$colomunlist.page.items[0].imgurl}-->_sf_202x282.png<!--{else}--><!--{/if}-->" width=202> </a>
+	<div id="ftitletxt" class="f2 b">
+		<a href="/appstore/book-intro.html?bid=<!--{$colomunlist.page.items[0].bookid}-->"  onclick="gotopage(this); return false;"><span class="book_f_white"><!--{$colomunlist.page.items[0].book|truncate_utf8_string:15:'...':true}--></span></a>
+	</div>
+	<div id="fdesctxt" class="f0">
+		<!--{$colomunlist.page.items[0].desc|truncate_utf8_string:35:'...':true}--><a href="/appstore/book-intro.html?bid=<!--{$colomunlist.page.items[0].bookid}-->"  onclick="gotopage(this); return false;"><span class="book_f_blue">[查看详细]</span></a>
+	</div>
+	<div id="sidethum">
+		<!--{section start=0 loop=$colomunlist.page.items name=sect max=4}-->
+			<div class="thubpiccur" id=tmb<!--{$smarty.section.sect.index}--> onmouseover="setfoc(<!--{$smarty.section.sect.index}-->);">
+				<div class="imgbrd">
+					<a href="/appstore/book-intro.html?bid=<!--{$colomunlist.page.items[sect].bookid}-->"  onclick="gotopage(this); return false;">
+					<img src="<!--{if $colomunlist.page.items[sect].imgurl != ''}--><!--{$colomunlist.page.items[sect].imgurl}-->_sf_47x65.png<!--{else}-->/resources/temp/01.jpg<!--{/if}-->" width=47 height=65 border="0">
+					</a>
+				</div>
+			</div>
+		<!--{/section}-->
+		<script language="javascript" type="text/javascript">
+			var picarry = {};
+			var lnkarry = {};
+			var ttlarry = {};
+			var descarry = {};
+			<!--{section start=0 loop=$colomunlist.page.items name=sect max=4}-->
+				picarry[<!--{$smarty.section.sect.index}-->] = "<!--{$assign.tp.TP_RES_URL}-->imagebook.php?width=202&height=282&image=<!--{if $colomunlist.page.items[sect].imgurl != ''}--><!--{$colomunlist.page.items[sect].imgurl}--><!--{else}-->/resources/temp/01.jpg<!--{/if}-->";
+				lnkarry[<!--{$smarty.section.sect.index}-->] = "/appstore/book-intro.html?bid=<!--{$colomunlist.page.items[sect].bookid}-->";
+				ttlarry[<!--{$smarty.section.sect.index}-->] = "<!--{$colomunlist.page.items[sect].book|truncate_utf8_string:13:'...':true}-->";
+				descarry[<!--{$smarty.section.sect.index}-->] = "<!--{$colomunlist.page.items[sect].desc|truncate_utf8_string:35:'...':true}-->";
+			<!--{/section}-->
+			$(function() {
+				setfoc(0);
+			});
+		</script>
+	</div>
+</div>

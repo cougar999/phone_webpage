@@ -1,0 +1,107 @@
+<!--{feed int=AP_INT_SOFT_INFO mid=$box_id order=0 pageno=1 count=10 ret='softinfo'}-->
+<div id="wgt-theme-detail" class="wgt-theme-detail"><div>
+	<div style="padding:0 0 20px;">
+		<div>
+			<img class="lf" src="<!--{#res1#}-->/resources/temp/subject_temp.png" style="width:155px; height:233px;border:1px solid #cccccc;padding:4px;" />
+			<div class="rg" style="width:260px;background:#F0F0F0;"><!--{$softinfo.imgitems}-->
+				<div style="padding:15px;">
+					<div class="b c2">此主题图片所含标签</div>
+					<div>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">动漫人物</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">卡通主题</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">花仙子</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">手机美化</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">插件</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">日本漫画</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">可爱风格</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">格斗术</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">动作</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">幻想</span>
+						<div class="cl"></div>
+					</div>
+					<div class="b c2">热门主题图片标签</div>
+					<div>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">美女</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">动漫</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">看电子书</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">手绘风格</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">非主流</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">最新</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">爱情</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">房祖名</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">钟欣桐</span>
+						<span class="lf f2 c5" style="margin:5px 6px;white-space: nowrap;">TWINNS</span>
+						<div class="cl"></div>
+					</div>
+				</div>
+			</div>
+			<div  style="margin-left: 168px;width:auto;line-height:23px;">
+				<div style="height:25px;">
+					<span class="lf f4 b">中国戏曲人物大全<!-- {$softinfo.name}--></span>
+					<span class="lf" style="margin-left:5px;"><img class="lf" src="<!--{#res2#}-->/resources/img/safety_certification.png"/></span>					
+				</div>
+				<div style="height:23px;">
+					<span class="lf f4 b">开发者：</span>
+					<span class="lf f2"><!--{$softinfo.developer}--></span>
+				</div>
+				<div style="height:23px;">
+					<span class="lf f4 b">分类：</span>
+					<span class="lf f2"><!--{$softinfo.catalog}--></span>
+				</div>
+				<div style="height:23px;">
+					<span class="lf f4 b">大小：</span>
+					<span class="lf f2"><!--{$softinfo.size}--></span>
+				</div>
+				<div style="height:23px;">
+					<span class="lf f4 b">格式：</span>
+					<span class="lf f2"><!--{$softinfo.format}--></span>
+				</div>
+				<div style="height:23px;">
+					<span class="lf f4 b">下载：</span>
+					<span class="lf f2"><!--{$softinfo.download}--></span>
+				</div>
+				<div style="height:23px;">
+					<span class="lf f4 b">上架时间：</span>
+					<span class="lf f2"><!--{$softinfo.updatedate}--></span>
+				</div>
+				<div style="height:23px;">
+					<span class="lf f4 b">评级：</span>
+					<div class="lf re">
+						<div class="lf" style="width:70px; height:14px; background:url(<!--{#res3#}-->/resources/images/star.png) repeat-x left center;"></div>
+						<div class="ab" style="right:0px;width:35px; height:14px; background:url(<!--{#res1#}-->/resources/images/star2.png) repeat-x right center;"></div>
+					</div>
+				</div>
+				
+				<div style="height:23px;">
+					<span class="lf f4 b">价格：</span>
+					<span class="lf f2 c5"><!--{$softinfo.price}--></span>
+				</div>
+				<div style="height:23px;">
+					<!--{if $softinfo.softid <3}-->
+					
+						<a id="<!--{$item.contentid}-->" href="<!--{$softinfo.downloadurl}-->" class="lf s downinit"><img src="<!--{#img2#}-->/resources/img/btn_download_big.png" class="png_bg" border="0"></a>
+				
+					<!--{else}-->	
+						<a id="<!--{$item.contentid}-->" href="" class="lf s"><img src="<!--{#res2#}-->/resources/img/btn_buy_big.png" class="png_bg" border="0"></a>
+					<!--{/if}-->
+					<span class="lf f4 b" style="margin-left:15px;"><img alt="" src="<!--{#res3#}-->/resources/img/preview.png"> 预览</span>
+				</div>				
+			</div>	
+			<div class="cl"></div>	
+		</div>
+		<br />
+		<div class="section">
+			<div style="border-left:1px solid #cccccc;border-right:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+				<div style="padding:0px 10px;width:auto; height:31px; line-height:31px; background:url(<!--{#res1#}-->/resources/img/middle_title_bg.png);">
+					<span class="b f4 c1">热门主题图片推荐</span>
+				</div>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+					<div style="padding:20px 30px;">
+					<!--{include file="wgt-theme-list.html"}-->
+					</div>
+				</td></tr></table>		
+			</div>
+		</div>	
+		<br />
+	</div>
+</div></div>

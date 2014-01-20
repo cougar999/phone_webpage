@@ -1,0 +1,18 @@
+
+<div id="wgt-navs" class="wgt-navs"><div class="navs">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+		<h3 class="lf">
+			<a href="?<!--{params type='3'}-->" class="hist tc" onclick="gotopage(this); return false;"><span class="title">文档</span></a>
+		</h3>
+		<h3 class="lf">
+			<a href="?<!--{params type='1'}-->" class="hist tc" onclick="gotopage(this); return false;"><span class="title">视频</span></a>
+		</h3>
+		<h3 class="lf">
+			<a href="?<!--{params type='2'}-->" class="hist tc" onclick="gotopage(this); return false;"><span class="title">音乐</span></a>
+		</h3>
+		<h3 class="lf">
+			<a href="?<!--{params type='4'}-->" class="hist tc" onclick="gotopage(this); return false;"><span class="title">图片</span></a>
+		</h3>
+		<div class="cl"></div>
+	</td></tr></table>
+</div></div>

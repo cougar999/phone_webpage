@@ -1,0 +1,64 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-sms.tpl"}-->
+	</div>
+	<div class="scroll">
+	<div class="loadings">
+		<div class="progressbar"><div id="progresswait" class="waiting"><div class="progressbg"></div></div></div>
+		正在读取短信，请稍候...
+	</div>
+	<script id="smslistTemplate" type="text/x-jquery-tmpl">
+		<tr id="smsitem-${id}">
+			<td class="tc"><input type="checkbox" value="${json}" class="checkbox" {{if type == 1}}id="${dataindex}"{{else}}id="t2-${dataindex}"{{/if}}/>
+			{{if type == 1}}
+			<label for="${dataindex}"></label>
+			{{else}}
+			<label for="t2-${dataindex}"></label>
+			{{/if}}
+			</td>
+			<td class="tc">{{if index}}${index}{{/if}}</td>
+			<td class="tc">
+				{{if type == 1}}
+					<img src="<!--{#res1#}-->/resources/img40/sms_in.png" width="38" height="38"  title="收件箱" alt="收件箱" />
+				{{else}}
+					<img src="<!--{#res2#}-->/resources/img40/sms_out.png" width="38" height="38" title="发件箱" alt="发件箱" />
+				{{/if}}
+			</td>
+			<td>{{if address}}${address}{{/if}}</td>
+			<td class="tl">{{if date}}${date}{{/if}}</td>
+			<td class="tl">{{if message}}${message}{{/if}}</td>
+		</tr>
+	</script>
+	
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable2 fixwidth" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+		<col style="width:60px;"></col>
+		<col style="width:80px;"></col>
+		<col style="width:70px;"></col>
+		<col style="width:150px;"></col>
+		<col style="width:150px;"></col>
+		<col style="width:auto;"></col>
+		
+		<thead>
+			<tr>
+			<th><input type="checkbox" class="selector checkbox" id="selectors" /><label for="selectors"></label></th>
+			<th>序号<span id="optdesc"></span></th>
+			<th></th>
+			<th class="tl">号码</th>
+			<th>时间</th>
+			<th class="tl">内容</th>
+			</tr>
+		</thead>
+	<tbody id="smslist">
+	
+	</tbody>
+	</table>
+	</div>
+</div></div>
+<script>
+	dispSMSList('#smslist');
+	if (/jumpUrl/.test(location.href) == false) {	
+		jumpUrl('phonemenu','sms');
+	}
+</script>

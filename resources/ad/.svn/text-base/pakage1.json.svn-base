@@ -1,0 +1,57 @@
+[
+{
+	"id":"201480",
+	"title":"百度手机浏览器",
+	"url":"http://od.appdear.com/soft/android/20120919/appdear_83721_android.apk?package=1",
+	"appid":"com.baidu.browser.apps",
+	"versioncode":"13",
+	"version":"v2.1.0.10",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"119196",
+	"title":"乐淘",
+	"url":"http://od.appdear.com/soft/android/20120705/appdear_56587_android.apk?package=1",
+	"appid":"com.letao.activity",
+	"versioncode":"10",
+	"version":"v3.0",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"115210",
+	"title":"艺龙无线",
+	"url":"http://od.appdear.com/soft/android/20121030/appdear_kywl1nbms_android.apk?package=1",
+	"appid":"com.dp.android.elong",
+	"versioncode":"410",
+	"version":"v4.1.0",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"116425",
+	"title":"腾讯手机管家",
+	"url":"http://od.appdear.com/soft/android/20121015/appdear_25069_android.apk?package=1",
+	"appid":"com.tencent.qqpimsecure",
+	"versioncode":"72",
+	"version":"v3.7.1",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+},
+{
+	"id":"10016",
+	"title":"塔读文学",
+	"url":"http://od.appdear.com/soft/android/20120928/appdear_90436_android.apk?package=1",
+	"appid":"com.tadu.android",
+	"versioncode":"21",
+	"version":"v6.2.37.1524",
+	"type":"1",
+	"price":"0",
+	"servicefee":"0"
+}
+]

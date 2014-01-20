@@ -1,0 +1,1559 @@
+//init
+if(null == cookies('salesid') || (JSON.parse(WebAppLocalStorage("salesid")).data) != cookies('salesid')){
+	(function getSalesid() {
+		var salesid = JSON.parse(WebAppLocalStorage("salesid"));
+		if (salesid) {
+			cookies('salesid', salesid.data, {path:'/'});
+		} else {
+			setTimeout(getSalesid, 200);
+		}
+	})();
+}
+
+if(null == cookies('uid') || (JSON.parse(WebAppLocalStorage("uid")).data) != cookies('uid')){
+	(function getUid() {
+		var uid = JSON.parse(WebAppLocalStorage("uid"));
+		if (uid) {
+			cookies('uid', uid.data, {path:'/'});
+		} else {
+			setTimeout(getUid, 200);
+		}
+	})();
+}
+
+if(null == cookies('salesname') || (JSON.parse(WebAppLocalStorage("salesname")).data) != cookies('salesname')){
+	(function getSalesname() {
+		var salesname = JSON.parse(WebAppLocalStorage("salesname"));
+		if (salesname) {
+			cookies('salesname', salesname.data, {path:'/'});
+		} else {
+			setTimeout(getSalesname, 200);
+		}
+	})();
+}
+
+if(null == cookies('shopid') || (JSON.parse(WebAppLocalStorage("shopid")).data) != cookies('shopid')){
+	(function getShopid() {
+		var shopid = JSON.parse(WebAppLocalStorage("shopid"));
+		if (shopid) {
+			cookies('shopid', shopid.data, {path:'/'});
+		} else {
+			setTimeout(getShopid, 200);
+		}
+	})();
+}
+
+if(null == cookies('pcrcode') || (JSON.parse(WebAppLocalStorage("pcrcode")).data) != cookies('pcrcode')){
+	(function getPcrcode() {
+		var pcrcode = JSON.parse(WebAppLocalStorage("pcrcode"));
+		if (pcrcode) {
+			cookies('pcrcode', pcrcode.data, {path:'/'});
+		} else {
+			setTimeout(getPcrcode, 200);
+		}
+	})();
+}
+
+if(null == cookies('channelcode') || (JSON.parse(WebAppLocalStorage("channelcode")).data) != cookies('channelcode')){
+	(function getChannelcode() {
+		var channelcode = JSON.parse(WebAppLocalStorage("channelcode"));
+		if (channelcode) {
+			cookies('channelcode', channelcode.data, {path:'/'});
+		} else {
+			setTimeout(getChannelcode, 200);
+		}
+	})();
+}
+
+//初始化后，检测用户登录的渠道码，用于下载
+
+(function(){
+	var sales = WebAppLocalStorage("salesid") || 0;
+	var salesid = JSON.parse(sales).data || 0;
+	if(salesid) {
+		$.get('/getsalesinfo.php', {said:salesid}, function(data){
+			var result = JSON.parse(data) || 0;
+			if (result.result.resultcode == '000000') {
+				var schncode = result.schncode;
+				WebAppLocalStorage("schncode", schncode);
+			}
+		});	
+	}
+})();
+
+function checkappstatus(obj){
+	var obj_this = obj;
+	var rows = new Array();
+	var i = 0;
+	obj_this.each(function(){
+		if(3 == $(this).attr("businesstype")) return;
+		if ($(this).hasClass('change')) return;
+		rows[i]= {
+			appid : $(this).attr("appid")|| $(this).attr("title"),
+			versioncode : $(this).attr("versioncode")
+		};
+		i++;
+	});
+	delete i;
+	checkapp(rows ,function(arr_result){
+		obj_this.each(function(){
+			var result = arr_result[$(this).attr("appid")|| $(this).attr("title")];
+			if (result < 0) {
+				if ($(this).attr('isbiz') == 1) return;
+				$(this).attr("disabled",true);
+				$(this).attr("href", "javascript:void(0)");
+				if($(this).hasClass('newpage')){
+					$(this).css({'background':'url(' + _img4 + '/resources/img40/yianzhuang-xiao_normal.png) no-repeat'});
+				} else if($(this).closest('.downinit_s').length > 0){
+					if ($(this).html().length > 0) {
+						$(this).css({'background':'url(' + _img4 + '/resources/img40/yianzhuang-xiao_normal.png) no-repeat'});
+					} else {
+						$(this).removeClass("downbtn_small").addClass("js_installed_small").hide();
+					}
+				} else {
+					if ($(this).find('img').hasClass('imgbig')){
+						$(this).removeClass('downbtnbig').addClass('installedbtnbig').find('img').attr('src', _img4 + '/resources/images/transparent.gif');;
+					}else{
+						$(this).find('img').attr('class', 'js_installed_mid').attr('src', _img4 + '/resources/img40/btn_installed_normal.png');
+						if ($(this).attr("tagName") == 'INPUT') {
+							$(this).parent().next().next().append(' <span style="color:red;">已安装</span>');
+						}
+					}
+				}
+			} else if (result > 0) {
+				if ($(this).attr('isbiz') == 1) return;
+				if($(this).hasClass('newpage')){
+					$(this).css({'background':'url(' + _img4 + '/resources/img/gengxin-xiao_normal.png) no-repeat'});
+				} else if($(this).closest('.downinit_s').length > 0){
+					if ($(this).html().length > 0) {
+						$(this).css({'background':'url(' + _img4 + '/resources/img/gengxin-xiao_normal.png) no-repeat'});
+					} else {
+						$(this).removeClass("downbtn_small").addClass("js_update_small").hide();
+					}
+				} else{
+					if ($(this).find('img').hasClass('imgbig')){
+						$(this).removeClass('downbtnbig').addClass('updatebtnbig').find('img').attr('src', _img4 + '/resources/images/transparent.gif');;
+						$(this).find('img').parent().attr('href', $(this).attr('href') + '&update=1');
+					}else{
+						$(this).find('img').attr('class', 'js_update_mid').attr('src', _img4 + '/resources/images/transparent.gif');
+						$(this).find('img').parent().attr('href', $(this).attr('href') + '&update=1');
+						if ($(this).attr("tagName") == 'INPUT') {
+							$(this).parent().next().next().append(' <span style="color:red;">更新</span>');
+						}
+					}
+				}
+			} else {
+				return;
+			}
+		});
+	});
+	delete rows;
+	delete obj_this;
+}
+
+$(document).ready(function(){
+	if (parent == self) {
+		var currentPhone = getCurrentPhone();
+		if (currentPhone && currentPhone.imei) {
+			$('#connect_stat').children('#unconnect').hide();
+			$('#connect_stat').children('#connected').show();
+		}
+		else {
+			$('#connect_stat').children('#unconnect').show();
+			$('#connect_stat').children('#connected').hide();
+		}
+	}
+});
+
+$(document).ready(function(){
+	
+	if (parent.document != document) {
+		$('#pageloading', parent.document).hide();
+	}
+	
+	$(window).resize(function(){
+		$('.scroll').each(function(){
+			$(this).css('height', document.body.clientHeight - $('.contentside').outerHeight());
+		});
+		if (location.href.indexOf('download.html') > -1 ) {
+			$('body').css('overflow','hidden');
+		}
+	});
+	
+	$('input.selector').live('click', function(){
+		if (this.checked) {
+			if (this.value && this.value != 'on') {
+				$(this.value).find('input:not(:checked)').each(function(){
+					if (!this.disabled)
+						this.checked = true; 
+				});
+			} else {
+				$(this).closest('thead').next('tbody').find('tr input:not(:checked)').each(function(){
+					if (!this.disabled)
+						this.checked = true; 
+				}); 
+			}
+		} else {
+			if (this.value && this.value != 'on') {
+				$(this.value).find('input:checked').each(function(){
+					if (!this.disabled)
+						this.checked = false; 
+				});
+			} else {
+				$(this).closest('thead').next('tbody').find('tr input:checked').each(function(){ 
+					if (!this.disabled)
+					this.checked = false; 
+				});
+			}
+		}
+	});
+	
+	/*$('div.loopedSlider').each(function() {
+		$(this).loopedSlider({
+			container : this.id + '-container',
+			slideClass: 'photo',
+			autoHeight: false,
+			fadeSpeed: 250,
+			slideSpeed: 150
+		});
+	});*/
+	
+	$('#back, #forward').bind('click', function(){
+		if (this.hash == '#back') {
+			window.history.back();
+		} else if (this.hash == '#forward') {
+			window.history.forward();
+		}
+		return false;
+	});
+	
+	(function () {
+		setTimeout(function(){
+		$('#refresh').bind('click', function(){
+			if (this.hash == '#refresh') {
+				WebAppSessionStorage(location.href, true);
+				//location.href = location.href;
+				window.location.reload(location.href);
+			}
+			return false;
+		});
+	} ,1500);
+	})();
+	
+	//顶部工具栏搜索框
+	(function () {
+		var oSelect = document.getElementById("seasele");
+		var oSub = document.getElementById("sealist");
+		var keywords = document.getElementById("keyword") || document.getElementById("keyword1");
+		if(!oSub) return;
+		var aLi = oSub.getElementsByTagName("a");
+		var i = 0;
+	
+		oSelect.onclick = function (event){
+			var style = oSub.style;
+			style.display = style.display == "block" ? "none" : "block";
+			(event || window.event).cancelBubble = true ;//阻止事件冒泡
+		};
+		for (i = 0; i < aLi.length; i++) {
+			//鼠标划过
+			aLi[i].onmouseover = function() {
+				this.className = "hover";
+			};
+			//鼠标离开
+			aLi[i].onmouseout = function()	{
+				this.className = "";
+			};
+			//鼠标点击
+			aLi[i].onclick = function() {
+				keywords.value = this.innerText;
+				oSub.style.display = "none";
+			};
+		};
+		/*document.onclick = function() {
+			oSub.style.display = "none";
+		};*/
+		var oValue = document.getElementById("seatype");
+		if(oValue.value == 1) {
+			$("#seasele").removeClass().addClass("sch_soft");
+		} else if (oValue.value == 3){
+			$("#seasele").removeClass().addClass("sch_music");
+		} else if (oValue.value == 5){
+			$("#seasele").removeClass().addClass("sch_book");
+		} else if (oValue.value == 7){
+			$("#seasele").removeClass().addClass("sch_theme");
+		}
+
+			//搜索弹出自动补全功能
+			$("#keyword").autocomplete('/searchautocomplete.php', {
+				dataType: "json",
+				parse: function(data) {
+					var rows = [];
+				    for(var i=0; i<data.autolist.count; i++){
+				        rows[rows.length] = {
+				        		data:data.autolist.items[i].contentname,
+						        //data:data.autolist.items[i].contentname + ' <span class="rg">搜索次数 ' + data.autolist.items[i].searchnum + '</span>',
+				        		result:data.autolist.items[i].contentname,
+				          		value:data.autolist.items[i].searchnum
+				        };
+				    }
+				    return rows;
+				},
+				formatItem: function(row, i, n) {
+				      return row;
+				},
+				scroll:false,
+				width:181,
+				selectFirst:false,
+				minChars:1
+			});
+	})();
+	
+	$(document).ready(function(){
+		$("#sealist li a").bind("click", function(){
+			if($(this).attr("href") == '#1') {
+				$("#seasele").removeClass().addClass("sch_soft");
+			} else if ($(this).attr("href") == '#3'){
+				$("#seasele").removeClass().addClass("sch_music");
+			} else if ($(this).attr("href") == '#5'){
+				$("#seasele").removeClass().addClass("sch_book");
+			} else if ($(this).attr("href") == '#7'){
+				$("#seasele").removeClass().addClass("sch_theme");
+			}
+			//var seasele = event.srcElement;
+			var seasele = $(this);
+			var seanumber = seasele[0].hash ? seasele[0].hash.substr(1) : seasele[0].firstChild.hash.substr(1);
+			$('#seatype').val(seanumber);
+			$('#sealist li').show();
+			$(seasele).parent().parent().hide();
+			return false;
+		});
+		
+		$("#keyword").bind("click", function(){
+			if($("#keyword").val()=='软件游戏' || $("#keyword").val()=='音乐歌曲' || $("#keyword").val()=='电子书籍' || $("#keyword").val()=='主题图片' ){
+				$("#keyword").val('');
+			};
+		});
+		
+	});
+	
+	if($('input.buyitem, input.downitem, .downinit, .addcart').length > 0){
+		checkappstatus($('input.buyitem, input.downitem, .downinit, .addcart'));
+	}
+	
+	//图像预览弹出层
+	$(".fileitem").live('click',function(){
+		$('.fileitem').colorbox({rel:'fileitem',innerWidth:'50%',innderHeight:'30%'});
+	});
+	
+});
+
+$(document).ready(function(){
+	$('table.treetable').each(function() {
+		var settings = {expandable:true, initialState:"expanded", treeColumn:1};
+		var options = $(this).metadata();
+		$table = $(this).treeTable(jQuery.extend(settings, options));
+	});
+
+	$('.wgt-app-list li').live('mouseenter', function () {
+			$(this).find('.softfav').show();
+			$(this).find('.downinit_s').show();
+			$(this).find('.softservice').hide();
+			$(this).find('.downinit').show();
+	}).live('mouseleave', function () {
+			$(this).find('.softfav').hide();
+			$(this).find('.downinit_s').hide();
+			$(this).find('.softservice').show();
+			$(this).find('.downinit').hide();
+	});
+	/*$('table.datatable tbody tr').live('mouseenter', function () {
+			$(this).find('.softfav').show();
+			$(this).find('.downinit_s').show();
+			$(this).find('.softservice').hide();
+			$(this).find('.downinit').show().addClass('downbtn_small');
+			$(this).find('a.change').trigger("change1");
+	}).live('mouseleave', function () {
+			$(this).find('.softfav').hide();
+			$(this).find('.softservice').show();
+			$(this).find('.downinit').hide().removeClass('downbtn_small');
+			$(this).find('a.change').trigger("change2");
+	});*/
+	$('table.datatable tbody tr').live('mouseenter', function () {
+			$(this).addClass("hover");
+			$(this).find('.softservice').hide();
+			$(this).find('.downinit').show();
+			$(this).find('a.changex').trigger("change1");
+	}).live('mouseleave', function () {
+			$(this).removeClass("hover");
+			$(this).find('.softservice').show();
+			$(this).find('a.changex').trigger("change2");
+	});
+		
+	$('a.changex').live('change1', function(){
+		if ($(this).hasClass('js_update_small')) {
+			$(this).show();
+		} else if ($(this).hasClass('js_installed_small')) {
+			$(this).show();
+		}  else if ($(this).hasClass('addcart')) {
+			$(this).html('<img src="' + _img4 + '/resources/images/transparent.gif" class="buy" border="0" title="' + $(this).text() + '" />');
+		} else {
+			$(this).html('<img src="' + _img4 + '/resources/images/transparent.gif" class="downbtn_small" border="0" title="' + $(this).text() + '" />');	
+		}
+	});
+
+	$('a.changex').live('change2', function(){
+		if ($(this).hasClass('js_update_small')) {
+			$(this).hide();
+		} else if ($(this).hasClass('js_installed_small')) {
+			$(this).hide();
+		} else {
+			$(this).html($(this).find('img').attr('title'));
+		}
+		/*$(this).each(function() {
+			$(this).html($(this).find('img').attr('title'));
+		});*/
+	});
+	
+	//$('.tooltip').tooltip();
+	
+	$('.openlink').live('click',function(){
+		var file = JSON.stringify ({exefile:'', openfile:this.href, windowstyle:'1'});
+		setDataCache(null, 'shellexecute', file, function(data, status){
+			if (status != 'ok') return;
+			log('open:' + file);
+		});
+	});
+	
+}); 
+
+
+$(document).ready(function(){
+	var url = document.location.href;
+	var ena = /^(.*\.com\/appstore\/)(common-tools\.html|download\.html|fea\.html|top-download\.html|new\.html|app\.html|app_home\.html|game\.html|game_home\.html|music\.html|book\.html|book-index\.html|theme-soft\.html|theme-soft-detal\.html)/i.test(url);
+	var ena1 = /^(.*\.com\/start\/)(feature\.html|overview\.html|datacopy\.html|exquisitepack\.html|soft\.html|download\.html)/i.test(url);
+	var ena3 = /^(.*\.com\/mobile\/)(backup\.html|overview\.html|restore\.html||app\.html|contacts\.html|sms\.html|file\.html|download\.html)/i.test(url);
+	var ena4 = /^(.*\.com\/member\/)(register\.html|overview\.html|buy\.html|activation\.html)/i.test(url);
+	var ena5 = /^(.*\.com\/zone\/)(video\.html|music\.html|admin\.html)/i.test(url);
+	var ena6 = /^(.*\.com\/fitting\/)(fittings\.html|apples\.html|ybcard\.html)/i.test(url);
+	var ena7 = /^(.*\.com\/intergral\/)(intergral\.html|quests\.html|task_ranking\.html|task_rule\.html|task_exchange\.html)/i.test(url);
+	var ena8 = /^(.*\.com\/favorite\/)(favorite\.html|game\.html|cd-file\.html)/i.test(url);
+	if (
+			parent && parent.document != document && ena ||
+			parent && parent.document != document && ena1 ||
+			parent && parent.document != document && ena3 ||
+			parent && parent.document != document && ena4 ||
+			parent && parent.document != document && ena5 ||
+			parent && parent.document != document && ena6 ||
+			parent && parent.document != document && ena7 ||
+			parent && parent.document != document && ena8
+		) {
+		$('div.menu', parent.document).each(function() {
+			$(this).find('ul a').each(function(){
+				var pos = this.href.indexOf('gotopage=');
+				if (pos > -1) {
+					var url = this.href.substr(pos + 9);
+				} else {
+					var url = this.href.substr(location.href.indexOf('.com/') + 4);
+				}
+				
+				var deurl = decodeURIComponent(url);
+				pos = deurl.indexOf('&phonetype=');
+				if (pos > -1) {
+					url = deurl.substr(0, pos);
+				} else {
+					url = deurl;
+				}
+				
+				if (location.href.indexOf(url) > -1) {
+					$(this).removeClass("active").addClass("active");
+				} else {
+					$(this).removeClass("active");
+				}
+			});
+		});
+	
+		$('div.menu', parent.document).each(function() {
+			$(this).find('dl a').each(function(){
+				var pos = this.href.indexOf('gotopage=');
+				if (pos > -1) {
+					var url = this.href.substr(pos + 9);
+				} else {
+					var url = this.href.substr(location.href.indexOf('.com/') + 4);
+				}
+				var deurl = decodeURIComponent(url);
+				pos = deurl.indexOf('&phonetype=');
+				if (pos > -1) {
+					url = deurl.substr(0, pos);
+				} else {
+					url = deurl;
+				}
+				
+				if (location.href.indexOf(url) > -1) {
+					$(this).removeClass("active").addClass("active");
+				} else {
+					$(this).removeClass("active");
+				}
+			});
+		});
+	
+		$('div.menu', parent.document).each(function() {
+			$(this).find('h3>a').each(function(){
+				var pos = this.href.indexOf('gotopage=');
+				if (pos > -1) {
+					var url = this.href.substr(pos + 9);
+				} else {
+					var url = this.href.substr(location.href.indexOf('.com/') + 4);
+				}
+				var deurl = decodeURIComponent(url);
+				
+				pos = deurl.indexOf('&phonetype=');
+				if (pos > -1) {
+					url = deurl.substr(0, pos);
+				} else {
+					url = deurl;
+				}
+				
+				if (location.href.indexOf(url) > -1 || $(this).closest('h3').next('dl,ul').find('.active').length > 0) {
+					$(this).closest('h3').removeClass("active").addClass("active");
+					/*$(this).children('span.icon-down').trigger('click');
+					$(this).children('span.icon-down').closest('h3').next('dl,ul').show();*/
+					$(this).children('span.icon-down').removeClass("icon-down").addClass("icon-up");
+					
+				} else {
+					$(this).closest('h3').removeClass("active");
+					/*$(this).children('span.icon-up').trigger('click');
+					$(this).children('span.icon-up').closest('h3').next('dl,ul').hide();*/
+					$(this).children('span.icon-up').removeClass("icon-up").addClass("icon-down");
+					
+				}
+			});
+			if ($(this).find('h3.active').length == 0) { $(this).find('h3:first').addClass('active'); }
+		});
+		
+	}
+	
+	$('div.navs').each(function() {
+		$(this).find('h3>a').each(function(){
+			if (location.href.indexOf(this.href) > -1) {
+				$(this).closest('h3').removeClass("active").addClass("active");
+			}
+		});
+		if ($(this).find('h3.active').length == 0) { $(this).find('h3:first').addClass('active'); }
+	});
+	
+	$('div.cats').each(function() {
+		$(this).find('h3>a').each(function(){
+			var local = location.href;
+			var url = this.href; 
+			if (local.indexOf(url) > -1) {
+				$(this).closest('h3').removeClass("active").addClass("active");
+			} else if (local.indexOf('contentid=')> -1 && local.substr(local.indexOf('contentid=')+10,6) == url.substr(url.indexOf('contentid=')+10,6)) {
+				$(this).closest('h3').removeClass("active").addClass("active");
+			}
+		});
+		if ($(this).find('h3.active').length == 0) { $(this).find('h3:first').addClass('active'); }
+	});
+	
+	$('div.sort').each(function() {
+		$(this).find('h3>a').each(function(){
+			if (location.href == this.href) {
+				$(this).closest('h3').removeClass("active").addClass("active");
+			} 
+		});
+	});
+	
+	/*
+	$('div.menu h3 a span.icon-down').live('click', function(){
+		$(this).removeClass("icon-down").addClass("icon-up");
+		$(this).closest('h3').next('dl,ul').show();
+		return false;
+	});
+	
+	$('div.menu h3 a span.icon-up').live('click', function(){
+		$(this).removeClass("icon-up").addClass("icon-down");
+		$(this).closest('h3').next('dl,ul').hide();
+		return false;
+	});
+	*/
+});
+
+$(document).ready(function(){
+	$('div.menu h3 a').bind('click', function() {
+			$(this).closest('h3').siblings().next('dl,ul').hide();
+			$(this).closest('h3').next('dl,ul').show();
+			$(this).closest('h3').addClass('active');
+			$(this).closest('h3').siblings().removeClass();
+	});
+});
+
+//注册登录开始 
+$(document).ready(function(){
+
+	//初始化结果
+	var RegResult ={
+		username:false,
+	    password:false,
+	    passwordconfim:false,
+	    mobilephone:false
+	};
+	
+	//检查用户名
+	function chkUsername() {
+		var username = $.trim($("#register_username").val());
+		if(username=="") {
+			return 0;
+		}
+		else if(fLen( username ) < 6 ){
+			//用户名长度小于6个字符
+			return -2;
+		}
+		else if(! /^\w+$/.test( username ) ){
+			//用户名只能包含_,英文字母，数字
+			return -3;
+		}
+		else if(!(/[0-9a-zA-Z]+$/.test( username ))){
+			//用户名只能英文字母或数字结尾
+			return -5;
+		}else if(fLen( username ) > 25 ){
+			//用户名长度大于25个字符
+			return -6;
+		}
+		return 1;
+	}
+	
+	//检查用户名是否是手机号
+	function chkUsernameType() {
+		var username = $.trim($("#register_username").val());
+		reg = /^(130|131|132|133|134|135|136|137|138|139|147|150|151|152|153|155|156|157|158|159|180|182|183|185|186|187|188|189)[0-9]{8}$/i;
+		if(reg.test(username) == true){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+	
+	//检查密码格式
+	function chkPassword(){
+		var password=$.trim($("#password").val());
+		if(password == "") return 0;
+		
+		var len;
+		var i;
+		var isPassword = true;
+		len = 0;
+		for (i=0;i<password.length;i++){
+			if (password.charCodeAt(i)>255) isPassword = false;
+		}
+		if(!isPassword || password.length < 6)
+			return -1;
+		if(password.length > 16 )
+			return -2;
+		return 1;
+	}
+	
+	function chkPasswordconfirm(){
+		var password= $("#password").val();
+		var passwordconfirm = $("#nextpassword").val();
+		 if(passwordconfirm==''){
+			showNoticeMessage("wrong","请验证密码","passwWrap");
+			return false;
+		}
+		if(password != passwordconfirm){
+			showNoticeMessage("wrong","两次输入的密码不一致","passwWrap");
+			return false;
+		} else {
+			showNoticeMessage("success","两次密码输入一致","passwWrap");			
+			RegResult.passwordconfim=true;
+			return false;
+		}
+	}
+	
+	//显示验证结果
+	function showNoticeMessage(type,text,obje){
+		$("p").remove(".is"+obje);
+		var stylel="";
+		if(type=="success"){
+			$("#"+obje).append("<p class=\"notice is"+obje+"\" ><b class=\"ico ico-succ\"></b> <span class=\"txt-succ\">"+text+"</span></p>");
+		}else if(type=="wrong"){
+	         if(obje=="serviceItmeWrap"){
+				stylel="";
+			}
+			$("#"+obje).append("<p class=\"notice is"+obje+"\" "+stylel+" ><b class=\"ico ico-warning\"></b> <span class=\"txt-err\">"+text+"</span></p>");
+			$("#"+obje+" input:first-child").attr("class","g-ipt g-ipt-err");
+		}
+	}
+	function  deleteNoticeMessage(obje){
+		$(".notice").remove(".is"+obje);
+	}
+	
+	//计算字符数，一个中文2个字符
+	function fLen(Obj){
+	  var nCNLenth = 0;
+	  var nLenth = Obj.length;
+	  for (var i=0; i<nLenth; i++){
+	    if(Obj.charCodeAt(i)>255){
+	      nCNLenth += 2; 
+	    }else{
+	      nCNLenth++;
+	    }
+	  }
+	  return nCNLenth;
+	}
+	
+	//<summary>获得字符串实际长度，中文2，英文1</summary><param name="str">要获得长度的字符串</param>
+	function str_GetLength(str) {
+	    var realLength = 0, len = str.length, charCode = -1;
+	    for (var i = 0; i < len; i++) {
+	        charCode = str.charCodeAt(i);
+	        if (charCode >= 0 && charCode <= 128) realLength += 1;
+	        else realLength += 2;
+	    }
+	    return realLength;
+	}
+	
+	$("#register_username").bind("blur",function(){
+		$("#namex").hide();
+		var unmaea=$.trim($("#register_username").val());
+		var ret = chkUsername();
+		if(ret > 0) {
+			jQuery.post("/checkuser.php",{name:unmaea}, function(data) {
+				//alert(data);
+				if (data != "success" ){
+					showNoticeMessage("wrong","该用户名已被占用","unamewap");
+					RegResult.username = false;
+					return false;
+				} else {
+					showNoticeMessage("success","恭喜，用户名可以注册","unamewap");
+					RegResult.username = true;
+					return false;
+				}
+			});
+		}
+		else if(ret == 0) {
+			//用户名输入框为空,显示规则
+	    	showNoticeMessage("wrong","用户名不能为空","unamewap");
+			RegResult.username = false;
+			return false;
+		}
+		else if(ret == -2) {
+		    showNoticeMessage("wrong","用户名少于6个字符","unamewap");
+			RegResult.username = false;
+			return false;
+		}
+		else if(ret == -6) {
+			showNoticeMessage("wrong","您写的太多了 只能输入6~25个字符","unamewap");
+			RegResult.username = false;
+			return false;
+		}
+		else if(ret == -3) {
+			showNoticeMessage("wrong","只能输入字母、数字和下划线","unamewap");
+			RegResult.username = false;
+			return false;
+		}
+		else if(ret == -5) {
+			showNoticeMessage("wrong","请以字母或数字结尾","unamewap");
+			RegResult.username = false;
+			return false;
+		}
+	
+	});
+	$("#password").bind("blur",function(){
+		$("#passx").hide();
+		var unmaea=$.trim($("#register_username").val());
+		var pawwordc=$.trim($("#password").val());
+		var pare=chkPassword();
+		if (unmaea == pawwordc){
+			showNoticeMessage("wrong","密码不能和用户名相同","passwWrap");
+			RegResult.password = false;
+			return false;
+		}
+		else if(pare <= 0){
+			showNoticeMessage("wrong","密码长度应为6~16个字符","passwWrap");
+			RegResult.password = false;
+			return false;	
+		}
+		else if (pare > 0){
+		showNoticeMessage("success","密码格式符合要求","passwWrap");
+		RegResult.password = true;
+		RegResult.passwordconfim = false;
+		}
+	});
+	
+	//校验密码
+	$("#nextpassword").bind("focus",function(){
+		RegResult.passwordconfim = false;
+	});
+	
+	$("#nextpassword").bind("blur",chkPasswordconfirm);
+		
+	//点击按钮检测表单
+	$("#register").live("click", function(){
+		var ret = chkUsername();
+		var pare = chkPassword();
+		var isphone = chkUsernameType();
+		$("#register_username").trigger("blur");
+		$("#password").trigger("blur");
+		if (RegResult.username != true || RegResult.password != true || RegResult.passwordconfim != true ) {
+			cbMessage('您的信息不符合要求，请完善');
+			RegResult.username = false;
+			RegResult.password = false;
+			RegResult.passwordconfim = false;
+			return false;
+		}else {			
+			var name = $.trim($("#register_username").val());
+			var passwd = $.trim($("#password").val());
+			var send = {name:name, passwd:passwd};
+		//	alert(isphone);
+			if (isphone==0){
+				jQuery.post('/register.php', send, function(data){
+					if (data && data.isok && data.isok == 1) {
+						cbMessage('<span class="f4 b" style="color:#ef4f03;">注册成功！</span>', function(){
+							document.location.href = '/member/overview.html';
+							$(this).colorbox.close();
+						}, null, '请到会员中心登录。');
+						return false;
+					} else {
+						cbMessage('注册失败！', null, null, '您的用户名可能已被注册，请检查输入用户名和密码！或稍后重试');
+					}
+					self.disabled = true;
+					return false;
+				}, 'json');
+			}else{
+				//if (checkphone() == false) { return false; } 
+				cbWaiting('&nbsp;', function(){
+		    		jQuery.post('/registercheckcode.php', {mobile:name}, function(data){
+		    			if (data && data.result && data.isok && data.isok == 1) {
+		    				cbMessage('验证码已发送到手机', function(){
+								var checkcode = $.trim($('#checkcode').val());
+								if(checkcode == ''){
+						    		cbMessage('请输入您接收的验证码');
+									return false;
+								}
+						    	if(/^[0-9]{6}$/i.test(checkcode) == false){
+						    		cbMessage('验证码格式错误 ');
+									return false;
+								}
+						    	
+						    	cbWaiting('&nbsp;', function(){
+							    	jQuery.post('/mobileregister.php', {mobile:name, passwd:passwd, checkcode:checkcode}, function(data){
+							    		if (data && data.isok && data.isok == 1) {
+							    			cbMessage('<span class="f4 b" style="color:#ef4f03;">注册成功！</span>', function(){
+												document.location.href = '/member/overview.html';
+												$(this).colorbox.close();
+												self.disabled = true;
+											}, parent.$.fn.colorbox, '请到会员中心登录。');												
+										} else if (data && data.result && data.isok && data.isok == 2) {
+											cbMessage('注册失败！', null, parent.$.fn.colorbox, '手机验证码无效，请重新操作！');
+										} else if (data && data.result && data.isok && data.isok == 3) {
+											cbMessage('注册失败！', null, parent.$.fn.colorbox, '手机用户已被注册！');
+										} else {
+											cbMessage('注册失败！', null, parent.$.fn.colorbox);
+										}
+							    		return false;
+									}, 'json');
+							    	return false;
+						    	});
+							}, parent.$.fn.colorbox, '请输入您的验证码:<input type="text" id="checkcode" style="width:150px;" />');
+		    			} else {
+		    				cbMessage('注册失败！', null, parent.$.fn.colorbox );
+		    			}
+	
+					}, 'json');
+		    	}, parent.$.fn.colorbox);					
+			}
+		}
+		return false;
+	});
+	
+	
+	$('#purchase,#purchase1').bind('click', function(){
+		$.colorbox({href:'/purchase-tip.html', iframe:true, width:500, height:275, close:false, overlayClose:false});
+		return false;
+	});
+	
+	$('#login').bind('click', function(){
+		var sessionid = cookies('sessionid');
+		var name = $.trim($('#username').val())?$.trim($('#username').val()):'';
+		var passwd = $.trim($('#password').val())?$.trim($('#password').val()):'';
+		if (name==''){
+			cbMessage('用户名不能为空！');
+			return false;
+		}
+		if (passwd==''){
+			cbMessage('密码不能为空！');
+			return false;
+		}
+		
+		var send = {name:name, passwd:passwd};	
+		jQuery.post('/userlogin.php', send, function(data){
+			var resultcode = data.result.resultcode || '';
+			if (resultcode=='000000'){
+				var self = this;
+				self.disabled = true;
+				var userid = data.userid;
+				var sessionid = data.sessionid;
+				cookies('userid', userid, {path:'/'});
+				cookies('sessionid', sessionid, {path:'/'});
+				location.href="/member/overview.html?userid=" + userid + "&sessionid=" + sessionid;
+			}else{
+				cbMessage(data.result.resultinfo);
+				return false;
+			}
+								
+		}, 'json');
+		
+	});
+	/*发送找回密码手机验证码*/
+	$('#SendFindPasswdCode').live('click', function(){
+		var mbnmb = $.trim($("#username").val());
+		function fLen(Obj){
+			var nCNLenth = 0;
+		  	var nLenth = Obj.length;
+		  	for (var i=0; i<nLenth; i++){
+		    	if(Obj.charCodeAt(i)>255){
+		     	nCNLenth += 2; 
+		    } else {
+		      	nCNLenth++;
+		    }
+		  }
+		  return nCNLenth;
+		}
+		if(mbnmb=="") {
+			 $('#sentcode').css('visibility','visible').text('请输入手机号');
+			   return false;
+		} else if(fLen( mbnmb ) != 11 ){
+			   $('#sentcode').css('visibility','visible').text('您输入的手机号位数不对');
+			   return false;
+		}	
+		
+		var self = this;
+		$.post('/passwdcheckcode.php', {mobile:$('#username').val()}, function(data){
+			if (data && data.result && data.isok && data.isok == 1) {
+				self.disabled = true;
+				$('#sentcode').css('visibility','visible').text('验证码已成功发送，请查收！');
+				count = 59;
+				self.innerText = count + '秒后可重新发送';
+				setTimeout(timeout = function() {
+				var val = self.innerText; count--;
+				if (count > 0) {
+					self.innerText = count + '秒后可重新发送';
+					$('#SendFindPasswdCode').addClass('lbutton disable');
+					setTimeout(timeout, 1000);
+				} else {
+					self.innerText = '重新发送';
+					$('#SendFindPasswdCode').removeClass('disable');
+					self.disabled = false;
+						}
+				}, 1000);
+			}else{
+				$('#sentcode').css('visibility','visible').text('发送失败，请稍后再试！');
+			}
+		
+		},'json');
+		return false;
+	});
+	$('#findpasswd').live('click', function(){
+		var ele = this;
+		ele.disabled = true;
+		var mbnmb = $.trim($("#username").val());
+		jQuery.post('/findpasswd.php', {username:$('#username').val(), password:$('#password').val()}, function(data){
+			if (data == 'failed') {
+				cbMessage('手机号和验证码错误');
+				return false;
+			} 
+			var user = JSON.parse(data);
+			if (!user || !user.result || !user.result.resultcode || user.result.resultcode != '000000') {
+				cbMessage('手机号和验证码错误');
+				return false;
+			}
+			if (user && user.result && user.result.resultcode && user.result.resultcode == '000000') {
+				var str ='';
+				if (user.isok && user.isok == '1'){
+					str = '您的账号密码重置成功，将发送到手机！';
+				} else if (user.isok && user.isok == '2'){
+					str = ' 验证码无效！';
+				} else if (user.isok && user.isok == '3'){
+					str = ' 用户不存在！';
+				} else {
+					str = ' 您的账号密码重置失败！';
+				}
+				if (user.isok && user.isok == '1'){
+					cbMessage(str);
+				} else {
+					cbConfirm(str, function(){
+						parent.$.fn.colorbox(ele.href + '?username=' + mbnmb, {ajax: true, width: '540px', height: '310px', close: false, overlayClose: false});
+					});
+				}
+				return false;
+			}
+			ele.disabled = false;
+		});
+		return false;
+	});
+	
+	$('#logout').live('click', function(){
+		cookies('userid', "", {path:'/'});
+		cookies('sessionid', "", {path:'/'});
+		location.href="/member/login.html";
+	});
+	
+	$('#btn_updatepasswd').live('click', function(){
+		$.colorbox({href:'/updatepasswd_page.html', iframe:true, width:'400px', height:'275px', close:false, overlayClose:false, scrolling:false });
+		return false;
+	});
+
+	//检查新密码格式
+	function chkNewPassword(){
+		var password=$.trim($("#newpasswd").val());
+		if(password == "") return 0;
+		var len;
+		var i;
+		var isPassword = true;
+		len = 0;
+		for (i=0;i<password.length;i++){
+			if (password.charCodeAt(i)>255) isPassword = false;
+		}
+		if(!isPassword || password.length < 6)
+			return -1;
+		if(password.length > 16 )
+			return -2;
+		return 1;
+	}
+	
+	$('#updatepasswd').bind('click', function(){
+		var oldpasswd = $.trim($('#oldpasswd').val())?$.trim($('#oldpasswd').val()):'';
+		var newpasswd = $.trim($('#newpasswd').val())?$.trim($('#newpasswd').val()):'';
+		var next_newpasswd = $.trim($('#next_newpasswd').val())?$.trim($('#next_newpasswd').val()):'';
+		if (oldpasswd==''){
+			$.colorbox({html:'请输入原密码!', width:'80%'});
+			return false;
+		}
+		if (newpasswd==''){
+			$.colorbox({html:'请输入新密码!', width:'80%'});
+			return false;
+		}
+		var pare=chkNewPassword();
+		if (pare <= 0){
+			$.colorbox({html:'密码长度应为6~16个字符!!', width:'80%'});
+			return false;	
+		}
+		if (next_newpasswd==''){
+			$.colorbox({html:'新密码必须再次确认输入!', width:'80%'});
+			return false;
+		}
+		if (newpasswd != next_newpasswd){
+			$.colorbox({html:'两次输入的密码不一致，请重新输入!!', width:'80%'});	
+			$('#newpasswd').val('');
+			$('#next_newpasswd').val('');
+			return false;
+		}
+		
+		var send = {oldpasswd:oldpasswd, newpasswd:newpasswd};
+	
+		jQuery.post('/updatepasswd.php', send, function(data){
+			if (data && data.result.resultcode=='000000' &&  data.isok && data.isok==1){
+				var self = this;
+				var isok = data.isok;
+				if (isok ==1){
+					self.disabled = true;			
+				}
+				parent.$.fn.colorbox({href:'/updatepasswd-success.html?isok=' + isok, iframe:true, width:'400px', height:'275px', close:false, overlayClose:false });
+				return false;
+			}else{
+				$.colorbox({html:data.result.resultinfo, width:'80%'});
+				//cbMessage(data.result.resultinfo);
+				return false;
+			}
+		}, 'json');
+	});
+	
+	/*$('div.datadiv').bind('mouseenter', function () {
+		var $obj = $(this).find('a.change');
+		$obj.html('<img src="' + _img4 + '/resources/images/transparent.gif" class="buy png_bg" border="0" title="' + $obj.text() + '" />');
+		$(this).addClass("hover");
+	}).bind('mouseleave', function () {
+		var $obj = $(this).find('a.change');
+		$obj.html($obj.find('img').attr('title'));
+		$(this).removeClass("hover");
+	});*/
+	
+	$('.vplayer_mp3').live("click",function(){
+		$.colorbox({href:this.href , innerWidth:'300px', innerHeight:'150px', iframe:true});
+	});
+	
+	//$('.vplayer_movie').live("click",function(){
+	//	$.colorbox({href:this.href , innerWidth:'400px', innerHeight:'400px', iframe:true});
+	//});
+	
+	$('#mo_upload').bind('click',  function(){
+		var cid = $('#cid').val()?$('#cid').val():0;
+		
+		parent.$.fn.colorbox({href:'/zone/upload.html?cid=' + cid, iframe:true, innerWidth:'400px', innerHeight:'350px', overlayClose:false });
+		return false;
+	});
+	
+	$('.update_fileinfo').bind('click',  function(){
+		var id = this.title?this.title:0;
+		$.colorbox({href:'/zone/updateinfo.html?id=' + id, iframe:true, width:'400px', height:'350px', close:false, overlayClose:false });
+		return false;
+	});
+	
+	$('#upload_ok').bind('click',  function(){
+		var url = $("#fileToUpload").val();
+		var upname = $.trim($("#filename").val());
+		var sprc = $.trim($("#servicefee").val());
+		$("#fileToUpload1").val(url);
+		if (! /^(.*)(\.mp3|\.mp4|\.3gp)/i.test( url )){
+			//cbMessage('文件格式不符合要求', null, null, '');
+			$("#fileToUploaderrormsg").html('<font style="color:red;font-size:12px;">文件格式不符合要求<br>本地专区只能上传mp3、mp4和3gp文件</font>');
+			return false;
+		}else{
+			$("#fileToUploaderrormsg").html('');
+		}
+		if(upname=="") {
+			$("#filenameerrormsg").html('<font style="color:red;font-size:12px;">请输入文件名！</font>');
+			return false;
+		}else{
+			$("#filenameerrormsg").html('');
+		}
+		if(sprc=="") {
+			$("#servicefeeerrormsg").html('<font style="color:red;font-size:12px;">服务费不能为空！</font>');
+			return false;
+		}else if (! /^[0-9]{1,3}$/.test( sprc )){
+			$("#servicefeeerrormsg").html('<font style="color:red;font-size:12px;">服务费必须为纯数字且小于三位数！</font>');
+			return false;
+		}else{
+			$("#servicefeeerrormsg").html('');
+		}
+		$("#fileToUpload").attr("value",url);
+		//return false;
+	});
+	$('#btn_updatefileinfo').bind('click',  function(){
+		var upname = $.trim($("#filename").val());
+		var sprc = $.trim($("#servicefee").val());
+		if(upname=="") {
+			cbMessage('请输入文件名！');
+			return false;
+		}
+		
+		if(sprc=="") {
+			cbMessage('服务费不能为空！');
+			return false;
+		} else if (! /^[0-9]{1,3}$/.test( sprc )){
+			cbMessage('服务费必须为纯数字且小于三位数！');
+			return false;
+		}
+	});
+	$('#assistant_login').bind('click', function(){
+		var name = $('#username').val()?$.trim($('#username').val()):'';
+		var passwd = $('#password').val()?$.trim($('#password').val()):'';
+		
+		if (name==''){
+			cbMessage('用户名不能为空！');
+			return false;
+		}
+		if (passwd==''){
+			cbMessage('密码不能为空！');
+			return false;
+		}
+		var passlength = str_GetLength(passwd);
+		var send = {name:name, passwd:passwd, passlength:passlength};	
+		jQuery.post('/shoplogin.php', send, function(data){ 
+			if (data && data.result.resultcode=='000000' &&  data.isok && data.isok==1){
+				var self = this;
+				self.disabled = true;
+				var userid = data.userid;
+				var shopid = data.shopid;
+				var shopname = data.username;
+				var isok = data.isok;
+				if (isok ==1){
+					cookies('shopuserid', userid, {path:'/'});
+					cookies('shopid', shopid, {path:'/'});
+					cookies('shopname', shopname, {path:'/'});
+					location.href="/zone/admin.html";
+				} else {
+					cbMessage('您输入的账号或者密码不正确，请重新输入！');
+					return false;
+				}
+			} else {
+				cbMessage('您输入的账号或密码不正确，请重新输入！');
+				return false;
+			}
+		}, 'json');
+	});
+	
+	$('#assistant_logout').bind('click', function(){
+		cookies('shopuserid', "", {path:'/'});
+		cookies('shopid', "", {path:'/'});
+		cookies('shopname', "", {path:'/'});
+		location.href="/zone/login.html";
+	});
+	
+	//激活部分开始，点击激活按钮检测表单
+		$("#btn_checkcard").bind("click",function(){
+			if (checkphone() == false) {return false;}
+			if (checkdisk() == false) return false;
+			var phonetype = getCurrentPhone().phonetype;
+			var ele = this;
+			var card = $.trim($("#card").val());
+	    	var activecode = $.trim($("#passwd").val());
+	    	var mobile = $.trim($("#mobile").val());
+	    	var type = $.trim($("#type").val());
+			var phonett = /^(130|131|132|133|134|135|136|137|138|139|147|150|151|152|153|155|156|157|158|159|180|182|185|186|187|188|189)[0-9]{8}$/i;
+	    	if(card==''){
+				cbMessage('请输入您的卡号'); 
+				return false;
+			}
+	    	if(/^[0-9]{16}$/i.test(card) == false){
+	    		cbMessage('卡号格式错误 ');
+				return false;
+			}
+			//检测苹果卡和phonetype是否一致
+			if(/^[0-9][0-9][1][1-7]\d{12}$/i.test(card) == true ){
+				if (phonetype != 8 && phonetype != 10) {
+					cbMessage('您使用的是苹果卡 ，请连接IOS设备');
+					return false;
+				}
+			}
+			if(/^[0-9][0-9][1][1-7]\d{12}$/i.test(card) == false){
+				if (phonetype == 8 || phonetype == 10) {
+					cbMessage('您使用的是IOS设备，不能激活普通卡');
+					return false;
+				}
+			}
+	    	if(passwd==''){
+				cbMessage('请输入您的验证码');
+				return false;
+			}
+	    	if(/^[0-9]{6}$/i.test(activecode) == false){
+	    		cbMessage('激活码必须是6位数字，请重新输入 ');
+				return false;
+			}
+			if (mobile && phonett.test(mobile)!= true ){
+	    		cbMessage('手机号码格式错误 ');
+				return false;
+			}
+
+			jQuery.post('/activeaccount.php', {card:card, activecode:activecode,type:type,mobile:mobile}, function(data){
+				if (data && data.result && data.isok && data.isok == 1) {
+					cbConfirm('激活成功', function(){
+						$("#card").val('');
+						$("#passwd").val('');
+						$("#mobile").val('');
+						$(this).colorbox.close();
+						jumpUrl('newphone', 'phoneinfo');
+						jumpUrl('getaccountinfo', '');
+					}, null, null, '点击确定回到首页查看');						
+			    	return false;
+				} else if (data && data.result && data.isok && data.isok == 2) {
+					cbMessage('卡号或激活码不正确！', null, null, '请检查激活码并重新输入！');
+					return false;
+				} else if (data && data.result && data.isok && data.isok == 3) {
+					cbMessage('卡号或激活码不正确！', null, null, '请检查激活码并重新输入！');
+					return false;
+				} else if (data && data.result && data.isok && data.isok == 4) {
+					cbMessage('激活码已被激活过！');
+					return false;
+				} else if (data && data.result && data.isok && data.isok == 5) {
+					cbMessage('终端设备已被绑定过！', null, null, '终端已绑定，不可使用同一终端绑定多个下载卡！');
+					return false;
+				} else if (data && data.result && data.isok && data.isok == 6) {
+					cbMessage('下载卡和设备不相符！', null, null, '使用苹果手机不能激活除苹果外的其他设备下载卡！');
+					return false;
+				} else if (data && data.result && data.isok && data.isok == 7) {
+					cbMessage('下载卡和设备不相符！', null, null, '除苹果手机外的其他手机设备不能激活苹果下载卡！');
+					return false;
+				} else if (data && data.result && data.isok && data.isok == 20) {
+					cbMessage('下载卡已过期！');
+					return false;
+				} else {
+					cbMessage('激活失败！', null, null, '操作出错，请检查卡号激活码，稍后重试！');
+					return false;
+				}
+			},'json');
+	    	return false;
+		});
+		
+		//绑定手机号激活,无需连接手机,但必须输入手机号
+		$("#btn_checkcard_2").bind("click",function(){
+			var ele = this;
+			var card = $.trim($("#card_2").val());
+	    	var activecode = $.trim($("#passwd_2").val());
+	    	var mobile = $.trim($("#mobile_2").val());
+			var phonett = /^(130|131|132|133|134|135|136|137|138|139|147|150|151|152|153|155|156|157|158|159|180|182|185|186|187|188|189)[0-9]{8}$/i;
+	    	if(card==''){
+				cbMessage('请输入您的卡号'); 
+				return false;
+			}
+	    	if(/^[0-9]{16}$/i.test(card) == false){
+	    		cbMessage('卡号格式错误 ');
+				return false;
+			}
+			if(/^[0-9][0-9][1][1-7]\d{12}$/i.test(card) == true){
+	    		cbMessage('此激活方法不支持苹果卡');
+				return false;
+			}
+	    	if(passwd==''){
+				cbMessage('请输入您的验证码');
+				return false;
+			}
+	    	if(/^[0-9]{6}$/i.test(activecode) == false){
+	    		cbMessage('激活码必须是6位数字，请重新输入 ');
+				return false;
+			}
+	    	if(mobile==''){
+	    		cbMessage('请输入您的手机号');
+				return false;
+			}
+	    	if (phonett.test(mobile)!= true ){
+	    		cbMessage('手机号码格式错误 ');
+				return false;
+			}
+
+	    	cbWaiting('&nbsp;', function(){
+	    		jQuery.post('/activecard.php', {card:card, passwd:passwd, mobile:mobile}, function(data){
+	    			if (data && data.result && data.isok && data.isok == 1) {
+	    				cbMessage('验证码已发送到手机',  function(){
+							var checkcode = $.trim($('#checkcode').val());
+							if(checkcode == ''){
+					    		cbMessage('请输入您接收的验证码', null, parent.$.fn.colorbox);
+								return false;
+							}
+					    	if(/^[0-9]{6}$/i.test(checkcode) == false){
+								cbMessage('验证码格式错误', null, parent.$.fn.colorbox);
+								return false;
+							}
+					    	cbWaiting('&nbsp;', function(){
+						    	jQuery.post('/checkactive.php', {card:card, passwd:passwd, mobile:mobile, checkcode:checkcode}, function(data){
+									if (data && data.isok && data.isok == 1) {
+										cbMessage('会员卡激活成功！', parent.$fn.colorbox, '您激活的卡是 cardtype，到期时间：faildate');
+										ele.disabled = true;
+									} else if (data && data.result && data.isok && data.isok == 2) {
+										cbMessage('会员卡激活失败！', parent.$fn.colorbox, '会员卡卡号或者密码错误，请重新操作！');
+									} else if (data && data.result && data.isok && data.isok == 3) {
+										cbMessage('会员卡激活失败！', parent.$fn.colorbox, '会员卡不能重复激活');
+									} else if (data && data.result && data.isok && data.isok == 4) {
+										cbMessage('会员卡激活失败！', parent.$fn.colorbox, '校验码错误，请重新操作！');
+									} else if (data && data.result && data.isok && data.isok == 5) {
+										cbMessage('会员卡激活失败！', parent.$fn.colorbox, '手机号已绑定过用户！');
+									} else {
+										cbMessage('会员卡激活失败！');
+									}
+								}, 'json');
+					    	});
+						}, parent.$.fn.colorbox, '请输入您的验证码:<input type="text" id="checkcode" style="width:150px;" />');
+	    			} else if (data && data.result && data.isok && data.isok == 2) {
+	    				cbMessage('会员卡验证失败！', null, null, '会员卡卡号或者密码错误，请重新输入！');
+	    			} else if (data && data.result && data.isok && data.isok == 3) {
+						cbMessage('会员卡验证失败！', null, null, '会员卡卡号无法重复激活！');
+	    			} else if (data && data.result && data.isok && data.isok == 5) {
+	    				cbMessage('会员卡验证失败！', null, null, '手机号已绑定过用户！');
+	    			} else if (data && data.result && data.isok && data.isok == 6) {
+						cbMessage('下载卡和设备不相符！', null, null, '使用苹果手机不能激活除苹果外的其他设备下载卡！');
+						return false;
+					} else if (data && data.result && data.isok && data.isok == 7) {
+						cbMessage('下载卡和设备不相符！', null, null, '除苹果手机外的其他手机设备不能激活苹果下载卡！');
+						return false;
+					} else {
+						cbMessage('会员卡验证失败！');
+	    			}
+				}, 'json');
+	    	}, parent.$.fn.colorbox );
+	    	return false;
+		});
+		//普通激活,无需连接手机
+		$("#btn_checkcard_3").bind("click",function(){
+			var ele = this;
+			var card = $.trim($("#card_3").val());
+	    	var activecode = $.trim($("#passwd_3").val());
+	    	var mobile = $.trim($("#mobile_3").val());
+	    	var type = $.trim($("#type_3").val());
+			var phonett = /^(130|131|132|133|134|135|136|137|138|139|147|150|151|152|153|155|156|157|158|159|180|182|185|186|187|188|189)[0-9]{8}$/i;
+	    	if(card == ''){
+				cbMessage('请输入您的卡号'); 
+				return false;
+			}
+	    	if(/^[0-9]{16}$/i.test(card) == false){
+	    		cbMessage('卡号格式错误 ');
+				return false;
+			}
+			if(/^[0-9][0-9][1][1-7]\d{12}$/i.test(card) == true){
+				cbMessage('此激活方法不支持苹果卡，请使用左侧方法激活 ');
+				return false;
+			}
+	    	if(passwd==''){
+				cbMessage('请输入您的验证码');
+				return false;
+			}
+	    	if(/^[0-9]{6}$/i.test(activecode) == false){
+				cbMessage('激活码必须是6位数字，请重新输入 ');
+				return false;
+			}
+	    	if (mobile && phonett.test(mobile)!= true ){
+				cbMessage('手机号码格式错误');
+				return false;
+			}
+
+			jQuery.post('/activeaccount.php', {type:type, card:card, activecode:activecode,mobile:mobile}, function(data){
+				if (data && data.result && data.isok && data.isok == 1) {
+					cbConfirm('激活成功', function(){
+						$("#card_3").val('');
+						$("#passwd_3").val('');
+						$("#mobile_3").val('');
+						jumpUrl('getaccountinfo', '');
+						$(this).colorbox.close();
+					});						
+			    	return false;
+				} else if (data && data.result && data.isok && data.isok == 2) {
+					cbMessage('卡号或激活码不正确！', null, null, '请检查激活码并重新输入！');
+					return false;
+				} else if (data && data.result && data.isok && data.isok == 3) {
+					cbMessage('卡号或激活码不正确！', null, null, '请检查激活码并重新输入！');
+					return false;
+				} else if (data && data.result && data.isok && data.isok == 4) {
+					cbMessage('激活码已被激活过！');
+					return false;
+				} else if (data && data.result && data.isok && data.isok == 5) {
+					cbMessage('终端设备已被绑定过！', null, null, '终端已绑定，不可使用同一终端绑定多个下载卡！');
+					return false;
+				} else if (data && data.result && data.isok && data.isok == 6) {
+					cbMessage('下载卡和设备不相符！', null, null, '使用苹果手机不能激活除苹果外的其他设备下载卡！');
+					return false;
+				} else if (data && data.result && data.isok && data.isok == 7) {
+					cbMessage('下载卡和设备不相符！', null, null, '除苹果手机外的其他手机设备不能激活苹果下载卡！');
+					return false;
+				} else if (data && data.result && data.isok && data.isok == 20) {
+					cbMessage('下载卡已过期！');
+					return false;
+				} else {
+					cbMessage('激活失败！', null, null, '操作出错，请检查卡号激活码，稍后重试！');
+					return false;
+				}
+			},'json');
+	    	return false;
+		});
+		
+		//查询卡状态
+		$("#query_card_status").live("click",function(){
+			$.colorbox({href:'/member/query-card-status.html', iframe:true, width:'400px', height:'300px',close:false, overlayClose:false, scrolling:false});
+			return false;
+		});
+		
+		//推送到手机
+		$("#pushtophone").live('click',  function(){
+			var sid = $(this).attr("sid");
+			var sname = encodeURI($(this).attr("sname"));
+			$.colorbox({href:'/appstore/pushtophone.html?sid=' + sid + '&sname=' + sname, iframe:true, innerWidth:400, innerHeight:200, close:false, scrolling:false});
+			return false;
+		});
+
+});
+
+//不连手机情况下，安卓和苹果的切换操作
+function gotoAndriod(gotopage) {
+	if (location.href.indexOf('/favorite/') > -1) {
+		if (parent == self) {
+			location.href = gotopage + '?phonetype=3.';
+		} else {
+			var base = parent.location.href.substr(0, parent.location.href.indexOf('?'));
+			parent.location.href = base +'?gotopage=' + gotopage + '&phonetype=3.&iscrack=0';
+		}
+	} else {
+		var channelcode = JSON.parse(WebAppLocalStorage('channelcode')).data;
+		if (parent == self) {
+			location.href = 'http://pcr5.appdear.com/appstore?gotopage=&phonetype=3.&iscrack=0&channelcode='+ channelcode ;
+		} else {
+			parent.location.href = 'http://pcr5.appdear.com/appstore?gotopage=&phonetype=3.&iscrack=0&channelcode='+ channelcode 
+		}
+	}
+	return false;
+}
+
+function gotoIos(gotopage) {
+	if (location.href.indexOf('/favorite/') > -1) {
+		if (parent == self) {
+			location.href = gotopage + '?phonetype=8.&iscrack=1';
+		} else {
+			var base = parent.location.href.substr(0, parent.location.href.indexOf('?'));
+			parent.location.href = base + '?gotopage=' + gotopage + '&phonetype=8.&iscrack=1';
+		}
+	} else {
+		var channelcode = JSON.parse(WebAppLocalStorage('channelcode')).data;
+		if (parent == self) {
+			location.href = 'http://pcr5.appdear.com/appstore?gotopage=&phonetype=8.&iscrack=1&channelcode='+ channelcode ;
+		} else {
+			parent.location.href = 'http://pcr5.appdear.com/appstore?gotopage=&phonetype=8.&iscrack=1&channelcode='+ channelcode 
+		}
+	}
+	return false;
+}
+function gotoIosz(gotopage) {
+	/*if (location.href.indexOf('/favorite/') > -1) {
+		if (parent == self) {
+			location.href = gotopage + '?phonetype=8.&iscrack=0';
+		} else {
+			var base = parent.location.href.substr(0, parent.location.href.indexOf('?'));
+			parent.location.href = base + '?gotopage=' + gotopage + '&phonetype=8.&iscrack=0';
+		}
+	} else {
+		var channelcode = JSON.parse(WebAppLocalStorage('channelcode')).data;
+		if (parent == self) {
+			location.href = 'http://pcr5.appdear.com/appstore?gotopage=&phonetype=8.&iscrack=0&channelcode='+ channelcode ;
+		} else {
+			parent.location.href = 'http://pcr5.appdear.com/appstore?gotopage=&phonetype=8.&iscrack=0&channelcode='+ channelcode ;
+		}
+	}*/
+	var channelcode = JSON.parse(WebAppLocalStorage('channelcode')).data;
+	if (location.href.indexOf('/favorite/') > -1) {
+		if (parent == self) {
+			location.href = gotopage + '?phonetype=8.&iscrack=0';
+		} else {
+			var base = parent.location.href.substr(0, parent.location.href.indexOf('?'));
+			parent.location.href = base + '?gotopage=' + gotopage + '&phonetype=8.&iscrack=0';
+		}
+	} else {
+		var channelcode = JSON.parse(WebAppLocalStorage('channelcode')).data;
+		if (parent == self) {
+			location.href = 'http://pcr5.appdear.com/appstore?gotopage=/appstore/ios_authorised.html&phonetype=8.&iscrack=0&iosz=1&channelcode='+ channelcode ;
+			$("#sel_type ul li em").removeClass();
+			$("#sel_type ul li.type81 em").addClass("on_iosz");	
+		} else {
+			parent.location.href = 'http://pcr5.appdear.com/appstore?gotopage=/appstore/ios_authorised.html&phonetype=8.&iscrack=0&iosz=1&channelcode='+ channelcode ;
+			$("#sel_type ul li em").removeClass();
+			$("#sel_type ul li.type81 em").addClass("on_iosz");	
+		}
+	}
+	return false;
+}
+function cantChange(){
+	$("#sel_type_log").fadeIn().text("此页面不支持切换，请返回列表页选择").delay(2000).fadeOut();
+}
+
+$(document).ready(function(){
+	if ((null != getCurrentPhone()) && (null != getCurrentPhone().imei) && getCurrentPhone().imei) {
+		var url = location.href;
+		var phonetype = getCurrentPhone().phonetype;
+		var crack = JSON.parse(cookies('headers')).jailbreak;
+		if (phonetype == 8 && crack == 1) {
+			$('#sel_type li.type3 a').removeClass().attr('title','已连接手机状态下不能切换软件显示').attr('onclick','$("#sel_type_log").fadeIn().text("已连接手机状态下不能切换软件显示").delay(2000).fadeOut()');
+			$('#sel_type li.type3').removeClass().addClass("type3no");
+		} else {
+			$('#sel_type li a ').each(function(){
+				$(this).removeClass().attr('title','已连接手机状态下不能切换软件显示').attr('onclick','$("#sel_type_log").fadeIn().text("已连接手机状态下不能切换软件显示").delay(2000).fadeOut()');
+				$(this).closest(".type3").removeClass().addClass("type3no");
+				$(this).closest(".type8").removeClass().addClass("type8no");
+				$(this).closest(".type81").removeClass().addClass("type81no");
+			});
+		}
+		
+	};
+});
+
+function playmedia(song) {
+	var url = song.href;
+	var file = JSON.stringify ({exefile:'wmplayer', openfile:url, windowstyle:'1'});
+	setDataCache(null, 'shellexecute', file, function(data, status){
+		if (status != 'ok') return;
+		log('open:' + file);
+	});
+	return false;		
+}

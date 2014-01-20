@@ -1,0 +1,38 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content">
+	<div class="wrap">
+		<div class="contentside">
+			<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+		</div>
+		<div class="scroll">
+			<div id="wraper">
+				
+				<div id="catebar" class="clear" style="overflow:hidden">
+					<!--{include file="dxsoft/catebar-soft.tpl"}-->
+				</div>
+				
+				<div id="topiclist" class="clear">
+					<!--{feed int=AP_INT_TOPICLIST type=3 orderName=$smarty.get.ordername|default:"lastModifyTime" orderby=$smarty.get.ordername|default:0 page=$smarty.get.pageno|default:1 num=18 ret='topic'}-->
+					<!--{foreach key=key item=item from=$topic.data name="topiclist"}-->
+					<dl>
+						<dt>
+							<a href="/appstore/topic-detail.html?topicid=<!--{$item.id|default:0}-->&phonetype=<!--{$smarty.get.phonetype}-->">
+								<img src="<!--{$item.logo}-->" width="300" height="170">
+							</a>
+						</dt>
+						<dd><a href="/appstore/topic-detail.html.html?topicid=<!--{$item.id|default:0}-->&phonetype=<!--{$smarty.get.phonetype}-->"><!--{$item.name|default:"未知"|strip_tags|truncate_utf8_string:20:"...":true}--></a></dd>
+						<dd><!--{if $item.count}--><!--{$item.count}--><!--{else}-->0<!--{/if}--> 款软件</dd>
+						<dd class="gray">创建时间：<!--{$item.createTime/1000|date_format:"%Y-%m-%d"}--> 最后编辑：<!--{$item.lastModifyTime/1000|date_format:"%Y-%m-%d"}--></dd>
+						<dd class="gray">
+							<!--{$item.describe|default:"没有内容"|strip_tags|truncate_utf8_string:30:"...":true}-->
+						</dd>
+					</dl>
+					<!--{/foreach}-->
+				</div>
+				<!--{include file=wgt-paging.tpl page=$topic.totalNum}-->
+				
+			</div>
+			
+		</div>
+	</div>
+</div>

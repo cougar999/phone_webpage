@@ -1,0 +1,182 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="scroll">
+		<div class="task_box">
+			<h1><span>金币总数</span></h1><span class="quest_gold"></span><span class="f_l totalcoin"></span><span class="f_l tasktext" style="padding:1px 0 0 10px;" ><a href="##" onclick="window.location.reload(location.href);return false"><img src="/resources/img/btn-refresh.png" /></a></span>
+			<!--<div class="rg tasktext" id="changeNoticetext">下载推荐软件得金币，<strong><span class="cred" id="exchangeRate">10</span>金币=<span class="cred">1</span>块钱</strong>  <a href="/intergral/task_exchange.html"><span class="cblue">金币换钱</span></a></div>-->
+		</div>
+		<div class="tasklist_header" id="questtab">
+			<ul>
+				<li id="taskone" tasktype="1" class="first hover">
+					<h3>登录得金币：</h3>
+					<div>每天第一次登录，即可获得5个金币，每天多次登录只计算一次。</div>
+				</li>
+				<li tasktype="3">
+					<h3>下载得金币：</h3>
+					<div>下载推荐软件即可得金币，每个软件奖励的金币数量从0.5-1.5个不等，多下多得。</div>
+				</li>
+				<li tasktype="4">
+					<h3>复制得金币：</h3>
+					<div>成功进行一次“双机复制”操作，即可获得1个金币的奖励。</div>
+				</li>
+			</ul>			
+		</div>
+		
+		<div class="tasklist_content">
+			<div id="wgt-paging" class="wgt-paging"><div class="paging">
+				<table width="100%" cellpadding="0" cellspacing="0" border="0" class="datatable2"><tr>
+					<td nowrap="nowrap" class="tc" id="pagenum" style="padding:20px 20px;">
+						<div class="lf">
+							<a href="" class="firstpage"><span>第一页</span></a>
+							<a href="" class="prevpage"><span>上一页</span></a>
+						</div>
+						<div class="pagenums">
+						</div>
+						<div class="lf">
+						</div>
+					</td>
+				</tr></table>
+			</div></div>
+		</div>
+	</div>
+</div></div>
+<!--{feed int=AP_INT_GET_COIN_SCALE ret='scaleurl'}-->
+<script language="JavaScript">
+function getTaskList(row){
+	$('.tasklist_content').html('<center><img src="<!--{#img1#}-->/resources/img40/loading_trans_middle.gif"></center>');
+	$.post('/api/api_tasklist.php',row,function(data){
+		if(data){
+			var data = JSON.parse(data);
+		}
+		if(data.result && data.result.resultcode == '000000'){
+			var html_content = '';
+			if(data.page){
+				html_content += '<table cellspacing="1" cellpadding="0" border="0" class="datatable2">';
+				html_content += '<colgroup><col width="145"><col width="430"><col width="110"><col width="auto"></colgroup>';
+				html_content += '<tr><th class="first">时间</th><th>描述</th><th>奖励</th><th>备注</th></tr>';
+				for(i = 0;i < data.page.items.length;i++){
+					var item = data.page.items[i];
+					if(item.remark != null){
+						var remark = item.remark;
+					}else{
+						var remark = '';
+					}
+					html_content += '<tr>'
+					+ '<td>' + item.opertime + '</td>';
+					switch(item.status){
+						case 3:html_content += '<td>重复操作</td>';break;
+						case 4:html_content += '<td>无SIM卡操作</td>';break;
+						default:html_content += '<td>' + item.desc + '</td>';
+					}
+					var status_content = '';
+					switch(item.status){
+						case 2:status_content = '奖' + item.coins + '个金币';break;
+						case 1:status_content = '未奖，<a href="#" class="taskaward">点击领取</a>';break;
+						case 0:status_content = '未完成';break;
+						default:status_content = '不奖励金币';break;
+					}
+					html_content += '<td>' + status_content + '</td>'
+					html_content += '<td>' + remark + '</td>'
+					+ '</tr>';
+				}
+				html_content += '</table>';
+				var row_paging = {
+						salesid : row.salesid,
+						tasktype :row.tasktype,
+						count : row.count,
+						pageno : row.pageno,
+						totalcount : data.page.totalcount
+					};
+				html_content += getListPagingJS(row_paging,'task');
+			}else{
+				html_content += '<table cellspacing="1" cellpadding="0" border="0" class="datatable2">';
+				html_content += '<colgroup><col width="145"><col width="430"><col width="110"><col width="auto"></colgroup>';
+				html_content += '<tr><th class="first">时间</th><th>描述</th><th>奖励</th><th>备注</th></tr>';
+				html_content += '<tr><td colspan="4"><center><h1>暂无记录</h1></center></td></tr></table>';
+			}
+			$('.tasklist_content').html(html_content);
+			if(data.result && data.result.resultcode == '000000'){
+				$('.taskpageno').click(function(){
+					row.pageno = parseInt($(this).find('span').html());
+					getTaskList(row);
+					return false;
+				});
+				$('.taskfirstpage').click(function(){
+					row.pageno = 1;
+					getTaskList(row);
+					return false;
+				});
+				$('.taskprevpage').click(function(){
+					row.pageno = row.pageno - 1;
+					getTaskList(row);
+					return false;
+				});
+				$('.tasknextpage').click(function(){
+					row.pageno = row.pageno + 1;
+					getTaskList(row);
+					return false;
+				});
+				$('.tasklastpage').click(function(){
+					row.pageno = Math.ceil(data.page.totalcount/row.count);
+					getTaskList(row);
+					return false;
+				});
+			}
+			var salesname = JSON.parse(WebAppLocalStorage("salesname"));
+		}
+	});
+}
+	
+$(function(){
+	var channelcode =  JSON.parse(WebAppLocalStorage("channelcode"));
+	var salesid = JSON.parse(WebAppLocalStorage("salesid"));
+	var shopid = JSON.parse(WebAppLocalStorage("shopid"));
+	if(shopid.data != -1){
+		var row = {
+				salesid : salesid.data,
+			};
+		$.post('/api/api_gettotalcoin.php',row,function(data){
+			if(data){
+				var data = JSON.parse(data);
+				if(data.result && data.result.resultcode == '000000'){
+					$(".totalcoin").html(data.totalcoins);
+				}else{
+					$(".totalcoin").html('数据读取失败，请刷新重新加载！');
+				}
+			}
+		});
+		getTaskList({salesid : salesid.data,tasktype :1,count : 50,pageno : 1});
+		$(".tasklist_header li").click(function(){
+			$(".tasklist_header li").removeClass("hover");
+			$(this).addClass("hover");
+			var row = {
+					salesid : salesid.data,
+					tasktype :$(this).attr('tasktype'),
+					count : 50,
+					pageno : 1
+			};
+			getTaskList(row);
+		});
+	}else{
+		$('.scroll').html('<div style="padding:200px;font-size:20px;color:red;text-align:center;line-height:30px;">您尚未登录，暂不支持使用该功能。<br>重启客户端并登录后，即可使用！如果没有登录账号，请联系我们开通。</div>');
+	}
+	/*if (channelcode && channelcode.data && channelcode.data != '1100000') {
+		$('#exchangeRate').html('50');
+	}
+	
+	$.post('/api/api_goldexchangeadd.php?rqType=interface&salesid='+salesid.data, function(result){
+		if(result) {
+			var json = JSON.parse(result);
+			if(json && json.code == '006') {
+				var rate = json.data[0].gold_scale;
+				if (rate) {
+					$('#exchangeRate').html(rate);
+				} else {
+					$('#changeNoticetext').html('贵公司规定金币不针对个人兑换');
+				}
+			}
+		}
+	});*/
+	
+});
+</script>

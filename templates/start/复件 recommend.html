@@ -1,0 +1,21 @@
+<!--{feed int=AP_INT_MENU_LIST navid=$assign.ap_int.AP_INT_MENU_START_ID order=0 pageno=1 count=8 ret='arr_menulist'}-->
+<!--{menu items=$arr_menulist.list.items index='menucode' code=200009 ret='menu1_info'}-->
+<!--{feed int=AP_INT_MENU_LIST navid=$menu1_info.menuid order=0 pageno=1 count=15 ret='menulist' iscrack=$smarty.get.iscrack|default:0}-->
+
+<!--{config_load file="smarty.conf"}-->
+<script type="text/javascript" src="<!--{#res3#}-->/resources/js<!--{#version#}-->/recommend.js"></script>
+<div id="recommends">
+	<div class="rec_tit clear">
+		<h2>推荐软件打包下载 <span class="f0 c7">（一键下载24个软件，可得30金币） </span></h2>
+		<!--<h2><span id="phonename"><!--{$smarty.request.phonename}--></span> <!--{if $menu1_info.menuname}--><!--{$menu1_info.menuname}--><!--{/if}--></h2>-->
+		<a href="#null" class="small_btn" id="batchdown">一键下载</a>
+	</div>
+	<div class="recomlist clear">
+		<ul class="clear">
+			<!--{menu items=$menulist.list.items index='menucode' code=200010 ret='menu2_info'}-->
+			<!--{feed int=AP_INT_MENU_CAT_SOFTLIST mid=$menu2_info.menuid order=0 pageno=1 count=32 ret='colomunlist' iscrack=$smarty.get.iscrack|default:0}-->
+			<!--{include file="start/recommend.tpl" tpl_code1=$menu1_info.menucode tpl_code1_id=$menu1_info.menuid}-->
+
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,66 @@
+<!--{config_load file="smarty.conf"}-->
+<!--{if $assign.shopid != -1}-->
+<style>
+.section{margin: 38px 0 0 79px;}
+.halfagnle_head {clear:both;display:inline-block;}
+.halfagnle_head li{list-style:none;float:left;height:45px}
+.bgla{background:url(<!--{#img1#}-->/resources/images/intergral/bga1.png) no-repeat;width:40px;}
+.bglb{background:url(<!--{#img2#}-->/resources/images/intergral/bga2.png);width:837px;}
+.bglc{background:url(<!--{#img3#}-->/resources/images/intergral/bga3.png) no-repeat;width:7px;}
+.halfagnle_foot {clear:both;display:inline-block;}
+.halfagnle_foot li{list-style:none;float:left;height:30px}
+.bgld{background:url(<!--{#img4#}-->/resources/images/intergral/bga4.png) no-repeat;width:5px;}
+.bgle{background:url(<!--{#img5#}-->/resources/images/intergral/bga5.png);width:874px;}
+.bglf{background:url(<!--{#img6#}-->/resources/images/intergral/bga6.png) no-repeat;width:5px;}
+.ranking{width:858px;border:1px #cdd7d8;border-style: none solid;padding: 0 12px;}
+.intergral_details{text-align:center;width:70px;display:inline-block;background:url(<!--{#img7#}-->/resources/images/intergral/btn-details.jpg) no-repeat scroll 0 9px;}
+.medal{background:url(<!--{#img8#}-->/resources/images/intergral/medal.png) no-repeat;height:35px;width:35px;display:inline-block;}
+.medal_1{background-position:-410px -295px;}
+.medal_2{background-position:-358px -295px;}
+.medal_3{background-position:-308px -295px;}
+.medal_4{background-position:-262px -295px;}
+.medal_5{background-position:-214px -295px;}
+
+#table_tr td span.pos_img1, #table_tr td span.pos_img2, #table_tr td span.medal {height: 30px;line-height: 15px;}
+.pos_img1 {background: url("<!--{#img1#}-->/resources/img/1.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img2 {background: url("<!--{#img2#}-->/resources/img/2.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img3 {background: url("<!--{#img3#}-->/resources/img/3.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img4 {background: url("<!--{#img4#}-->/resources/img/4.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img5 {background: url("<!--{#img5#}-->/resources/img/5.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img6 {background: url("<!--{#img6#}-->/resources/img/6.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img7 {background: url("<!--{#img7#}-->/resources/img/7.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img8 {background: url("<!--{#img8#}-->/resources/img/8.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img9 {background: url("<!--{#img1#}-->/resources/img/9.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.pos_img10 {background: url("<!--{#img2#}-->/resources/img/10.png") no-repeat scroll 0 10px transparent;width: 17px;}
+.ranking-front{color:#2f78db;font-weight:800;}
+.datatable{background:none repeat scroll 0 0 #cdd7d8;width: 429px;}
+.datatable tr{height:40px;}
+#table_tr{background: none repeat scroll 0 0 #FFFFFF;}
+#table_tr td span {
+    float: left !important;
+    height: 20px;
+    line-height: 15px;
+    margin-left:10px;
+    padding-top: 10px;
+    text-align: left;
+    font-size:13px;
+}
+</style>
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	<div class="scroll">
+	<div class="contentbody contentwrap">
+		<div class="section">
+		<!--{include file="intergral/wgt-month-ranking.tpl"}-->
+		<div class="clear" style="height:20px;"></div>
+		<!--{include file="intergral/wgt-ranking.tpl"}-->
+		</div>
+	</div>
+	</div>
+</div></div>
+<!--{else}-->
+<!--{$assign.logoutmsg}-->
+<!--{/if}-->

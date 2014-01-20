@@ -1,0 +1,4 @@
+<div id="connect_stat">
+	<div id="unconnect"><!-- 设备未连接！ --></div>
+	<div id="connected" class="no"><!-- 设备已连接！ --></div>
+</div>

@@ -1,0 +1,28 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_GAME ret='menulist'}-->
+
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl"}-->
+	</div>
+	
+	<div class="scroll">
+	<div class="right">
+		<div>
+				<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_GAME_DOWNLOAD_TOP ret='columnmenu'}-->
+				<!--{include file="wgt-game-download-board-list.tpl"	top_id=$columnmenu.menuid  code2='gamedetail' code2_id=$smarty.request.softid}-->	
+				<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_GAME_SHOP_REC ret='columnmenu'}-->
+				<!--{if $columnmenu.menuid}-->
+				<!--{include file="wgt-shop-game-list.tpl"	shop_rec_id=$columnmenu.menuid  code2='gamedetail' code2_id=$smarty.request.softid}-->
+				<!--{/if}-->	
+		</div>
+	</div>
+	<div class="center contentbody contentwrap">
+		<div class="section">
+				<!--{include file="wgt-game-detail.tpl"  box_id=$smarty.request.softid}-->
+		</div>	
+	</div>
+	</div>
+</div></div>

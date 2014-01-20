@@ -1,0 +1,35 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK ret='menu'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menu.menuid order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"  seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_BOOK seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_BOOK'}-->
+	</div>
+	<div class="scroll">
+	<div class="right">
+		<div>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+				<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_HOT ret='columnlist'}-->
+				<!--{include file="wgt-book-top-list.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_AUTHOR_DETAIL code2_id=$smarty.request.aid code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_HOT}-->
+				<br />
+				<!-- {menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_TOP_DOWNLOAD ret='columnlist'}-->
+				<!-- {include file="wgt-book-top-list.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_AUTHOR_DETAIL code2_id=$smarty.request.aid code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_TOP_DOWNLOAD}-->
+				
+				<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_SHOP_REC ret='columnlist'}-->
+				<!--{include file="wgt-book-top-list.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_AUTHOR_DETAIL code2_id=$smarty.request.aid code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_SHOP_REC}-->
+				</td></tr></table>
+		</div>
+	</div>
+	<div class="center contentbody contentwrap">
+		<div class="section">
+			<div style="padding:10px 20px;">
+				
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+				<!--{include file="wgt-author-detail.tpl"  box_id=$smarty.request.aid   order=$smarty.request.order|default:$assign.ap_int.AP_INT_ORDER_DEFAULT}-->
+				</td></tr></table>		
+			</div>
+		</div>	
+	</div>
+	</div>
+</div></div>

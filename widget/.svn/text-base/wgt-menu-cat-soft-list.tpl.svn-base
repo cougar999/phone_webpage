@@ -1,0 +1,78 @@
+<!--{feed int=AP_INT_MENU_CAT_SOFTLIST mid=$column_id order=0 pageno=1 count=50 iscrack=$smarty.request.iscrack|default:0 ret='colomunlist'}-->
+<div id="wgt-navs-cat-soft-list" class="wgt-navs-cat-soft-list"><div>
+
+<!--{if $colomunlist.list.items}-->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table" style="table-layout:fixed;">
+	<col style="width: 20px;"></col>
+	<col style="width: 50px;"></col>
+	<col style="width: 240px;"></col>
+	<col style="width: 70px;"></col>
+	<col style="width: 100px;"></col>
+	<col style="width: 100px;"></col>
+	<col style="width: auto;"></col>
+		<tr>
+			<td class="input_debug"><input type="checkbox" class="selector" value="#selectlist" /></td>
+			<td>
+				
+			</td>
+			<td class="softN"><span class="f3 b"></span></td>
+			<td><span class="f4">大小</span></td>
+			<td><span class="f4">更新日期</span></td>
+			<td><span class="f4">详细介绍</span></td>
+			<td style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"><span class=""></span></td>
+		</tr>
+</table>
+<div id="selectlist" style="margin-top:-52px;">
+<!--{foreach key=key item=item from=$colomunlist.list.items name=list}-->
+	<!--{if $item.type == 3}-->
+		<div class="list">
+			<!--{if $colomunlist.list.items[$smarty.foreach.list.iteration].type == 17}-->
+				<div class="listtt" style="padding-left: 30px; line-height: 32px;">
+					<span class="f5"><!--{$item.name}--></span>
+				</div>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table" style="table-layout:fixed;">
+					<col style="width: 20px;"></col>
+					<col style="width: 50px;"></col>
+					<col style="width: 240px;"></col>
+					<col style="width: 70px;"></col>
+					<col style="width: 100px;"></col>
+					<col style="width: auto;"></col>
+					<!--{section start=$smarty.foreach.list.iteration loop=$colomunlist.list.items name=sect}-->
+						<!--{if $colomunlist.list.items[$smarty.section.sect.index].type == 3}-->
+							<!--{php}-->break;<!--{/php}-->
+						<!--{else}-->
+							<tr class="tooltip"  title="<!--{if $item.terms}-->支持型号：<br /><!--{foreach key=key item=term from=$item.terms}--><!--{$term}-->&nbsp;<!--{/foreach}--><!--{/if}-->">
+								<td class="input_debug"><input type="checkbox" <!--{if $smarty.section.sect.index - $key == 1}-->checked="checked"<!--{/if}--> class="<!--{if $colomunlist.list.items[sect].price > 0 || $colomunlist.list.items[sect].servicefee > 0}-->buyitem<!--{else}-->downitem<!--{/if}-->" value="<!--{$colomunlist.list.items[sect].contentid}-->||<!--{$colomunlist.list.items[sect].downloadurl}-->&feature=1||<!--{$colomunlist.list.items[sect].name}-->" installlocate="<!--{$colomunlist.list.items[sect].installlocate}-->" appid="<!--{$colomunlist.list.items[sect].appid}-->"  versioncode="<!--{$colomunlist.list.items[sect].versioncode}-->"  version="<!--{$colomunlist.list.items[sect].version}-->"  price="<!--{math equation='(x)/100' x=$colomunlist.list.items[sect].price|default:0}-->" servicefee="<!--{math equation='(x)/100' x=$colomunlist.list.items[sect].servicefee|default:0}-->" contentid="<!--{$colomunlist.list.items[sect].contentid}-->" contenttype="1"  title="<!--{$colomunlist.list.items[sect].name}-->"  downloadurl="<!--{$colomunlist.list.items[sect].downloadurl}-->&feature=1" /></td>
+								<td class="input_debug">
+									<a href="/appstore/soft.html?iscrack=<!--{$smarty.get.iscrack}-->&softid=<!--{$colomunlist.list.items[sect].contentid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><img class="" src="<!--{$colomunlist.list.items[sect].imgurl}-->_sf_48x48.png" border="0" /></a>
+								</td>
+								<td class="softN">
+									<span class="f5">
+										<a href="/appstore/soft.html?iscrack=<!--{$smarty.get.iscrack}-->&softid=<!--{$colomunlist.list.items[sect].contentid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><!--{$colomunlist.list.items[sect].name}--></a>
+									</span>
+								</td>
+								<td>
+									<span class="n"><!--{$colomunlist.list.items[sect].size|sizetext|default:'未知'}--></span>
+								</td>
+								<td class="softdt"><span class="n"><!--{$colomunlist.list.items[sect].date}--></span></td>
+								<td style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+									<span class=""><!--{$colomunlist.list.items[sect].intro|default:'暂无内容'}--></span>
+								</td>
+							</tr>
+						<!--{/if}-->
+					<!--{/section}-->
+				</table>
+			<!--{/if}-->
+		</div>
+		<br />
+	<!--{/if}-->
+<!--{/foreach}-->
+</div>
+<!--{else}-->
+	<div>
+		<div style="text-align:center;line-height: 32px;padding:30px;" class="f7">
+			暂无适合您手机的资源，敬请谅解...
+		</div>
+	</div>
+<!--{/if}-->
+</div></div>

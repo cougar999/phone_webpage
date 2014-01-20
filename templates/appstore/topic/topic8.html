@@ -1,0 +1,170 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>我是歌手 你是谁呢</h2>
+					<div class="evaDetail">
+						<blockquote>
+							“我是歌手”，唱出经典，唱出自己。
+						</blockquote>
+						<div class="topiclist clear">
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130302/appdear_505484_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="510537" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130302/appdear_505484_0302_g.apk?topicid=008&topicname=我是歌手你是谁呢" installlocate="0" appid="com.appbyme.app14573" versioncode="10001" version="v1.0.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="《我是歌手》"></a></p>
+								</dt>
+								<dd>
+									<p>《我是歌手》</p>
+									<p>《我是歌手》是中国首档顶尖歌手音乐对决真人秀。作为湖南卫视'领SHOW2013'的开篇之作，湖南卫视倾全台之力，集结乐坛资深唱将…</p>
+									<p>大小：7.04MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130204/appdear_344328_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="490221" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130206/appdear_738494_0206_m.apk?topicid=008&topicname=我是歌手你是谁呢" installlocate="0" appid="com.xqiyi.xvideo.mysong" versioncode="3" version="v1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="我是歌手"></a></p>
+								</dt>
+								<dd>
+									<p>我是歌手</p>
+									<p>《我是歌手》是中国首档顶尖歌手音乐对决综艺秀，作为湖南卫视“领SHOW2013”的开篇之作，湖南卫视倾全台之力…</p>
+									<p>大小：8.93MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120812/appdear_756677_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="271207" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130301/appdear_563203_0301_m.apk?topicid=008&topicname=我是歌手你是谁呢" installlocate="0" appid="com.changba" versioncode="240" version="v2.4.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="唱吧"></a></p>
+								</dt>
+								<dd>
+									<p>唱吧</p>
+									<p>★唱吧 - 最时尚且K歌效果最好的手机KTV★ 漂亮MM们最喜欢的K歌软件,iPhone的必备神器安装后手机立刻变成KTV…</p>
+									<p>大小：6.07MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120526/appdear_176551_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="141639" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130308/appdear_86015_0308_m.apk?topicid=008&topicname=我是歌手你是谁呢" installlocate="0" appid="com.app.hero.ui" versioncode="45" version="v3.7.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="K歌达人"></a></p>
+								</dt>
+								<dd>
+									<p>K歌达人</p>
+									<p>iPhone上最火的K歌软件闪亮登场：《K歌达人》是专为Ｋ歌爱好者设计的一款Ｋ歌软件，该软件集成了在线下载、K歌、录音合成…</p>
+									<p>大小：8.3MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120830/appdear_323989_icon_g.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="297199" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130305/appdear_35836_0305_b.apk?topicid=008&topicname=我是歌手你是谁呢" installlocate="0" appid="cn.huanju" versioncode="45" version="v1.4.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="微唱"></a></p>
+								</dt>
+								<dd>
+									<p>微唱</p>
+									<p>♪ 微唱-随身KTV，随时随地想唱就唱♪产品主要特点♪ 永久免费、绝无广告♪ 提供伴奏、导唱等多种演唱模式♪ K歌时同步显示歌词…</p>
+									<p>大小：4.64MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120810/appdear_754617_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="201169" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121130/appdear_103382_1130_m.apk?topicid=008&topicname=我是歌手你是谁呢" installlocate="0" appid="com.sharppoint.music.activity" versioncode="2012200301" version="v3.0.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="K到爆欢唱版"></a></p>
+								</dt>
+								<dd>
+									<p>K到爆欢唱版</p>
+									<p>羡慕大明星万人瞩目，自己也想上台秀一场？来试试K到爆吧！这里是只属于屌丝们的大舞台！现在就来参赛，让众屌丝对你羡慕嫉妒恨吧…</p>
+									<p>大小：7.09MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_226502_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="153316" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120330/appdear_462517_0330_h.apk?topicid=008&topicname=我是歌手你是谁呢" installlocate="0" appid="me.taxueliuyun.karaoke" versioncode="3" version="v1.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="K 歌练唱机"></a></p>
+								</dt>
+								<dd>
+									<p>K 歌练唱机</p>
+									<p>一款练唱卡拉ok的应用。原唱、伴奏灵活切换，卡拉ok字幕效果…</p>
+									<p>大小：1.07MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120401/appdear_122840_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="201169" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120714/appdear_140049_0714_h.apk?topicid=008&topicname=我是歌手你是谁呢" installlocate="0" appid="com.baoyi.sing" versioncode="16" version="v2.5" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="你唱我唱大家唱"></a></p>
+								</dt>
+								<dd>
+									<p>你唱我唱大家唱</p>
+									<p>想要pk掉你的对手，一展歌喉，快来此报道吧…</p>
+									<p>大小：3.03MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120222/appdear_153197_icon_g.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="134882" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120222/appdear_153197_g.apk?topicid=008&topicname=我是歌手你是谁呢" installlocate="0" appid="com.thunder.ktv.activity" versioncode="15" version="v2.4.10" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="去唱歌"></a></p>
+								</dt>
+								<dd>
+									<p>去唱歌</p>
+									<p>专业的KTV搜索软件，随时随地了解最新的KTV打折、优惠、点评等…</p>
+									<p>大小：2.37MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120317/appdear_242113_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="201310" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130128/appdear_129303_0128_m.apk?topicid=008&topicname=我是歌手你是谁呢" installlocate="0" appid="com.nbblabs.toys.singsong" versioncode="41" version="v2.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="大家来K歌"></a></p>
+								</dt>
+								<dd>
+									<p>大家来K歌</p>
+									<p>大家来K歌满足你独自K歌，更能用它来以歌会友。嗓音如何，K下便知。唱出心声，共享快乐…</p>
+									<p>大小：1.46MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20111209/appdear_62196_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="134882" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120222/appdear_153197_g.apk?topicid=008&topicname=我是歌手你是谁呢" installlocate="0" appid="com.audiocn.kalaok" versioncode="25" version="v25.1.034" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="天籁K歌"></a></p>
+								</dt>
+								<dd>
+									<p>天籁K歌</p>
+									<p>"天籁Ｋ歌是一款全视频卡拉ＯＫ软件。它集卡拉OK视频播放、录音合成、原创分享、在线购物等功能于一体…</p>
+									<p>大小：8.78MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20111229/appdear_176196_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="144288" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130222/appdear_46344_0222_m.apk?topicid=008&topicname=我是歌手你是谁呢" installlocate="0" appid="com.duomi.duomiFM_kTVSalivaSong" versioncode="13" version="v1.9.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="K歌必会歌曲电台"></a></p>
+								</dt>
+								<dd>
+									<p>K歌必会歌曲电台</p>
+									<p>21世纪谁人不K歌！K歌乃当代人生存技能之一啊。本电台精选全国百家大型K厅最热门点唱次数最多的K歌歌曲…</p>
+									<p>大小：0.74MB</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

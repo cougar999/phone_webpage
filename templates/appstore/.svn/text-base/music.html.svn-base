@@ -1,0 +1,75 @@
+<!--{if $smarty.get.phonetype != '8.'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC ret='menulist'}-->
+
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 ret='navlist'}-->
+<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_INDEX ret='indexmenulist'}-->
+
+<!--{feed int=AP_INT_MENU_LIST  navid=$indexmenulist.menuid order=0 pageno=1 count=15 ret='musiccolumnlist'}-->
+<!--{config_load file="smarty.conf"}-->
+
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_MUSIC seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_MUSIC'}-->
+	</div>
+	<div class="scroll">
+	<div class="right">
+		<div style="margin-top:5px;">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+				<!--{menu items=$musiccolumnlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_INDEX_MUSIC_TOP ret='music_toplist'}-->
+				<!--{include file="wgt-music-top-list.tpl" column_id=$music_toplist.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_INDEX code2_id=$indexmenulist.menuid code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_INDEX_MUSIC_TOP}-->	
+			</td></tr></table>
+		</div>
+	</div>
+	<div class="center contentbody contentwrap">
+		<div class="section">
+			<div style="padding:0px 0px;">
+				<!--
+				<!--{menu items=$musiccolumnlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_CAT ret='menucatlist'}-->
+				<!--{include file="wgt-column-list.tpl" columnid=$menucatlist.menuid  typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_MUSIC}-->
+				<div style="height:1px;background:#cccccc;"></div>
+				-->
+			</div>
+		</div>
+		<!--{if $smarty.request.cid>0}-->
+		<div class="section">
+				<div style="padding:5px 0px;">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+						<!--{include file="wgt-song-sort.tpl"}-->	
+					</td></tr></table>
+					<div style="height:5px;"></div>
+					<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+						<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$menucatlist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_MUSIC  order=0 pageno=1 count=30 ret='music_catlist'}-->
+						<!--{include file="wgt-song-list.tpl" box_id=$smarty.request.cid|default:$music_catlist.list.items[0].catid  order=$smarty.request.order|default:$assign.ap_int.AP_INT_ORDER_DEFAULT code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_INDEX code2_id=$indexmenulist.menuid code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_CAT}-->
+					</td></tr></table>	
+				</div>
+		</div>	
+		<!--{else}-->
+		<div class="section">
+			<div style="padding:0px 0px;">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" border="1">
+					<tr>
+						<td width="50%"  valign="top">
+							<!--{menu items=$musiccolumnlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_HOT_MUSIC ret='hot_music_column'}-->
+							<!--{include file="wgt-hot-music-column.tpl" column_id=$hot_music_column.menuid column_name=$hot_music_column.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_INDEX code2_id=$indexmenulist.menuid code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_HOT_MUSIC}-->
+						</td>
+						<td  width="50%" valign="top">
+							<!--{menu items=$musiccolumnlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_OLDSONG ret='hot_music_column'}-->
+							<!--{include file="wgt-hot-music-column.tpl" column_id=$hot_music_column.menuid column_name=$hot_music_column.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_INDEX code2_id=$indexmenulist.menuid code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_OLDSONG}-->
+						</td>
+					</tr>
+				</table>		
+			</div>
+		</div>	
+
+		<!--{/if}-->
+	</div>
+	</div>
+</div></div>
+<!--{else}-->
+<div>
+	<div style="margin-left: 5px; line-height: 32px;">
+		<span class="f6 t" style="color:#777777">暂无适合您手机的资源，敬请谅解...</span>
+	</div>
+</div>
+<!--{/if}-->

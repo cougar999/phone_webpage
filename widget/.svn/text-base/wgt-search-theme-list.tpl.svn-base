@@ -1,0 +1,66 @@
+<!--{feed int=AP_INT_SEARCH_THEME keyword=$keyword iscrack=$smarty.get.iscrack|default:0 order=$smarty.get.order|default:0 pageno=$smarty.get.pageno|default:1 count=10 ret='themelist'}-->
+<div class="section">
+	<div style="border: 1px solid #d2d2d2; padding: 8px 8px;margin-bottom:15px;border-radius:5px;" class="f4 b">
+		在<font color="#f04e06"><!--{$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_THEMESOFT}--></font>中搜索“<!--{$smarty.request.keyword}-->”共有<!--{if $themelist.page.totalcount}--><!--{$themelist.page.totalcount}--><!--{else}-->0<!--{/if}-->条结果：
+	</div>
+</div>
+<div class="section">
+<div class="unit">
+		<div class="titlebar"><!--{include file="wgt-sort.tpl"}--></div>
+		<div id="wgt-app-list" class="wgt-app-list">
+				<div>
+					<div style="padding: 10px 0 20px;">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0"  style="table-layout:fixed;">		
+							<col style="width: 85px;"></col>
+							<col style="width: 2px;"></col>
+							<col style="width: 160px;"></col>
+							<col style="width: 2px;"></col>
+							<!-- <col style="width: 82px;"></col>
+							<col style="width: 2px;"></col> -->
+							<col style="width: 82px;"></col>
+							<col style="width: 2px;"></col>
+							<col style="width: 82px;"></col>
+							<col style="width: 2px;"></col>
+							<col style="width: 103px;"></col>
+							<col style="width: 2px;"></col>
+							<col style="width: 100%;"></col>
+							<col style="width: 2px;"></col>
+							<col style="width: 173px;"></col>
+						<!--{foreach key=key item=item from=$themelist.page.items}-->	
+						<tr class="tooltip"  title="<!--{if $item.terms}-->支持型号：<br /><!--{foreach key=key item=term from=$item.terms}--><!--{$term}-->&nbsp;<!--{/foreach}--><!--{/if}-->">
+							<td>
+								<a href="<!--{$assign.tp.TP_WEB_URL}-->appstore/<!--{if $item.type==2}-->game-detail.html<!--{else}-->soft.html<!--{/if}-->?softid=<!--{$item.softid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><img src="<!--{#img4#}-->/resources/images/transparent.gif"  style="width:85px; height:60px;background:url(<!--{if $item.imgurl != ''}--><!--{$item.imgurl}-->_sf_48x48.png<!--{else}--><!--{#res2#}-->/resources/temp/baidu_hand.png<!--{/if}-->) no-repeat center center; border:0px;" /></a>
+							</td>
+							<td></td>
+							<td class="tl b" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;"><a href="<!--{$assign.tp.TP_WEB_URL}-->appstore/<!--{if $item.type==2}-->game-detail.html<!--{else}-->soft.html<!--{/if}-->?softid=<!--{$item.softid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><!--{$item.name}--></a></td>
+							<td></td>
+							<!-- <td class="tc"><!--{if $item.price}--><!--{math equation='(x/100)' x=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+							<td></td>
+							<td class="tc"><!--{if $item.servicefee}--><!--{math equation='(x/100)' x=$item.servicefee|default:0}-->元<!--{else}-->免费<!--{/if}--></td> -->
+							<td class="tc"><!--{if $item.servicefee || $item.price}--><!--{math equation='(x/100 + y/100)' x=$item.servicefee|default:0 y=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+							<td></td>
+							<td class="tc"><!--{$item.size|sizetext}--></td>
+							<td></td>
+							<td class="tr" style="padding-left:10px">
+								<div class="lf re">
+									<div class="lf" style="width:80px; height:15px; background:url(<!--{#img1#}-->/resources/img/star.png) repeat-x left center;"></div>
+									<div class="ab" style="right:0px;width:<!--{math equation='(x*(50-y)/z)' x=80 y=$item.grade|default:50 z=50}-->px; height:15px; background:url(<!--{#img2#}-->/resources/img/star_gray.png) repeat-x right center;"></div>
+								</div>
+							</td>
+							<td></td>
+							<td class="tl" style="padding-left:10px;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;"><!--{$item.desc|default:'暂无内容'}--></td>
+							<td></td>
+							<td>
+								<a id="<!--{$item.softid}-->" href="<!--{$item.downloadurl}-->&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_SEARCH}-->&seatype=<!--{$smarty.request.seatype}-->&keyword=<!--{$keyword}-->" installlocate="<!--{$item.installlocate}-->" appid="<!--{$item.appid}-->"  versioncode="<!--{$item.versioncode}-->"  version="<!--{$item.version}-->" title="<!--{$item.name}-->" type="7"  price="<!--{math equation='(x)/100' x=$item.price|default:0}-->" servicefee="<!--{math equation='(x)/100' x=$item.servicefee|default:0}-->"  class="<!--{if ($item.price or $item.servicefee) && ($smarty.get.phonetype != '3.') && ($smarty.get.phonetype != '.')}-->addcart<!--{else}-->downinit<!--{/if}-->"  onclick="return false;"><img src="<!--{#img4#}-->/resources/images/transparent.gif" <!--{$assign.tp.TP_RES_URL}--><!--{if $item.price or $item.servicefee}-->class="buybtn_mid" <!--{else}-->class="downbtn_mid"<!--{/if}--> /></a>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="15"><div style="width:99%;border-bottom:1px dotted #cccccc;margin: 10px 0 10px 0; "></div></td>
+						</tr>
+						<!--{/foreach}-->
+						</table>
+					</div>
+				</div>
+			</div> <!--{include file="wgt-paging.tpl" page=$themelist.page}-->
+</div>
+</div>

@@ -1,0 +1,16 @@
+<!--{feed int=AP_INT_C_BOOKLIST cid=$column_id order=0 pageno=1 count=5 ret='colomunlist'}-->
+<!--{foreach key=key item=item from=$colomunlist.page.items name=list}-->
+	<li>
+		<a href="/appstore/book-intro.html?bid=<!--{$item.bookid}-->" title="<!--{$item.book}-->"  onclick="gotopage(this); return false;">
+			<img src="<!--{#img4#}-->/resources/images/transparent.gif" style="width:92px; height:128px;border:0px;background:url(<!--{if $item.imgurl != ''}--><!--{$item.imgurl}-->_sf_92x128.png<!--{else}--><!--{/if}-->) no-repeat center center; border:0px;" />
+		</a>
+		<p align="center">
+			<a href="/appstore/book-intro.html?bid=<!--{$item.bookid}-->" title="<!--{$item.book}-->"  onclick="gotopage(this); return false;" class="book_f_blue f1 b"><!--{$item.book}--></a>
+		</p>
+		<p class="f1" align="center">作者：<!--{$item.author}--></p>
+	</li>
+<!--{/foreach}-->
+
+<!-- 
+<li><a href="#"><img src="/resources/img/book_temp_rec_1.png" border="0"/></a></li>
+ -->

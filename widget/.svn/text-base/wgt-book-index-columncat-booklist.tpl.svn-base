@@ -1,0 +1,55 @@
+<!--{feed int=AP_INT_COLUMNCAT_BOOKLIST cid=$column_id order=0 pageno=1 count=30 ret='colomunlist'}-->
+<div style="height: 300px; border-left: 1px solid #cccccc;">
+	<!--{foreach key=key item=item from=$colomunlist.list.items name=list}-->
+		<!--{if $item.type == 24}-->
+			<!--{if $colomunlist.list.items[$smarty.foreach.list.iteration].type == 24}-->
+				<!--{section start=$smarty.foreach.list.index loop=$colomunlist.list.items name=sect max=$smarty.foreach.list.iteration max=2}-->
+					<div class='imgtxt'>
+						<div class='imgWrap'>
+							<a href="/appstore/book-intro.html?bid=<!--{$colomunlist.list.items[sect].contentid}-->" title="">
+								<img class="lf" src="<!--{#img4#}-->/resources/images/transparent.gif" style="width:80px; height:112px;border:0px;background:url(<!--{if {$colomunlist.list.items[sect].imgurl != ''}--><!--{$colomunlist.list.items[sect].imgurl}-->_sf_80x112.png<!--{else}--><!--{/if}-->) no-repeat center center; border:1px solid #cccccc;padding:2px;" />
+							</a>
+						</div>
+						<div class="txtWrap">
+							<h3 style="font-size: 14px;">
+								<a href="/appstore/book-intro.html?bid=<!--{$colomunlist.list.items[sect].contentid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><!--{$colomunlist.list.items[sect].name}--></a>
+							</h3>
+							<div>
+								<div class="lf re">
+									<div class="lf"
+										style="width:80px; height:16px; background:url(<!--{#img3#}-->/resources/img/star_fill.png) repeat-x left center;"></div>
+									<div class="ab"
+										style="right:0px;width:<!--{math equation='(x*(50-y)/z)' x=80 y=$bookinfo.grade|default:50 z=50}-->px; height:16px; background:url(<!--{#img4#}-->/resources/img/star_hollow.png) repeat-x right center;"></div>
+								</div>
+							</div>
+							<div style="font-size: 12px;">
+								作者：<!--{$colomunlist.list.items[sect].author}-->
+							</div>
+							<!-- <div style="font-size: 12px;">服务费：<!--{if $colomunlist.list.items[sect].price}--><!--{math equation='(x/100 + y/100)' x=$colomunlist.list.items[sect].price|default:0 y=0}-->元<!--{else}-->免费<!--{/if}--></div> -->
+						</div>
+					</div>
+				<!--{/section}-->
+				<ul style="clear: both;">
+					<!--{if $colomunlist.list.items[$smarty.section.sect.index_next].type == 7}-->
+						<!--{section start=$smarty.section.sect.index_next loop=$colomunlist.list.items name=sect2}-->
+							<!--{if $colomunlist.list.items[sect2].type == 24 && $colomunlist.list.items[$smarty.section.sect2.index_prev].type == 24}-->
+								<!--{php}-->continue;<!--{/php}-->
+							<!--{/if}-->
+							
+							<!--{if $colomunlist.list.items[sect2].type == 7}-->
+								<!--{if $colomunlist.list.items[sect2].type == 7 && ($colomunlist.list.items[$smarty.section.sect2.index_next].type == 7 || !$colomunlist.list.items[$smarty.section.sect2.index_next].type)}-->
+									<!--{php}-->continue;<!--{/php}-->
+								<!--{/if}-->
+								<li class="cat_name"><a href="/appstore/book-cat-list.html?cid=<!--{$colomunlist.list.items[sect2].contentid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;" class="book_f_blue"><!--{$colomunlist.list.items[sect2].name}--></a></li>
+								<li class="v_blue_line">|</li>
+							<!--{else}-->
+								<li class="cat_rec_title"><a href="/appstore/book-intro.html?bid=<!--{$colomunlist.list.items[sect2].contentid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><!--{$colomunlist.list.items[sect2].name}--></a></li>
+							<!--{/if}-->	
+						<!--{/section}-->
+						<!--{php}-->break;<!--{/php}-->
+				<!--{/if}-->	
+				</ul>
+			<!--{/if}-->
+		<!--{/if}-->		
+	<!--{/foreach}-->
+</div>

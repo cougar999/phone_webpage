@@ -1,0 +1,56 @@
+//屏蔽鼠标右键 1开启0关闭
+var mouseright = '1';
+
+var phoneOptions = {
+	unknown:0, pc:1, wap:2, android:3, symbian:4, mtk:5, wp7:6, java:7, ios:8, disk:9, ipad:10, winpad:11, androidpad:12
+};
+
+var smssendnum = '106901594455730001';
+
+var appcachedata = null;
+var appcachedatasystem = null;
+
+__debug = function(obj, arg, enable) {
+	if (enable) { 
+	} else {
+		if (!obj || !arg) return;
+	}
+	return;
+};
+
+var mo_prereads_debug = false;
+//var mo_prereads_debug = '#mo_prereads_debug_info';
+
+var pcrcode = 1037;
+var gotopage = function(a){
+	return false;
+};
+var gotopageurl = function(url) {
+	return false;
+};
+
+var restore_sms_options = 'setsms';
+//var restore_sms_options = 'backsms';
+
+
+var _res1='http://res1.pcr5.appdear.com';
+var _res2='http://res2.pcr5.appdear.com';
+var _res3='http://res3.pcr5.appdear.com';
+var _res4='http://res4.pcr5.appdear.com';
+var _res5='http://res5.pcr5.appdear.com';
+var _res6='http://res6.pcr5.appdear.com';
+var _res7='http://res7.pcr5.appdear.com';
+var _res8='http://res8.pcr5.appdear.com';
+var _res9='http://res9.pcr5.appdear.com';
+
+var _img1='http://img1.pcr5.appdear.com';
+var _img2='http://img2.pcr5.appdear.com';
+var _img3='http://img3.pcr5.appdear.com';
+var _img4='http://img4.pcr5.appdear.com';
+var _img5='http://img5.pcr5.appdear.com';
+var _img6='http://img6.pcr5.appdear.com';
+var _img7='http://img7.pcr5.appdear.com';
+var _img8='http://img8.pcr5.appdear.com';
+var _img9='http://img9.pcr5.appdear.com';
+
+var _base='http://pcr5.appdear.com';

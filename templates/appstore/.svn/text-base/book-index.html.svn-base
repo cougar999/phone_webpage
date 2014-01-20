@@ -1,0 +1,144 @@
+<!--{if $smarty.get.phonetype != '8.'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK ret='menu'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menu.menuid order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{config_load file="smarty.conf"}-->
+
+
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"  seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_BOOK seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_BOOK'}-->
+	</div>
+	<div class="scroll">
+	<div class="book_index_body">
+		<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT ret='catmenulist'}-->
+		<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK  order=0 pageno=1 count=30 ret='book_catlist'}-->
+		<div class="b_right">
+			<div>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+					<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_HOT ret='columnlist'}-->
+					<!--{include file="wgt-book-top-list-new.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_INDEX code2_id=0 code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_HOT}-->
+					<br />
+					<!-- {menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_TOP_DOWNLOAD ret='columnlist'}-->
+					<!-- {include file="wgt-book-top-list-new.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_INDEX code2_id=0 code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_TOP_DOWNLOAD}-->
+					
+					<!-- <!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_SHOP_REC ret='columnlist'}-->
+					<!--{include file="wgt-book-top-list-new.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_INDEX code2_id=0 code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_SHOP_REC}-->-->
+				</td></tr></table>
+				<a href="/appstore/book-package-list.html"><img src="<!--{#img3#}-->/resources/temp/img_package_temp2.png" style="margin:5px auto; border:1px solid #cccccc;"/></a>
+	
+			</div>
+		</div>
+		<div class="book_main">
+			<div class="cat-top">
+				<div class="cat-top-left"><img src="<!--{#img2#}-->/resources/img/cat-top-left.png" /></div>
+				<div class="cat-top-title">图书分类</div>
+				<div class="cat-top-right"><img src="<!--{#img3#}-->/resources/img/cat-top-right.png" /></div>
+			</div>
+			<div class="cat-main">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr>
+					<td>
+						<img src="<!--{#img3#}-->/resources/img/cat-novel.png" style="margin-left:14px; margin-right:10px;"/>
+					</td>
+					<td width="140" style="padding:0px; vertical-align:top; ">
+						<div class="cat-main-list">
+							<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_1 ret='cat_columnlist'}-->
+							<!--{include file="wgt-book-cat-column-list.tpl" columnid=$cat_columnlist.menuid typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK}--> 	
+						</div>
+					</td>
+					<td>
+						<img src="<!--{#img4#}-->/resources/img/cat-social.png" style="margin-left:14px; margin-right:10px;"/>
+					</td>
+					<td width="140" style="padding:0px; vertical-align:top; ">
+						<div class="cat-main-list">
+							<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_2 ret='cat_columnlist'}-->
+							<!--{include file="wgt-book-cat-column-list.tpl" columnid=$cat_columnlist.menuid typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK}--> 	
+						</div>
+					</td>
+					<td>
+						<img src="<!--{#img5#}-->/resources/img/cat-life.png" style="margin-left:14px; margin-right:10px;"/>
+					</td>
+					<td width="140" style="padding:0px; vertical-align:top; ">
+						<div class="cat-main-list">
+							<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_3 ret='cat_columnlist'}-->
+							<!--{include file="wgt-book-cat-column-list.tpl" columnid=$cat_columnlist.menuid typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK}--> 	
+						</div>
+					</td>
+					<td>
+						<img src="<!--{#img6#}-->/resources/img/cat-tech.png" style="margin-left:14px; margin-right:10px;"/>
+					</td>
+					<td width="140" style="padding:0px; vertical-align:top; ">
+						<div class="cat-main-list">
+							<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_4 ret='cat_columnlist'}-->
+							<!--{include file="wgt-book-cat-column-list.tpl" columnid=$cat_columnlist.menuid typeid=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK}--> 	
+
+						</div>
+					</td>
+					</tr>
+				</table>
+			</div>
+			<div class="book_rec">
+				<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_COLUMNLIST_1 ret='columnlist'}-->
+				<!--{include file="wgt-slide.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_INDEX code2_id=0 code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_HOT}-->
+				<div class="rg" style="width:533px; height:100%; border-left:1px solid #cccccc; background:url(<!--{#img6#}-->/resources/img/hot.png) no-repeat right top;">
+					<div class="headlines">
+						<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_COLUMNLIST_2 ret='reclist'}-->
+						<!--{include file="wgt-book-index-rec-list.tpl"  column_id=$reclist.menuid column_name=$reclist.menuname}-->
+						<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_COLUMNLIST_3 ret='reclist_2'}-->
+						<!--{include file="wgt-book-index-rec-list.tpl"  column_id=$reclist_2.menuid column_name=$reclist_2.menuname}-->
+				
+						<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_AND_BOOK_1 ret='cat_booklist_1'}-->
+						<!--{include file="wgt-book-index-rec-columncat-booklist.tpl"  column_id=$cat_booklist_1.menuid column_name=$cat_booklist_1.menuname}-->
+				
+					</div>
+				</div>
+			</div>
+			<div class="cate_list">
+				<div class="cate-mainlist">
+					<div class="cat-box-header">
+						<div class="cat-box-header-left" style="padding-top:3px;"><img src="<!--{#img7#}-->/resources/img/column-novel.png"/></div>
+						<div class="cat-box-header-title"></div>
+					</div>
+					<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_AND_BOOK_2 ret='columnlist'}-->
+					<!--{include file="wgt-book-index-columncat-booklist.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_INDEX code2_id=0 code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_HOT}-->
+				
+				</div>
+				<div class="cate-mainlist">
+					<div class="cat-box-header" style="border-left:1px solid #cccccc;">
+						<div class="cat-box-header-title">社科馆</div>
+					</div>
+					<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_AND_BOOK_3 ret='columnlist'}-->
+					<!--{include file="wgt-book-index-columncat-booklist.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_INDEX code2_id=0 code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_HOT}-->
+				
+				</div>
+				<div class="cate-mainlist">
+					<div class="cat-box-header" style="border-left:1px solid #cccccc;">
+						<div class="cat-box-header-title">生活馆</div>
+					</div>
+					<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_AND_BOOK_4 ret='columnlist'}-->
+					<!--{include file="wgt-book-index-columncat-booklist.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_INDEX code2_id=0 code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_HOT}-->
+				
+				</div>
+				<div class="cate-mainlist">
+					<div class="cat-box-header" style="border-left:1px solid #cccccc;">
+						<div class="cat-box-header-title">科技馆</div>
+					</div>
+					<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_AND_BOOK_5 ret='columnlist'}-->
+					<!--{include file="wgt-book-index-columncat-booklist.tpl"  column_id=$columnlist.menuid column_name=$columnlist.menuname code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_INDEX code2_id=0 code3=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_AND_BOOK_5}-->
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	
+</div></div>
+<!--{else}-->
+<div>
+	<div style="text-align:center;line-height: 32px;padding:30px;" class="f7">
+			暂无适合您手机的资源，敬请谅解...
+	</div>
+</div>
+<!--{/if}-->
+

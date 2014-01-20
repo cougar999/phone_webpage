@@ -1,0 +1,20 @@
+<!--{feed int=AP_INT_MENU_LIST navid=$navid order=0 pageno=1 count=10 ret='colomunlist'}-->
+<div id="wgt-navs" class="wgt-navs"><div class="navs">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr>
+	<td nowrap="nowrap">
+		<!--{foreach key=key item=item from=$colomunlist.list.items}-->
+			<!--{if $smarty.get.cid == $item.menuid && $key == 0}-->
+				<!--{php}-->$_GET['navtype'] = 1<!--{/php}--> 
+			<!--{elseif $smarty.get.cid == $item.menuid && $key == 1}-->
+				<!--{php}-->$_GET['navtype'] = 2<!--{/php}-->
+			<!--{else}-->
+				<!--{php}-->$_GET['navtype'] = 1<!--{/php}-->
+			<!--{/if}-->
+    		<h3 class="lf">
+				<a href="?<!--{params cid=$item.menuid}-->" class="hist tc" onclick="gotopage(this); return false;"><span class="title"><!--{$item.menuname}--></span></a>
+			</h3>
+    	<!--{/foreach}-->
+    	<div class="cl"></div>
+	</td>
+	</tr></table>
+</div></div>

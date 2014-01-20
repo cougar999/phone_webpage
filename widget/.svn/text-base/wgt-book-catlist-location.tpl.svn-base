@@ -1,0 +1,29 @@
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_1 ret='cat_columnlist'}-->
+<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$cat_columnlist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK order=0 pageno=1 count=30 ret='columnlist'}-->
+<!--{foreach key=key item=item from=$columnlist.list.items name=list}-->
+<!--{if $item.catid == $smarty.request.cid}-->
+<span class="area"> <!--{$item.name}--> </span>
+<!--{/if}-->
+<!--{/foreach}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_2 ret='cat_columnlist'}-->
+<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$cat_columnlist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK order=0 pageno=1 count=30 ret='columnlist'}-->
+<!--{foreach key=key item=item from=$columnlist.list.items name=list}-->
+<!--{if $item.catid == $smarty.request.cid}-->
+<span class="area"> <!--{$item.name}--> </span>
+<!--{/if}-->
+<!--{/foreach}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_3 ret='cat_columnlist'}-->
+<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$cat_columnlist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK order=0 pageno=1 count=30 ret='columnlist'}-->
+<!--{foreach key=key item=item from=$columnlist.list.items name=list}-->
+<!--{if $item.catid == $smarty.request.cid}-->
+<span class="area"> <!--{$item.name}--> </span>
+<!--{/if}-->
+<!--{/foreach}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_BOOK_CAT_4 ret='cat_columnlist'}-->
+<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$cat_columnlist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_BOOK order=0 pageno=1 count=30 ret='columnlist'}-->
+<!--{foreach key=key item=item from=$columnlist.list.items name=list}-->
+<!--{if $item.catid == $smarty.request.cid}-->
+<span class="area"> <!--{$item.name}--> </span>
+<!--{/if}-->
+<!--{/foreach}-->
+

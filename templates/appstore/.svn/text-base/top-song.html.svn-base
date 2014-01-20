@@ -1,0 +1,25 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC ret='menulist'}-->
+
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_BRAND ret='brandcolumnlists'}-->
+
+<!--{feed int=AP_INT_MENU_LIST  navid=$brandcolumnlists.menuid order=0 pageno=1 count=15 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC_BRAND_MUSICLIST ret='brandcolumn'}-->
+<!--{config_load file="smarty.conf"}-->
+
+
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	<div class="contentbody contentwrap">
+		<div class="section">
+			<div style="padding:0px;">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+					<!--{include file="wgt-song-top-list.tpl" column_id=$brandcolumn.menuid}-->
+				</td></tr></table>
+			</div>
+		</div>			
+	</div>
+</div></div>

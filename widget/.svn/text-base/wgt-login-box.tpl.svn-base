@@ -1,0 +1,25 @@
+<div style="padding:20px 10px;">
+	<span class="f4 b"	style="line-height: 48px;margin-bottom: 28px;">会员登录：</span>
+	<div style="height: 26px; line-height: 26px; margin-bottom: 28px;">
+		<span class="lf" style="width: 60px;">账号：</span>
+		<input id="username" type="text" class="lf" style="width:166px;" name="username" value="">
+	</div>
+	<div style="height: 26px; line-height: 26px; margin-bottom: 28px;">
+		<span class="lf" style="width: 60px;">密码：</span>
+		<input id="password" type="password"	class="lf" style="width: 166px;" name="password" value="" alt="请输入密码">
+		&nbsp;&nbsp;<a href="/member/find-passwd.html" class="f2" style="margin-left: 20px;float:left;" onclick="$.colorbox({href:this.href, iframe:true, width:600, height:310, close:false, overlayClose:false, scrolling:false}); return false;">找回密码</a>
+	</div>
+	<div style="height: 29px; line-height: 29px;">
+		<input type="button" id="login" style="margin-left: 83px;float:left;width:67px;height:29px;background:url(<!--{#res1#}-->/resources/img/btn_login.png) no-repeat;border:0px; cursor:pointer;" onclick="return false;">
+		
+	</div>
+	<div style="margin-top:44px;">
+			<div class="b f4 lf" style="line-height: 29px;color:#ef5000;">还没有会员账号？&nbsp;&nbsp;&nbsp;&nbsp;</div>
+			<div class="lf"><input type="button" id="online_register" style="margin-left: 10px;width:63px;height:29px;background:url(<!--{#res3#}-->/resources/img/btn_online_register.png) no-repeat;border:0px; cursor:pointer;" onclick="location.href='/member/register.html'"></div>
+			<!-- <p>您可以通过以下任一方法成为我们的会员：</p> -->
+			
+	</div>
+	<div class="others_btn">
+		<!-- <input type="button" id="buy_card" style="margin-left: 23px;width:99px;height:29px;background:url(<!--{#res2#}-->/resources/img/btn_buy_card.png) no-repeat;border:0px; cursor:pointer;" onclick="location.href='/member/buy.html'"> -->
+	</div>
+</div>

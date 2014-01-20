@@ -1,0 +1,95 @@
+<!--{feed int=AP_INT_AUTHOR_INFO aid=$box_id order=0 pageno=1 count=10 ret='authorinfo'}-->
+<div id="wgt-theme-detail" class="wgt-theme-detail"><div>
+	<div style="padding:0 0 20px;">
+		<!--{feed int=AP_INT_AUTHOR_BOOKLIST authorid=$box_id order=$order pageno=$smarty.get.pageno|default:1 count=10 ret='workslist'}-->
+	
+		<div class="section">
+			<div style="border-left:1px solid #cccccc;border-right:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+				<div style="padding:0px 10px;width:auto; height:31px; line-height:31px; background:url(<!--{$assign.tp.TP_RES_URL}-->resources/img/middle_title_bg.png);">
+					<span class="b f4 c1"><!--{$authorinfo.name}-->的全部作品（共<!--{$workslist.page.totalcount}-->部）</span>
+				</div>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+					<div style="padding:0px 10px 0px 0px;"><!-- 74102305-7c6d-458e-b1ce-aa93e674ee87 -->
+						<div id="wgt-search-list" class="wgt-search-list"><div style="padding-top:10px;">
+								<!--{foreach key=key item=item from=$workslist.page.items}-->
+								<div style="padding-left:30px;padding-right:0px;padding-top:20px;padding-bottom:30px;border-bottom:1px dashed #cccccc;">
+									<a href="/appstore/book-detail.html?bid=<!--{$item.bookid}-->" onclick="gotopage(this); return false;"><img class="lf tc" src="<!--{#img7#}-->/imagebook.php?width=115&image=<!--{if $item.imgurl != ''}--><!--{$item.imgurl}--><!--{else}--><!--{/if}-->" style="width:136px; height:206px;border:1px solid #cccccc; padding:2px;" /></a>
+									<div  style="margin-left: 150px;width:auto;line-height:23px;"><!-- {$item.imgurl}-->
+										<div style="height:25px;">
+											<span class="lf f4 b"><a href="/appstore/book-detail.html?bid=<!--{$item.bookid}-->" onclick="gotopage(this); return false;"><!--{$item.book}--></a></span>
+											<span class="lf" style="margin-left:5px;"></span>					
+										</div>
+										<div style="height:23px;">
+											<span class="lf f4">作者：</span>
+											<span class="lf f2" style="width:135px;"><!--{$item.author}--></span>
+											<span class="lf f4">分类：</span>
+											<span class="lf f2"><!--{$item.catalog|default:'电子书籍'}--></span>
+										</div>
+										<!--<div style="height:23px;">
+											<span class="lf f4">字数：</span>
+											<span class="lf f2" style="width:135px;"><!--{$item.wordnum|sizebook}-->字</span>
+											<span class="lf f4">大小：</span>
+											<span class="lf f2"><!--{$item.formatitems[0].size|sizetext}--></span>
+										</div>-->
+										<div style="height:23px;">
+											<span class="lf f4">格式：</span>
+											<span class="lf f2" style="width:135px;"><!--{$item.formatitems[0].format}--></span>
+											<!--<span class="lf f4">下载次数：</span>
+											<span class="lf f2"><!--{if $item.download}--><!--{$item.download}--><!--{else}-->0<!--{/if}-->次</span>-->
+										</div>
+										<div style="height:23px;">
+											<span class="lf f4">价格：</span>
+											<span class="lf f2" style="width:135px;"><!--{if $item.price}--><!--{math equation='(x/100)' x=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}--></span>
+										</div>
+										<div style="height:23px;">
+											<span class="lf f4">上架时间：</span>
+											<span class="lf f2" style="width:105px;"><!--{$item.date|default:'未知'}--></span>
+										</div>
+										
+										<div style="height:23px;">
+											<span class="lf f4">评级：</span>
+											<div class="lf re">
+												<div class="lf" style="width:80px; height:15px; background:url(<!--{#img1#}-->/resources/img/star.png) repeat-x left center;"></div>
+												<div class="ab" style="right:0px;width:<!--{math equation='(x*(50-y)/z)' x=80 y=$item.grade|default:50 z=50}-->px; height:15px; background:url(<!--{#img2#}-->/resources/img/star_gray.png) repeat-x right center;"></div>
+											</div>
+
+										</div>
+										<div style="height:23px;">
+										<!--{if $item.formatitems|@count==1}-->
+											<a id="<!--{$item.bookid}-->" href="<!--{$item.formatitems[0].downloadurl}-->&ref=<!--{$assign.referer|base64_en}-->" type="5" price="<!--{math equation='(x)/100' x=$item.price|default:0 }-->"  servicefee="0" title="<!--{$item.book}-->"  class="lf <!--{if $item.price}-->addcart<!--{else}-->downinit<!--{/if}-->" onclick="return false;"><img src="<!--{#res1#}--><!--{if $item.price}-->/resources/img/btn_buy.png<!--{else}-->/resources/img/btn_download.png<!--{/if}-->" class="png_bg" border="0"></a>
+										<!--{elseif $item.formatitems|@count>1}-->
+											<!--{foreach key=key item=formatitem from=$item.formatitems}-->
+													<!--{if $formatitem.format == 'txt'}-->
+														<a id="<!--{$item.bookid}-->" href="<!--{$formatitem.downloadurl}-->&ref=<!--{$assign.referer|base64_en}-->" type="5" price="<!--{math equation='(x)/100' x=$item.price|default:0 }-->" servicefee="0"  title="<!--{$item.book}-->"  class="lf <!--{if $item.price}-->addcart<!--{else}-->downinit<!--{/if}-->" onclick="return false;"><img src="<!--{#res1#}--><!--{if $item.price}-->/resources/img/btn_buy.png<!--{else}-->/resources/img/btn_download.png<!--{/if}-->" class="png_bg" border="0"></a>
+														<!--{php}-->break;<!--{/php}-->
+													<!--{/if}-->
+											<!--{/foreach}-->
+										<!--{/if}-->
+										<!--{if $item.formatitems|@count>1}-->
+											<!--{foreach key=key item=formatitem from=$item.formatitems}-->
+													<!--{if $formatitem.format != 'txt'}-->
+														<a id="<!--{$item.bookid}-->" href="<!--{$formatitem.downloadurl}-->&ref=<!--{$assign.referer|base64_en}-->" type="5" price="<!--{math equation='(x)/100' x=$item.price|default:0 }-->" servicefee="0"  title="<!--{$item.book}-->"  class="lf f2 <!--{if $item.price}-->addcart<!--{else}-->downinit<!--{/if}-->" onclick="return false;" style="margin-left:10px;"><!--{if $item.price}-->购买<!--{else}-->下载<!--{/if}--><!--{$formatitem.format}-->格式文件</a>
+													<!--{/if}-->
+											<!--{/foreach}-->
+										<!--{/if}-->
+										</div>	
+										<div style="height:23px;">
+											<div class="lf f2">
+											简介：<!--{$item.desc}-->
+											</div>
+										</div>			
+									</div>	
+									<div class="cl"></div>					
+								</div>
+								<!--{/foreach}-->
+						</div></div>					
+					</div>
+					
+				</td></tr></table>	
+				<!--{include file="wgt-paging.tpl" page=$workslist.page}-->	
+			</div>
+		</div>
+		
+		<br />
+	</div>
+</div></div>

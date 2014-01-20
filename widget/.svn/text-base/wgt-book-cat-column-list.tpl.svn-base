@@ -1,0 +1,4 @@
+<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$columnid type=$typeid order=0 pageno=1 count=30 ret='columnlist'}-->
+<!--{foreach key=key item=item from=$columnlist.list.items name=list}-->
+<a href="book-cat-list.html?<!--{params cid=$item.catid sortby=null order=null pageno=null}-->" class="hist" onclick="gotopage(this); return false;"><span class="title"><!--{$item.name}--></span></a>
+<!--{/foreach}-->

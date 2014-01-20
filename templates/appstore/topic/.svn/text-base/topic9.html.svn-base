@@ -1,0 +1,170 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>我们一起找“抽”吧</h2>
+					<div class="evaDetail">
+						<blockquote>
+							草泥马、吊丝龅...都是你懂的，一起来找“抽”吧。
+						</blockquote>
+						<div class="topiclist clear">
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121119/appdear_219890_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="381725" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130301/appdear_722231_0301_m.apk?topicid=009&topicname=我们一起找抽吧" installlocate="0" appid="org.funship.findsomething.channel_91" versioncode="10" version="v3.0.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="找你妹"></a></p>
+								</dt>
+								<dd>
+									<p>找你妹</p>
+									<p>★iOS超过100万火热下载，苹果官方推荐游戏，全球数万评价，平均4.7星★ 别自找烦恼,快来“找你妹”…</p>
+									<p>大小：48.07MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_223796_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="202545" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121119/appdear_48581_1119_m.apk?topicid=009&topicname=我们一起找抽吧" installlocate="0" appid="maxstrom.game.letfindbeautyhd" versioncode="13" version="v2.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="美女找茬 HD"></a></p>
+								</dt>
+								<dd>
+									<p>美女找茬 HD</p>
+									<p>美女找茬 HD。经典有趣小游戏，高清画质，ANDROID平板效果更佳。每张MM照片，有10个不一样的地方哦，你都能找出来吗，开始游戏吧…</p>
+									<p>大小：6.06MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120713/appdear_288137_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="381725" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120713/appdear_288137_0713_g.apk?topicid=009&topicname=我们一起找抽吧" installlocate="0" appid="com.lh.lf" versioncode="3" version="v1.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="找茬400张典藏版"></a></p>
+								</dt>
+								<dd>
+									<p>找茬400张典藏版</p>
+									<p>400张精美图片，15首动听的音乐，5种游戏模式，让你玩个够！iOS平台下载过千万的火爆找茬游戏登陆安卓平台…</p>
+									<p>大小：30.95MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120514/appdear_199010_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="146585" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121004/appdear_867359_1004_h.apk?topicid=009&topicname=我们一起找抽吧" installlocate="0" appid="com.sinyee.babybus.findCha" versioncode="33" version="v3.73" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="宝宝来找茬"></a></p>
+								</dt>
+								<dd>
+									<p>宝宝来找茬</p>
+									<p>看谁能找得最快、找得最多哈！赶快把结果告诉我们吧！●游戏规则：在规定时间内找出2张图中5个不同点，在不同点上点击即可…</p>
+									<p>大小：22.9MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120620/appdear_230601_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="175421" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120620/appdear_230601_0620_g.apk?topicid=009&topicname=我们一起找抽吧" installlocate="0" appid="cn.mangotea.android.games.zhaocha2" versioncode="32" version="v3.3.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="美女找茬"></a></p>
+								</dt>
+								<dd>
+									<p>美女找茬</p>
+									<p>每一张图片有五个不同之处，全部找到就能欣赏下一个美女。游戏集成微云社区，提供多种排行和成就系统，快来试试你能在美女身上找到多少不同吧…</p>
+									<p>大小：8.35MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120811/appdear_326081_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="299635" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120811/appdear_326081_0811_g.apk?topicid=009&topicname=我们一起找抽吧" installlocate="0" appid="com.lh.d18" versioncode="1" version="v1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="找茬十八禁"></a></p>
+								</dt>
+								<dd>
+									<p>找茬十八禁</p>
+									<p>iOS平台下载过千万的火爆找茬游戏登陆安卓平台！1. [经典游戏］让你在美图中体验儿时回忆，一关三图一个提示…</p>
+									<p>大小：22.99MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130307/appdear_0yvynku3g_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="278360" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120224/appdear_233794_g.apk?topicid=009&topicname=我们一起找抽吧" installlocate="0" appid="kr.co.mflare.hc2free" versioncode="1" version="v1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="奇幻找茬2"></a></p>
+								</dt>
+								<dd>
+									<p>奇幻找茬2</p>
+									<p>找出每幅图有3个不同之处，三幅图过一关，6大章，几十个关卡，还有成就系统，总之非常有意思…</p>
+									<p>大小：21.87MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110914/zc/35797/35797_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="105636" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20110914/zc/35797/35797.apk?topicid=009&topicname=我们一起找抽吧" installlocate="0" appid="maxstrom.game.letfindlandscape" versioncode="2" version="v1.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="风景找茬"></a></p>
+								</dt>
+								<dd>
+									<p>风景找茬</p>
+									<p>找茬系列之风景找茬，休闲益智小游戏…</p>
+									<p>大小：0.93MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110905/zzl/50414/50414_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="278360" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121118/appdear_2535823209_1118_b.apk?topicid=009&topicname=我们一起找抽吧" installlocate="0" appid="com.xy.game.zhaocha1" versioncode="20" version="v2.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="大家来找茬"></a></p>
+								</dt>
+								<dd>
+									<p>大家来找茬</p>
+									<p>功能齐全的找茬游戏，找茬游戏是益智游戏中的经典，这里面集合了3个人气最旺的找茬游戏…</p>
+									<p>大小：3.92MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif"style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120529/appdear_271249_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="252059" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120529/appdear_271249_0529_g.apk?topicid=009&topicname=我们一起找抽吧" installlocate="0" appid="android.spot.the.difference" versioncode="1" version="v1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="找茬总动员"></a></p>
+								</dt>
+								<dd>
+									<p>找茬总动员</p>
+									<p>史上最新超级变态的找茬游戏，适合骨灰级玩家，如果你的眼力够好，思维够敏捷，手指够灵活，Come On…</p>
+									<p>大小：6.91MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110919/zc/36389/36389_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="278360" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20110919/zc/36389/36389.apk?topicid=009&topicname=我们一起找抽吧" installlocate="0" appid="maxstrom.game.letfindnewyear" versioncode="2" version="v1.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="年画找茬"></a></p>
+								</dt>
+								<dd>
+									<p>年画找茬</p>
+									<p>找茬系列之年画找茬，休闲益智小游戏。 更丰富的关卡请留意后续升级。 恭祝各位春节快乐，万事如意…</p>
+									<p>大小：0.91MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif"style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_167052_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="167158" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120219/appdear_167052_g.apk?topicid=009&topicname=我们一起找抽吧" installlocate="0" appid="com.nvyou" versioncode="3" version="v1.04" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="女优找茬蓝牙版"></a></p>
+								</dt>
+								<dd>
+									<p>女优找茬蓝牙版</p>
+									<p>极品女优来找茬，宅男的福音，腐女的知己，顺利通关即可下载女优高清大图，还可多人联机对战哦…</p>
+									<p>大小：3.72MB</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

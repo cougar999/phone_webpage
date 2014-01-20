@@ -1,0 +1,30 @@
+<div class="lf grid440 border5" id="active_checkcard">
+	<div class="title">方式 <img src="<!--{#res3#}-->/resources/img40/num_one.png" align="absmiddle" /> <i>绑定激活</i>（需连接手机）</div>
+	<div class="ctrl-group">
+		<label for="card">卡号：</label>
+		<div class="controls">
+			<input type="text" id="card" class="input-large" placeholder="请输入16位会员下载卡卡号"><span class="help-inline"><strong>*</strong></span>
+			<p class="help-block">&nbsp;</p>
+		</div>
+	</div>
+	<div class="ctrl-group">
+		<label for="passwd">激活码：</label>
+		<div class="controls">
+			<input type="text" id="passwd" class="input-large" placeholder="请刮开涂层输入6位激活码"><span class="help-inline"><strong>*</strong></span>
+			<input id="type" type="hidden" name="passwd" value="2" />
+			<p class="help-block">&nbsp;</p>
+		</div>
+	</div>
+	<div class="ctrl-group">
+		<label for="mobile">手机号：</label>
+		<div class="controls">
+			<input type="text" id="mobile" class="input-large" placeholder="请输入您的手机号以便参加抽奖">
+			<p class="help-block">&nbsp;</p>
+		</div>
+	</div>
+	<div class="form-actions">
+		<input class="btn-primary" type="image" src="<!--{#res4#}-->/resources/img40/btn_active_normal.png" id="btn_checkcard">
+		<input class="btn-primary" type="image" src="<!--{#res4#}-->/resources/img40/btn_close_normal.png" id="btn_checkcard_close">
+	</div>
+</div>
+<div id="active_checkcard_success" class="lf grid440 border5 no" style="height:182px;padding-top:150px;font-size:20px;"></div>

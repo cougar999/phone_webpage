@@ -1,0 +1,19 @@
+<!--{feed int=AP_INT_COLUMNCAT_BOOKLIST cid=$column_id order=0 pageno=1 count=30 ret='colomunlist'}-->
+<ul class="cat_rec">
+<!--{foreach key=key item=item from=$colomunlist.list.items name=list}-->
+	<!--{if $item.type == 7}-->
+		<!--{if $colomunlist.list.items[$smarty.foreach.list.iteration].type == 24}-->
+			<li class="cat_name">[<a href="/appstore/book-cat-list.html?cid=<!--{$colomunlist.list.items[sect].contentid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;" class="book_f_blue"><!--{$item.name}--></a>]</li>
+			<li class="cat_rec_title">
+			<!--{section start=$smarty.foreach.list.iteration loop=$colomunlist.list.items name=sect}-->
+				<!--{if $colomunlist.list.items[$smarty.section.sect.index].type == 7 }-->
+					</li>
+					<!--{php}-->break;<!--{/php}-->
+				<!--{else}-->
+					<a href="/appstore/book-intro.html?bid=<!--{$colomunlist.list.items[sect].contentid}-->&phonetype=<!--{$smarty.get.phonetype}-->" onclick="gotopage(this); return false;"><!--{$colomunlist.list.items[sect].name}--></a>
+				<!--{/if}-->
+			<!--{/section}-->
+		<!--{/if}-->
+	<!--{/if}-->
+<!--{/foreach}-->
+</ul>

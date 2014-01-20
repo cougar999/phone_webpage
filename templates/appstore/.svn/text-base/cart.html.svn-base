@@ -1,0 +1,211 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	<div class="scroll">
+	<div class="contentbody contentwrap" style="margin:20px 0 0 40px;">
+		<!--{if $assign.buy}-->
+		<div class="section">
+			<div style="padding:10px 20px;">
+					<div style="">
+						<img alt="我的购物车" src="<!--{#res1#}-->/resources/img/mycart.jpg" align="baseline"><span class="f0 c2" style="margin-left:3em;border-bottom:1px dotted #CCC;padding:3px 5px;">点击“生成订单”查看订单并付款即可将您选择的应用下载到手机</span>
+					</div>
+			</div>
+		</div>	
+		<div class="section">
+			<div id="carttit"></div>
+				<div id="cartable">
+					<div id="tablebd" class="clear">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table">
+							<col style="width: 70px"></col>
+                            <col style="width: 245px"></col>
+							<col style="width: 107px"></col>
+							<col style="width: 100px"></col>
+							<col style="width: 96px"></col>
+							<col style="width: 115px"></col>
+							<col style="width: 150px"></col>
+							<tbody>
+							<!--{foreach key=key item=item from=$assign.buy name=list}-->
+								<!--{if $item.type==1 }-->
+								<!--{feed int=AP_INT_SOFT_INFO softid=$item.contentid order=0 pageno=1 count=1 ret='softinfo'}-->
+									<!--{if $softinfo.softid}-->
+									<tr>
+										<td nowrap="nowrap" class="tc"><span class="icon" style="background-image:url(<!--{#img1#}-->/icon.php?width=48&height=48&sid=<!--{$item.contentid}-->&phonetype=<!--{$smarty.request.phonetype}-->);"></span></td>
+										<td nowrap="nowrap" class="tl"><a href="/appstore/soft.html?iscrack=<!--{$smarty.get.iscrack}-->&softid=<!--{$softinfo.softid}-->"><!--{$softinfo.name}--></a></td>
+										<td nowrap="nowrap" class="tc">应用软件</td>
+										<td nowrap="nowrap" class="tc"><!--{if $softinfo.size}--><!--{$softinfo.size|sizetext}--><!--{else}-->未知<!--{/if}--></td>
+										<!--<td nowrap="nowrap" class="tc"><!--{if $softinfo.price}--><!--{math equation='(x/100)' x=$softinfo.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tc"><!--{if $softinfo.servicefee}--><!--{math equation='(x/100)' x=$softinfo.servicefee|default:0}-->元<!--{else}-->免费<!--{/if}--></td>-->
+										<td></td>
+										<td nowrap="nowrap" class="tc"><!--{if $softinfo.servicefee || $softinfo.price}--><!--{math equation='(x/100 + y/100)' x=$softinfo.servicefee|default:0 y=$softinfo.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tl"><a id='{"contentid":<!--{$item.contentid}-->,"contentname":"<!--{$item.contentname|escape:"html"}-->","type":<!--{$item.type}-->,"price":<!--{$item.price}-->,"servicefee":<!--{$item.servicefee}-->,"downloadurl":"<!--{$item.downloadurl}-->","size":"<!--{$item.size}-->"}' href="#null"  class="delcart" size="<!--{if $softinfo.size}--><!--{$softinfo.size}--><!--{else}-->0<!--{/if}-->" title="删除 <!--{$item.contentname}-->">删除</a></td>
+									</tr>
+									<!--{/if}-->
+								<!--{elseif $item.type==2}-->
+									<!--{feed int=AP_INT_SOFT_INFO softid=$item.contentid order=0 pageno=1 count=1 ret='softinfo'}-->
+									<!--{if $softinfo.softid}-->
+									<tr>
+										<td nowrap="nowrap" class="tc"><span class="icon" style="background-image:url(<!--{#img1#}-->/icon.php?width=48&height=48&sid=<!--{$softinfo.softid}-->&phonetype=<!--{$smarty.request.phonetype}-->);"></span></td>
+                                        <td nowrap="nowrap" class="tl"><a href="/appstore/soft.html?iscrack=<!--{$smarty.get.iscrack}-->&softid=<!--{$softinfo.softid}-->"><!--{$softinfo.name}--></a></td>
+										<td nowrap="nowrap" class="tc">休闲游戏</td>
+										<td nowrap="nowrap" class="tc"><!--{if $softinfo.size}--><!--{$softinfo.size|sizetext}--><!--{else}-->未知<!--{/if}--></td>
+										<!--<td nowrap="nowrap" class="tc"><!--{if $softinfo.price}--><!--{math equation='(x/100)' x=$softinfo.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tc"><!--{if $softinfo.servicefee}--><!--{math equation='(x/100)' x=$softinfo.servicefee|default:0}-->元<!--{else}-->免费<!--{/if}--></td>-->
+										<td></td>
+										<td nowrap="nowrap" class="tc"><!--{if $softinfo.servicefee || $softinfo.price}--><!--{math equation='(x/100 + y/100)' x=$softinfo.servicefee|default:0 y=$softinfo.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tl"><a id='{"contentid":<!--{$item.contentid}-->,"contentname":"<!--{$item.contentname|escape:"html"}-->","type":<!--{$item.type}-->,"price":<!--{$item.price}-->,"servicefee":<!--{$item.servicefee}-->,"downloadurl":"<!--{$item.downloadurl}-->","size":"<!--{$item.size}-->"}' href="#null"  class="delcart" size="<!--{if $softinfo.size}--><!--{$softinfo.size}--><!--{else}-->0<!--{/if}-->" title="删除 <!--{$item.contentname}-->">删除</a></td>
+									</tr>
+									<!--{/if}-->
+								<!--{elseif $item.type==3}-->
+									<!--{feed int=AP_INT_SONG_INFO sid=$item.contentid order=0 pageno=1 count=1 ret='musicinfo'}-->
+									<!--{if $musicinfo.song}-->
+									<tr>
+										<td nowrap="nowrap" class="tc"><span class="icon" style="background-image:url(<!--{#res2#}-->/resources/img/icon_music_zone.png);"></span></td>
+                                        <td nowrap="nowrap" class="tl"><a href="#"><!--{$musicinfo.song}--></a></td>
+										<td nowrap="nowrap" class="tc">音乐歌曲</td>
+										<td nowrap="nowrap" class="tc"><!--{if $musicinfo.size}--><!--{$musicinfo.size|sizetext}--><!--{else}-->未知<!--{/if}--></td>
+										<!--<td nowrap="nowrap" class="tc"><!--{if $musicinfo.price}--><!--{math equation='(x/100)' x=$musicinfo.price|default:0}--> 元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tc"><!--{if $musicinfo.servicefee}--><!--{math equation='(x/100)' x=$musicinfo.servicefee|default:0}-->元<!--{else}-->免费<!--{/if}--></td>-->
+										<td></td>
+										<td nowrap="nowrap" class="tc"><!--{if $musicinfo.servicefee || $musicinfo.price}--><!--{math equation='(x/100 + y/100)' x=$musicinfo.servicefee|default:0 y=$musicinfo.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tl"><a id='{"contentid":<!--{$item.contentid}-->,"contentname":"<!--{$item.contentname|escape:"html"}-->","type":<!--{$item.type}-->,"price":<!--{$item.price}-->,"servicefee":<!--{$item.servicefee}-->,"downloadurl":"<!--{$item.downloadurl}-->","size":"<!--{$item.size}-->"}' href="#null"  class="delcart" size="<!--{if $musicinfo.size}--><!--{$musicinfo.size}--><!--{else}-->0<!--{/if}-->" title="删除 <!--{$item.contentname}-->">删除</a></td>
+									</tr>
+									<!--{/if}-->
+								<!--{elseif $item.type == 7}-->
+									<!--{feed int=AP_INT_SOFT_INFO softid=$item.contentid order=0 pageno=1 count=1 ret='softinfo'}-->
+									<!--{if $softinfo.softid}-->
+									<tr>
+										<td nowrap="nowrap" class="tc"><span class="icon" style="background-image:url(<!--{#img1#}-->/icon.php?width=48&height=48&sid=<!--{$softinfo.softid}-->&phonetype=<!--{$smarty.request.phonetype}-->);"></span></td>
+                                        <td nowrap="nowrap" class="tl"><a href="/appstore/soft.html?iscrack=<!--{$smarty.get.iscrack}-->&softid=<!--{$softinfo.softid}-->"><!--{$softinfo.name}--></a></td>
+										<td nowrap="nowrap" class="tc">主题图片</td>
+										<td nowrap="nowrap" class="tc"><!--{if $softinfo.size}--><!--{$softinfo.size|sizetext}--><!--{else}-->未知<!--{/if}--></td>
+										<!--<td nowrap="nowrap" class="tc"><!--{if $softinfo.price}--><!--{math equation='(x/100)' x=$softinfo.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tc"><!--{if $softinfo.servicefee}--><!--{math equation='(x/100)' x=$softinfo.servicefee|default:0}-->元<!--{else}-->免费<!--{/if}--></td>-->
+										<td></td>
+										<td nowrap="nowrap" class="tc"><!--{if $softinfo.servicefee || $softinfo.price}--><!--{math equation='(x/100 + y/100)' x=$softinfo.servicefee|default:0 y=$softinfo.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tl"><a id='{"contentid":<!--{$item.contentid}-->,"contentname":"<!--{$item.contentname|escape:"html"}-->","type":<!--{$item.type}-->,"price":<!--{$item.price}-->,"servicefee":<!--{$item.servicefee}-->,"downloadurl":"<!--{$item.downloadurl}-->","size":"<!--{$item.size}-->"}' href="#null"  class="delcart" size="<!--{if $softinfo.size}--><!--{$softinfo.size}--><!--{else}-->0<!--{/if}-->" title="删除 <!--{$item.contentname}-->">删除</a></td>
+									</tr>
+									<!--{/if}-->
+								<!--{elseif $item.type==33}-->
+									<tr>
+										<td nowrap="nowrap" class="tc"><span class="icon" style="background-image:url(<!--{#res3#}-->/resources/img/icon_music_zone.png);"></span></td>
+                                        <td nowrap="nowrap" class="tl"><a href="#"><!--{$item.contentname}--></a></td>
+										<td nowrap="nowrap" class="tc">音乐歌曲</td>
+										<td nowrap="nowrap" class="tc"><!--{if $item.size}--><!--{$item.size|sizetext}--><!--{else}-->未知<!--{/if}--></td>
+										<!--<td nowrap="nowrap" class="tc"><!--{if $item.price >$item.servicefee}--><!--{math equation='(x-y)' x=$item.price|default:0 y=$item.servicefee|default:0}--> 元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tc"><!--{if $item.servicefee}--><!--{math equation='(x)' x=$item.servicefee|default:0}-->元<!--{else}-->免费<!--{/if}--></td>-->
+										<td></td>
+										<td nowrap="nowrap" class="tc"><!--{if $item.servicefee || $item.price }--><!--{math equation='(x+y)' x=$item.servicefee|default:0 y=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tl"><a id='{"contentid":<!--{$item.contentid}-->,"contentname":"<!--{$item.contentname|escape:"html"}-->","type":<!--{$item.type}-->,"price":<!--{$item.price}-->,"servicefee":<!--{$item.servicefee}-->,"downloadurl":"<!--{$item.downloadurl}-->","size":"<!--{$item.size}-->"}' href="#null"  class="delcart" size="<!--{if $item.size}--><!--{$item.size}--><!--{else}-->0<!--{/if}-->" title="删除 <!--{$item.contentname}-->">删除</a></td>
+									</tr>
+								<!--{elseif $item.type==44}-->
+									<tr>
+										<td nowrap="nowrap" class="tc"><span class="icon" style="background-image:url(<!--{#res1#}-->/resources/img/icon_film.png);"></span></td>
+                                        <td nowrap="nowrap" class="tl"><a href="#"><!--{$item.contentname}--></a></td>
+										<td nowrap="nowrap" class="tc">视频短片</td>
+										<td nowrap="nowrap" class="tc"><!--{if $item.size}--><!--{$item.size|sizetext}--><!--{else}-->未知<!--{/if}--></td>
+										<!--<td nowrap="nowrap" class="tc"><!--{if $item.price >$item.servicefee}--><!--{math equation='(x-y)' x=$item.price|default:0 y=$item.servicefee|default:0}--> 元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tc"><!--{if $item.servicefee}--><!--{math equation='(x)' x=$item.servicefee|default:0}-->元<!--{else}-->免费<!--{/if}--></td>-->
+										<td></td>
+										<td nowrap="nowrap" class="tc"><!--{if $item.servicefee || $item.price}--><!--{math equation='(x + y)' x=$item.servicefee|default:0 y=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tl"><a id='{"contentid":<!--{$item.contentid}-->,"contentname":"<!--{$item.contentname|escape:"html"}-->","type":<!--{$item.type}-->,"price":<!--{$item.price}-->,"servicefee":<!--{$item.servicefee}-->,"downloadurl":"<!--{$item.downloadurl}-->","size":"<!--{$item.size}-->"}' href="#null"  class="delcart" size="<!--{if $item.size}--><!--{$item.size}--><!--{else}-->0<!--{/if}-->" title="删除 <!--{$item.contentname}-->">删除</a></td>
+									</tr>
+									
+								<!--{elseif $item.type==5}-->
+									<!--{feed int=AP_INT_BOOK_INFO bid=$item.contentid order=0 pageno=1 count=1 ret='bookinfo'}-->
+									<tr>
+										<td nowrap="nowrap" class="tc"><span class="icon" style="background-image:url(<!--{#img1#}-->/icon.php?width=48&height=48&bid=<!--{$bookinfo.bookid}-->&phonetype=<!--{$smarty.request.phonetype}-->);"></span></td>
+                                        <td nowrap="nowrap" class="tl"><a href="/appstore/book-detail.html?bid=<!--{$bookinfo.bookid}-->"><!--{$bookinfo.name}--></a></td>
+										<td nowrap="nowrap" class="tc">电子书籍</td>
+										<td nowrap="nowrap" class="tc">未知</td>
+										<!--<td nowrap="nowrap" class="tc"><!--{if $bookinfo.price}--><!--{math equation='(x/100)' x=$bookinfo.price|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tc">免费</td>-->
+										<td></td>
+										<td nowrap="nowrap" class="tc"><!--{if $bookinfo.price}--><!--{math equation='(x/100 + y)' x=$bookinfo.price|default:0 y=0}-->元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tl"><a id='{"contentid":<!--{$item.contentid}-->,"contentname":"<!--{$item.contentname|escape:"html"}-->","type":<!--{$item.type}-->,"price":<!--{$item.price}-->,"servicefee":<!--{$item.servicefee}-->,"downloadurl":"<!--{$item.downloadurl}-->","size":"<!--{$item.size}-->"}' href="#null"  class="delcart" size="0" title="删除 <!--{$item.contentname}-->">删除</a></td>
+									</tr>
+								<!--{elseif $item.type==55}-->
+									<!--{feed int=AP_INT_PACKAGE_INFO packageid=$item.contentid  ret='bookpackageinfo'}-->
+									<!--{foreach key=key item=item_p from=$bookpackageinfo.list.items  name=packagelist}-->
+									<tr>
+										<td nowrap="nowrap" class="tc"><span class="icon" style="background-image:url(<!--{#img1#}-->/icon.php?width=48&height=48&bid=<!--{$item_p.rid}-->&phonetype=<!--{$smarty.request.phonetype}-->);"></span></td>
+                                        <td nowrap="nowrap" class="tl"><a href="/appstore/book-intro.html?bid=<!--{$item_p.rid}-->"><!--{$item_p.rname}--></a></td>
+										<td nowrap="nowrap" class="tc"><a href="/appstore/book-package.html?pid=<!--{$bookpackageinfo.cid}-->"><!--{$bookpackageinfo.name}--></a></td>
+										<td nowrap="nowrap" class="tc">未知</td>
+										<!--<td nowrap="nowrap" class="tc"><!--{if $item_p.price}--><!--{math equation='(x/100)' x=$item_p.rprice|default:0}-->元<!--{else}-->免费<!--{/if}--></td>
+										<td nowrap="nowrap" class="tc">免费</td>-->
+										<td></td>
+										<td nowrap="nowrap" class="tc"><!--{if $item_p.rprice}--><!--{math equation='(x/100 + y)' x=$item_p.rprice|default:0 y=0}-->元<!--{else}-->免费<!--{/if}--></td>
+										<!--{if $smarty.foreach.packagelist.iteration == 1}-->
+										<td nowrap="nowrap" class="tl" rowspan="<!--{$bookpackageinfo.list.count}-->"><a id='{"contentid":<!--{$item.contentid}-->,"contentname":"<!--{$item.contentname|escape:"html"}-->","type":<!--{$item.type}-->,"price":<!--{$item.price}-->,"servicefee":<!--{$item.servicefee}-->,"downloadurl":"<!--{$item.downloadurl}-->","size":"<!--{$item.size}-->"}' href="#null"  class="delcart" size="0" title="删除 <!--{$item.contentname}-->">删除</a></td>
+										<!--{/if }-->
+									</tr>
+									<!--{/foreach}-->
+								<!--{/if }-->
+							<!--{/foreach}-->
+							</tbody>
+						</table>
+					</div>
+				</div>
+	
+				<table width="888" border="0" cellpadding="0" cellspacing="0">
+					<col style="width: auto"></col>
+					<col style="width: 160px"></col>
+					<col style="width: 120px"></col>
+					<tr height="30" class="f3">
+						<td nowrap="nowrap" height="40" class="tr">文件数合计：<span id="total"><!--{ $assign.filecount}--></span>个</td>
+						<!-- <td nowrap="nowrap" class="tc">文件大小合计：<span id="amount"><!--{$assign.amount|sizetext}--></span><span id="amount_hiden" style="display:none;"><!--{$assign.amount}--></span> </td>  -->
+						<td nowrap="nowrap" class="tc">费用合计:<span id="price"><!--{math equation='(x/100)' x=$assign.money|default:0}--></span>元</td>
+					</tr>
+				</table>
+	            <div id="cartbtn">
+					<input type="hidden" id="userid" name="userid" value="<!--{$assign.userid}-->"> 
+					<input type="hidden" id="sessionid" name="sessionid" value="<!--{$assign.sessionid}-->"> 
+					<input type="hidden" id="filecount" name="filecount" value="<!--{$assign.filecount}-->">
+					<input type="hidden" id="discount" name="discount" value="">
+					<input type="hidden" id="newprice" name="newprice" value="<!--{math equation='(x/100)' x=$assign.money|default:0}-->">
+					<span class="rg">
+						<a id="createorder" href='#' onclick="return false;"></a>
+					</span>
+				</div>
+			</div>
+			<!--{else}-->
+			<div id="cart_empty" class="section" style="display:none;">
+				<div style="padding:60px;">
+					<table width="900" border="0" cellpadding="0" cellspacing="0" class="table" style="border:0px solid #cccccc;">
+						<tr>
+							<td width="200" class="tr"><img src="<!--{#res1#}-->/resources/img/img_cart.png" /> </td>
+							<td class="tl " style="padding-left:20px;line-height:30px;"> 
+								<font class="lf f9 t" color="#EF5000">您的购物车里尚无资源，请先去挑选！</font>
+								<br />
+								<br />
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>	
+			<script>
+			$(function() {
+				phone = getCurrentPhone();
+				getCartListCount(phone, function(result,data){
+					var buycar_count = result;
+					if(buycar_count > 0){
+						getCartList(phone,function(result,buy){
+							if (!result) return;
+							var send = {buy:buy};
+							$.post('/cart.php?phonetype='+GetQueryString('phonetype'), send, function(data){
+								$('.contentbody').replaceWith($(data).find('.contentbody'));
+								return false;
+							});
+						});
+					}else{
+						$('#cart_empty').show();
+					}
+				});
+			});	
+			</script>
+			<!--{/if }-->
+		</div>
+	</div>
+</div></div>

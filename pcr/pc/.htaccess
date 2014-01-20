@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /aipi/frontend/code/aipisoft_pc_server/trunk/pcr/pc/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?path=$1 [QSA,L]

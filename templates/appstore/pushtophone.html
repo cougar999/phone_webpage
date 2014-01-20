@@ -1,0 +1,60 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="section tc">
+	<div><h3>推送下载地址到手机</h3></div>
+	<p>
+		<span>请输入手机号：</span>
+		<input type="text" name="username" id="username" value="" style="width:150px;" />
+		<input type="hidden" value="<!--{$smarty.get.sid}-->" name="sid">
+		<input type="hidden" value="<!--{$smarty.get.sname}-->" name="sname">
+		<div id="phonenomsgerror" style="color:red;font-size:12px;"></div>
+	</p>
+	<p>
+		<span><input type="checkbox" name="issub" value="1" checked="checked"></span>
+	 	<span style="font-size:12px">免费订阅爱皮下载软件报，将不定期推送到您手机。</span>
+	</p>
+	<div>
+		<button id="pushok">确认推送</button>
+		<button onclick="parent.$.fn.colorbox.close(); return false;">取消推送</button>
+	</div>
+</div>
+<div class="tc no load" style="margin:50px auto"></div>
+<script language="javascript">
+$(function(){
+	$("#username").focus(function(){
+		$("#phonenomsgerror").html("");
+	});
+	$("#pushok").bind("click",function(){
+		var sid = $("input[name='sid']").val();
+		var sname = $("input[name='sname']").val();
+		var issub = $("input[name='issub']").filter(':checked').val();
+		if(!issub){issub = 0;}
+		var mphone = $.trim($("#username").val());
+		
+		var reg0 = /^13\d{9}$/;
+        var reg1 = /^15\d{9}$/;
+        var reg2 = /^18\d{9}$/;
+        var reg3 = /^0\d{10,11}$/;
+        var my = false;
+        if (reg0.test(mphone)) my = true;
+        if (reg1.test(mphone)) my = true;
+        if (reg2.test(mphone)) my = true;
+        if (reg3.test(mphone)) my = true;
+        if (!my) {
+        	$("#phonenomsgerror").html("手机号码的格式不正确!");
+        }else{
+        	$(".section").addClass("no");
+        	$(".load").html('<img src="/resources/img40/loading_trans_middle.gif">');
+        	$(".load").removeClass("no");
+        	$.post("/api/api_pushtophone.php",{sid:sid,sname:sname,mobile:mphone,issub:issub},function(data){
+        		if (data && data.result && data.isok && data.isok == 1) {
+        			$(".load").html('发送成功！<button onclick="parent.$.fn.colorbox.close(); return false;">关闭</button>');
+        		}else{
+        			$(".load").html('发送失败，<button onclick="$(\'.section\').removeClass(\'no\');$(\'.load\').addClass(\'no\');">请重试！</button>');
+        		}
+        	},'json');
+        }
+
+		return false;
+	});
+})
+</script>

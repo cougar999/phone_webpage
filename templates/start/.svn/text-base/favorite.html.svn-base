@@ -1,0 +1,20 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content">
+	<div class="wrap">
+		<div class="scroll">
+			<div class="contentbody contentwrap">
+				<div style="padding:15px 30px;width:980px;margin:0 auto;">
+			      <div style="width:880px;clear:both;line-height:200%;padding:40px;" class="border">
+				  	<h2>店员收藏功能正在加班加点开发中，近期将发布上线，敬请期待。</h2>
+					<dl>
+					<dt>收藏功能简介：</dt>
+					<dd>1、在应用商城下的软件、游戏、电子书、音乐等列表页会加上收藏按钮，点击即可收藏。</dd>
+					<dd>2、在本页面可查看各类收藏列表，可随意删除。</dd>
+					<dd>3、收藏列表中的文件可一键批量下载。</dd>
+					</dl>
+			      </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>

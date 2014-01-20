@@ -1,0 +1,19 @@
+<!--{feed int=AP_INT_C_THEMELIST cid=$columnid type=$typeid order=0 pageno=1 count=30 ret='themesoftlist'}-->
+<div id="wgt-cats" class="wgt-cats">
+<div class="cats" style="padding:8px 8px;">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+		<!--{foreach key=key item=item from=$themesoftlist.page.items name=list}-->
+			<div class="lf" style="height:25px; margin:0 0 0 3px;">
+				<h3 class="lf">
+					<a href="?<!--{params contentid=$item.contentid pageno=null}-->" class="hist" onclick="gotopage(this); return false;"><span class="title"><!--{$item.contentname}--></span></a>
+				</h3>
+			</div>
+			<!--{if !$smarty.foreach.list.last}-->
+			<div class="lf" style="height:25px; margin:0 0 0 3px;">
+				<span class="lf" style="color:#cecece">|</span>
+			</div>
+			<!--{/if}-->
+		<!--{/foreach}-->
+		<div class="cl"></div>
+	</td></tr></table>
+</div></div>

@@ -1,0 +1,17 @@
+<!--{feed int=AP_INT_CODE_SINGERLIST cid=$column_id order=0 pageno=1 count=10 ret='codesingerlist'}-->
+<div id="wgt-app-list" class="wgt-app-list"><div>
+	<div style="width:900px;">
+		<!--{foreach key=key item=item from=$codesingerlist.page.items name=list}-->
+			<div class="lf" style="width:180px; line-height:30px;">
+				<span class="lf tr n" style="width:35px; padding-right:10px;"><!--{$smarty.foreach.list.iteration}-->.</span>
+				<a href="singer.html?singerid=<!--{$item.singerid}-->" class="lf" onclick="gotopage(this); return false;"><span><!--{$item.singer}--></span></a>
+			</div>
+			<!--{if $smarty.foreach.list.iteration % 50 == 0}-->
+				<div class="cl" style="height: 1px; margin: 10px 0 10px 0; border-top:1px dashed #cccccc;"></div>
+			<!--{/if}-->
+		<!--{/foreach}-->				
+	</div>
+	<div class="cl"></div>	
+</div></div>
+
+

@@ -1,0 +1,346 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>适合在车上玩的游戏 从此旅途路上不寂寞</h2>
+					<div class="evaDetail">
+						<blockquote>
+							春节长假终于来啦，终于可以好好放松一下了，终于可以回家的回家，出去游玩的游玩，在家宅着的继续宅了。但是不管去哪里都要坐车的有木有？并且还人超多的有木有？最关键是动不动就要做几个十几个小时的车超级无聊的有木有？现在不会啦！我们精心为大家准备了一些适合在车上玩的安卓游戏，当你在旅途路上无聊寂寞时，相信这些这些游戏会给你带来许多乐趣。
+						</blockquote>
+						<div class="topiclist clear">
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120926/appdear_82029_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="256115" businesstype="3" isbiz="0" href="http://od.appdear.com/soft/android/20120926/appdear_61928_android.apk?rsid=1156122&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.zeptolab.gamevil.ctr.paid" versioncode="6" version="v1.3.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="割绳子"></a></p>
+								</dt>
+								<dd>
+									<p>割绳子 Cut The Rope</p>
+									<p>割绳子（Cut the Rope）是Android平台一款很有意思的益智游戏，玩家需要通过剪断绳索，让绑着的糖果掉入怪兽嘴里，而难度就在于必须计划好让糖果…</p>
+									<p>大小：23.92MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_149575_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="176866" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121114/appdear_2406806337_1114_b.apk?rsid=1037669&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.android77.escape" versioncode="100" version="v1.1.5" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="2012 大逃亡"></a></p>
+								</dt>
+								<dd>
+									<p>2012大逃亡</p>
+									<p>“时间的终结是 2012 年 12 月 21 日。地球并非人类所有，地球却拥有人类。”  这一天终于来临，从亚洲开始，瞬时陆地突起，城市中央出现了突兀起的火山…</p>
+									<p>大小：5.66MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120724/appdear_15332_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="160252" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120531/appdear_608475_0531_h.apk?rsid=1021043&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.twodboy.worldofgoofull" versioncode="122" version="v1.2.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="粘粘世界中文版"></a></p>
+								</dt>
+								<dd>
+									<p>粘粘世界 World of Goo</p>
+									<p>来自独立游戏开发者2D Boy制作的物理学题材益智游戏《粘粘世界(World of Goo)》，在风靡PC、Wii、Mac OS X、Linux和iOS等平台之后，今天终于来到了Android平台…</p>
+									<p>大小：45.92MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121114/appdear_197839_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="358068" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121121/appdear_186240_1121_b.apk?rsid=1258140&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.koptyu32" versioncode="11111135" version="v1.24" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="坚守阵地 汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>坚守阵地汉化版 Fieldrunners HD</p>
+									<p>坚守阵地汉化版（Fieldrunners HD）以其精致细腻的画面、相当不错的自由度和可玩性成为不可错过的塔防游戏。游戏中你需要建造不同的防御塔排兵布阵，阻击敌人的入侵。你需要运用各…</p>
+									<p>大小：36.25MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120401/appdear_490429_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="216630" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121031/appdear_1448925_1031_b.apk?rsid=1116627&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.com2us.sliceit" versioncode="21" version="v1.8.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="涂鸦切割汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>涂鸦切割 Slice It</p>
+									<p>Slice It是一款要求把几何图形分割成同样的比例或不同面积的Android游戏，游戏的操作很简单，根据自己的判断，用手指(可以用单指也可以用两指)画出分割线，来把几何图形按照要求进行分割…</p>
+									<p>大小：10.91MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120317/appdear_242098_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="201113" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120317/appdear_242098_g.apk?rsid=1101113&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.androids.game.wormbattle" versioncode="6" version="v1.1.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="Buuu"></a></p>
+								</dt>
+								<dd>
+									<p>阿布越狱 Buuu</p>
+									<p>在某座城市的某个角落的某个夜晚，月明星稀，Mr.Bug 夫妇带着他们的宝贝小虫正在马路 边遛弯。小虫是第一次从洞里出来，对外面的一切充满了好奇，小虫走走停停的慢慢落在了 爸爸妈妈的后面…</p>
+									<p>大小：6.19MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121031/appdear_1480363_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="224994" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130122/appdear_115734_0122_m.apk?rsid=1124990&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.android.onetouchdrawing" versioncode="113" version="v1.1.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="智力一笔画"></a></p>
+								</dt>
+								<dd>
+									<p>一笔画 One touch Drawing</p>
+									<p>一笔画 One touch Drawing是一款Android平台考验你的智商和思维的游戏！ 【游戏特点】 - 游戏规则简单 - 笔一次不脱手把完整图形画出可以了 - 经过一次的线不可以重复经过……</p>
+									<p>大小：2.9MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120517/appdear_97925_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="160235" businesstype="3" isbiz="0" href="http://od.appdear.com/soft/android/20120828/appdear_55196_android.apk?rsid=1021026&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.enfeel.birzzle" versioncode="12" version="v2.0.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="小鸟爆破"></a></p>
+								</dt>
+								<dd>
+									<p>小鸟爆破 Birzzle</p>
+									<p>小鸟爆破（Birzzle）是Android平台一款来自韩国的消除类安卓游戏，移植自iOS，画面超赞，玩起来很上瘾。游戏方法：可任意移动,没有被其他方块堵住的小鸟方块……</p>
+									<p>大小：37.65MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120529/appdear_271402_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="252906" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120529/appdear_271402_0529_g.apk?rsid=1152909&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.andeandroid.DeathWormsHD" versioncode="21" version="v1.34" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="死亡战虫HD版"></a></p>
+								</dt>
+								<dd>
+									<p>死亡战虫已付费版 Death Worm</p>
+									<p>死亡战虫（Death Worm）是Android平台一款在iOS平台上上已经获得了200万人次的下载量，相当热门，现在登录到Android平台上，目前是限时优惠…</p>
+									<p>大小：15.29MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121119/appdear_219624_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="247422" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121023/appdear_905998_1023_b.apk?rsid=1147417&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="pl.freeidreams.pottery" versioncode="149" version="v1.49" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="一起做陶瓷官方中文版"></a></p>
+								</dt>
+								<dd>
+									<p>一起做陶瓷 Let's Create! Pottery</p>
+									<p>一起做陶瓷（Let's Create! Pottery）是Android平台一款制作陶瓷器安卓游戏，游戏中你可以充分的发挥出自己的创造力与想象力来制作陶器…</p>
+									<p>大小：35.28MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121221/appdear_275274_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="288264" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121117/appdear_575288_1117_m.apk?rsid=1189753&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.yodo1.infecct" versioncode="19" version="v1.6.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="玛雅谜题"></a></p>
+								</dt>
+								<dd>
+									<p>玛雅谜题</p>
+									<p>想知道2012到底是不是世界末日么？带上探险装备，亲自到玛雅神殿一探究竟吧！玛雅人重重的机关谜题，可难不倒信念坚定的探险者</p>
+									<p>大小：12.75MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121031/appdear_1048433_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="270273" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120821/appdear_778241_0821_h.apk?rsid=1170309&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.com2us.monkeybattle.normal.freefull.google.cn.android.common" versioncode="4100" version="v1.00.05" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="猴子也疯狂中文版"></a></p>
+								</dt>
+								<dd>
+									<p>猴子也疯狂 Swing Shot</p>
+									<p>最经典的休闲对战游戏《猴子也疯狂!》震撼登场!快来这里与你的家人,朋友,恋人一起享受实时对战的乐趣吧~!!游戏免费…</p>
+									<p>大小：32.98MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121213/appdear_268230_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="254519" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120531/appdear_272667_0531_g.apk?rsid=1154524&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.ropecutsoft.RMSingle" versioncode="8" version="v1.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="符文大师 RuneMasterPuzzle"></a></p>
+								</dt>
+								<dd>
+									<p>符文大师 RuneMasterPuzzle</p>
+									<p>"一款玩法独特的消除游戏.在游戏中,不仅上下,左右相邻的符文,甚至斜45度角上的相邻符文都可以进行互换…</p>
+									<p>大小：16.90MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_182260_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="359111" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121112/appdear_409538_1112_g.apk?rsid=1259183&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.westlake.jian.enigmo" versioncode="40" version="v1.9" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="魔法水滴完美汉化版Enigmo"></a></p>
+								</dt>
+								<dd>
+									<p>魔法水滴 Enigmo</p>
+									<p>魔法水滴（Enigmo）是一款Android平台上的物理益智游戏，游戏的目的是通过使用不同的道具…</p>
+									<p>大小：6.06MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120331/appdear_402007_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166436" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120809/appdear_751700_0809_h.apk?rsid=1027227&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.mediocre.sprinkle" versioncode="12" version="v1.7.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="超级救火队"></a></p>
+								</dt>
+								<dd>
+									<p>超级救火队 Sprinkle</p>
+									<p>一款从iOS上移植到Android平台上的休闲游戏大作，玩家将扮演火警的角色，控制消防车扑灭各种火灾…</p>
+									<p>大小：25.3MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120218/appdear_151354_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="100890" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121031/appdear_1482893_1031_b.apk?rsid=100890&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.bbb.btr" versioncode="23" version="v1.2.22" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="烧绳子"></a></p>
+								</dt>
+								<dd>
+									<p>烧绳子 Burn the rope</p>
+									<p>这是一款卡通画风的热门益智游戏烧绳子游戏，操作简单而有趣。你需选择一个位置点火，然后利用重力感应…</p>
+									<p>大小：22.47MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120331/appdear_417549_icon_h.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166533" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120331/appdear_417549_0331_h.apk?rsid=1027324&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.enterfly.penguin_gloplus" versioncode="104" version="v1.0.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="飞翔的企鹅汉化版"></a></p>
+								</dt>
+								<dd>
+									<p>飞翔的企鹅 Air Penguin</p>
+									<p>飞翔的企鹅（Air Penguin）是Android平台一款重力感应控制的安卓游戏，你需要倾斜你的手机来引导企鹅安全…</p>
+									<p>大小：15.14MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121023/appdear_1306208_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="346617" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121023/appdear_1306208_1023_b.apk?rsid=1246686&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.yodo1.cloudsandsheep91" versioncode="19" version="v1.6.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="云和绵羊的故事"></a></p>
+								</dt>
+								<dd>
+									<p>云和绵羊的故事汉化版  Clouds & Sheep</p>
+									<p>它们是一群毛茸茸的小可爱，它们是一群软绵绵的小捣蛋，它们是一群傻乎乎的小绵羊！蓝天白云下…</p>
+									<p>大小：28.5MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120406/appdear_23572_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="201547" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121222/appdear_242837_1222_g.apk?rsid=1101547&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.zeptolab.ctrexperiments.google.paid" versioncode="2150" version="v1.5.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="割绳子：实验室篇"></a></p>
+								</dt>
+								<dd>
+									<p>割绳子：实验室 Cut the Rope: Experiments</p>
+									<p>爱吃糖的小怪兽又来了，这次ZeptoLab带来了全新的《割绳子：实验（Cut the Rope: Experiments）》…</p>
+									<p>大小：24.64MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120809/appdear_288725_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="271066" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130105/appdear_288725_0105_g.apk?rsid=1171102&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.disney.WMP" versioncode="1300" version="v1.3.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="鸭嘴兽泰瑞在哪里?"></a></p>
+								</dt>
+								<dd>
+									<p>鸭嘴兽泰瑞在哪里? Where's My Perry?</p>
+									<p>'鳄鱼小顽皮爱洗澡'制作商和迪士尼共同推出的最新益智游戏!'鸭嘴兽泰瑞在哪里'是一款基于物理学知识的益智游戏…</p>
+									<p>大小：47.28MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121031/appdear_1491716_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="261387" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130115/appdear_1780072455_0115_b.apk?rsid=1161414&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.auer.coinpushzh" versioncode="7" version="v1.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="3D豪华推币机"></a></p>
+								</dt>
+								<dd>
+									<p>3D豪华推币机 3D Coin Pusher</p>
+									<p>3D豪华推币机(3D Coin Pusher)是一款特别好玩的推币安卓游戏。现在你可以满足推金币成瘾而不用冒险花费真实的钱…</p>
+									<p>大小：23.15MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120729/appdear_306225_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="293623" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120729/appdear_306225_0729_g.apk?rsid=1195459&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.redrocketgames.hankhazardhesen" versioncode="6" version="v1.0.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="特技老鼠"></a></p>
+								</dt>
+								<dd>
+									<p>特技老鼠 Hank Hazard: The Stunt Hamster</p>
+									<p>《特技老鼠 Hank Hazard》是一款IOS移植的休闲益智游戏，主角是只名叫汉克的小仓鼠，它在游戏中以圆球的形态出现…</p>
+									<p>大小：38.81MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121023/appdear_1415121_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="280449" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120714/appdear_695992_0714_h.apk?rsid=1180488&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.rovio.amazingalex" versioncode="100" version="v1.0.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="神奇的阿力"></a></p>
+								</dt>
+								<dd>
+									<p>神奇的阿力 Amazing Alex HD</p>
+									<p>由 ANGRY BIRDS 创作团队推出的全新神奇物理原理解迷游戏！结交 Amazing Alex（神奇的阿力）！ 这位天才儿童拥有…</p>
+									<p>大小：22.33MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120423/appdear_32933_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="331194" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121016/appdear_365915_1016_g.apk?rsid=1231263&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.trxuy" versioncode="8" version="v2.3.3" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="3国小猪之爆头"></a></p>
+								</dt>
+								<dd>
+									<p>三国小猪搲爆头</p>
+									<p>三国小猪搲爆头Android版是我第二款同大家见面游戏,请多多支持﹗蚊猪,一只香港土生土长的小猪,为猪生性乐观…</p>
+									<p>大小：8.74MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121123/appdear_226616_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="388780" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121123/appdear_226616_1123_b.apk?rsid=1288852&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.rovio.niaoja4" versioncode="2" version="v1.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="愤怒的小鸟里约热内卢版(季节版)"></a></p>
+								</dt>
+								<dd>
+									<p>愤怒的小鸟季节版</p>
+									<p>愤怒的小鸟季节版,游戏场景非常刺激!愤怒的小鸟（Angry Birds）这款游戏的故事相当有趣,为了报复偷走鸟蛋…</p>
+									<p>大小：20.96MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130108/appdear_296126_icon_b.jpg_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="454400" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130108/appdear_296126_0108_b.apk?rsid=1354478&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.vee.project.sanczyy" versioncode="1" version="v1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="三重镇免广告版"></a></p>
+								</dt>
+								<dd>
+									<p>三重镇中文版 Triple Town</p>
+									<p>由乐逗游戏代理的"合体类"游戏始祖--《三重镇》官方安卓中文版岁末大变脸。除了在原有的基础上新增"隆隆帝国"…</p>
+									<p>大小：13.60MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120607/appdear_276314_icon_g.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="256942" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120607/appdear_276314_0607_g.apk?rsid=1156955&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.lazy8studios.cogs.demonew1" versioncode="1338843557" version="v1.0.13" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="奇想齿轮"></a></p>
+								</dt>
+								<dd>
+									<p>奇想齿轮 Cogs</p>
+									<p>奇想齿轮(Cogs)是Android平台一款由“Lazy 8 Studios”带来的一款创意十足的全新益智解谜游戏…</p>
+									<p>大小：45.98MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20110901/gj/26124/26124_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="104100" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121128/appdear_2244016709_1128_b.apk?rsid=104100&topicid=005&topicname=适合在车上玩的游戏" installlocate="0" appid="com.yoyogames.droidtntbf" versioncode="2002008" version="v2.2.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="小怪兽求包养"></a></p>
+								</dt>
+								<dd>
+									<p>小怪兽求包养 They Need To Be Fed</p>
+									<p>They Need To Be Fed(小怪兽求包养)是一款安卓平台上趣味的休闲游戏，要求玩家在各种不同色彩的世界中…</p>
+									<p>大小：13.59MB</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

@@ -1,0 +1,28 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content">
+	<div class="wrap">
+		<div class="contentside">
+			<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+		</div>
+		<div class="scroll">
+			<div class="sright">
+				<!--{include file="dxsoft/downloadrank.tpl" isbiz=0}-->
+			</div>
+			<div class="sleft">
+				
+				<div id="catebar" class="clear" style="overflow:hidden">
+					<!--{if $smarty.get.sort == 'Soft'}-->
+					<!--{include file="dxsoft/catebar-soft.tpl"}-->
+					<!--{/if}-->
+					<!--{if $smarty.get.sort == 'Game'}-->
+					<!--{include file="dxsoft/catebar-game.tpl"}-->
+					<!--{/if}-->
+				</div>
+				
+				<!--{include file="dxsoft/softlist.tpl" sort=$smarty.get.sort}-->
+				
+			</div>
+			
+		</div>
+	</div>
+</div>

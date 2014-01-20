@@ -1,0 +1,18 @@
+<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$columnid type=$typeid order=0 pageno=1 count=30 ret='columnlist'}-->
+<div id="wgt-cats" class="wgt-cats"><div class="cats" style="border:1px solid #d2d2d2;border-bottom-width:0px;padding:8px 8px;">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td>
+		<!--{foreach key=key item=item from=$columnlist.list.items name=list}-->
+			<div class="lf" style="height:25px; margin:0 0 0 3px;">
+				<h3 class="lf">
+					<a href="?<!--{params cid=$item.catid pageno=null}-->" class="hist" onclick="gotopage(this); return false;"><span class="title"><!--{$item.name}--></span></a>
+				</h3>
+			</div>
+			<!--{if !$smarty.foreach.list.last}-->
+			<div class="lf" style="height:25px; margin:0 0 0 3px;">
+				<span class="lf" style="color:#cecece">|</span>
+			</div>
+			<!--{/if}-->
+		<!--{/foreach}-->
+		<div class="cl"></div>
+	</td></tr></table>
+</div></div>

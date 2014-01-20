@@ -1,0 +1,64 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	
+	<div class="contentbody contentwrap">
+		<div class="section">
+			<div style="padding:0px 0px;">
+				<div style="height:30px; line-height:30px; background:#EFEFEF; border:#D4D4D4 solid 1px; color:blue;">
+					<span class="lf tc l b" style="width:30px;">A</span>
+					<span class="lf tc l b" style="width:30px;">B</span>
+					<span class="lf tc l b" style="width:30px;">C</span>
+					<span class="lf tc l b" style="width:30px;">D</span>
+					<span class="lf tc l b" style="width:30px;">E</span>
+					<span class="lf tc l b" style="width:30px;">F</span>
+					<span class="lf tc l b" style="width:30px;">G</span>
+					<span class="lf tc l b" style="width:30px;">H</span>
+					<span class="lf tc l b" style="width:30px;">I</span>
+					<span class="lf tc l b" style="width:30px;">J</span>
+					<span class="lf tc l b" style="width:30px;">K</span>
+					<span class="lf tc l b" style="width:30px;">L</span>
+					<span class="lf tc l b" style="width:30px;">M</span>
+					<span class="lf tc l b" style="width:30px;">N</span>
+					<span class="lf tc l b" style="width:30px;">O</span>
+					<span class="lf tc l b" style="width:30px;">P</span>
+					<span class="lf tc l b" style="width:30px;">Q</span>
+					<span class="lf tc l b" style="width:30px;">R</span>
+					<span class="lf tc l b" style="width:30px;">S</span>
+					<span class="lf tc l b" style="width:30px;">T</span>
+					<span class="lf tc l b" style="width:30px;">U</span>
+					<span class="lf tc l b" style="width:30px;">V</span>
+					<span class="lf tc l b" style="width:30px;">W</span>
+					<span class="lf tc l b" style="width:30px;">X</span>
+					<span class="lf tc l b" style="width:30px;">Y</span>
+					<span class="lf tc l b" style="width:30px;">Z</span>
+					<div class="cl"></div>
+				</div>
+			</div>
+		</div>	
+		<div class="section">
+			<div style="padding:10px 0px;">
+				<div class="re">
+					<div>
+						<!--{include file="wgt-navs.tpl" column_id=$assign.ap_int.AP_INT_MENU_SINGER_LIST}-->
+					</div>
+				</div>
+			</div>
+		</div>	
+		
+		<div class="section">
+			<div style="padding:0px 0px;">
+				<!--{include file="wgt-singer-top-list.tpl" column_id=$smarty.request.cid|default:$assign.ap_int.AP_INT_MENU_SINGER_DEFAULT}-->	
+			</div>
+		</div>	
+		
+	</div>
+</div></div>
+
+
+
+					
+				

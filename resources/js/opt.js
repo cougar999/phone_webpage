@@ -1,0 +1,734 @@
+resocontactcount = 0; resosmscount = 0;
+backcontactcount = 0; backsmscount = 0;
+
+$('#SendPhoneCode').live('click', function(){
+	var mbnmb = $.trim($("#username").val());
+	function fLen(Obj){
+	  var nCNLenth = 0;
+	  var nLenth = Obj.length;
+	  for (var i=0; i<nLenth; i++){
+	    if(Obj.charCodeAt(i)>255){
+	      nCNLenth += 2; 
+	    }else{
+	      nCNLenth++;
+	    }
+	  }
+	  return nCNLenth;
+	}
+	var phonett = /^(130|131|132|133|134|135|136|137|138|139|147|150|151|152|153|155|156|157|158|159|180|182|183|185|186|187|188|189)[0-9]{8}$/i;
+	if(mbnmb=='') {
+		$('#sentcode').css('visibility','visible').text('请输入手机号');
+		return false;
+	 } else if (fLen( mbnmb ) != 11 ){
+		$('#sentcode').css('visibility','visible').text('您输入的手机号位数不对');
+		return false;
+	} else if (mbnmb && phonett.test(mbnmb)!= true ){
+		$('#sentcode').css('visibility','visible').text('手机号码格式错误');
+		return false;
+	}
+	var type = $.trim($("#SendPhoneCode").attr('btype'));
+	var self = this;
+	$.post('/cloudcheckcode.php', {mobilenmb:$('#username').val(),type:type}, function(data){
+		if (data == "success" ){
+			self.disabled = true;
+			$('#sentcode').css('visibility','visible').text('验证码已发送，请查收！');
+			count = 59;
+			self.innerText = count + '秒后可重新发送';
+			setTimeout(timeout = function() {
+			var val = self.innerText; count--;
+			if (count > 0) {
+				self.innerText = count + '秒后可重新发送';
+				//$('#SendPhoneCode').addClass('lbutton disable');
+				setTimeout(timeout, 1000);
+			} else {
+				self.innerText = '重新发送';
+				$('#SendPhoneCode').removeClass('disable');
+				self.disabled = false;
+					}
+			}, 1000);
+		}else{
+			$('#sentcode').css('visibility','visible').text('发送失败，请稍后再试！');
+		}
+	});
+	return false;
+});
+
+function checkmobilecode(type, callback) {
+	var username = $('#username').val();
+	var password = $('#password').val();
+	/*if (username == '' || password == '') {
+		cbMessage('手机号或验证码不能为空！')
+		return;
+	}*/
+	var form = {username:username, password:password, type:type};
+	cbWaiting('正在验证，请稍候...', function(){
+		jQuery.post('/checkcloudmobile.php', form, function(data){
+			if (data == 'failed') {
+				cbMessage('手机号或验证码错误！');
+				return;
+			}
+			var user = JSON.parse(data);
+			if (!user || !user.result || !user.result.resultcode || user.result.resultcode != '000000') {
+				cbMessage('手机号和验证码错误');
+				return;
+			}
+			if (user && user.result && user.result.resultcode && user.result.resultcode == '000000') {
+				if (user.isok && user.isok==2){
+					cbMessage('手机验证码无效');
+					return;
+				} else if (user.isok && user.isok==0){
+					cbMessage('手机验证码无效');
+					return;
+				}
+			}
+			var user = {userid:user.userid, shopid:user.shopid};
+			if (callback) callback(user);
+		});
+	});
+}
+
+$('#contactbackup').live('click', function(){
+	checkmobilecode(1, function(user){
+		if ($('#backtp1')[0].checked) {
+			parent.backupcatall(user, '');
+		} else if ($('#backtp2')[0].checked) {
+			parent.backupcatsel(user, '');
+		}
+	});
+	return false;
+});
+
+$('#contactrestore').live('click', function(){
+	checkmobilecode(2, function(user) {
+		if ($('#backtp1')[0].checked) {
+			parent.restorecatall(user, '');
+		} else if ($('#backtp2')[0].checked) {
+			parent.location.href = "/contactrestorelist.php" + 
+				"?shopid=" + user.shopid + 
+				"&userid=" + user.userid ;
+		}
+	});
+	return false;
+});
+
+$('#smsbackup').live('click', function(){
+	checkmobilecode(1, function(user) {
+		if ($('#backtp1')[0].checked) {
+			parent.backupsmsall(user, '');
+		} else if ($('#backtp2')[0].checked) {
+			parent.backupsmssel(user, '');
+		}
+	});
+	return false;
+});
+
+$('#smsrestore').live('click', function(){
+	checkmobilecode(2, function(user) {
+		if ($('#backtp1')[0].checked) {
+			parent.restoresmsall(user, '');
+		} else if ($('#backtp2')[0].checked) {
+			parent.location.href = "/smsrestorelist.php" + 
+				"?shopid=" + user.shopid + 
+				"&userid=" + user.userid ;
+		}
+	});
+	return false;
+});
+
+/* 手机管理首页 一键还原按钮 */
+$("#index_restore").live("click", function() {
+	$.colorbox({href:'/restoreall.html', iframe:true, width:700, height:350, scrolling:false, overlayClose:false, close:false});
+});
+
+/* 手机管理首页 一键备份按钮 */
+$("#index_backup").live("click", function() {
+	$.colorbox({href:'/backupall.html', iframe:true, width:700, height:350, scrolling:false, overlayClose:false, close:false});
+});
+
+$('#onekeyrestore').live('click', function(){
+	if ($('#backtp2')[0].checked == false && $('#backtp3')[0].checked == false) {
+		cbMessage('您没有选中要还原的项目！');
+		return false;
+	}
+	//resocontactcount = 0; resosmscount = 0;
+	checkmobilecode(2, function(user) {
+		if ($('#backtp2')[0].checked && $('#backtp3')[0].checked) {
+			parent.restorecatall(user, 'restoreall', true);
+			//parent.restoresmsall(user, 'restoreall');
+		} else if ($('#backtp2')[0].checked) {
+			parent.restorecatall(user, 'restoreall');
+		} else if ($('#backtp3')[0].checked) {
+			parent.restoresmsall(user, 'restoreall');
+		} else {
+			cbMessage('您没有选中要还原的项目！');
+		}
+	});
+	return false;
+});
+
+$('#onekeybackup').live('click', function(){
+	if ($('#backtp2')[0].checked == false && $('#backtp3')[0].checked == false) {
+		cbMessage('您没有选中要备份的项目！');
+		return false;
+	}
+	//backcontactcount = 0; backsmscount = 0;
+	checkmobilecode(1, function(user) {
+		if ($('#backtp2')[0].checked && $('#backtp3')[0].checked) {
+			parent.backupcatall(user, 'backupall');
+			//parent.backupsmsall(user, 'backupall');
+		} else if ($('#backtp2')[0].checked) {
+			parent.backupcatall(user, '');
+		} else if ($('#backtp3')[0].checked) {
+			parent.backupsmsall(user, '');
+		} else {
+			cbMessage('您没有选中要备份的项目！');
+		}
+	});
+	return false;
+});
+
+
+/* 备份所有通信录 */
+function backupcatall(user, backupall) {
+	cbWaiting('正在备份联系人', function(){
+		var phone = getCurrentPhone();
+		getContactList(null, function(data, status){
+			if (status != 'ok') return;
+			ReadDataPage("SELECT * FROM contacts WHERE imei='" + phone.imei + "'", [], function(result, data){
+				if (!result) return;
+				var rows = new Array();
+				for (var i = 0; i < data.rows.length; i++) {
+					var row = data.rows.item(i);
+					var num = i+1;
+					rows[i] = {
+						index:num,
+						index:num,
+						id:[{value:row['id']}]?[{value:row['id']}]:'',
+						group:[{value:row['contact_group']}]?[{value:row['contact_group']}]:'',
+						lastname:[{value:row['lastname']}]?[{value:row['lastname']}]:'',
+						firstname:[{value:row['firstname']}]?[{value:row['firstname']}]:'',
+						name:[{value: row['name']}]?[{value: row['name']}]:'',
+						midlename:[{value:row['midlename']}]?[{value:row['midlename']}]:'',
+						mobile:[{value:row['mobile']}]?[{value:row['mobile']}]:'',
+						mobile_home:[{value:row['mobile_home']}]?[{value:row['mobile_home']}]:'',
+						mobile_work:[{value:row['mobile_work']}]?[{value:row['mobile_work']}]:'',
+						tel_home:[{value:row['tel_home']}]?[{value:row['tel_home']}]:'',
+						tel_work:[{value:row['tel_work']}]?[{value:row['tel_work']}]:'',
+						telephone:[{value:row['telephone']}]?[{value:row['telephone']}]:'',
+						email:[{value:row['email']}]?[{value:row['email']}]:'',
+						email_home:[{value:row['email_home']}]?[{value:row['email_home']}]:'',
+						email_work:[{value:row['email_work']}]?[{value:row['email_work']}]:''
+					};
+					rows[i].json = JSON.stringify(rows[i]);
+				}
+				var data = rows ;
+				if (!data || !data.length) {
+					$('#progressmsg').html('没有找到要备份的通信录 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+					$('#optlog>#logs').append('没有找到要备份的通信录<br/>');
+					return false;
+				}
+				backcontactcount = data.length;
+				user.data = '{"contacts":' + JSON.stringify(data) + ', "count":"'+ data.length +'"}';
+				jQuery.ajax({type:'POST', url:'/backup.php?type=contact&backupall=' + backupall, data:user})
+				.success(function(data) {
+					if (backupall == 'backupall') {
+						backcontactcount = backcontactcount;
+						backupsmsall(user, backupall);
+					} else {
+						if (data == 'successful') {
+							$('#progressmsg').html('已经备份到云端 ，成功备份了' + backcontactcount + '个联系人   <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+						}
+						else {
+							backcontactcount = 0;
+							$('#progressmsg').html('备份到云端失败，请稍后再试 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+							$('#optlog>#logs').append('联系人备份到云端失败，请稍后再试<br/>');
+							return;
+						}
+					}
+				})
+				.error(function(){ 
+					if (backupall == 'backupall') {
+							backcontactcount = 0;
+							backupsmsall(user, backupall);
+					} else {
+						$('#progressmsg').html('服务不可用，请稍后再试  <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); 
+						$('#optlog>#logs').append('联系人备份服务不可用，请稍后再试<br/>');
+					}
+				})
+				.complete(function(){
+					$('#progresswait').removeClass('waiting').addClass('waitstop');
+				});
+				
+				delete rows;
+			});
+		}, false); //如为true 不从手机获取，第一次开壳会出现找不到通讯录的bug
+	}, parent.$.fn.colorbox );
+}
+
+/* 备份选择通信录 */
+function backupcatsel(user, backupall) {
+	cbWaiting('正在备份联系人', function(){
+		var phone = getCurrentPhone();
+		var rows = [];
+		$('#contactlist input:checked').each(function(i){ 
+			rows[i] = this.value;
+		});
+		var data = rows ;
+		if (!data || !data.length) {
+			$('#progressmsg').html('没有找到要备份的通信录 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+			$('#optlog>#logs').append('没有找到要备份的通信录<br/>');
+			return false;
+		}
+		backcontactcount = data.length;
+		user.data = '{"contacts":' + JSON.stringify(data) + ', "count":"'+ data.length +'"}';
+		jQuery.ajax({type:'POST', url:'/backup.php?type=contact&backupall=' + backupall, data:user})
+		.success(function(data){
+			if (data == 'successful') { 
+				$('#progressmsg').html('已经备份到云端 ，成功备份了'+ backcontactcount +'个联系人   <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); 
+			} else { 
+				backcontactcount = 0;
+				$('#progressmsg').html('备份到云端失败，请稍后再试 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); 
+				$('#optlog>#logs').append('联系人备份到云端失败，请稍后再试<br/>');
+				return; 
+			}
+		})
+		.error(function(){ 
+			$('#progressmsg').html('服务不可用，请稍后再试  <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); 
+			$('#optlog>#logs').append('联系人备份服务不可用，请稍后再试<br/>');
+		})
+		.complete(function(){
+			$('#progresswait').removeClass('waiting').addClass('waitstop');
+		});
+		delete rows;
+	});
+}
+
+/* 备份所有短信 */
+function backupsmsall(user, backupall) {
+	cbWaiting('正在备份短信',  function(){
+		phone = getCurrentPhone();
+		getSMSList(phone, function(data, status){
+			if (status != 'ok') return;
+			ReadDataPage("SELECT * FROM sms WHERE imei='" + phone.imei + "'", [], function(result, data){
+				if (!result) return;
+				var rows = new Array();
+				for (var i = 0; i < data.rows.length; i++) {
+					var row = data.rows.item(i);
+					var num = i+1;
+					rows[i] = {
+						index:num,
+						id:row['id'],
+						type:row['type'],
+						message:row['message'],
+						address:row['address'],
+						date:row['date']
+					};
+				}
+				var data = rows ;
+				if (!data || !data.length) {
+					$('#progressmsg').html('没有找到要备份的短信 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+					$('#optlog>#logs').append('没有找到要备份的短信<br/>');
+					return false;
+				}
+				backsmscount = data.length;
+				data.count = backsmscount;
+				user.data = '{"sms":'+ JSON.stringify(data) + ', "count":"'+ data.count +'"}';
+				jQuery.ajax({type:'POST', url:'/backup.php?type=sms&backupall=' + backupall, data:user})
+				.success(function(data){
+					if (data == 'successful') {
+						if (backupall == 'backupall') {
+							backsmscount = backsmscount;
+							$('#progressmsg').html('已经备份到云端 ，成功备份了' + backcontactcount + '条联系人和'+ backsmscount +'条短信  <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+						} else {
+							$('#progressmsg').html('已经备份到云端 ，成功备份了'+ backsmscount +'条短信  <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');	
+						}
+					} else { 
+						backsmscount = 0;
+						$('#progressmsg').html('备份到云端失败，请稍后再试 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); 
+						$('#optlog>#logs').append('短信备份到云端失败，请稍后再试<br/>');
+						return; 
+					}
+				})
+				.error(function(){ 
+					$('#progressmsg').html('服务不可用，请稍后再试 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); 
+					$('#optlog>#logs').append('短信备份服务不可用，请稍后再试<br/>');
+				})
+				.complete(function(){
+					$('#progresswait').removeClass('waiting').addClass('waitstop');
+				});
+				
+				//delete rows;
+				
+			});
+		}, false );
+	}, parent.$.fn.colorbox,'为保护隐私，只显示手机里的短信，不会对SIM卡进行操作');
+}
+
+/* 备份选择短信 */
+function backupsmssel(user, backupall) {
+	cbWaiting('正在备份短信',  function(){
+		phone = getCurrentPhone();
+		var rows = [];
+		$('#smslist input:checked').each(function(i){ 
+			rows[i] = JSON.parse(this.value); 
+		});
+		var data = rows ;
+		if (!data || !data.length) {
+			$('#progressmsg').html('没有找到要备份的短信 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+			$('#optlog>#logs').append('没有找到要备份的短信<br/>');
+			return false;
+		}
+		backsmscount = data.length;
+		data.count = backsmscount;
+		user.data = '{"sms":'+ JSON.stringify(data) + ', "count":"'+ data.count +'"}';
+		jQuery.ajax({type:'POST', url:'/backup.php?type=sms&backupall=' + backupall, data:user})
+		.success(function(data){
+			if (data == 'successful') {
+				$('#progressmsg').html('已经备份到云端 ，成功备份了'+ backsmscount +'个短信  <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); 
+			} else { 
+				backsmscount = 0;
+				$('#progressmsg').html('备份到云端失败，请稍后再试 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); 
+				$('#optlog>#logs').append('短信备份到云端失败，请稍后再试<br/>');
+				return; 
+			}
+		})
+		.error(function(){ 
+			$('#progressmsg').html('服务不可用，请稍后再试 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); 
+			$('#optlog>#logs').append('短信备份服务不可用，请稍后再试<br/>');
+		})
+		.complete(function(){
+			$('#progresswait').removeClass('waiting').addClass('waitstop');
+		});
+		
+		delete rows;
+	});
+}
+
+/* 还原所有通信录 */
+function restorecatall(user, restoreall, next) {
+	cbWaiting('正在还原联系人', function(){
+		jQuery.ajax({type:'POST', url:'/restore.php?type=contact', data:user, dataType:'json'})
+		.success(function(data){
+			cbProgress('正在还原联系人', function(){
+				$('#progressmsg').text('正在准备');
+					if (!data || !data.contacts || !data.contacts.length) { $('#progressmsg').html('没有找到要还原的联系人 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); return false; }
+					var undatalist = data.contacts;
+					var undataleng = data.contacts.length;
+					var failedlist = [];
+					var undatacall = function() {
+						if (!undatalist || undatalist.length == 0) {
+							$('#progressmsg').html('正在刷新');
+							$('#contactlist').html('');
+								if (failedlist.length == 0)	{
+									if (restoreall == 'restoreall') {
+										resocontactcount = undataleng;
+										if (next == true) {
+											restoresmsall(user, restoreall, true);
+										} else {
+											$('#progressmsg').html('还原完成 ，成功还原了'+ undataleng +'个联系人  <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+										}
+										sendrecoverstat(11,1,undataleng,0);//统计还原数量
+									} else {
+										$('#progressmsg').html('还原完成 ，成功还原了'+ undataleng +'个联系人  <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+										sendrecoverstat(1,1,undataleng,0);//统计还原数量
+										dispContactList('#contactlist', null, false);
+									}
+								} else {
+									if (restoreall == 'restoreall') {
+										if (next == true) {
+											restoresmsall(user, restoreall, true);
+										} else {
+											$('#progressmsg').html('还原完成，成功还原了'+ (undataleng - failedlist.length) +'个联系人，无法还原的联系人 '+ failedlist.length + '个 ' + ' <a href="#optlog" onclick="parent.$.colorbox(); return false;" class="cblue">查看</a> <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+										}
+										sendrecoverstat(11,1,undataleng - failedlist.length,failedlist.length);//统计还原数量
+									} else {
+										$('#progressmsg').html('还原完成，成功还原了'+ (undataleng - failedlist.length) +'个联系人，无法还原的联系人 '+ failedlist.length + '个 ' + ' <a href="#optlog" onclick="parent.$.colorbox(); return false;" class="cblue">查看</a> <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+										sendrecoverstat(1,1,undataleng - failedlist.length,failedlist.length);//统计还原数量
+										dispContactList('#contactlist', null, false);
+									}
+									var optlog = '';
+									$(failedlist).each(function(i, v){
+										optlog += '<span>' + v + ' 还原失败</span><br />';
+									});
+									$('#optlog>#logs').append(optlog);
+									
+								}
+								return;
+						}
+						var item = undatalist.shift(0, 1);
+						if (!item) return;
+						$('#progressmsg').html('正在还原' + (undataleng - undatalist.length) + '/' + undataleng + ' ' + formatContactName(item.name?item.name[0].value:''));
+						$('#progresspoint').css('width',  (undataleng - undatalist.length) / undataleng * 100 + '%');
+						addContact(null, fixJsonString(JSON.stringify({protocoltype:'addcontact', contacts:[item]})), function(data, status){
+							if (status =! 'ok') return;
+							if (!data || data != 1)	{
+								failedlist[failedlist.length] = '' + (undataleng - undatalist.length) + '/' + undataleng + ' ' + formatContactName(item.name?item.name[0].value:'');
+							}
+							undatacall(); 
+						});
+					};
+					undatacall();
+			}, parent.$.fn.colorbox);
+		})
+		.error(function(){
+			if (restoreall == 'restoreall') {
+				resocontactcount = 0;
+				restoresmsall(user, restoreall);
+			} else {
+				$('#progressmsg').html('服务不可用，请稍后再试 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');	
+			}
+			 
+		})
+		.complete(function(){
+			$('#progresswait').removeClass('waiting').addClass('waitstop');
+		});
+}, parent.$.fn.colorbox);
+}
+
+/* 还原选择通信录 */
+function restorecatsel(user, restoreall) {
+	var imei = getCurrentPhone().imei;
+	var rows = [];
+	$('#contactrestorelist input:checked').each(function(i){
+		rows[i] = JSON.parse($(this).next().val());
+	});
+	var data = rows;
+	cbWaiting('正在还原选择的联系人', function(){
+		cbProgress('正在还原选择的联系人',  function(){
+			if (!data || !data.length) { $('#progressmsg').html('没有找到要还原的联系人 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); return false; }
+			var undatalist = data;
+			var undataleng = data.length;
+			var failedlist = [];
+			var undatacall = function() {
+				if (!undatalist || undatalist.length == 0) {
+					$('#progressmsg').html('正在刷新');
+					$('#contactlist').html('');
+						if (failedlist.length == 0)	{
+							if (restoreall == 'restoreall') {//修改了一键还原的提示
+								$('#progressmsg').html('还原完成 ，成功还原了' + undataleng + '个联系人。一键还原已完成！  <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+							} else {
+								$('#progressmsg').html('还原完成 ，成功还原了' + undataleng + '个联系人   <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+							}
+							if (restoreall == 'restoreall') {
+								sendrecoverstat(11,1,undataleng,0);//统计还原数量
+							} else {
+								sendrecoverstat(1,1,undataleng,0);//统计还原数量
+							}
+						} else {
+							$('#progressmsg').html('还原完成，成功还原了'+ (undataleng - failedlist.length) +'个联系人，无法还原的联系人 '+ failedlist.length + '个 ' +'<a href="#optlog" onclick="parent.$.colorbox(); return false;" class="cblue">查看</a> <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+							if (restoreall == 'restoreall') {
+								sendrecoverstat(1, 1, undataleng - failedlist.length, failedlist.length);//统计还原数量
+							} else {
+								sendrecoverstat(11, 1, undataleng - failedlist.length, failedlist.length);//统计还原数量
+							}
+							var optlog = '';
+							$(failedlist).each(function(i, v){
+								optlog += '<span>' + v + ' 还原失败</span><br />';
+							});
+							$('#optlog>#logs', parent.document).append(optlog);
+						}
+						return;
+				}
+				var item = undatalist.shift(0, 1);
+				if (!item) return;
+				$('#progressmsg').html('正在还原' + (undataleng - undatalist.length) + '/' + undataleng + ' ' + (item.name?item.name[0].value:''));
+				$('#progresspoint').css('width',  (undataleng - undatalist.length) / undataleng * 100 + '%');
+				addContact(null, JSON.stringify({protocoltype:'addcontact', contacts:[item]}), function(data, status){
+					if (status =! 'ok') return;
+					if (!data || data != 1)	{
+						failedlist[failedlist.length] = '' + (undataleng - undatalist.length) + '/' + undataleng + ' ' + (item.name?item.name[0].value:'');
+					}
+					undatacall(); 
+				});
+			};
+			undatacall();
+		}, parent.$.fn.colorbox);
+	}, parent.$.fn.colorbox);
+}
+
+/* 还原所有短信 */
+function restoresmsall(user, restoreall, next) {
+	cbWaiting('正在还原短信', function(){
+		jQuery.ajax({type:'POST', url:'/restore.php?type=sms', data:user, dataType:'json'})
+		.success(function(data){
+			cbWaiting('正在还原短信',  function(){
+				$('#progressmsg').text('正在准备');
+					if (!data || !data.sms || !data.sms.length) { $('#progressmsg').html('没有找到要还原的短信 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); return false; }
+					var smslen = data.sms.length;
+					var phonetype = getCurrentPhone().phonetype;
+					if ( phonetype != phoneOptions.mtk ) {
+						//还原非MTK手机的短信
+						setSMS(null, fixJsonString(JSON.stringify({protocoltype:'setsms', sms:data.sms})), function(data, status){
+							if(status != 'ok') return;
+							$('#progresswait').removeClass('waiting').addClass('waitstop');
+							if (!data || data != 1)	{
+								resosmscount = 0;
+								$('#optlog>#logs').append('短信复制失败  <br />');
+								$('#progressmsg').html('还原失败，成功还原了'+ 0 +'条短信，无法还原的短信 '+ smslen + '个  ' + '<a href="#optlog" onclick="parent.$.fn.colorbox({html:this}); return false;" class="cblue">查看</a> <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+								if (restoreall == 'restoreall') {
+									sendrecoverstat(22, 0, 0, smslen);//统计还原数量
+								} else {
+									sendrecoverstat(2, 0, 0, smslen);//统计还原数量
+								}
+							} else {
+								resosmscount = smslen;
+								if (restoreall == 'restoreall') {//修改了一键还原的提示
+									$('#progresstit').text('一键还原已完成');
+									if (next == true) {
+										$('#progressmsg').html('一键还原已完成 ！ 共还原完成' + resocontactcount + '联系人，' + smslen + '条短信  <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');	
+									} else {
+										$('#progressmsg').html('一键还原已完成 ！ 共还原完成' + smslen + '条短信  <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+									}
+									sendrecoverstat(22, 1, smslen, 0);//统计还原数量
+								} else {
+									$('#progressmsg').html('还原完成 ，成功还原了' + smslen + '条短信。 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+									sendrecoverstat(2, 1, smslen, 0);//统计还原数量
+									dispSMSList('#smslist', null, false);
+								}
+								
+							}
+						});
+					} else {
+						//还原MTK手机的短信到SD卡
+						backSMS(null, fixJsonString($.toJSON({protocoltype:'backsms', sms:data.sms})), function(data, status){
+							if(status != 'ok') return;
+							$('#progresswait').removeClass('waiting').addClass('waitstop');
+							if (!data || data != 1)	{
+								resosmscount = 0;
+								$('#optlog>#logs').append('短信复制失败 <br />');
+								$('#progressmsg').html('还原失败，成功还原了'+ 0 +'条短信，无法还原的短信 '+ smslen + '个  ' + '<a href="#optlog" rev="mobileNewWindow:true sameBox:true width:800 height:50%" onclick="parent.$.fn.colorbox({html:this}); return false;" class="cblue">查看</a> <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+								if (restoreall == 'restoreall') {
+									sendrecoverstat(22, 0, 0, smslen);//统计还原数量
+								} else {
+									sendrecoverstat(2, 0, 0, smslen);//统计还原数量
+								}
+							} else {
+								resosmscount = smslen;
+								if (restoreall == 'restoreall') {//修改了一键还原的提示
+									$('#progressmsg').html('一键还原已完成！<a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+									sendrecoverstat(22, 1, smslen, 0);//统计还原数量
+								} else {
+									$('#progressmsg').html('还原完成 ，成功还原了' + smslen + '条短信。 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+									sendrecoverstat(2, 1, smslen, 0);//统计还原数量
+									dispSMSList('#smslist', null, false);
+									resocontactcount = 0;
+									resosmscount = 0;
+									restorenext = false;
+								}
+							}
+						});
+					}
+			}, parent.$.fn.colobox);
+		})
+		.error(function(){ 
+			$('#progressmsg').html('服务不可用，请稍后再试 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); 
+		})
+		.complete(function(){
+			$('#progresswait').removeClass('waiting').addClass('waitstop');
+		});
+	}, parent.$.fn.colobox);
+}
+
+/* 还原选择短信 */
+function restoresmssel(user, restoreall) {
+	var imei = getCurrentPhone().imei;
+	var rows = [];
+	$('#smsrestorelist input:checked').each(function(i){
+		rows[i] = JSON.parse($(this).next().val());
+	});
+	var data = {sms: rows};
+	cbWaiting('正在还原短信',  function(){
+		$('#progressmsg').text('正在准备');
+			if (!data || !data.sms || !data.sms.length) { $('#progressmsg').html('没有找到要还原的短信 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>'); return false; }
+			var smslen = data.sms.length;
+			var phonetype = getCurrentPhone().phonetype;
+			if ( phonetype != phoneOptions.mtk ) {
+				//还原非MTK手机的短信
+				setSMS(null, JSON.stringify({protocoltype:'setsms', sms:data.sms}), function(data, status){
+					if(status != 'ok') return;
+					$('#progresswait').removeClass('waiting').addClass('waitstop');
+					if (!data || data != 1)	{
+						resosmscount = 0;
+						$('#optlog>#logs').append('短信复制失败  <br />');
+						$('#progressmsg').html('还原失败，成功还原了'+ 0 +'条短信，无法还原的短信 '+ smslen + '个  ' + '<a href="#optlog" onclick="parent.$.fn.colorbox({html:this}); return false;" class="cblue">查看</a> <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+						if (restoreall == 'restoreall') {
+							sendrecoverstat(22, 0, 0, smslen);//统计还原数量
+						} else {
+							sendrecoverstat(2, 0, 0, smslen);//统计还原数量
+						}
+					} else {
+						resosmscount = smslen;
+						if (restoreall == 'restoreall') {//修改了一键还原的提示
+							$('#progressmsg').html('一键还原已完成！<a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+							sendrecoverstat(22, 1, smslen, 0);//统计还原数量
+						} else {
+							$('#progressmsg').html('还原完成 ，成功还原了' + smslen + '条短信。 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+							sendrecoverstat(2, 1, smslen, 0);//统计还原数量
+						}
+					}
+				});
+			} else {
+				//还原MTK手机的短信到SD卡
+				backSMS(null, JSON.stringify({protocoltype:'backsms', sms:data.sms}), function(data, status){
+					if(status != 'ok') return;
+					$('#progresswait').removeClass('waiting').addClass('waitstop');
+					if (!data || data != 1)	{
+						resosmscount = 0;
+						$('#optlog>#logs').append('短信复制失败 <br />');
+						$('#progressmsg').html('还原失败，成功还原了'+ 0 +'条短信，无法还原的短信 '+ smslen + '个  ' + '<a href="#optlog" rev="mobileNewWindow:true sameBox:true width:800 height:50%" onclick="parent.$.fn.colorbox({html:this}); return false;" class="cblue">查看</a> <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+						if (restoreall == 'restoreall') {
+							sendrecoverstat(22, 0, 0, smslen);//统计还原数量
+						} else {
+							sendrecoverstat(2, 0, 0, smslen);//统计还原数量
+						}
+					} else {
+						resosmscount = smslen;
+						if (restoreall == 'restoreall') {//修改了一键还原的提示
+							$('#progressmsg').html('一键还原已完成！<a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+							sendrecoverstat(22, 1, smslen, 0);//统计还原数量
+						} else {
+							$('#progressmsg').html('还原完成 ，成功还原了' + smslen + '条短信。 <a href="#" onclick="$(this).colorbox.close(); return false;" class="cblue">关闭</a>');
+							sendrecoverstat(2, 1, smslen, 0);//统计还原数量
+						}
+					}
+				});
+			}
+	}, parent.$.fn.colobox);
+}
+
+$(document).bind('contactrestorelistdel', function(event , userid){
+	if(!userid){return ;}
+	var data = [];
+	var obj_data = jQuery.makeArray($('#contactrestorelist input:checked'));
+	$(obj_data).each(function(i, item){ data[i] = $(item).parent().parent().attr("rel");});
+	if (!data || !data.length) {
+		log('请选择要删除的数据!');return false;
+	}else if(data && (data.length > 0)){
+		var undatalist = data;
+		var undataleng = data.length;
+		var contactId = data.join(",");
+		if(confirm('确认要删除这些数据吗?')){
+			$.post("/contactrestorelistdel.php", {uid:userid,contactid:contactId}, function(data){
+				var data = JSON.parse(data);
+				if(data && (data.result.resultcode == '000000')){
+					if(1 == data.isok){
+						$(obj_data).each(function(i, item){
+							$(item).parent().parent().html('');
+						});
+						$('#contactrestorelist .tr').each(function(i){
+							$(this).html(i+1);
+						});
+						var contactrestorelist_count = parseInt($('#contactrestorelisttext').html()) - undataleng;
+						if(contactrestorelist_count == 0){
+							$('#contactrestorelisttext').html('没有找到联系人').css('color',"red");
+						}else{
+							$('#contactrestorelisttext').html(contactrestorelist_count + '个联系人');
+						}
+					}
+				}
+			});
+			
+		}
+	}
+	return ;
+});

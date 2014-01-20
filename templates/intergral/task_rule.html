@@ -1,0 +1,45 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="scroll">
+		<div class="task_exchange">
+			<h1><span>金币规则</span>  <em>▼</em></h1>
+			<div class="gold_text">
+				<dl class="clear">
+					<dt id="denglu"></dt>
+					<dd>
+						<h3>登录得金币</h3>
+						<p>每天第一次登录，即可获得5个金币。  <br/><em>注意：每天多次登录只计算一次。</em></p>
+					</dd>
+				</dl>
+			</div>
+			<div class="gold_text">
+				<dl class="clear">
+					<dt id="xiazai"></dt>
+					<dd style="position:relative;">
+						<h3>下载得金币</h3>
+						<p>下载推荐软件（如右图示意）即可得金币，每个软件奖励金币数量从0.5-1.5个不等，多下多得。<br/><em>注意：按手机IMEI和SIM卡排重，重复安装不给奖励。</em></p>
+						<img src="/resources/img40/gold_tuijian.jpg" style="position:absolute;right:10px;top:15px;" />
+					</dd>
+				</dl>
+			</div>
+			<div class="gold_text">
+				<dl class="clear">
+					<dt id="fuzhi"></dt>
+					<dd>
+						<h3>复制得金币</h3>
+						<p>成功进行一次“双机复制”操作，即可获得1个金币的奖励。  <br/><em>注意：按目标手机IMEI排重，重复操作不给奖励。</em></p>
+					</dd>
+				</dl>
+			</div>
+			<div class="gold_btmbg"></div>
+		</div>
+	</div>
+</div></div>
+<script language="javascript">
+$(function(){
+	var shopid = JSON.parse(WebAppLocalStorage("shopid"));
+	if(shopid.data == -1){
+		$('.scroll').html('<div style="padding:200px;font-size:20px;color:red;text-align:center;line-height:30px;">您尚未登录，暂不支持使用该功能。<br>重启客户端并登录后，即可使用！如果没有登录账号，请联系我们开通。</div>');
+	}
+})
+</script>

@@ -1,0 +1,29 @@
+<!--{feed int=AP_INT_C_BOOKLIST cid=$top_id order=0 pageno=1 count=10 ret='cbooklist'}-->
+<div id="wgt-download-board-list" class="wgt-download-board-list"><div>
+	<!--{foreach key=key item=item from=$cbooklist.page.items name=list}-->
+		<div style="border:0px solid #eeeeee;">
+			<div style="padding:0px 10px; height:32px; line-height:32px; background:url(<!--{#res1#}-->/resources/img/box_top_list_title_bg.png) no-repeat;">
+				<span class="b f4 c4"><!--{$item.name}--></span>
+			</div>
+			<!--{feed int=AP_INT_BOARD_SOFTLIST bid=$item.bid bsid=0 pageno=1 count=10 ret='boardsoftlist'}-->
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable" style="border-left:1px solid #cccccc;border-right:1px solid #cccccc;">
+					<col style="width: 55px;"></col>
+					<col style="width: auto;"></col>
+				<!--{foreach key=key item=item from=$boardsoftlist.page.items name=list}-->
+					<tr>
+						<td><a href="soft.html?softid=<!--{$item.softid}-->"><img class="" src="<!--{$item.imgurl}-->" style="width: 48px; height: 48px;border:0px;" /></a></td>
+						<td>
+							<div><a href="soft.html?softid=<!--{$item.softid}-->"><!--{$item.name}--></a></div>
+							<div style="line-height:20px;">
+								<a id="<!--{$item.softid}-->" href="<!--{$item.downloadurl}-->" class="rg change <!--{if $item.price!=0}-->addcart<!--{else}-->downinit<!--{/if}-->"  onclick="return false;" title="<!--{$item.name}-->"><!--{if $item.download!=0}--><!--{$item.download}-->次<!--{else}-->0次<!--{/if}--></a>
+								
+								<span class="f2 <!--{if $item.price!=0}-->c5<!--{/if}-->"><!--{if $item.price==0}-->免费<!--{else}--><!--{/if}--></span>
+							</div>
+						</td>
+					</tr>
+				<!--{/foreach}-->
+			</table>
+			<div style="height:6px;background:url(<!--{#res2#}-->//resources/img/box_top_list_bottom_bg.png) no-repeat;">	</div>
+		</div>
+	<!--{/foreach}-->
+</div></div>

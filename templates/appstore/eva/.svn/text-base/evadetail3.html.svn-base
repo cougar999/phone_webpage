@@ -1,0 +1,57 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>安卓系统巅峰对决!阅读软件应用评测</h2>
+					<div class="evaDetail">
+						<p>伴随着无线阅读行业的飞速发展，许多商家在抢占阅读市场的同时，积极带动应用软件的研发，软件种类繁多也造成了用户在选择时的困惑。今天我们就来评测近两年安卓系统下口碑较好的小说阅读客户端，希望能够帮助读者朋友们找到最适合自己的软件。</p>
+						<p><strong>【UI设计】</strong></p>
+						
+						<p class="tc"><img src="/resources/img40/eva/book1.jpg" alt="(由左至右依次为掌阅ireader 、塔读文学、云中书城)" /><br />(由左至右依次为掌阅ireader 、塔读文学、云中书城)</p>
+						<p>在整个大环境下，为了方便民众提前做好回家的准备，铁道部也是提前了各种提前购票方式的日期，车站窗口和售票点的取票日期提前到了18天，而网络购票和电话订票则延长至20天，提前两天的预售期也让网络订票和电话订票变得更具优势。不过相比动不动就会因为点击量太大而瘫痪的12306订票网站，使用稳定而又快速的电话订票成功购得火车票的胜算更大一些。</p>
+						<p>塔读文学2.25版本客户端，则是继续提升在线阅读服务品质，采用当前android系统应用最尖端的技术—HTML页面，软件的整体风格，简洁美观，采用了两排半透明图标;书架界面采用了切换交互功能：在书架顶部可调节片面及立体书架布局切换;另一方面通过左右滑动可进行首页与历史收藏界面的切换;为用户提供更灵活的操作模式。运行流畅，更具观赏性和交互设计感。</p>
+						<p>而云中书城的界面比起以上两款相对简单，但保持了以往简洁清爽的风格，整体成象较为饱满，植入了大量图片丰富了整体页面布局，通常会以活动优先置顶在书城推荐页。以上内容是要建立在有网的情况下实现的，如果无网络服务时除了已收藏和购买的书籍外，连书城首页都是无法登陆的，给用户一种过于依赖网络的感觉。</p>
+						<p><strong>功能二：【软件功能】</strong></p>
+						<p class="tc"><img src="/resources/img40/eva/book2.jpg" alt="(由左至右依次为掌阅ireader 、塔读文学、云中书城)" /><br />(由左至右依次为掌阅ireader 、塔读文学、云中书城)</p>
+						<p>ireader采用全新横向阅读界面。通过重力感应横向阅读时画面呈现仿真书籍效果，背景丰富了羊皮纸、护眼、怀旧、少女风等多种阅读风格，色温柔和，更贴心的为读者打造完美的阅读意境。支持TXT、UMD、EBK2等文件格式阅读，运行流畅，阅读舒适，网络书城提供图书下载。但若想要找书籍，则打开网络书城页面时间较长，如果使用GPRS的用户可能会多花一些流量在缓冲上。</p>
+						<p>塔读文学添加人性化的操作提示，书架历史及收藏书籍更新提示，让读者第一时间得到连载章节更新信息;书架的自定义功能相信会让用户体验真实自然的实用感，书架底部的新建分类键进行类别分类，让小说更准确的归类以便轻松查找。遗憾的是塔读文学不支持离线阅读，只能通过预存章节进行后10章节的预读。好在缓存章节够多，能够满足无信号下的阅读需求。</p>
+						<p>相对于ireader和塔读文学，云中书城2.13版本软件本身的功能没有特别的亮点，基本能够满足用户的需求，购买方式方面可以在我的书架、图书详情和阅读界面可直接购买付费小说，付费方式也可通过盛大娱乐卡和短信两种方式进行充值购买。在用户引导及书架设置上则有所欠缺。</p>
+						<p><strong>功能三：【软件性能】</strong></p>
+						<p class="tc"><img src="/resources/img40/eva/book3.jpg" alt="(运行测试由左向右依次顺序为：掌阅ireader、塔读文学、盛大文学)" /><br />(运行测试由左向右依次顺序为：掌阅ireader、塔读文学、盛大文学)</p>
+						<p class="tc"><img src="/resources/img40/eva/book4.jpg" alt="(流量测试由左向右依次顺序为：掌阅ireader、塔读文学、盛大文学)" /><br />(运行测试由左向右依次顺序为：掌阅ireader、塔读文学、盛大文学)</p>
+						<p>在E网进行软件性能检测，掌阅ireader运行占手机内存10.58MB;塔读文学占用内存16.11MB，比掌阅高出52%;云中书城占用内存17.12MB，比掌阅高出62%;通过三者对比，掌阅ireader程序整体运行速度较快。</p>
+						<p>在E网进行软件流量检测，掌阅客户端产生0.27M流量，塔读文学客户端进入到阅读界面共产生0.14M流量，比掌阅节省了48%;云中书城客户端产生0.49M流量，比掌阅高出81%;从三者间的对比来看，塔读文学更为节省流量。</p>
+						<p>总结：<br />通过不同用户的不同需求，尽展设计理念，将阅读用户引领入高端领域。如果您追求离线阅读器的感受，想不受网络限制的话，IREADER千万不要错过;如果你是在线阅读用户，想要体验高端阅读服务品质，并且想要节省流量开销的话，那塔读文学一定是您阅读的首选客户端;如果您准备博览群书，从最简单平和的方式中精准的挑选适合自己的读物的话，云中书城会为您带来海量的阅读资源;功能不同，各有所需。</p>
+						
+						<p>
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=132333&amp;phonetype=" onclick="gotopage(this); return false;">掌阅 iReader 下载</a>】
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=10016&amp;phonetype=" onclick="gotopage(this); return false;">塔读文学  下载</a>】
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=139518&amp;phonetype=" onclick="gotopage(this); return false;">云中书城  下载</a>】
+						</p>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

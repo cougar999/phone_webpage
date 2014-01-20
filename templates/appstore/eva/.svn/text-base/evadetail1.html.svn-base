@@ -1,0 +1,57 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>买房App对比评测</h2>
+					<div class="evaDetail">
+						<p>房价涨了一轮又一轮，你可以每天骂街骂无良地产商，吐槽中国人民都疯了。可是婚还是要结，孩子还是要生，房子到头来还是要买。今天就为正在买房路上奋斗的80后们挑选了三款房产类APP，希望能助在找房之路上的各位一臂之力。</p>
+						<p>为大家挑选了三款查找二手房的客户端——掌上链家、安居客、手机搜房。值得一提的是掌上链家是由链家地产推出的客户端，开始笔者并未关注到这款由中介自己推出产品，试用后对此刮目相看，这款产品从产品到设计都相当专业，可见链家是下血本制作了。</p>
+						<p><strong>首页对比</strong></p>
+						<p class="tc"><img src="/resources/img40/eva/fang1.jpg" alt="掌上链家首页、搜房首页、安居客首页" /><br />掌上链家首页、搜房首页、安居客首页</p>
+						<p>掌上链家和搜房的首页大体相同，都为不同功能的入口页。这种方式清晰的区分了二手房、租房的入口，同时两款软件也都加入了当前正火的二维码扫描、房贷计算器等小功能。安居客首页为“猜您喜欢”的房源列表，能够根据用户的收藏房源，为用户推荐房源，比较实用。</p>
+						<p><strong>房源页对比</strong></p>
+						<p class="tc"><img src="/resources/img40/eva/fang2.jpg" alt="掌上链家、手机搜房、安居客" /><br />掌上链家、手机搜房、安居客</p>
+						<p>进入房源的详情页，可以看到掌上链家依靠链家的强大业务体系，提供的房源信息和数据都相当具有含金量的，比如“小区成交记录”，买房者可以根据历史成交价格来判断房屋的价格高低，砍价神马的也比较有底气。另一个笔者觉得比较有用的数据是“看房记录”，有过租房买房经历的朋友都感受过，看过一套较满意的房子，稍微犹豫了一段时间再回来房子就被租掉的经历，现在大家就可以利用这个“带看记录”来判别一套房源的热度，避免错过心仪的房源。相较而言，安居客和搜房仅提供了房源的基本信息，亮点的信息就较少。但由于这两个为平台性网站，覆盖全网，支持城市多达30多个大中城市，房源数量上较为全面。受链家业务的局限性，掌上链家仅支持北京、天津、南京等5个城市。所以用户可以根据自己所在城市选择客户端。</p>
+						<p><strong>查找附近房源</strong></p>
+						<p class="tc"><img src="/resources/img40/eva/fang3.jpg" alt="掌上链家、搜房首页、安居客" /><br />掌上链家、手机搜房、安居客</p>
+						<p>掌上链家和搜房的二手房频道默认进入是“附近房源”房源列表页，可直接切换地图模式，拖动地图页面可直接实现地图找房功能，操作起来比较顺手。而安居客将此功能单拆出“附近房源”“查找全城”“地图找房”项，其实都是一样的功能。</p>
+						<p><strong>小区详情页对比</strong></p>
+						<p class="tc"><img src="/resources/img40/eva/fang4.jpg" alt="掌上链家、搜房首页、安居客" /><br />掌上链家、手机搜房、安居客</p>
+						<p>对比三款软件的小区信息介绍页面，基本无太大差别。都提供小区均价、涨幅数据、价格走势图等，且都可以收藏小区信息。掌上链家和搜房都提供小区地址导航功能，能够省掉查找路线这一步，还是比较人性化的。</p>
+						<p><strong>其他功能</strong></p>
+						<p class="tc"><img src="/resources/img40/eva/fang4.jpg" alt="掌上链家、搜房首页、安居客" /><br />掌上链家、手机搜房、安居客</p>
+						<p>三款App都推出了房贷计算器功能，只是功能放的位置稍有不同。安居客和搜房单独放在以一项功能，放在“更多”里面。而掌上链家在房源价格旁边加上了计算器的小button，可根据价格立即计算贷款详情，更加方便些。</p>
+						<p>笔者用掌上链家二维码扫描功能扫描了其主站链家在线上的房源二维码，客户端可以立即进入相应页面，省去了客户端查找房源的时间，让两个终端能够快速同步。但掌上链家此功能仅能扫描链家自有二维码，有一定局限性。搜房的二维码扫描功能则能够扫描任何网址二维码，可直接到楼盘详情页。</p>
+						<p>总的来说，掌上链家在房源信息的含金量上更胜一筹，但受自身业务局限性，在覆盖地域和房源数量上不如安居客和搜房这样的平台性软件。所以建议用户可以同时下载三个软件，配合使用，毕竟买房是个大事，得多角度看耐心多琢磨。</p>
+						<p>
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=144097&amp;phonetype=" onclick="gotopage(this); return false;">掌上链家 下载</a>】
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=123638&amp;phonetype=" onclick="gotopage(this); return false;">安居客  下载</a>】
+							【<a href="/appstore/soft.html?iscrack=&amp;softid=121918&amp;phonetype=" onclick="gotopage(this); return false;">搜房  下载</a>】
+						</p>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

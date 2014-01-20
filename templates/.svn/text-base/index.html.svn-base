@@ -1,0 +1,107 @@
+<!--{config_load file="smarty.conf" scope="global"}--><!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+<!-- <!--{#version#}--> <!--{$smarty.now|date_format:"%Y-%m-%d %H:%M:%S"}--> -->
+<link href="<!--{#res1#}-->/resources/css<!--{#version#}-->/layout.css" rel="stylesheet" type="text/css" />
+<link href="<!--{#res2#}-->/resources/css<!--{#version#}-->/main.css" rel="stylesheet" type="text/css" />
+<link href="<!--{#res3#}-->/resources/lib/colorbox/colorbox.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="<!--{#res3#}-->/resources/js<!--{#version#}-->/init.js"></script>
+<script type="text/javascript" src="<!--{#res1#}-->/resources/js<!--{#version#}-->/core.js"></script>
+<script type="text/javascript" src="<!--{#res2#}-->/resources/js<!--{#version#}-->/phone.js"></script>
+<script type="text/javascript" src="<!--{#res4#}-->/resources/js<!--{#version#}-->/common.js"></script>
+
+<script type="text/javascript" src="<!--{#res5#}-->/resources/js<!--{#version#}-->/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<!--{#res1#}-->/resources/js<!--{#version#}-->/jquery.tmpl.min.js"></script>
+<script type="text/javascript" src="<!--{#res2#}-->/resources/js<!--{#version#}-->/jquery.easing.min.js"></script>
+<script type="text/javascript" src="<!--{#res3#}-->/resources/js<!--{#version#}-->/jquery.floatingmessage.js"></script>
+<script type="text/javascript" src="<!--{#res4#}-->/resources/lib/colorbox/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="<!--{#res5#}-->/resources/lib/tooltip/jquery.tooltip.min.js"></script>
+<script type="text/javascript" src="<!--{#res1#}-->/resources/js<!--{#version#}-->/jquery.slideimg.js"></script>
+<script type="text/javascript" src="<!--{#res1#}-->/resources/js<!--{#version#}-->/mobile.js"></script>
+<script type="text/javascript" src="<!--{#res2#}-->/resources/js<!--{#version#}-->/app.js"></script>
+</head>
+<body>
+<style>
+	body,html {height:100%;overflow-y:hidden;}
+</style>
+<table id="pageloading" border="0" style="position:absolute; left:42%; top:28%; width:20%; height:20%;z-index:900000;"><tr><td align="center" valign="middle"><img src="<!--{#img1#}-->/resources/img40/loading_trans_middle.gif" /></td></tr></table>
+<div class="page"><div class="wrap">
+	<div class="body"><div class="wrap">
+		<!-- head start -->
+		<div class="head"><div class="wrap">
+		</div></div>
+		<!-- head end -->
+		
+		<!-- container start -->
+		<div class="container"><div class="wrap">
+		
+			<!-- left start -->
+			<div class="left">
+				<div class="wrap">
+				<!--{if $smarty.get.iscrack == 0 && ($smarty.get.phonetype == 8 || $smarty.get.phonetype == '8.' )}-->
+					<!--用来判断苹果正版不显示内容的方法，升级过后删除-->
+				<!--{else}-->
+					<!--{if $tp_tpl_page_plugin == 'start.php'}-->
+						<!--{include file="menu/menu_start.tpl"}-->
+					<!--{elseif $tp_tpl_page_plugin == 'appstore.php'}-->
+						<!--{include file="menu/menu_appstore.tpl"}-->
+					<!--{elseif $tp_tpl_page_plugin == 'mobile.php'}-->
+						<!--{include file="menu/mobile/menu_mobile.tpl"}-->
+					<!--{elseif $tp_tpl_page_plugin == 'member.php'}-->
+						<!--{include file="menu/menu_member.tpl"}-->
+					<!--{elseif $tp_tpl_page_plugin == 'operator.php'}-->
+						<!--{include file="menu/menu_operator.tpl"}-->
+					<!--{elseif $tp_tpl_page_plugin == 'zone.php'}-->
+						<!--{include file="menu/menu_zone.tpl"}-->
+					<!--{elseif $tp_tpl_page_plugin == 'fitting.php'}-->
+						<!--{include file="menu/menu_fitting.tpl"}-->
+					<!--{elseif $tp_tpl_page_plugin == 'intergral.php'}-->
+						<!--{include file="menu/menu_intergral.tpl"}-->
+					<!--{elseif $tp_tpl_page_plugin == 'favorite.php'}-->
+						<!--{include file="menu/menu_favorite.tpl"}-->
+					<!--{/if}-->
+				<!--{/if}-->
+			</div></div>
+			<!-- left end -->
+			
+			<!-- left start -->
+			<div class="right"><div class="wrap">
+				
+			</div></div>
+			<!-- left end -->
+			
+			<!-- center start -->
+			<div class="center"><div class="wrap">
+				<!--{if $smarty.get.iscrack == 0 && ($smarty.get.phonetype == 8 || $smarty.get.phonetype == '8.' )}--><!--用来判断苹果正版不显示内容的方法，升级过后删除-->
+					<iframe name="pagecontainer" id="pagecontainer" src="/appstore/ios_authorised.html" frameborder="0" height="100%" width="100%"></iframe>
+				<!--{elseif ($smarty.get.channelcode && $smarty.get.channelcode != '1100000') && ($smarty.get.phonetype == '.' || $smarty.get.phonetype == '' || $smarty.get.phonetype == 3 || $smarty.get.phonetype == '3.')}--><!--用来判断是不是乐语渠道的页面-->
+					<iframe name="pagecontainer" id="pagecontainer" src="/appstore/download.html" frameborder="0" height="100%" width="100%"></iframe>
+				<!--{else}-->
+					<iframe name="pagecontainer" id="pagecontainer" src="<!--{$smarty.get.gotopage|default:$page}-->?<!--{params phonetype=$smarty.get.phonetype|default:'0' iscrack=$smarty.get.iscrack|default:'0' channelcode=$smarty.get.channelcode|default:'' gotopage=null}-->" frameborder="0" height="100%" width="100%"></iframe>
+				<!--{/if}-->
+			</div></div>
+			<!-- center end -->
+			
+		</div></div>
+		<!-- container end -->
+		
+		<!-- foot start -->
+		<div class="foot"><div class="wrap">
+		</div></div>
+		<!-- foot end -->
+		
+		<div class="no">
+			<div id="optlog">
+				<div class="tc"><a href="#" onclick="parent.fb.end();return false;">关闭</a></div>
+				<p id="logs"></p>
+				<div class="tc"><a href="#" onclick="parent.fb.end();return false;">关闭</a></div>
+			</div>
+		</div>
+		<div class="no"><div id="conver"></div></div>
+	</div></div>
+</div></div>
+</body>
+</html>

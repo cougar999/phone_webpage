@@ -1,0 +1,41 @@
+body{height:200px;width:507px;overflow:hidden;}
+.register_body{height:246px;}
+.register_body .ctrl-group{margin-top:5px;}
+.register_body .ctrl-group label{text-align:right;width:120px;display:inline-block;color:#1363c6;font-size:14px;}
+.register_body .ctrl-group input {border-radius: 3px 3px 3px 3px; border: 1px solid #ccc;display: inline-block;
+				-moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+				-webkit-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+				box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;height:20px;float:left;}
+.register_body .ctrl-group input:focus,.grid440 .ctrl-group textarea:focus {
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+    outline: 0 none;
+	background:#fefef3;
+}
+.input-large2{width:100px;}
+#register1{}
+#register_over{padding-top:150px;color:#1363c6;font-size:20px;font-weight:bold;}
+#register_over font{color:red;padding:0 5px;}
+#register_over span{font-size:16px;font-weight:normal;}
+.register_header{margin:5px 7px 0;}
+.register_header ul,.register_header li{padding:0;margin:0;}
+
+.register_header li{cursor: pointer;background:url('/resources/img40/register_nav.png') no-repeat;width:138px;height:26px;text-align:center;padding-top:5px;color:#5898da;list-style:none;float:left;}
+.register_header li.hover{background:url('/resources/img40/register_nav.png') 0 -38px no-repeat;color:#000;height:24px;}
+.register_body{margin:-3px 7px 0;padding-bottom:10px;border-radius:0 5px 0 0;}
+.select_agent_content{padding:10px 0 0 50px;height:20px;}
+.select_provincescity select,.select_agent select {width:123px;margin-right:5px;padding:1px;border:1px solid #CCC;}
+.select_agent{display:none;}
+.select_provincescity span{text-align:right;color:#1363C6;display:inline-block;}
+.select_provincescity span.labelprovinces{width:88px;}
+.register_footer{margin-top:5px;padding:12px 40px;height:30px;background-color:#eff7fb;border-top:1px solid #bdddf1;}
+.register_footer span{float:right;padding:3px 10px;}
+.btn_register_submit{cursor: pointer;background:url("/resources/img40/btn_register_submit.png") no-repeat;width:79px;height:26px;float:left;}
+.btn_register_submit:hover{background-image:url('/resources/img40/btn_register_submit_hover.png');}
+#code_img{border: 1px solid #ccc;cursor: pointer;width:92px;height:23px;float:left;margin:2px 0 0 10px;}
+#code_img:hover{border-color: rgba(82, 168, 236, 0.8); box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);outline: 0 none;background:#fefef3;}
+.form_success{display:inline-block;background:url(/resources/img/icon_tishi.png) no-repeat;width:18px;height:20px;float:left;margin:5px 0 0 10px;}
+.form_error{display:inline-block;background:url(/resources/img/icon_tishi.png)0 -21px no-repeat;width:18px;height:20px;float:left;margin:5px 0 0 10px;}
+.form_loading{display:inline-block;background:url(/resources/img/loading_black_too_small.gif) no-repeat;width:20px;height:20px;float:left;margin:5px 0 0 10px;}
+.register_error_message{color:red;font-size:12px;}
+#town{display:none;}

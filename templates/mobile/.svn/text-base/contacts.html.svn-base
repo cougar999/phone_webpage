@@ -1,0 +1,99 @@
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-contacts.tpl"}-->
+	</div>
+	
+	<div class="scroll" >
+			<div class="loadings">
+				<div class="progressbar"><div id="progresswait" class="waiting"><div class="progressbg"></div></div></div>
+				正在读取通讯录，请稍候...
+			</div>
+			<script id="contactlistTemplate" type="text/x-jquery-tmpl">
+				<tr id="contactitem-{{if id }}${id[0].value}{{/if}}">
+					<td class="tc"><input type="checkbox" class="checkbox" value="${json}" id="${id[0].value}" /><label for="${id[0].value}"></label></td>
+					<td class="tc">${index}</td>
+					<td class="tc contactpre" style="line-height:48px;">
+						<span class="icon" style="background-image:url(<!--{#res3#}-->/image.php?width=48&height=48&image=<!--{#res2#}-->/resources/img/account_icon.png);"></span>
+						<a href="#{{if id}}${id[0].value}{{/if}}">
+							<span class="lf">
+							{{if name}}
+								${name[0].value}
+							{{else lastname}}
+								${lastname[0].value}
+							{{else firstname}}
+								${firstname[0].value}
+							{{else}}
+								未知
+							{{/if}}
+							</span>
+						</a>
+					</td>
+					<td>
+						{{if mobile}}
+							${mobile[0].value}
+						{{/if}}
+						{{if telephone}}
+							${telephone[0].value}
+						{{/if}}
+						{{if mobile_home}}
+							${mobile_home[0].value}
+						{{/if}}
+						{{if mobile_work}}
+							${mobile_work[0].value}
+						{{/if}}
+						{{if tel_home}}
+							${tel_home[0].value}
+						{{/if}}
+						{{if tel_work}}
+							${tel_work[0].value}
+						{{/if}}
+					</td>
+					<td class="tl">
+						{{if email && email != '' && email != null}}
+							${email[0].value}
+						{{/if}}
+						{{if email_home && email_home != ''}}
+							 ${email_home[0].value}
+						{{/if}}
+						{{if email_work && email_work != ''}}
+							 ${email_work[0].value}
+						{{/if}}
+					</td>
+					<td class="tc">${group[0].value}</td>
+				</tr>
+			</script>
+			
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable2 fixwidth lf" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;">
+				<col style="width:60px;"></col>
+				<col style="width:100px;"></col>
+				<col style="width:200px;"></col>
+				<col style="width:200px;"></col>
+				<col style="width:auto;"></col>
+				<col style="width:200px;"></col>
+				<thead>
+					<tr>
+					<th><input type="checkbox" class="selector checkbox" id="selectors" /><label for="selectors"></label></th>
+					<th>序号 <span id="optdesc"></span></th>
+					<th class="tl">联系人</th>
+					<th class="tl">电话</th>
+					<th class="tl">邮箱</th>
+					<th>群组</th>
+					</tr>
+				</thead>
+			<tbody id="contactlist">
+			
+			</tbody>
+			</table>
+			
+	</div>
+	</div>
+
+</div></div>
+<script>
+	dispContactList("#contactlist");
+if (/jumpUrl/.test(location.href) == false) {
+	jumpUrl('phonemenu','contact');
+}
+</script>

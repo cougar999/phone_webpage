@@ -1,0 +1,42 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>特效相机 Cymera评测</h2>
+					<div class="evaDetail">
+						<p>cymera是个免费的拍照应用程序，可以帮助任何人像专业摄影师一样拍摄美丽的照片。cymera采用了7种优秀镜头和4种拍摄模式，还提供各种装饰效果和过滤器，通过人脸识别，所以你可以制作自己独特的照片。你可以轻松分享您的照片与各种社交网站如脸谱网，小窝，推特，围脖，和mixsh。现在，很容易从平凡的日子中迅速留下宝贵的回忆。</p>
+						
+						<p class="tc"><img src="/resources/img40/eva/cam1.jpg" alt="cam1" /></p>
+						<p>强大的相机功能：各种拍摄模式，如定时器，图像稳定（稳定的照片），触摸镜头（触摸屏）等。”附加功能，如网格拍摄，保存原始照片和自拍模式、相机镜头数码单反相机像、令人惊讶的'重点'模式。各种照片过滤器，增加了灵敏度的照片：影响的基础上analogue- emotion如薄膜过滤器，光的影响，“自动校正的正确的照片很快（肖像，风景，美食，文本）</p>
+						
+						<p class="tc"><img src="/resources/img40/eva/cam2.jpg" alt="cam2" /></p>
+						<p>美容效果和有趣的装饰特征的人脸识别：你可以很容易地采用贴纸，漫画面具，和花式框架来装饰相片、各种美容等作用的大眼睛，苗条，光亮，镶嵌在人脸识别、自动人脸识别特征共享照片在社交网络和我的相册、你可以分享你的照片到各种全球性网站如脸谱网，小窝，推特，微博和mixsh、您可以轻松地通过cymera的相册日期来管理照片</p>
+						<p class="tc"><img src="/resources/img40/eva/cam3.jpg" alt="cam3" /></p>
+						<p>这款相机，把拍照和美化完美地结合了，功能绝对牛x，还增加了拍照预览、锁定功能，是小编最看好的软件之一，霸气侧漏啊！五星级软件推荐给你！</p>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>

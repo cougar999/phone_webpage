@@ -1,0 +1,40 @@
+<div style="padding:5px 5px 5px 0px;">
+<!--{feed int=AP_INT_C_MUSICLIST cid=$column_id order=0 pageno=1 count=30 ret='colomunlist'}-->
+<div id="wgt-music-song-list" class="wgt-music-song-list">
+<div class="unit">
+		<div class="titlebar">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable" style="table-layout:fixed;">
+				<col style="width: auto;"></col>
+				<col style="width: 80px;"></col>
+				<col style="width: 80px;"></col>
+				<col style="width: 100px;"></col>
+					<tr>
+						<th class="tl" style="padding-left:10px;"><!--{$column_name}--></td>
+						<th class="tl">艺人</td>
+						<th class="tr"><!--价格--></td>
+						<th class="tc">服务费</td>
+					</tr>
+			</table>
+		</div>
+
+		<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable" style="table-layout:fixed;">
+			<col style="width: auto;"></col>
+			<col style="width: 80px;"></col>
+			<col style="width: 80px;"></col>
+			<col style="width: 100px;"></col>
+			<!--{foreach key=key item=item from=$colomunlist.page.items name=list}-->
+				<tr>
+					<td style="padding-left:15px;overflow:hidden; white-space:nowrap; text-overflow:ellipsis;height:24px;">
+						<!-- <a href="/resources/v_player/index2_mp3.html?sid=<!--{$item.songid}-->&title=<!--{$item.song}-->&url=<!--{$item.fileitems[0].downloadurl}-->" onclick="$.colorbox({href:this, iframe:true, width:270, height:150, overlayClose:false}); return false;" ><!--{$item.song}--></a> -->
+						<a sid="<!--{$item.songid}-->" title="<!--{$item.song}-->" href="<!--{$item.fileitems[0].downloadurl}-->" onclick="playmedia(this);return false;" ><img src="<!--{#res3#}-->/resources/img/icon_ting.png" align="absmiddle" />&nbsp;&nbsp;<!--{$item.song}--></a>
+					</td>
+					<td style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;"><a href="#"><!--{$item.singeritems[0].singer}--></a></td>
+					<td class="tr"><!-- <span class="n"><!--{if $item.price}--><!--{math equation='(x/100)' x=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}--></span> --></td>
+					<td class="tc downinit_s" id="musiclist">
+						<a id="<!--{$item.songid}-->" href="<!--{$item.fileitems[0].downloadurl}-->&code1=<!--{$assign.ap_int.AP_INT_MENUCODE_TYPE_MUSIC}-->&code1_id=<!--{$menulist.menuid}-->&code2=<!--{$code2}-->&code2_id=<!--{$code2_id}-->&code3=<!--{$code3}-->&code3_id=<!--{$column_id}-->" title="<!--{$item.song}-->" type="3" price="<!--{math equation='(x)/100' x=$item.price|default:0}-->" servicefee="<!--{math equation='(x)/100' x=$item.servicefee|default:0}-->" class="changex <!--{if $item.price or $item.servicefee}-->addcart<!--{else}-->downinit<!--{/if}-->"  onclick="return false;"><!--{if $item.servicefee || $item.price}--><!--{math equation='(x/100 + y/100)' x=$item.servicefee|default:0 y=$item.price|default:0}-->元<!--{else}-->免费<!--{/if}--></a>
+					</td>
+				</tr>
+			<!--{/foreach}-->
+		</table>
+</div></div>
+</div>

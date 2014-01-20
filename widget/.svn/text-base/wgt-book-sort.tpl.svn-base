@@ -1,0 +1,38 @@
+<div id="wgt-sort" class="wgt-sort"><div class="sort">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="f0"><tr>
+		<td width="85" class="tc <!--{if $smarty.get.sortby == ""}-->active<!--{/if}-->">
+			<h3 class="lf">
+				<a href="?<!--{params sortby=default order=null}-->&order=0" class="hist tc" onclick="gotopage(this); return false;"><span class="f0">默认</span></a>
+			</h3>
+		</td>
+		<td width="2" class="tc">
+		<img alt="" src="<!--{#res2#}-->/resources/img/line.png">
+		</td>
+		<td width="160" class="tc">
+			名称
+		</td>
+		<td width="2" class="tc">
+			<img alt="" src="<!--{#res3#}-->/resources/img/line.png">
+		</td>
+		<td width="75" class="tc <!--{if $smarty.get.sortby == "price"}-->active<!--{/if}-->">
+			<h3 class="lf">
+				<a href="?<!--{params sortby=price order=null}-->&order=<!--{if $smarty.get.order == '3'}-->4<!--{else}-->3<!--{/if}-->" class="hist tc" onclick="gotopage(this); return false;"><span class="title">价格</span><span class="<!--{if $smarty.get.order == '4'}-->down<!--{else}-->up<!--{/if}-->"></span></a>
+			</h3>
+		</td>
+		<td width="2" class="tc">
+		<img alt="" src="<!--{#res1#}-->/resources/img/line.png">
+		</td>
+		
+		<td width="100" class="tc">
+			<h3 class="lf" style="width:100px;">
+				<a href="?<!--{params sortby=rate order=null}-->&order=7" class="hist tc"  onclick="gotopage(this); return false;"><span class="title">评级</span><span class="numdown"></span></a>
+			</h3>
+		</td>
+		<td width="2" class="tc">
+		<img alt="" src="<!--{#res2#}-->/resources/img/line.png">
+		</td>
+		<td  class="tl" style="padding-left:10px">
+			简介
+		</td>
+	</tr></table>
+</div></div>

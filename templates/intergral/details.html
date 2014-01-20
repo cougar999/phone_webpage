@@ -1,0 +1,36 @@
+<!--{config_load file="smarty.conf"}-->
+<!--{if $assign.shopid != -1}-->
+<!--{feed int=AP_INT_GET_SALSESPOINT_LIST said=$assign.salesid pageno=$smarty.get.pageno|default:1 count=10 ret='a_details_list'}-->
+<style>
+span.textcontent{padding-top:10px}
+</style>
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar.tpl"}-->
+	</div>
+	<div class="scroll">
+	<div class="contentbody contentwrap">
+		<div class="section" style="padding:30px">
+		<table width="80%" border="0" cellpadding="0" cellspacing="1" id="connect_tb">
+		  <tr>
+		    <th>积分明细</th>
+		  </tr>
+		  <!--{foreach key=key item=items from=$a_details_list.json.items}-->
+		  <tr>
+		    <td>
+		    	<img class="f_l" src="<!--{#img1#}-->/resources/images/intergral/jia_icon.png">
+		    	<span class="f_l textcontent">&gt;&gt;<!--{$items.description}--></span>
+		    	<span class="f_r textcontent"><!--{$items.active_day}--></span>
+		    </td>
+		  </tr>
+		  <!--{/foreach}-->
+		</table>
+		
+		<!--{include file="wgt-paging.tpl" page=$a_details_list.json}-->
+		</div>
+	</div>
+	</div>
+</div></div>
+<!--{else}-->
+<!--{$assign.logoutmsg}-->
+<!--{/if}-->

@@ -1,0 +1,368 @@
+<!--{feed int=AP_INT_MENU_LIST  navid=$assign.ap_int.AP_INT_MENU_APPSOTRE_ID order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='menulist'}-->
+<!--{menu items=$menulist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP ret='menulist'}-->
+<!--{feed int=AP_INT_MENU_LIST  navid=$menulist.menuid order=0 pageno=1 count=15 iscrack=$smarty.get.iscrack|default:0 ret='navlist'}-->
+<!--{config_load file="smarty.conf"}-->
+<div class="content"><div class="wrap">
+	<div class="contentside">
+		<!--{include file="toolbar/wgt-toolbar-type.tpl" seasele=$assign.ap_int.AP_INT_SEARCH_TYPE_NAME_APP seatype=$assign.ap_int.AP_INT_SEARCH_TYPE_APP'}-->
+	</div>
+	<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT ret='catmenulist'}-->
+	<!--{feed int=AP_INT_COLUMN_CAT_LIST cid=$catmenulist.menuid type=$assign.ap_int.AP_INT_CATEGORY_TYPE_APP  order=0 pageno=1 count=30 ret='app_catlist'}-->
+	<div class="scroll">
+		<div class="right">
+			<div>
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_DOWNLOAD_TOP ret='columnmenu'}-->
+					<!--{include file="wgt-download-board-list.tpl"	top_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->	
+
+					<!--{menu items=$navlist.list.items index='menucode' code=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_SHOP_REC ret='columnmenu'}-->
+					<!--{if $columnmenu.menuid}-->
+					<!--{include file="wgt-shop-soft-list.tpl" shop_rec_id=$columnmenu.menuid code2=$assign.ap_int.AP_INT_MENUCODE_TYPE_APP_CAT code2_id=$smarty.request.catid|default:$app_catlist.list.items[0].catid}-->
+					<!--{/if}-->	
+			</div>
+		</div>
+		<div class="center">
+			<div class="section">
+				<div class="evaList">
+					<h2>装机必备 菜鸟无敌</h2>
+					<div class="evaDetail">
+						<blockquote>
+							菜鸟也能玩转智能机了，下载我们，你就无敌。爱皮开启你的智能天空。
+						</blockquote>
+						<div class="topiclist clear">
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120401/appdear_85467_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="132322" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130301/appdear_45592_0301_m.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.tencent.mobileqq" versioncode="29" version="v4.0.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="手机QQ2013"></a></p>
+								</dt>
+								<dd>
+									<p>手机QQ2013</p>
+									<p>手机QQ是由腾讯公司打造的移动互联网应用，提供免费的多媒体沟通服务，方便用户在移动设备上通过语音、图...</p>
+									<p>大小：10.88MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20111221/appdear_20275_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="110544" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130208/appdear_48157_0208_m.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.tencent.mm" versioncode="253" version="v4.5" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="微信"></a></p>
+								</dt>
+								<dd>
+									<p>微信</p>
+									<p>微信是一款手机通信软件，支持通过手机网络发送语音短信、视频、图片和文字，可以单聊及群聊，还能根据地理…</p>
+									<p>大小：18.62MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130312/appdear_gji13kgnl_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="132322" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130220/appdear_osbeg4fae_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.sina.weibo" versioncode="296" version="v3.3.5" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="新浪微博"></a></p>
+								</dt>
+								<dd>
+									<p>新浪微博</p>
+									<p>基于Android平台的新浪微博手机客户端，集阅读、发布、评论、转发、私信、关注等主要功能为一体，本地相机即拍即传</p>
+									<p>大小：10.66MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121228/appdear_w1y2msklo_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="132344" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121228/appdear_7hwz1cnnr_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.UCMobile" versioncode="30" version="v8.7.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="UC浏览器"></a></p>
+								</dt>
+								<dd>
+									<p>UC浏览器</p>
+									<p>功能简介： 1.快：UC8在2G、3G、WIFI各种赛道上都保持速度领先，UC8在3G网络下比其他手机浏览器速度平均提升超过50%…</p>
+									<p>大小：7.37MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120401/appdear_48340_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="123450" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130129/appdear_ki57emqse_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.sohu.inputmethod.sogou" versioncode="137" version="v3.7" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="搜狗手机输入法"></a></p>
+								</dt>
+								<dd>
+									<p>搜狗手机输入法</p>
+									<p>搜狗手机输入法与搜狗拼音输入法一脉相传，以用户体验为指导+技术创新，致力于为亿万手机用户提供手机端最智能、最易用的输入法产品...</p>
+									<p>大小：5.16MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130221/appdear_piknn2lsq_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="116425" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130221/appdear_wa6rcpppk_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.tencent.qqpimsecure" versioncode="92" version="v3.9.6" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="腾讯手机管家"></a></p>
+								</dt>
+								<dd>
+									<p>腾讯手机管家</p>
+									<p>腾讯手机管家（原：QQ手机管家）：是一款永久免费的手机安全与管理软件，集一键体检、手机加速、智能省电、流量监控、骚扰拦截、手机令牌…</p>
+									<p>大小：7.6MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20111230/appdear_33080_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="414787" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130118/appdear_fndfghpvh_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.baidu.searchbox_sj" versioncode="16780808" version="v3.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="百度搜索"></a></p>
+								</dt>
+								<dd>
+									<p>百度搜索</p>
+									<p>百度搜索是百度推出的一款方便手机用户随时随地使用百度搜索服务的应用。  依托网页、新闻、图片、地图、知道、百科、MP3、视频等专业垂直搜索频道...</p>
+									<p>大小：3.79MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130312/appdear_xnclzv11d_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="132476" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130304/appdear_74pabxnc1_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.ijinshan.kbatterydoctor" versioncode="3000802" version="v3.0.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="金山电池医生"></a></p>
+								</dt>
+								<dd>
+									<p>金山电池医生</p>
+									<p>金山电池医生是一款手机必备的电池维护软件，整合了所有必要的电池功能，提供了全功能的电池健康充电，省电模式，以及耗电应用排行…</p>
+									<p>大小：4.51MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130118/appdear_t82kb5tkc_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="132320" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130118/appdear_9qq2wycrj_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="cn.kuwo.player" versioncode="4006" version="v4.0.0.6" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="酷我音乐"></a></p>
+								</dt>
+								<dd>
+									<p>酷我音乐</p>
+									<p>酷我音乐2012（For Android） 是酷我音乐专为Android平台量身定做的专业在线音乐播放软件。一键搜索海量曲库，精心打造权威榜单...</p>
+									<p>大小：5.09MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120730/appdear_14751_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="245224" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120730/appdear_21812_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="cn.itkt.travelsky" versioncode="10" version="v2.5" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="掌上航旅"></a></p>
+								</dt>
+								<dd>
+									<p>掌上航旅</p>
+									<p>"“旅行—时刻掌握!” 掌上航旅提供强大的机票查询及预订服务，包括实时的航班动态查询、实时出票、一键退票，支持未来机票预约等…</p>
+									<p>大小：2.34MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130108/appdear_0wi7fax1z_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="107318" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130130/appdear_35511_0130_m.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.baidu.BaiduMap" versioncode="350" version="v4.6.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="百度地图"></a></p>
+								</dt>
+								<dd>
+									<p>百度地图</p>
+									<p>【软件介绍】 百度地图关注您的生活，为您呈现不一样的生活地图，团购优惠信息丰富实惠，周边生活数据更加翔实，为您开启智能生活...</p>
+									<p>大小：8.56MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130225/appdear_rfr7kmtxh_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="10046" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130225/appdear_lbptusovy_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.snda.youni" versioncode="91" version="v3.2.0.4" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="Youni短信"></a></p>
+								</dt>
+								<dd>
+									<p>Youni短信</p>
+									<p>盛大有你短信是一款比系统短信更好用的免费短信工具，通过网络您可以与移动、联通、电信，甚至国外用户，免费收发有你消息…</p>
+									<p>大小：5.67MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120401/appdear_94910_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="120029" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130201/appdear_45569_0201_m.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.dianping.v1" versioncode="545" version="v5.4.5" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="大众点评"></a></p>
+								</dt>
+								<dd>
+									<p>大众点评</p>
+									<p>"大众点评手机客户端,随时随地找美食、免费下载优惠券、1折抢精品团购、0元抽奖天天有...</p>
+									<p>大小：7.33MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130220/appdear_z6ei4wetn_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="108711" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130309/appdear_3726357480_0309_b.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.moji.mjweather" versioncode="23501" version="v2.35.01" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="墨迹天气"></a></p>
+								</dt>
+								<dd>
+									<p>墨迹天气</p>
+									<p>墨迹天气全新Android 2.33—时景热图版！ 新增超炫时景'个人界面'，更方便快捷的与好友互动心中最美时景…</p>
+									<p>大小：7.62MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121026/appdear_9b2pn4uns_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="108732" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130301/appdear_105148_0301_m.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.taobao.taobao" versioncode="65" version="v3.5.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="淘宝"></a></p>
+								</dt>
+								<dd>
+									<p>淘宝</p>
+									<p>淘宝安卓客户端依托淘宝网强大的自身优势，整合了淘宝、聚划算团购、天猫（淘宝商城）等重点市场...</p>
+									<p>大小：7.84MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/20120401/appdear_21011_icon.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="109399" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130307/appdear_32504_0307_m.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.youdao.dict" versioncode="3600000" version="v3.6" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="有道词典"></a></p>
+								</dt>
+								<dd>
+									<p>有道词典</p>
+									<p>有道youdao是一款手机词典，含有词典和百科还有翻译的功能。你可以获益匪浅哦…</p>
+									<p>大小：12.66MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120618/appdear_49593_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="143116" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130306/appdear_17sy4hgby_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.baihe" versioncode="24" version="v3.7.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="百合婚恋"></a></p>
+								</dt>
+								<dd>
+									<p>百合婚恋</p>
+									<p>一款帮助中国1.8亿单身用户告别单身的婚恋交友应用。 百合网是实名婚恋网的开创者...</p>
+									<p>大小：5.72MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121222/appdear_lg77rvrij_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="10016" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20121222/appdear_cg73fhvny_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.tadu.android" versioncode="28" version="v6.2.58.1524" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="塔读文学"></a></p>
+								</dt>
+								<dd>
+									<p>塔读文学</p>
+									<p>塔读文学是一款拥有海量精品图书和强大阅读功能的手机软件，集当前最火的网络小说、出版文学…</p>
+									<p>大小：2.17MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120518/appdear_32568_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="100814" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120821/appdear_779013_0821_h.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.halfbrick.fruitninja" versioncode="1708" version="v1.7.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="水果忍者中文版"></a></p>
+								</dt>
+								<dd>
+									<p>水果忍者中文版</p>
+									<p>全球最好玩的手机游戏《水果忍者(Fruit Ninja)》Android官方正式发布啦! 玩家将会在游戏中…</p>
+									<p>大小：28.28MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120424/appdear_46284_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="141538" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120604/appdear_49763_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="org.cocos2dx.FishGame" versioncode="50" version="v1.7" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="捕鱼达人"></a></p>
+								</dt>
+								<dd>
+									<p>捕鱼达人</p>
+									<p>这是一款超过6千万人在玩的游戏！捕鱼达人(英文Fishing Joy)是一款深海捕鱼游戏。玩家在游戏中用…</p>
+									<p>大小：20.79MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120620/appdear_32810_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="265494" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120821/appdear_779013_0821_h.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.halfbrick.fruitninja" versioncode="1708" version="v1.7.8" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="深海猎奇-捕鱼达人"></a></p>
+								</dt>
+								<dd>
+									<p>深海猎奇-捕鱼达人</p>
+									<p>经典游戏“捕鱼达人”逼真的海底场景，曼妙的鱼群，穿越几十种新奇有趣的关卡，畅快刺激的射击体验…</p>
+									<p>大小：1.92MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120504/appdear_67211_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="235988" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120508/appdear_23883_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.julian.game.dkiii" versioncode="1" version="v1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="地下城英雄-暗黑王朝"></a></p>
+								</dt>
+								<dd>
+									<p>地下城英雄-暗黑王朝</p>
+									<p>游戏类型 :ARPG  游戏描述: 2012史诗巨作震撼登场！地狱之王大举入侵，风暴王国四英雄奋起反击…</p>
+									<p>大小：8.13MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120814/appdear_49608_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166504" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130302/appdear_118870_0302_m.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.rubicon.dev.glwg" versioncode="999992" version="v2.1.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="小小大战争"></a></p>
+								</dt>
+								<dd>
+									<p>小小大战争</p>
+									<p>一款从iOS平台上移植过来的大型回合制战棋类游戏，游戏采用了精细的3D界面，呈现给你一副逼真的战斗场面…</p>
+									<p>大小：23.92MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120524/appdear_35571_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="166504" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130307/appdear_102670_0307_g.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="cn.jj" versioncode="21017" version="v2.10.17" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="JJ斗地主"></a></p>
+								</dt>
+								<dd>
+									<p>JJ斗地主</p>
+									<p>"JJ斗地主是最棒的中文棋牌竞技游戏,超然出众。.画面精美、特效绚丽、操作便捷,劲爽的游戏节奏…</p>
+									<p>大小：5.37MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130121/appdear_anxi4ejwj_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="239081" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130121/appdear_z9ass2grb_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.boyaa.lordland.sina" versioncode="19" version="v3.4.1" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="博雅斗地主"></a></p>
+								</dt>
+								<dd>
+									<p>博雅斗地主</p>
+									<p>博雅斗地主是带有浓厚中国特色的扑克游戏, 游戏简单有趣, 上手快, 娱乐性强。博雅公司出品的斗地主以…</p>
+									<p>大小：8.74MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120827/appdear_26671_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="308177" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120914/appdear_66861_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.com2us.inotia4.normal.freefull.leyu.cn.android.common" versioncode="2" version="v1.0.7" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="艾诺迪亚4"></a></p>
+								</dt>
+								<dd>
+									<p>艾诺迪亚4</p>
+									<p>Com2uS经典RPG大作艾诺迪亚系列第4部作品——《艾诺迪亚4:贝勒塞刺杀者》，新的史诗级冒险之旅…</p>
+									<p>大小：41.34MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20120828/appdear_58541_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="236182" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20120828/appdear_85130_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.nextgenreality.minimoto" versioncode="4" version="v1.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="极速飞车"></a></p>
+								</dt>
+								<dd>
+									<p>极速飞车</p>
+									<p>《极速飞车（Mini Motor Racing）》官方中文版由乐逗游戏独家发行，nearme市场全球首发的趣味赛车游戏…</p>
+									<p>大小：179.83MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130220/appdear_mby7pr4de_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="160242" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130220/appdear_97zeeqcat_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.elex.fish.main" versioncode="36" version="v3.2" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="捕鱼生涯"></a></p>
+								</dt>
+								<dd>
+									<p>捕鱼生涯</p>
+									<p>捕鱼游戏的大航海时代来临啦！你还在仅仅满足于在小鱼塘里撒网捕鱼吗？太、太、太OUT啦！从现在起就扬帆起航…</p>
+									<p>大小：12.88MB</p>
+								</dd>
+							</dl>
+							<dl class="first">
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20130220/appdear_4xb6mbhfz_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="490651" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130220/appdear_ped25peue_android.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="a5game.fruit.port10086" versioncode="10030" version="v1.00.30" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="水果传奇"></a></p>
+								</dt>
+								<dd>
+									<p>水果传奇</p>
+									<p>忍者下岗！武士逆袭！风靡全球的水果忍者登陆中国，开始了惊险刺激的传奇旅程：海滩、雪山、圣地、太空等丰富…</p>
+									<p>大小：6.7MB</p>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<p class="tc"><img src="http://img4.pcr5.appdear.com/resources/images/transparent.gif" style="width:72px; height:72px;background:url(http://img.apk.appdear.com/picture/icon/android/20121119/appdear_pwbsjxs2o_android.png_sf_72x72.png) no-repeat center center; border:0px;"></p>
+									<p><a id="160242" businesstype="1" isbiz="0" href="http://od.appdear.com/soft/android/20130130/appdear_540840_0130_m.apk?topicid=007&topicname=装机必备菜鸟无敌" installlocate="0" appid="com.popcap.pvzq" versioncode="102" version="v2.0" type="1" price="0" servicefee="0" class="downbtn_small downinit" onclick="return false;" title="植物大战僵尸长城版"></a></p>
+								</dt>
+								<dd>
+									<p>植物大战僵尸长城版</p>
+									<p>该游戏由宝开公司和腾讯合作推出，在保留原作趣味性的基础上，加入了大量中国风元素，使其更加适合国内玩家…</p>
+									<p>大小：9.46MB</p>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				</div> 
+			</div>	
+		</div>
+	</div>
+</div></div>
