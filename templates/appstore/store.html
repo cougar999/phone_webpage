@@ -17,8 +17,8 @@
 				
 				<div id="softlist" class="clear">
 					<div class="tc downall"><a href="#null">下载全部</a></div>
-					<!--{feed int=AP_INT_RECOMMEND num=18 ret='recommend' page=$smarty.get.pageno|default:1}-->
-					<!--{foreach key=key item=item from=$recommend.data name="recommendlisteach"}-->
+					<!--{feed int=AP_INT_RECOMMEND num=18 ret='recommendlist' page=$smarty.get.pageno|default:1}-->
+					<!--{foreach key=key item=item from=$recommendlist.data name="recommendlisteach"}-->
 					<dl>
 						<dt>
 							<ul>
@@ -36,7 +36,7 @@
 					<!--{/foreach}-->
 				</div>
 				
-				<!--{include file=wgt-paging.tpl page=$recommend.totalNum}-->
+				<!--{include file=wgt-paging.tpl page=$recommendlist.totalNum}-->
 				
 			</div>
 			

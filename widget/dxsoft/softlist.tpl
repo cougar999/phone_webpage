@@ -1,6 +1,6 @@
 <div id="softlist" class="clear">
-	<!--{feed int=AP_INT_CATELIST cId=$smarty.get.catid|default:'' sort=$smarty.get.sort|default:$sort page=$smarty.get.pageno|default:1 num=18 ret='catelistall'}-->
-	<!--{foreach key=key item=item from=$catelistall.data name="catelisteach"}-->
+	<!--{feed int=AP_INT_CATELIST cId=$smarty.get.catid|default:'' sort=$smarty.get.sort|default:$sort page=$smarty.get.pageno|default:1 num=18 ret='catelistalllist'}-->
+	<!--{foreach key=key item=item from=$catelistalllist.data name="catelisteach"}-->
 	<dl>
 		<dt>
 			<ul>
@@ -16,5 +16,5 @@
 		<dd class="gray"><!--{$item.productDesc|default:"没有内容"|strip_tags|truncate_utf8_string:30:"...":true}--></dd>
 	</dl>
 	<!--{/foreach}-->
-	<!--{include file=wgt-paging.tpl page=$catelistall.totalNum}-->
+	<!--{include file=wgt-paging.tpl page=$catelistalllist.totalNum}-->
 </div>

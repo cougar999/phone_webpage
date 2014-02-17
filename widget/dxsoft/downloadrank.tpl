@@ -1,15 +1,15 @@
 <div class="side-wgt">
 	<h2>下载排行榜</h2>
 	<div class="ranklist clear">
-		<!--{feed int=AP_INT_PRODUCTTOP num=10 topType=1 orderName='downloadCount' orderby=0 ret='downloadrank'}-->
-		<!--{foreach key=key item=item from=$downloadrank.data name=ranklist}-->
+		<!--{feed int=AP_INT_PRODUCTTOP num=10 topType=1 orderName='downloadCount' orderby=0 ret='downloadss'}-->
+		<!--{foreach key=key item=item from=$downloadss.data name=ranklist}-->
 		<dl>
 			<dt><img src="/resources/imgs/no<!--{$key+1}-->.gif" /></dt>
 			<dd>
 				<a href="/appstore/soft.html?softid=<!--{$item.fileId|default:1000}-->&pid=<!--{$item.subId|default:0}-->&phonetype=<!--{$smarty.get.phonetype}-->">
 					<img src="<!--{$item.icon}-->" width="40" height="40">
 				</a>
-				<!--{if $item.price}--><div class="icon_coins"><!--{$item.price}--></div><!--{/if}-->
+				<!--{if $item.price}--><div class="icon_coins"><!--{$item.price}--></div><!--{/if}--></li>
 			</dd>
 			<ul>
 				<li><a href="/appstore/soft.html?softid=<!--{$item.fileId|default:1000}-->&pid=<!--{$item.subId|default:0}-->&phonetype=<!--{$smarty.get.phonetype}-->"><!--{$item.name|default:"未知"|strip_tags|truncate_utf8_string:8:"...":true}--></a></li>

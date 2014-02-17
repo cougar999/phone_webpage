@@ -614,7 +614,7 @@ function appdel() {
 			var undatacall = function(){
 				if (!undatalist || undatalist.length == 0) {
 					$('#progressmsg').html('');
-					dispAppList('#applist', null, false);
+					dispAppList('#applist', null, false, 1);
 					if (failedlist.length == 0)	{
 						if (failnumber != 0) {
 							cbMessage('卸载操作完成',null,null,'成功卸载了'+ (undataleng - failnumber) +'个软件，有 ' + failnumber + '个内置应用无法删除');
