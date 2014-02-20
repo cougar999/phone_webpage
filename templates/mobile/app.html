@@ -10,6 +10,7 @@
 		正在读取应用，请稍候...
 	</div>
 	<script id="applistTemplate" type="text/x-jquery-tmpl">
+		{{if system && system != 1}}
 		<tr id="appitem-${uid}" rel="${uid}" appsize="${size}">
 			<td class="tc"><input type="checkbox" class="checkbox" value="${name}||${uid}||{{if system}}${system}{{else}}0{{/if}}||issd=${issd}" id="${uid}"/><label for="${uid}"></label></td>
 			<td class="tc">{{if index}}${index}{{/if}}</td>
@@ -31,6 +32,7 @@
 			<td class="tc">{{if size}}${size}{{else}}未知{{/if}}</td>
 			<td class="tc"><span index="${uid}" id="${value}" vendor="${vendor}" version="${version}" fileId="${fileId}" system="${system}" iscrack="${iscrack}" class="updatecheck" style="line-height:18px;"><!-- ${version} --></span></td>
 		</tr>
+		{{/if}}
 	</script>
 	
 	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table datatable2 fixwidth" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;">
