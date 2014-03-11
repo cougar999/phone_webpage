@@ -1,19 +1,49 @@
-<!--{config_load file="smarty.conf"}-->
+<?php /* Smarty version 2.6.26, created on 2014-03-11 15:03:37
+         compiled from start/recommend.html */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('function', 'config_load', 'start/recommend.html', 1, false),array('function', 'feed', 'start/recommend.html', 5, false),array('modifier', 'default', 'start/recommend.html', 5, false),array('modifier', 'strip_tags', 'start/recommend.html', 12, false),array('modifier', 'truncate_utf8_string', 'start/recommend.html', 12, false),array('modifier', 'sizetext', 'start/recommend.html', 13, false),)), $this); ?>
+<?php echo smarty_function_config_load(array('file' => "smarty.conf"), $this);?>
+
 
 <div id="recomlist" class="clear">
 	<div style="height: 240px;overflow-x: hidden;overflow-y: auto;">
-	<!--{feed int=AP_INT_RECOMMEND num=18 ret='recommend' recommendId='529c30a2bb5336693a937c13' page=$smarty.get.pageno|default:1 topType=2 orderby=0 orderName=downloadCount}-->
-	<!--{foreach key=key item=item from=$recommend.data name="recommendlisteach"}-->
+	<?php echo smarty_function_feed(array('int' => 'AP_INT_RECOMMEND','num' => 18,'ret' => 'recommend','recommendId' => '529c30a2bb5336693a937c13','page' => ((is_array($_tmp=@$_GET['pageno'])) ? $this->_run_mod_handler('default', true, $_tmp, 1) : smarty_modifier_default($_tmp, 1)),'topType' => 2,'orderby' => 0,'orderName' => 'downloadCount'), $this);?>
+
+	<?php $_from = $this->_tpl_vars['recommend']['data']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }$this->_foreach['recommendlisteach'] = array('total' => count($_from), 'iteration' => 0);
+if ($this->_foreach['recommendlisteach']['total'] > 0):
+    foreach ($_from as $this->_tpl_vars['key'] => $this->_tpl_vars['item']):
+        $this->_foreach['recommendlisteach']['iteration']++;
+?>
 		<ul>
-			<li class="imgcover"><a href="/appstore/soft.html?softid=<!--{$item.fileId|default:"未知"}-->&pid=<!--{$item.subId|default:0}-->&phonetype=<!--{$smarty.get.phonetype}-->">
-				<img src="<!--{$item.icon}-->" width="50" height="50">
+			<li class="imgcover"><a href="/appstore/soft.html?softid=<?php echo ((is_array($_tmp=@$this->_tpl_vars['item']['fileId'])) ? $this->_run_mod_handler('default', true, $_tmp, "未知") : smarty_modifier_default($_tmp, "未知")); ?>
+&pid=<?php echo ((is_array($_tmp=@$this->_tpl_vars['item']['subId'])) ? $this->_run_mod_handler('default', true, $_tmp, 0) : smarty_modifier_default($_tmp, 0)); ?>
+&phonetype=<?php echo $_GET['phonetype']; ?>
+">
+				<img src="<?php echo $this->_tpl_vars['item']['icon']; ?>
+" width="50" height="50">
 			</a>
-			<!--{if $item.unitPrice}--><div class="icon_coins"><!--{$item.unitPrice}--></div><!--{/if}--></li>
-			<li><a href="/appstore/soft.html?softid=<!--{$item.fileId|default:1000}-->&pid=<!--{$item.subId|default:0}-->&phonetype=<!--{$smarty.get.phonetype}-->"><!--{$item.name|default:"未知"|strip_tags|truncate_utf8_string:8:"...":true}--></a></li>
-			<li class="gray"><!--{if $item.size}--><!--{$item.size|sizetext}--><!--{else}-->0MB<!--{/if}--></li>
-			<li><div class="down"><a id="<!--{$item.fileId}-->" businesstype="1" isbiz="<!--{$item.unitPrice|default:0}-->" href="<!--{$item.path}-->&isbiz=<!--{$item.unitPrice|default:0}-->" installlocate="1" appid="<!--{$item.packageName}-->"  versioncode="<!--{$item.versionCode}-->"  version="<!--{$item.versionName}-->" title="<!--{$item.name}-->" star="<!--{$item.star}-->" type="1" goldcoins="<!--{$item.unitPrice|default:0}-->" class="change downinit newpage"  onclick="return false;"></a></div></li>
+			<?php if ($this->_tpl_vars['item']['unitPrice']): ?><div class="icon_coins"><?php echo $this->_tpl_vars['item']['unitPrice']; ?>
+</div><?php endif; ?></li>
+			<li><a href="/appstore/soft.html?softid=<?php echo ((is_array($_tmp=@$this->_tpl_vars['item']['fileId'])) ? $this->_run_mod_handler('default', true, $_tmp, 1000) : smarty_modifier_default($_tmp, 1000)); ?>
+&pid=<?php echo ((is_array($_tmp=@$this->_tpl_vars['item']['subId'])) ? $this->_run_mod_handler('default', true, $_tmp, 0) : smarty_modifier_default($_tmp, 0)); ?>
+&phonetype=<?php echo $_GET['phonetype']; ?>
+"><?php echo ((is_array($_tmp=((is_array($_tmp=((is_array($_tmp=@$this->_tpl_vars['item']['name'])) ? $this->_run_mod_handler('default', true, $_tmp, "未知") : smarty_modifier_default($_tmp, "未知")))) ? $this->_run_mod_handler('strip_tags', true, $_tmp) : smarty_modifier_strip_tags($_tmp)))) ? $this->_run_mod_handler('truncate_utf8_string', true, $_tmp, 8, "...", true) : smarty_modifier_truncate_utf8_string($_tmp, 8, "...", true)); ?>
+</a></li>
+			<li class="gray"><?php if ($this->_tpl_vars['item']['size']): ?><?php echo ((is_array($_tmp=$this->_tpl_vars['item']['size'])) ? $this->_run_mod_handler('sizetext', true, $_tmp) : smarty_modifier_sizetext($_tmp)); ?>
+<?php else: ?>0MB<?php endif; ?></li>
+			<li><div class="down"><a id="<?php echo $this->_tpl_vars['item']['fileId']; ?>
+" businesstype="1" isbiz="<?php echo ((is_array($_tmp=@$this->_tpl_vars['item']['unitPrice'])) ? $this->_run_mod_handler('default', true, $_tmp, 0) : smarty_modifier_default($_tmp, 0)); ?>
+" href="<?php echo $this->_tpl_vars['item']['path']; ?>
+&isbiz=<?php echo ((is_array($_tmp=@$this->_tpl_vars['item']['unitPrice'])) ? $this->_run_mod_handler('default', true, $_tmp, 0) : smarty_modifier_default($_tmp, 0)); ?>
+" installlocate="1" appid="<?php echo $this->_tpl_vars['item']['packageName']; ?>
+"  versioncode="<?php echo $this->_tpl_vars['item']['versionCode']; ?>
+"  version="<?php echo $this->_tpl_vars['item']['versionName']; ?>
+" title="<?php echo $this->_tpl_vars['item']['name']; ?>
+" star="<?php echo $this->_tpl_vars['item']['star']; ?>
+" type="1" goldcoins="<?php echo ((is_array($_tmp=@$this->_tpl_vars['item']['unitPrice'])) ? $this->_run_mod_handler('default', true, $_tmp, 0) : smarty_modifier_default($_tmp, 0)); ?>
+" class="change downinit newpage"  onclick="return false;"></a></div></li>
 		</ul>
-	<!--{/foreach}-->
+	<?php endforeach; endif; unset($_from); ?>
 	</div>
 	<div class="tc downall"><a href="#null">下载全部</a></div>
 </div>

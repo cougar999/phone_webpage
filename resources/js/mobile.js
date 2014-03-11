@@ -1,119 +1,3 @@
-$(document).ready(function(){
-	var data = getCurrentPhone();
-	if (data) {
-		if (data.phonetype == phoneOptions.ios) {
-			//ios苹果手机
-			$('#ios_logo_big').attr('src', data.imgurl ? data.imgurl + '_sf_160x1000.png' : 'http://' + _img1 + '/imagemobile.php?width=35&image=' + _img1 + '/resources/temp/mobiledef.jpg');
-			$('#iosbasic, #mb_btm').show();
-			$('#iosinfo').fadeIn();
-			$('#ios_name').text(data.hname);
-			
-			//填写信息
-			$('#ios_info_nicknamett').text(data.hname);
-			$('#ios_info_nickname').text(data.hname);
-			$('#ios_info_os').text(data.producttype).attr('title', data.producttype);
-			$('#ios_info_type').text(data.model).attr('title', data.model);
-			$('#ios_info_imei').text(data.imei).attr('title', data.imei);
-			$('#ios_info_color').text(data.color).attr('title', data.color);
-			$('#ios_info_vision').text(data.phoneosversion).attr('title', data.phoneosversion);
-			if (data.activestate == 'Activated') {
-				$('#ios_info_active').text('已激活').attr('title', '已激活');
-			} else {
-				$('#ios_info_active').text('未激活').attr('title', '未激活');
-			}
-			$('#ios_info_area').text(data.location).attr('title', data.location);
-			if (data.jailbreak > 0 ) {
-				$('#ios_info_break').text('已越狱').attr('title', '已越狱');
-			} else {
-				$('#ios_info_break').text('未越狱').attr('title', '未越狱');
-			}
-			$('#ios_info_mac').text(data.macaddress).attr('title', data.macaddress);
-			if (data.filelist){
-				var disk = JSON.parse(data.filelist);
-				if (disk && disk.file && disk.file.length > 0 && disk.file[0].totalmemory && disk.file[0].totalmemory != '0byte' && disk.file[0].usedmemory != '0byte') {
-					var info = disk.file[1];
-					var usedmemory = parseFloat(info.usedmemory);
-					var totalmemory = parseFloat(info.totalmemory);
-					var usedmemory = formatSpace(usedmemory, info.usedmemory);
-					var totalmemory = formatSpace(totalmemory, info.totalmemory);
-					var percent = usedmemory / totalmemory * 100;
-					formatPercent(percent, '#ios_ram');
-					$('#ios_ram').next('div').children('span').text('已用' + info.usedmemory).next('span').text('可用' + info.freememory);
-					$('#ios_ram').parent().css('visibility', 'visible');
-				} else {
-					if (phonetype == phoneOptions.symbian) {
-						$('#ios_ram').next('div').children('span').text('Symbian手机不支持').next('span').text('');
-					} else if (phonetype == phoneOptions.mtk) {
-						$('#ios_ram').next('div').children('span').text('非智能手机不支持').next('span').text('');
-					} else {
-						$('#ios_ram').next('div').children('span').text('此手机不支持').next('span').text('');
-					}
-				}
-			}
-			
-			dispContactCount(null, 'ios_contact', true);
-			dispAppCount(null, 'ios_app', true);
-			
-		} else {
-			$('#phoneinfo, #mb_btm').show(); 
-			$('#mo_logo').attr('src', data.imgurl ? data.imgurl + '_sf_232x1000.png' : 'http://' + _img1 + '/imagemobile.php?width=35&image=' + _img1 + '/resources/temp/mobiledef.jpg');
-			
-			if (data.filelist) {
-				var disk = JSON.parse(data.filelist);
-				if (disk && disk.file && disk.file.length > 0 && disk.file[0].totalmemory  && disk.file[0].totalmemory != '0byte' && disk.file[0].usedmemory != '0byte') {
-					var info = disk.file[0];
-					var usedmemory = parseFloat(info.usedmemory);
-					var totalmemory = parseFloat(info.totalmemory);
-					usedmemory = formatSpace(usedmemory,info.usedmemory);
-					totalmemory = formatSpace(totalmemory,info.totalmemory);
-					var percent = usedmemory / totalmemory * 100;
-					formatPercent(percent,'#mo_ram');
-					$('#mo_ram').next('span').text('已用' + info.usedmemory).next('span').text('可用' + info.freememory);
-					$('#mo_ram').parent().show();
-				} else {
-					if (data.phonetype == phoneOptions.symbian) { $('#mo_ram').next('span').text('Symbian手机不支持').next('span').text('');	} 
-					else if (data.phonetype == phoneOptions.mtk) { $('#mo_ram').next('span').text('非智能手机不支持').next('span').text(''); }
-					else { $('#mo_ram').next('span').text('此手机不支持').next('span').text(''); }
-				}
-				
-				//ROM 信息
-				if (disk && disk.file && disk.file.length > 1 && disk.file[1].totalmemory  && disk.file[1].totalmemory != '0byte' && disk.file[1].usedmemory != '0byte') {
-					var info = disk.file[1];
-					var usedmemory = parseFloat(info.usedmemory);
-					var totalmemory = parseFloat(info.totalmemory);
-					usedmemory = formatSpace(usedmemory,info.usedmemory);
-					totalmemory = formatSpace(totalmemory,info.totalmemory);
-					var percent = usedmemory / totalmemory * 100;
-					formatPercent(percent,'#mo_rom');
-					$('#mo_rom').next('span').text('已用' + info.usedmemory).next('span').text('可用' + info.freememory);
-					$('#mo_rom').parent().show();
-				} else {
-					if (data.phonetype == phoneOptions.symbian) { $('mo_rom').next('div').children('span').text('Symbian手机不支持').next('span').text('');	} 
-					else if (data.phonetype == phoneOptions.mtk) { $('#mo_rom').next('div').children('span').text('非智能手机不支持').next('span').text(''); }
-					else { $('#mo_rom').next('div').children('span').text('此手机不支持').next('span').text(''); }
-				}
-				
-				// SDC信息
-				if (disk && disk.file && disk.file.length > 2 && disk.file[2].totalmemory  && disk.file[2].totalmemory != '0byte' && disk.file[2].usedmemory != '0byte') {
-					var info = disk.file[2];
-					var usedmemory = parseFloat(info.usedmemory);
-					var totalmemory = parseFloat(info.totalmemory);
-					var usedmemory = formatSpace(usedmemory,info.usedmemory);
-					var totalmemory = formatSpace(totalmemory,info.totalmemory);
-					var percent = usedmemory / totalmemory * 100;
-					formatPercent(percent,'#mo_fla');
-					$('#mo_fla').next('span').text('已用' + info.usedmemory).next('span').text('可用' + info.freememory);
-					$('#mo_fla').parent().show();
-				} else {
-					$('#mo_fla').next('div').children('span').text('没有SD卡').next('span').text('');
-				}
-			}
-			
-		}
-	}
-	
-});
-
 function updatecheck() {
 	var $items = $('#applist').find('span.updatecheck');
 	var apps = [],imgs = []; 
@@ -170,12 +54,6 @@ function updatecheck() {
 	return false;
 }
 */
-
-
-
-
-
-
 
 function dispAppList(ele, phone, ingore, flag){
 	if (checkphone() == false) { return false; }
@@ -801,9 +679,6 @@ function multiMoveapp (target) {
 		});
 	},null);
 	return false;
-	
-	
-	
 }
 
 

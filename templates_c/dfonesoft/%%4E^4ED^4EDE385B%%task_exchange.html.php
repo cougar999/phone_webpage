@@ -1,11 +1,17 @@
-<!--{config_load file="smarty.conf"}-->
+<?php /* Smarty version 2.6.26, created on 2014-02-24 22:43:48
+         compiled from intergral/task_exchange.html */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('function', 'config_load', 'intergral/task_exchange.html', 1, false),)), $this); ?>
+<?php echo smarty_function_config_load(array('file' => "smarty.conf"), $this);?>
+
 <div class="content"><div class="wrap">
 	<div class="scroll">
 		
 		<div id="scoreflow" class="clear">
 			<h1 id="">积分兑换流程示意</h1>
 			<div class="tc changeflow">
-				<img src="<!--{#res1#}-->/resources/imgs/scoreflow.png" />
+				<img src="<?php echo $this->_config[0]['vars']['res1']; ?>
+/resources/imgs/scoreflow.png" />
 			</div>
 		</div>
 		
@@ -270,7 +276,8 @@ function strToDateMonth(str){
 }
 
 function getGoldExchangeList(row){
-	$('#goldcoinlist').html('<center><img src="<!--{#img1#}-->/resources/img40/loading_trans_middle.gif"></center>');
+	$('#goldcoinlist').html('<center><img src="<?php echo $this->_config[0]['vars']['img1']; ?>
+/resources/img40/loading_trans_middle.gif"></center>');
 	$.post('/api/api_goldexchangelist.php',row,function(data){
 		var html_content = '';
 		var current = new Date();
